@@ -14,6 +14,12 @@
       "purpose": "maskable any"
     },
     {
+      "src": "assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "assets/icons/icon-96x96.png",
       "sizes": "96x96",
       "type": "image/png",
@@ -55,5 +61,11 @@
       "type": "image/png",
       "purpose": "maskable any"
     }
-  ]
+  ],
+  "lang": "pt",
+  "orientation": "any",
+  "display_override": [
+    "fullscreen"
+  ],
+  "description": "This is a POC about APK Watch TV app."
 }
