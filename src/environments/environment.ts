@@ -33,7 +33,7 @@ let environments: any = {
       'https://hml.watch.tv.br/',
       'https://hmlplay.watch.tv.br/',
       'https://play.watch.tv.br/',
-      'http://localhost:4200/'
+      'http://localhost:4200/',
     ],
     client: 'watch',
     api: 'https://hml.watch.tv.br/',
@@ -89,7 +89,7 @@ function getProperty(property: string) {
 
   return environments[
     Object.keys(environments).find((k) =>
-      environments[k].ambientes.some((ambiente: string) => "watch" == url)
+      environments[k].ambientes.some((ambiente: string) => ambiente == url)
     ) as string
   ][property];
 }
