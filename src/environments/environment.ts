@@ -13,7 +13,6 @@ let environments: any = {
   multilaser: {
     ambientes: [
       'https://multimais.tv/',
-      'https://watch-apk-test.vercel.app/',
       'https://pre-release.multimais.tv/',
       'https://hml.multimais.tv/',
       'https://devmultimais.watch.tv.br/',
