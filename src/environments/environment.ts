@@ -87,7 +87,7 @@ function getProperty(property: string) {
     window.location.hostname === 'localhost' ||
     window.location.port == '4200'
   )
-    return environments[localStorage.getItem('client') || 'multi'][property];
+    return environments[localStorage.getItem('client') || 'multilaser'][property];
 
   return environments[
     Object.keys(environments).find((k) =>
