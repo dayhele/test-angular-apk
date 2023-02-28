@@ -1,0 +1,91 @@
+@import '../../../themes/remc.scss';
+
+.content {
+  background: black;
+
+  .container {
+    width: 100%;
+    padding: remc(90) 21vw remc(150) 21vw;
+    text-align: center;
+    background-color: #231032;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media screen and (min-width: 769px) {
+      align-items: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: remc(30) 11vw remc(30) 11vw;
+      text-align: left;
+      background-color: black;
+      color: white;
+
+      h1 {
+        font-family: 'Elza';
+        line-height: remc(45) !important;
+        color: white;
+      }
+
+      p {
+        width: 90%;
+      }
+    }
+
+    h1 {
+      font-family: 'Elza';
+      line-height: remc(55);
+      font-weight: bold;
+      font-size: 48px;
+    }
+
+    p {
+      @media screen and (min-width: 769px) {
+        width: 44vw;
+      }
+      margin-top: remc(20);
+      line-height: remc(30);
+    }
+
+    @media screen and (max-width: remc(768)) {
+
+      .texts {
+        width: 100%;
+        font-family: 'Roboto';
+        margin: 0 remc(50) 0 remc(50);
+
+
+        h1,
+        p {
+          text-align: start;
+        }
+
+        h1 {
+          line-height: 100%;
+        }
+
+        p {
+          font-family: 'Roboto';
+          font-weight: 100;
+        }
+      }
+    }    
+  }
+  
+  .button {
+    padding: remc(20) 0;
+  }
+
+  @media screen and (max-width: remc(768)) {
+    ::ng-deep app-button button {
+      font-family: 'Elza';
+      font-weight: 400;
+      padding: remc(12) remc(30) remc(15) remc(34);
+      font-size: remc(20);
+
+      margin: 0 remc(50) 0 remc(50);
+    }
+  }
+}

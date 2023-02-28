@@ -1,0 +1,14 @@
+<div class="wrapper" [ngStyle]="{backgroundImage:'url(' + theme.login.loginBgUrl + ')'}">
+
+  <div class="container">
+
+    <div class="container--body">
+      <img src="assets/icons/successful-purchase.svg" />
+      <p> {{!isReactivation ?
+        "A sua conta foi reativada com sucesso! É um grande prazer ter você de volta com a gente"
+        : "Ativação realizada com sucesso Bem vindo ao universo Multi+. Aproveite o melhor do entretenimento."}}
+      </p>
+      <app-button text="Acessar sua conta" type="button" classList="btn-primary" (click)="confirm()"></app-button>
+    </div>
+  </div>
+</div>

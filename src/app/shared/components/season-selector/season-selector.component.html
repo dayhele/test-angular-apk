@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="selectors" *ngIf="!checkMobile">
+    <mat-tab-group (selectedIndexChange)="seasonToggle($event)">
+      <mat-tab *ngFor="let series of seriesSeasons; let i = index">
+        <ng-template mat-tab-label
+          ><a [class.active]="seasonSelectedIndex === i">{{
+            series?.title!
+          }}</a></ng-template
+        >
+      </mat-tab>
+    </mat-tab-group>
+    <!-- <a
+
+      [ngClass]="i === seasonSelectedIndex ? 'active' : ''"
+      (click)="seasonToggle(i)"
+      >{{ series?.title }}
+    </a> -->
+  </div>
+  <div class="dropdown" *ngIf="checkMobile">
+    <div class="dropdown__toggle" (click)="dropdownToggle()">
+      <p>{{ seasonSelected }}</p>
+      <a class="icon">
+        <img
+          src="{{ environment.imageService }}/icons/arrow-down.svg"
+          alt="arrow-down"
+        />
+      </a>
+    </div>
+
+    <div
+      class="dropdown__menu"
+      [ngClass]="dropdownActive ? 'dropdown__active' : ''"
+    >
+      <ul>
+        <li
+          *ngFor="let series of seriesSeasons; let i = index"
+          (click)="seasonToggle(i)"
+        >
+          {{ series?.title }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr class="line" />
+</div>

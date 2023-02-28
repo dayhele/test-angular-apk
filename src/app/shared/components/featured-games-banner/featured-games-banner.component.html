@@ -1,0 +1,16 @@
+<div class="container">
+  <img *ngIf="theme.sports.banner" class="container__image" [src]="theme.sports.banner" alt="banner" />
+  <div class="title-mobile" *ngIf="checkMobile">
+    <h1>{{ data?.title }}</h1>
+  </div>
+  <div class="title" *ngIf="!checkMobile">
+    <ng-container *ngIf="theme.sports.titlelogo"><img class="logo-icon"
+        [src]="environment.bucket + 'logos/multi_mais.svg'" alt="logo-icon" /></ng-container>
+    <h1>{{ data?.title }}</h1>
+  </div>
+  <div class="container__subtitle" *ngIf="!checkMobile">
+    <p>
+      {{ data?.description }}
+    </p>
+  </div>
+</div>

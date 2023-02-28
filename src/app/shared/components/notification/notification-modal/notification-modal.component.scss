@@ -1,0 +1,275 @@
+#card-wrapper {
+  position: absolute;
+  display: flex;
+  top: 31px;
+  right: -16px;
+  background-color: #1e1e22;
+  width: 100vw;
+  min-height: 381px;
+  flex-direction: column;
+
+  .header {
+    width: 100%;
+    height: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      flex: 1;
+      padding-left: 16px;
+      h5 {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        span {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          letter-spacing: -0.02em;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .button_checkbox {
+      position: absolute;
+      left: -9999px;
+    }
+    .on-off_button {
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      cursor: pointer;
+    }
+    .on-off_button::before,
+    .on-off_button::after {
+      content: '';
+      transition: all 0.3s ease;
+    }
+    .on-off_button::before {
+      display: inline-block;
+      width: 2em;
+      height: 1em;
+      background: #6d6d72;
+      border-radius: 1em;
+    }
+    .on-off_button::after {
+      position: absolute;
+      top: 0.025em;
+      left: 0.025em;
+      width: 0.95em;
+      height: 0.95em;
+      background: #fff;
+      border-radius: 100%;
+    }
+    .button_checkbox:checked + .on-off_button::before {
+      background: #e96744;
+    }
+    .button_checkbox:checked + .on-off_button::after {
+      left: 1.025em;
+    }
+
+    .right {
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      font-size: 12px;
+      flex: 1;
+      padding: 8px 16px;
+      label {
+        cursor: pointer;
+        padding-bottom: 3px;
+        margin-right: 8px;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: -0.02em;
+        color: #7a7a7a;
+      }
+    }
+  }
+
+  .notifications-container {
+    &.seeMore {
+      height: 626px;
+      overflow-y: auto;
+    }
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border: none;
+      border-radius: 20px;
+      background-color: #e96744;
+    }
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      overflow-y: scroll;
+      li {
+        cursor: pointer;
+        background-color: #3d3d3f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 86px;
+        .thumbnail-container {
+          width: 70px;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .thumbnail {
+            width: 56px;
+            height: 51px;
+          }
+        }
+        .notification-text {
+          flex: 1;
+          .title {
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: -0.02em;
+            color: #fafafa;
+          }
+          .text-link {
+            font-style: italic;
+            font-weight: 900;
+            font-size: 11px;
+            line-height: 14px;
+            letter-spacing: -0.02em;
+            text-decoration: underline;
+            color: #e96744;
+            margin: 5px 0;
+          }
+          .date {
+            padding-top: 4px;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 10px;
+            line-height: 12px;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            opacity: 0.5;
+          }
+        }
+        .circle {
+          width: 35px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .circle-icon {
+            background-color: #e96744;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+          }
+        }
+      }
+    }
+  }
+  .notification_sleeping {
+    margin: auto;
+    padding: auto;
+  }
+}
+.card-wrapper-w-notification {
+  height: 383px;
+}
+#no-notifications-wrapper {
+  background-color: #3d3d3f;
+  overflow: auto;
+  text-align: center;
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+#see-more-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#see-more {
+  cursor: pointer;
+  text-align: center;
+  color: #e96744;
+  padding-bottom: 5px;
+  font-size: 14px;
+  text-decoration-line: underline;
+}
+#notifications-items-wrapper {
+  overflow: scroll;
+  height: 75%;
+  background-color: #e96744;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  background: #3d3d3f;
+}
+
+::-webkit-scrollbar-track {
+  background: #3d3d3f;
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  height: 299px;
+  background-color: #e96744;
+}
+@media (min-width: 480px) {
+  #card-wrapper {
+    position: absolute;
+    width: 70vw;
+    top: 31px;
+    right: 20px;
+  }
+}
+@media (min-width: 769px) {
+  #card-wrapper {
+    width: 45%;
+    top: 64px;
+    right: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  #card-wrapper {
+    width: 40%;
+    top: 64px;
+    right: 250px;
+  }
+}
+@media (min-width: 1200px) {
+  #card-wrapper {
+    width: 30%;
+    top: 64px;
+    right: 300px;
+  }
+}
+
+#outside-click {
+  position: absolute;
+  margin-left: -70%;
+  width: calc(100vw);
+  height: calc(100vh);
+}

@@ -1,0 +1,38 @@
+<div class="player">
+  <div class="player__skip">
+    <app-button
+      [text]="'Pular abertura'"
+      [classList]="'btn-secondary'"
+      [type]="'submit'"
+    ></app-button>
+  </div>
+  <div class="player__control">
+    <div class="left">{{ actualTime }} / {{ fullTime }}</div>
+    <div class="center">
+      <div class="button">
+        <img src="{{ environment.imageService }}/icons/player/rewind.svg" />
+      </div>
+      <div class="button" (click)="togglePlay()">
+        <img *ngIf="isPlaying" src="{{ environment.imageService }}/icons/player/pause.svg" />
+        <img *ngIf="!isPlaying" src="{{ environment.imageService }}/icons/player/play.svg" />
+      </div>
+      <div class="button">
+        <img src="{{ environment.imageService }}/icons/player/forward.svg" />
+      </div>
+    </div>
+    <div class="right">
+      <div class="button">
+        <img src="{{ environment.imageService }}/icons/player/legends.svg" />
+      </div>
+      <div class="button">
+        <img src="{{ environment.imageService }}/icons/player/settings.svg" />
+      </div>
+      <div class="button">
+        <img src="{{ environment.imageService }}/icons/player/fullscreen.svg" />
+      </div>
+      <div class="button">
+        <img src="{{ environment.imageService }}/icons/player/volume.svg" />
+      </div>
+    </div>
+  </div>
+</div>

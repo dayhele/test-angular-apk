@@ -1,0 +1,22 @@
+@import '../../../../../../../../themes/remc.scss';
+
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: remc(8) remc(16);
+  gap: remc(10);
+  width: auto;
+  height: remc(24);
+  background: #3d3d3f;
+  border-radius: remc(24);
+  margin-top: remc(12);
+  margin-right: remc(12);
+}
+p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: remc(12);
+  color: #fafafa;
+}

@@ -1,0 +1,51 @@
+<div class="modal-choose-payment" [ngClass]="{ open: modalIsOpen }">
+  <h2>Gostaria de assinar o pacote NSports?</h2>
+
+  <img
+    src="/assets/icons/close_small_icon.svg"
+    alt="Close Modal Icon"
+    class="close-modal"
+    (click)="closeModal()"
+  />
+
+  <div class="payment-cards">
+    <div
+      class="payment-card selected"
+      data-option="left"
+      (click)="selectOption($event)"
+    >
+      <h3>Comprar jogo atual</h3>
+      <p class="description">{{ data.title }}</p>
+      <p class="price">{{ convertToReal(data.finalPrice) }}</p>
+    </div>
+
+    <img
+      src="/assets/icons/arrow_left_selected.svg"
+      [ngClass]="{ rotate: selected.arrowRotate }"
+      alt="Arrow"
+    />
+
+    <div
+      class="payment-card"
+      data-option="right"
+      (click)="selectOption($event)"
+    >
+      <h3>Assinar pacote Nsports</h3>
+      <p class="description">Mensal</p>
+      <p class="price">{{ convertToReal(nsportsPackagePrice) }}/mês*</p>
+    </div>
+  </div>
+
+  <p class="option-selected-description">
+    {{ selected.primaryDescription }}
+  </p>
+
+  <p class="option-selected-description">
+    {{ selected.secondaryDescription }}
+  </p>
+
+  <app-button
+    [text]="selected.textButton"
+    (click)="selected.linkButton()"
+  ></app-button>
+</div>

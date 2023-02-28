@@ -1,0 +1,61 @@
+<app-libertadores-banner *ngIf="isLoadedLive"></app-libertadores-banner>
+<app-section
+  *ngIf="highlightsData.length > 0"
+  title="Destaques"
+  [properties]="{
+    orientation: 'vertical',
+    isLive: false,
+    secondDescription: true,
+    day: true,
+    sportTitle: true,
+    rentable: false,
+    rentMovieTitle: false
+  }"
+  [data]="highlightsData"
+  [isNSportsCard]="false"
+  [isConmebolLibertadores]="true"
+>
+</app-section>
+<app-matches *ngIf="isLoadedLive" [data]="data"></app-matches>
+<app-phases *ngIf="isLoadedPhase" [data]="phasesList"></app-phases>
+
+<div *ngIf="!isLoadedLive">
+    <ngx-skeleton-loader count="1" appearance="line" animation="pulse" [theme]="{
+        height: '350px',
+        width: '100vw',
+        marginBottom: '24px',
+        display: 'row'
+      }"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="3" appearance="line" animation="pulse" [theme]="{
+        width: '288px',
+        height: '196px',
+        marginLeft: '24px',
+        marginBottom: '24px',
+        display: 'row'
+      }"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="5" appearance="" animation="pulse" [theme]="{
+        width: '288px',
+        height: '196px',
+        marginBottom: '24px',
+        marginLeft: '24px',
+        display: 'row'
+      }"></ngx-skeleton-loader>
+</div>
+<div *ngIf="!isLoadedPhase">
+    <ngx-skeleton-loader count="5" appearance="" animation="pulse" [theme]="{
+        height: '288px',
+        width: '196px',
+        marginBottom: '24px',
+        marginTop: '24px',
+        marginLeft: '24px',
+        display: 'row'
+      }"></ngx-skeleton-loader>
+    <ngx-skeleton-loader count="5" appearance="" animation="pulse" [theme]="{
+        height: '288px',
+        width: '196px',
+        marginBottom: '24px',
+        marginLeft: '24px',
+        display: 'row'
+      }"></ngx-skeleton-loader>
+
+</div>

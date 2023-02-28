@@ -1,0 +1,45 @@
+<div class="slide">
+  <swiper class="swiperSlides" [slidesPerView]="1" [pagination]="{ clickable: true }" [loop]="true"
+    [autoplay]="{ delay: 10000, disableOnInteraction: false }">
+    <ng-template swiperSlide>
+      <app-section-paramount *ngIf="!checkMobile" [hasExploreButton]="false" [hasNavigation]="false"
+        [allowTouchMove]="false" text="Paramount+ e Watch <br><br> O que não falta é opção!"></app-section-paramount>
+    </ng-template>
+    <ng-template swiperSlide>
+      <app-directv-go-section class="swiperColor" [hasExploreButton]="false" [hasNavigation]="false"
+        [allowTouchMove]="false" text="Explore agora mesmo conteúdos exclusivos DIRECTV GO"></app-directv-go-section>
+    </ng-template>
+    <ng-template swiperSlide>
+      <app-hbo-max-section *ngIf="!checkMobile" [hasExploreButton]="false" [hasNavigation]="false"
+        [allowTouchMove]="false" text="Explore agora mesmo os conteúdos exclusivos HBO Max"></app-hbo-max-section>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="container-uol">
+        <div class="uol-left-content">
+          <img class="uol-logo"
+            [src]="environment.bucket + 'logos/logo_uol.png'" />
+          <p class="uol-subtitle">
+            Leitura facilitada, com acesso a até 3 dispositivos ao mesmo tempo.<br>
+            São centenas de revistas e os principais jornais do país, para Android e IOS.
+          </p>
+        </div>
+        <img class="bg-uol"
+          [src]="environment.bucket + 'bg/bg-uol-watch-deslogada.png'" />
+      </div>
+    </ng-template>
+    <ng-template swiperSlide>
+      <div class="container-stingray">
+        <div class="stingray-left-content">
+          <img class="stingray-logo"
+            [src]="environment.bucket + 'logos/logo_stingray.png'" />
+          <p class="stingray-subtitle">
+            Encontrar o melhor da música nunca foi tão fácil. <br><br>
+            Ouça canais especiais para o seu gosto, em diferentes dispositivos, 24 horas por dia e sem comerciais!
+          </p>
+        </div>
+        <img class="bg-stingray"
+          [src]="environment.bucket + 'bg/bg-stingray-watch-deslogada.png'" />
+      </div>
+    </ng-template>
+  </swiper>
+</div>

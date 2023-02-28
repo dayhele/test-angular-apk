@@ -1,0 +1,100 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  overflow-x: hidden;
+
+  .faq {
+    padding: remc(10) remc(56);
+    background-color: var(--primary-dark);
+    margin: remc(49) 0 remc(80) 0;
+
+    &-title {
+      color: var(--white);
+      font-size: remc(24);
+      font-weight: 700;
+
+      letter-spacing: -0.02em;
+      margin-bottom: remc(12);
+    }
+
+    &-subtitle {
+      color: var(--white);
+      font-size: remc(16);
+      margin-bottom: remc(12);
+      font-weight: 700;
+    }
+
+    .questions {
+      display: flex;
+      flex-direction: column;
+
+      .question {
+        width: 100%;
+        margin-bottom: remc(12);
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          background-color: rgba(54, 54, 54, 1);
+          padding: remc(9);
+          cursor: pointer;
+          transition: all 0.2s ease-out;
+
+          &-title {
+            font-weight: 700;
+            color: var(--orange-400);
+            width: 100%;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+          }
+
+          &-arrow-down {
+            &.active {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        .answer {
+          p {
+            padding: remc(9);
+            color: var(--white);
+          }
+        }
+      }
+    }
+
+    &-footer {
+      display: flex;
+      flex-direction: column;
+
+      &-text {
+        color: var(--white);
+        font-size: remc(14);
+        font-weight: 400;
+        margin-bottom: remc(12);
+      }
+
+      &-redirect {
+        color: var(--white);
+        border: remc(1) solid var(--white);
+        padding: remc(5) remc(15);
+        width: fit-content;
+        border-radius: remc(16);
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        text-decoration: none;
+      }
+
+      @media screen and (max-width: remc(768)) {
+        text-align: center;
+        align-items: center;
+      }
+    }
+    @media screen and (max-width: remc(768)) {
+      padding: remc(10) remc(8);
+    }
+  }
+}

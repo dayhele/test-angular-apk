@@ -1,0 +1,177 @@
+@import '../../../../../../themes/remc.scss';
+
+:host {
+  .main-wrapper {
+    width: 70vw;
+    position: sticky;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: remc(30);
+
+    .card-img-wrapper {
+      width: remc(208);
+      height: remc(288);
+      overflow: hidden;
+      border-radius: remc(8);
+      position: relative;
+
+      .date-box {
+        position: absolute;
+        top: 5%;
+        left: 6%;
+        width: remc(39);
+        height: remc(44);
+        border-radius: remc(8);
+        background-color: var(--primary-base);
+        padding: remc(4) remc(8);
+        text-align: center;
+        color: var(--white);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .date-number {
+          font-size: remc(16);
+          font-weight: 700;
+        }
+
+        .date-text {
+          font-size: remc(10);
+          font-weight: 300;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 9/16;
+      }
+    }
+
+    .info-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: remc(8);
+
+      .title {
+        font-size: remc(24);
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .description {
+        font-size: remc(14);
+        font-weight: 400;
+        color: var(--primary-base);
+      }
+
+      .divider {
+        width: 90%;
+        height: remc(1);
+        border: 1px solid var(--primary-background);
+        margin-top: remc(4);
+      }
+
+      .genres-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: remc(24);
+      }
+
+      .text-body {
+        color: var(--white);
+        font-size: remc(14);
+        font-weight: 400;
+        text-align: justify;
+        word-wrap: break-word;
+        margin-bottom: remc(14);
+      }
+
+      .btn-pre-save {
+        margin-left: remc(-15);
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-wrapper {
+      width: 95vw;
+      gap: remc(10);
+      text-align: center;
+
+      .card-img-wrapper {
+        .date-box {
+          width: remc(30);
+          height: remc(35);
+  
+          .date-number {
+            font-size: remc(12);
+          }
+  
+          .date-text {
+            font-size: remc(8);
+          }
+        }
+      }
+
+      .info-wrapper {
+        .title {
+          font-size: remc(12);
+        }
+        .description {
+          font-size: remc(10);
+        }
+        .text-body {
+          font-size: remc(10);
+          margin-bottom: remc(10);
+          text-align: center;
+        }
+
+        .genres-wrapper {
+          flex-direction: column;
+          justify-content: center;
+          margin-bottom: remc(10);
+        }
+
+        .btn-pre-save {
+          ::ng-deep app-reminder-pre-save-button {
+            display: flex;
+            justify-content: center;
+
+            .button {
+              width: remc(110);
+              height: remc(30);
+              margin: 0;
+
+              span {
+                font-size: remc(12);
+              }
+            }
+          }
+        }
+      }
+
+      .card-img-wrapper {
+        width: remc(150);
+        height: remc(230);
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .main-wrapper {
+      .card-img-wrapper {
+        width: remc(100);
+        height: remc(180);
+      }
+    }
+  }
+}

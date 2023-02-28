@@ -1,0 +1,67 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .container {
+    width: 100vw;
+    height: remc(400);
+    background: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .container-banner {
+      position: relative;
+      .banner {
+        width: 100%;
+        height: auto;
+      }
+      .banner-app {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .banner-description {
+      left: remc(30);
+      position: absolute;
+      top: remc(40);
+      .logo {
+        width: auto;
+        height: remc(140);
+        justify-content: center;
+      }
+
+      .logo-banner {
+        width: remc(80);
+        padding-left: remc(10);
+      }
+
+      p {
+        font-size: remc(14);
+        margin-top: remc(14);
+        color: var(--text-color-nsports);
+        
+      }
+
+      @media screen and (min-width: 300px) {
+        .logo-banner {
+          width: remc(180);
+          padding-left: remc(20);
+        }
+        top: remc(40);
+      }
+      @media screen and (min-width: 768px) {
+        .logo-banner {
+          width: remc(400);
+        }
+        top: remc(90);
+      }
+      @media screen and (min-width: 1400px) {
+        .logo-banner {
+          width: remc(800);
+        }
+        top: remc(180);
+      }
+    }
+  }
+}

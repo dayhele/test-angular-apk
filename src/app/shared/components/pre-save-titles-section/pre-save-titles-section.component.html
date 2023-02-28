@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="grid">
+    <div class="texts" *ngIf="!checkMobile">
+      <img [src]="iconPath" alt="Pre Save Icon">
+      <h3 class="title">
+        Em Breve na {{ theme.clientName[0] + theme.clientName.substring(1) }}!
+      </h3>
+      <p class="subtitle">
+        Confira todos os conteúdos que <br />
+        estão prestes a estrear aqui na <br />
+        {{ theme.clientName[0] + theme.clientName.substring(1) }}!
+      </p>
+      <div class="btn">
+        <app-button
+          *ngIf="hasExploreButton"
+          class="button"
+          text="Ver todos"
+          type="button"
+          classList="btn-secondary"
+          (click)="goTo('pre-lancamentos')"
+        ></app-button>
+      </div>
+    </div>
+    <div class="section">
+      <app-section
+        [hasNavigation]="hasNavigation"
+        [allowTouchMove]="allowTouchMove"
+        [properties]="cardProperties"
+        [data]="preSaves"
+        [title]="checkMobile ? 'Em breve na Watch!' : ''"
+        [verMais]="checkMobile"
+        [isPreSaveCard]="true"
+      >
+      </app-section>
+    </div>
+  </div>
+</div>

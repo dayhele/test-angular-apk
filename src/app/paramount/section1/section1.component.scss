@@ -1,0 +1,23 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    width: 100vw;
+    height: remc(328);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.1) -36%,
+      #0065ff 50%,
+      rgba(0, 0, 0, 0.1) 150%
+    );
+
+    .banner-paramount {
+      background-repeat: no-repeat;
+      width: 16vw;
+      height: remc(179);
+    }
+  }
+}

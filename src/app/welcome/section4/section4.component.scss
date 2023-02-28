@@ -1,0 +1,87 @@
+@import '../../../themes/remc.scss';
+
+.slide {
+  ::ng-deep .swiper {
+    .swiper-pagination-bullet {
+      width: remc(32);
+      height: remc(4);
+      border-radius: remc(16);
+      background: #7a7a7a;
+
+      .swiper-pagination-bullet-active {
+        background: #fafafa;
+      }
+    }
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+      bottom: remc(48);
+      left: remc(84);
+      width: 100%;
+    }
+  }
+
+  .swiperSlides {
+    height: remc(780);
+  }
+}
+
+.container-uol {
+  .uol-left-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 13vw;
+    padding-left: 8.7vw;
+    position: absolute;
+    z-index: 1;
+
+    .uol-logo {
+      width: 22vw;
+      height: auto;
+    }
+
+    .uol-subtitle {
+      width: 20vw;
+      padding-top: remc(24);
+      height: auto;
+      color: var(--white);
+      font-size: remc(14);
+      font-weight: 400;
+    }
+  }
+
+  .bg-uol {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.container-stingray {
+  .stingray-left-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 7.9vw;
+    padding-left: 8.7vw;
+    position: absolute;
+    z-index: 1;
+
+    .stingray-logo {
+      width: 15.5vw;
+      height: auto;
+    }
+
+    .stingray-subtitle {
+      width: 20vw;
+      padding-top: remc(24);
+      height: auto;
+      color: var(--white);
+      font-size: remc(14);
+      font-weight: 400;
+    }
+  }
+
+  .bg-stingray {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}

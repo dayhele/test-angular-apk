@@ -1,0 +1,28 @@
+<div class="open-button" (click)="changeMenuState()"></div>
+<div class="container" [class.show-menu]="menuState" cdkDrag>
+  <div class="move-button" cdkDragHandle>
+    <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+      <path d="M0 0h24v24H0z" fill="none"></path>
+    </svg>
+  </div>
+  <p class="title">Development Tools 1.0.2</p>
+  <p>Theme: <b title="Clique para alterar" (click)="changeTheme()">{{theme.client}}</b></p>
+  <div class="spacer"></div>
+  <p title="Cuidado! Se essa opção estiver ativada, os parâmetros de inscrições serão substituídos em seu ambiente">Force mode:
+    <b title="Cuidado! Se essa opção estiver ativada, os parâmetros de inscrições serão substituídos em seu ambiente" (click)="changeForceMode()">{{forceMode}}</b>
+  </p>
+  <p>hasHBO: <b title="Clique para alterar" (click)="changeAccountSubscribes('hasHBO')">{{planAcessControl.hasHBO}}</b></p>
+  <p>hasParamount: <b title="Clique para alterar" (click)="changeAccountSubscribes('hasParamount')">{{planAcessControl.hasParamount}}</b></p>
+  <p>hasUolBanca: <b title="Clique para alterar" (click)="changeAccountSubscribes('hasUolBanca')">{{planAcessControl.hasUolBanca}}</b></p>
+  <p>hasStingrayMusic: <b title="Clique para alterar" (click)="changeAccountSubscribes('hasStingrayMusic')">{{planAcessControl.hasStingrayMusic}}</b></p>
+  <p class="force-mode-warning" *ngIf="!forceModeInUse">Foram carregadas as opções <b>reais</b> da conta, para utilizar o <b>Force Mode</b> pressione o botão <b>Aplicar</b></p>
+  <p class="force-mode-warning" *ngIf="forceModeInUse">Foram carregadas as opções do <b>Force Mode</b>, para voltar as opções reais da conta, pressione <b>F5</b></p>
+  <div *ngIf="forceMode && !forceModeInUse" class="button button-success" (click)="applyForceMode()"><p>Aplicar</p></div>
+  <div class="spacer"></div>
+  <p>Check connection: <b title="Clique para alterar" (click)="changeCheckConnectionState()">{{checkConnection.checkConnectionStatus}}</b></p>
+  <div class="spacer"></div>
+  <div class="button button-watch" (click)="changeAccountLogin('watch')"><p>Logar na Watch</p></div>
+  <div class="button button-multi" (click)="changeAccountLogin('multilaser')">Logar na Multi</div>
+  <div class="button button-sair" (click)="logout()">Sair</div>
+</div>

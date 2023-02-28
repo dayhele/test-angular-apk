@@ -1,0 +1,23 @@
+@import '../../../../themes/remc.scss';
+
+.container {
+  padding: remc(10) remc(16);
+  background-color: #0c0c0c;
+  border-radius: remc(8);
+  display: flex;
+  border: remc(2) solid #3d3d3f;
+
+  .labels {
+    display: flex;
+    flex-direction: column;
+    color: white;
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .icon {
+    margin-left: remc(3);
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    &__start {
+      width: 37%;
+      color: var(--white);
+      padding: remc(40) 0 remc(98) remc(56);
+
+      h3 {
+        font-size: remc(24);
+      }
+
+      p {
+        margin-top: remc(20);
+        font-size: remc(14);
+        margin-bottom: remc(34);
+      }
+    }
+
+    &__end {
+      width: 63%;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 20%;
+      }
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: remc(600)) {
+    .section {
+      flex-direction: column;
+
+      &__start {
+        width: 100%;
+        padding: remc(40) remc(20);
+      }
+
+      &__end {
+        width: 100%;
+        max-height: remc(280);
+      }
+    }
+  }
+}

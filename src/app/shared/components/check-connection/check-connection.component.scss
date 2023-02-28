@@ -1,0 +1,42 @@
+@import '../../../../themes/remc.scss';
+
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+
+  @media screen and (max-width: remc(768)) {
+    padding: remc(20);
+  }
+
+  .modal{
+    width: auto;
+    height: auto;
+    text-align: center;
+    color: var(--white);
+    max-width: remc(800);
+    max-height: remc(400);
+    padding: remc(40) remc(20);
+    border-radius: remc(6);
+    background-color: var(--primary-dark);
+
+    p{
+      padding-top: remc(10);
+    }
+
+    .buttons{
+      padding-top: remc(40);
+
+      display: flex;
+      justify-content: center;
+
+      app-button + app-button{
+        margin-left: remc(20);
+      }
+    }
+  }
+}

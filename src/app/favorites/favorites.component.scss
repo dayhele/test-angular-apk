@@ -1,0 +1,65 @@
+@import '../../themes/remc.scss';
+
+:host {
+  width: 100%;
+  height: 100%;
+
+  .loading {
+    width: 100%;
+    height: calc(100vh - remc(40));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+
+    &__section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: remc(24);
+      padding: 0 0 remc(80) remc(56);
+    }
+
+    &__loading {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-items: center;
+      padding-top: 18vh;
+
+      h3 {
+        margin-bottom: remc(73);
+      }
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+    @media screen and (max-width: remc(900)) {
+      &__section {
+        padding: 0 0 remc(59) remc(16);
+        gap: remc(12);
+      }
+    }
+
+    @media screen and (max-width: remc(768)) {
+      &__section {
+        padding: 0 0 remc(59) remc(16);
+        gap: remc(12);
+      }
+    }
+  }
+
+  .loader {
+    display: flex;
+  }
+}

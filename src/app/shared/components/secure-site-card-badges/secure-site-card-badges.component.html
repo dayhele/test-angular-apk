@@ -1,0 +1,14 @@
+<div class="card-badge">
+  <div class="card-badge__secure">
+    <img src="{{ environment.imageService }}/icons/safety.svg" />
+    <p>Site seguro</p>
+  </div>
+  <div class="card-badge__brands" *ngIf="!hideBrands">
+    <img src="{{ environment.imageService }}/icons/visa.svg" />
+    <img src="{{ environment.imageService }}/icons/mastercard.svg" />
+    <img src="{{ environment.imageService }}/icons/elo.svg" />
+    <img src="{{ environment.imageService }}/icons/diners.svg" />
+    <img src="{{ environment.imageService }}/icons/amex.svg" />
+    <img src="{{ environment.imageService }}/icons/hipercard.svg" />
+  </div>
+</div>

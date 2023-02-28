@@ -1,0 +1,13 @@
+<svg id="Grupo_2105" data-name="Grupo 2105" xmlns="http://www.w3.org/2000/svg" width="31.692" height="41" viewBox="0 0 31.692 41">
+  <path id="Caminho_347" data-name="Caminho 347" d="M1.811,0h28.07a1.913,1.913,0,0,1,1.811,2V23a1.913,1.913,0,0,1-1.811,2H1.811A1.913,1.913,0,0,1,0,23V2A1.913,1.913,0,0,1,1.811,0Z" transform="translate(0 16)" fill="#1948bb"/>
+  <g id="Grupo_2075" data-name="Grupo 2075" transform="translate(2.346)">
+    <g id="Retângulo_1312" data-name="Retângulo 1312" fill="none" stroke="#1948bb" stroke-width="4">
+      <rect width="27" height="36" rx="10" stroke="none"/>
+      <rect x="2" y="2" width="23" height="32" rx="8" fill="none"/>
+    </g>
+    <g id="Grupo_2074" data-name="Grupo 2074" transform="translate(11 24)">
+      <line id="Linha_31" data-name="Linha 31" y1="3" transform="translate(2.5 4.409)" fill="none" stroke="#0a0b18" stroke-linecap="round" stroke-width="3"/>
+      <ellipse id="Elipse_37" data-name="Elipse 37" cx="2.5" cy="2.5" rx="2.5" ry="2.5" fill="#0a0b18"/>
+    </g>
+  </g>
+</svg>

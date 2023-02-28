@@ -1,0 +1,149 @@
+<app-toast
+   *ngIf="showToastCupom"
+    [class.isVoucher]="true"
+    [toastTime]=""
+    [toastTitle]="'Código ativado com sucesso, finalize seu cadastro e acesse a plataforma Multi+'"
+    [toastDesc]="'Você recebeu um Cupom com acesso de '+cupomDaysUse+' dias á plataforma da Multi+, dentro deste prazo, os serviços não serão cobrados.'"
+    [toastClass]="'toast_30d'"
+    (closeEvent)="showToastCupom = false"></app-toast>
+
+<div class="container" [ngStyle]="{backgroundImage:'url(' + theme.login.loginBgUrl + ')'}">
+  <div class="register">
+    <div class="loading" *ngIf="waitingForRegistration">
+      <app-loading></app-loading>
+    </div>
+    <div class="register--title">
+      <h3>Criar conta</h3>
+    </div>
+    <div class="errorDefault" *ngIf="inputDefaultError.message">
+      {{ inputDefaultError.message }}
+    </div>
+    <div class="bg-shadow" *ngIf="inputError"></div>
+    <form (submit)="onSubmit()" class="register--form">
+      <div class="input-group">
+        <div class="backdrop-error" *ngIf="hasErrors && !inputNameError.hasError" (click)=" hasErrors=false"></div>
+        <label [ngClass]="{'label-error': inputNameError.hasError}">Nome Completo:</label>
+        <app-input type="text" [error]="inputNameError.hasError" [placeholder]="'Insira seu nome'"
+          [(value)]="registerForm.pNome" (click)="inputNameError.hasError = false"></app-input>
+        <div class="error" *ngIf="inputNameError.hasError">
+          <p>Preencha seu nome</p>
+        </div>
+      </div>
+      <div class="input-group">
+        <div class="backdrop-error" *ngIf="hasErrors && !inputPhoneError.hasError" (click)=" hasErrors=false"></div>
+        <label [ngClass]="{'label-error': inputPhoneError.hasError}">Telefone:</label>
+        <app-input type="text" [error]="inputPhoneError.hasError" placeholder="(00) 00000-0000"
+          [mask]="'(00) 00000-0000'" [(value)]="registerForm.pTelefone" (click)="inputPhoneError.hasError = false">
+        </app-input>
+        <div class="error" *ngIf="inputPhoneError.hasError && !inputPhoneError.message">
+          <p>Preencha seu telefone</p>
+        </div>
+        <div class="error" *ngIf="inputPhoneError.hasError && inputPhoneError.message">
+          <p>{{ inputPhoneError.message }}</p>
+        </div>
+      </div>
+      <div [class.efeito]="inputCpfError.hasError" class="input-group">
+        <div class="backdrop-error" *ngIf="hasErrors && !inputCpfError.hasError" (click)=" hasErrors=false"></div>
+        <label [ngClass]="{'label-error': inputCpfError.hasError}">CPF:</label>
+        <app-input type="text" [error]="inputCpfError.hasError" [placeholder]="'000.000.000-00'"
+          [mask]="'000.000.000-00'" [(value)]="registerForm.pCpf" (click)="(hasErrors=false)"
+          (click)="paramEffects(inputCpfError)"></app-input>
+        <div class="error" *ngIf="inputCpfError.hasError && isEmpty">
+          <p>Preencha seu CPF</p>
+        </div>
+        <div class="error2" *ngIf="inputCpfError.hasError && !isEmpty">
+          <p>
+            Desculpe. O CPF informado já possui um cadastro em uma conta
+            Multi+. Por favor, realize o login para ter acesso a conta, caso
+            tenha esquecido a senha clique em: <br />
+            <a routerLink="/login/esqueci-minha-senha">Esqueci minha senha</a>
+          </p>
+        </div>
+      </div>
+      <div [class.efeito]="inputEmailError.hasError" class="input-group">
+        <div class="backdrop-error" *ngIf="hasErrors && !inputEmailError.hasError" (click)=" hasErrors=false"></div>
+        <label [ngClass]="{'label-error': inputEmailError.hasError}">E-mail:</label>
+        <app-input type="text" [error]="inputEmailError.hasError" [placeholder]="'Insira seu email'"
+          [(value)]="registerForm.pEmail" (click)="paramEffects(inputEmailError)"></app-input>
+        <div class="error" *ngIf="inputEmailError.hasError && isEmpty">
+          <p>Preencha seu email</p>
+        </div>
+        <div class="error" *ngIf="inputEmailError.hasError && !isEmpty">
+          <p *ngIf="inputEmailError.message == ''">
+            Desculpe. O email informado já possui um cadastro em uma conta
+            Multi+. Por favor, realize o login para ter acesso a conta, caso
+            tenha esquecido a senha clique em:
+            <a routerLink="/login/esqueci-minha-senha">Esqueci minha senha</a>
+          </p>
+          <p *ngIf="inputEmailError.message != ''">
+            {{inputEmailError.message}}
+          </p>
+        </div>
+      </div>
+      <div class="input-group">
+        <label>Confirmar Email:</label>
+        <div class="backdrop-error" *ngIf="hasErrors && !inputEmailConfirmError.hasError" (click)=" hasErrors=false">
+        </div>
+        <app-input type="text" [error]="inputEmailConfirmError.hasError" [placeholder]="'Insira seu email novamente'"
+          [(value)]="confirmEmail" (click)="inputEmailConfirmError.hasError = false"></app-input>
+        <div class="error" *ngIf="inputEmailConfirmError.hasError && isEmpty">
+          <p>Confirme seu email</p>
+        </div>
+        <div class="error" *ngIf="inputEmailConfirmError.message!; isEmpty">
+          <p>{{ inputEmailConfirmError.message }}</p>
+        </div>
+      </div>
+      <div class="input-group">
+        <label [ngClass]="{'label-error': inputPasswordError.hasError}">Senha:</label>
+        <div class="backdrop-error" *ngIf="hasErrors && !inputPasswordError.hasError" (click)=" hasErrors=false"></div>
+        <app-input [type]="'password'" [error]="inputPasswordError.hasError" [placeholder]="'Insira sua senha'"
+          [(value)]="registerForm.pSenha" (click)="inputPasswordError.hasError = false"></app-input>
+        <div class="error" *ngIf="inputPasswordError.hasError && !inputPasswordError.message">
+          <p>Preencha sua senha</p>
+        </div>
+        <div class="error" *ngIf="inputPasswordError.hasError && inputPasswordError.message">
+          <p>{{ inputPasswordError.message }}</p>
+        </div>
+      </div>
+      <div class="input-group">
+        <label [ngClass]="{'label-error': inputPasswordConfirmError.hasError}">Confirmar Senha:</label>
+        <div class="backdrop-error" *ngIf="hasErrors && !inputPasswordConfirmError.hasError" (click)=" hasErrors=false">
+        </div>
+        <app-input [type]="'password'" [error]="inputPasswordConfirmError.hasError"
+          [placeholder]="'Insira sua senha novamente'" [(value)]="confirmPassword"
+          (click)="inputPasswordConfirmError.hasError = false"></app-input>
+        <div class="error" *ngIf="
+            inputPasswordConfirmError.hasError &&
+            !inputPasswordConfirmError.message
+          ">
+          <p>Confirme sua senha</p>
+        </div>
+        <div class="error" *ngIf="inputPasswordConfirmError.message">
+          <p>{{ inputPasswordConfirmError.message }}</p>
+        </div>
+      </div>
+      <div class="consent-wrap">
+        <div class="terms-wrap">
+          <app-checkbox [error]="error.hasError" (checked)="handleConsent('terms', $event)" [disabled]="false">
+          </app-checkbox>
+          <span>concordo com os <a routerLink="/termos">termos de uso</a>, com a
+            <a routerLink="/termos">política de privacidade</a>
+            e declaro ter mais de 18 anos de idade.*
+          </span>
+        </div>
+        <div class="notify-wrap">
+          <app-checkbox [error]="false" (checked)="handleConsent('notify', $event)" [disabled]="false"></app-checkbox>
+          <span>Aceito receber informações sobre produtos e serviços.</span>
+        </div>
+      </div>
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="register--buttons">
+        <app-button [text]="'Criar conta'" (click)="onSubmit()" [classList]="'btn btn-primary'" [type]="'submit'">
+        </app-button>
+        <app-button [text]="'Cancelar'" (click)="cancel()" [classList]="'btn btn-secondary'" [type]="'button'">
+        </app-button>
+      </div>
+
+    </form>
+  </div>
+</div>

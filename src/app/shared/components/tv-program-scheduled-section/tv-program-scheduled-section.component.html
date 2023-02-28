@@ -1,0 +1,40 @@
+<div class="section">
+  <div class="section--image">
+    <div class="loading" *ngIf="isLoading; else channelImg">
+      <app-loading></app-loading>
+    </div>
+    <ng-template #channelImg>
+      <div *ngIf="blocked" class="blocked"></div>
+      <img [src]="channel?.white" alt="" />
+    </ng-template>
+  </div>
+  <div class="section--content">
+    <div class="section--content--shadow">
+      <div class="section--content--shadow--cap"></div>
+      <div class="section--content--shadow--fade"></div>
+    </div>
+    <div #guide class="section--content--programs" appScheduleSection>
+      <div
+        *ngFor="
+          let program of isNextDay
+            ? (channel?.dates)![1].programs
+            : (channel?.dates)![0].programs
+        "
+      >
+        <app-tv-program-scheduled-card
+          class="section--content--programs--program"
+          [programs]="isNextDay ? nextDayPrograms : programs"
+          [programId]="program.id"
+          [censorship]="program.tvRating"
+          [isNextDay]="isNextDay"
+          [channelBrand]="channel?.white"
+          [channelId]="channel?.id"
+          (emitter)="emit($event)"
+          (blockedChannelEmitter)="setBlockedChannel($event)"
+          [profileAgeBracket]="profileAgeBracket"
+        >
+        </app-tv-program-scheduled-card>
+      </div>
+    </div>
+  </div>
+</div>

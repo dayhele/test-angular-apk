@@ -1,0 +1,14 @@
+<div class="button" (click)="toggleMenu()">
+  <img src="{{ environment.imageService }}/icons/player/settings.svg" />
+</div>
+<div class="menu" *ngIf="isActive">
+  <h4 class="label">Qualidade do vídeo</h4>
+  <div class="item-list">
+    <ng-container *ngFor="let item of sources; let index = index">
+      <div class="item" [ngClass]="{active: selectedIndex === index}" (click)="toggleVideoQuality(index)">
+        <p class="title">{{item.label}}</p>
+        <p class="description">{{convertMbps(item.bandwidth)}} gb por hora</p>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,625 @@
+@import '../../../../../themes/remc.scss';
+@import '../../../../../themes/variables.scss';
+
+:host {
+  display: flex;
+  flex: 1;
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 remc(10);
+    flex: 1;
+
+    ::ng-deep .swiper {
+      .swiper-button-prev {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+
+      .swiper-button-disabled {
+        opacity: 0;
+      }
+
+      .swiper-button-next {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+          width: auto;
+          height: auto;
+
+          padding: 0 remc(5);
+
+          @media (max-width: remc(768)), (hover: none) and (pointer: coarse) {
+            margin-right: remc(18);
+          }
+
+          @media (max-width: remc(768)), (hover: none) and (pointer: coarse) {
+            margin-right: remc(32);
+            width: remc(290) !important;
+          }
+        }
+      }
+    }
+    .caption {
+      color: var(--white);
+      font-size: remc(16);
+      padding: remc(10) 0;
+      text-align: center;
+    }
+
+    .badges {
+      margin: remc(17) 0 remc(49);
+    }
+
+    .plans {
+      background-color: var(--primary-dark);
+
+      margin: remc(65) 0 0 remc(65);
+      padding: remc(26);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      &--title {
+        margin-bottom: remc(26);
+      }
+
+      &--description {
+        width: 100%;
+        max-width: remc(584);
+        color: var(--white);
+        text-align: center;
+        font-size: remc(14);
+        display: flex;
+        justify-content: center;
+        margin-bottom: remc(20);
+      }
+
+      &--cards {
+        display: flex;
+        width: 100%;
+        padding: remc(24);
+        flex-wrap: wrap;
+        margin: 0 remc(10);
+        justify-content: space-evenly;
+
+        .card {
+          height: 100%;
+          background-color: var(--primary-background);
+          padding: remc(20);
+          min-width: remc(290);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .card--current {
+          height: 100%;
+          background-color: var(--primary-dark);
+          border: remc(2) solid var(--blue-multi-2);
+          padding: remc(20);
+          min-width: remc(290);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .card--title {
+          margin-bottom: remc(20);
+          text-align: center;
+
+          h3 {
+            color: var(--primary-base) !important;
+          }
+
+          .plan--description {
+            font-size: remc(14);
+            color: var(--primary-text);
+            margin: remc(16) 0;
+            text-align: center;
+            display: inline-block;
+            height: 60px;
+          }
+
+          .current-plan-sub {
+            padding-top: remc(20);
+            font-size: remc(12);
+            font-weight: 100;
+            color: var(--blue-multi-50);
+          }
+        }
+
+        .card--benefits {
+          height: 100%;
+          text-align: center;
+          color: var(--white);
+          font-size: remc(14);
+          border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+          .benefit {
+            padding: remc(4) 0;
+            margin: remc(10) 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-weight: 900;
+
+            span {
+              position: relative;
+              width: remc(200);
+
+              &.quality--description {
+                font-weight: 300;
+                font-size: remc(12);
+              }
+
+              & + p {
+                color: var(--orange-400);
+                margin-left: remc(16);
+              }
+
+              &.disabled::after {
+                content: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/disabled.svg');
+                display: inline;
+                position: absolute;
+                width: fit-content;
+                margin-left: remc(16);
+              }
+
+              &.active::after {
+                content: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/check.svg');
+                display: inline;
+                position: absolute;
+                width: fit-content;
+                margin-left: remc(16);
+              }
+            }
+          }
+        }
+
+        .card--price {
+          width: 100%;
+          max-width: remc(200);
+          padding: remc(6) remc(30);
+          border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          .price {
+            display: flex;
+            // padding: remc(6) 0;
+            justify-content: center;
+            width: 100%;
+            color: var(--white);
+
+            span {
+              font-size: remc(40);
+              font-weight: 500;
+              color: var(--primary-base);
+              white-space: nowrap;
+            }
+
+            .decoration {
+              text-decoration: line-through;
+            }
+          }
+        }
+
+        .card--button {
+          margin-top: remc(20);
+          padding-bottom: remc(10);
+        }
+
+        @media screen and (max-width: 1009px) {
+          margin: remc(0) remc(15) remc(30);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        @media screen and (max-width: 779px) {
+          margin: 0;
+          margin-bottom: remc(30);
+
+          &--benefits {
+            .benefit {
+              font-size: remc(16);
+            }
+          }
+        }
+
+        @media screen and (max-width: 550px) {
+          width: 100%;
+        }
+
+        @media screen and (max-width: 1009px) {
+          justify-content: center;
+        }
+      }
+    }
+    .plans--linear-channels {
+      margin-top: remc(40);
+      margin-bottom: remc(40);
+    }
+
+    @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+      background: none !important;
+      padding: 0;
+      align-items: center;
+
+      .plans {
+        align-items: flex-start;
+        margin: 0;
+        padding: remc(32) 0 0 0;
+        max-width: 24.4rem;
+
+        .plans--title {
+          margin-bottom: 0;
+          margin-left: remc(20);
+
+          h3 {
+            letter-spacing: -0.02em;
+          }
+        }
+
+        .plans--description {
+          height: remc(83);
+          width: remc(319);
+          margin-bottom: 0;
+          margin-top: remc(31);
+          margin-left: remc(35);
+
+          p {
+            font-size: remc(14);
+            line-height: remc(16);
+            letter-spacing: -0.02em;
+          }
+        }
+
+        .plans--cards {
+          padding: 0;
+          margin-top: remc(24);
+          margin-left: remc(19);
+          margin-bottom: 0;
+        }
+
+        .plans--linear-channels {
+          margin-top: remc(39);
+          margin-bottom: 0;
+          margin-left: remc(30);
+        }
+      }
+
+      .caption {
+        margin-top: remc(24);
+        p {
+          font-weight: 400;
+          font-size: remc(12);
+          line-height: remc(14);
+          letter-spacing: -0.02em;
+        }
+      }
+
+      .badges {
+        margin: remc(39) 0 remc(27) remc(34);
+      }
+      ::ng-deep {
+        app-secure-site-card-badges {
+          .card-badge {
+            flex-direction: column;
+            gap: remc(24.5);
+          }
+        }
+      }
+    }
+  }
+  .container-mobile {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 remc(10);
+    flex: 1;
+
+    .caption {
+      color: var(--white);
+      font-size: remc(16);
+      padding: remc(10) 0;
+      text-align: center;
+    }
+
+    .badges {
+      margin: remc(17) 0 remc(49);
+    }
+
+    .plans {
+      // background-color: var(--primary-dark);
+
+      &--title {
+        margin-bottom: remc(36);
+        margin-top: remc(36);
+        text-align: center;
+      }
+
+      &--description {
+        width: 100%;
+        max-width: remc(584);
+        color: var(--white);
+        text-align: center;
+        font-size: remc(14);
+        display: flex;
+        justify-content: center;
+        margin-bottom: remc(20);
+      }
+
+
+      &--cards {
+        display: flex;
+        width: 100%;
+        padding: remc(24);
+        flex-wrap: wrap;
+        margin: 0 remc(10);
+        justify-content: space-evenly;
+
+        .card {
+          height: 100%;
+          padding: remc(20);
+          min-width: remc(290);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .card--current {
+          height: 100%;
+          // background-color: var(--primary-dark);
+          // border: remc(2) solid var(--blue-multi-2);
+          padding: remc(20);
+          min-width: remc(290);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .card--title {
+          margin-bottom: remc(20);
+          text-align: center;
+
+          h3 {
+            color: var(--primary-base) !important;
+          }
+
+          .plan--description {
+            font-size: remc(14);
+            color: var(--primary-text);
+            margin: remc(16) 0;
+            text-align: center;
+            display: inline-block;
+            height: 60px;
+          }
+
+          .current-plan-sub {
+            padding-top: remc(20);
+            font-size: remc(12);
+            font-weight: 100;
+            color: var(--blue-multi-50);
+          }
+        }
+
+        .card--benefits {
+          height: 100%;
+          text-align: center;
+          color: var(--white);
+          font-size: remc(14);
+          border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+          .benefit {
+            padding: remc(4) 0;
+            margin: remc(10) 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            font-weight: 900;
+
+            span {
+              position: relative;
+              width: remc(200);
+
+              &.quality--description {
+                font-weight: 300;
+                font-size: remc(12);
+              }
+
+              & + p {
+                color: var(--orange-400);
+                margin-left: remc(16);
+              }
+
+              &.disabled::after {
+                content: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/disabled.svg');
+                display: inline;
+                position: absolute;
+                width: fit-content;
+                margin-left: remc(16);
+              }
+
+              &.active::after {
+                content: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/check.svg');
+                display: inline;
+                position: absolute;
+                width: fit-content;
+                margin-left: remc(16);
+              }
+            }
+          }
+        }
+
+        .card--price {
+          width: 100%;
+          max-width: remc(200);
+          padding: remc(6) remc(30);
+          border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          .price {
+            display: flex;
+            // padding: remc(6) 0;
+            justify-content: center;
+            width: 100%;
+            color: var(--white);
+
+            span {
+              font-size: remc(40);
+              font-weight: 500;
+              color: var(--primary-base);
+              white-space: nowrap;
+            }
+
+            .decoration {
+              text-decoration: line-through;
+            }
+          }
+        }
+
+        .card--button {
+          margin-top: remc(20);
+          padding-bottom: remc(10);
+        }
+
+        @media screen and (max-width: 1009px) {
+          margin: remc(0) remc(15) remc(30);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        @media screen and (max-width: 779px) {
+          margin: 0;
+          margin-bottom: remc(30);
+
+          &--benefits {
+            .benefit {
+              font-size: remc(16);
+            }
+          }
+        }
+
+        @media screen and (max-width: 550px) {
+          width: 100%;
+        }
+
+        @media screen and (max-width: 1009px) {
+          justify-content: center;
+        }
+      }
+    }
+    .plans--linear-channels {
+      margin-top: remc(40);
+      margin-bottom: remc(40);
+    }
+
+    @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+      background: none !important;
+      padding: 0;
+      align-items: center;
+
+      .plans {
+        align-items: flex-start;
+        margin: 0;
+        padding: remc(32) 0 0 0;
+        max-width: 24.4rem;
+
+        .plans--title {
+          margin-bottom: 0;
+          margin-left: remc(20);
+
+          h3 {
+            letter-spacing: -0.02em;
+          }
+        }
+
+        .plans--description {
+          height: remc(83);
+          width: remc(319);
+          margin-bottom: 0;
+          margin-top: remc(31);
+          margin-left: remc(35);
+
+          p {
+            font-size: remc(14);
+            line-height: remc(16);
+            letter-spacing: -0.02em;
+          }
+        }
+
+        .plans--cards {
+          padding: 0;
+          margin-top: remc(24);
+          margin-left: remc(19);
+          margin-bottom: 0;
+        }
+
+        .plans--linear-channels {
+          margin-top: remc(39);
+          margin-bottom: 0;
+          margin-left: remc(30);
+        }
+      }
+
+      .caption {
+        margin-top: remc(24);
+        p {
+          font-weight: 400;
+          font-size: remc(12);
+          line-height: remc(14);
+          letter-spacing: -0.02em;
+        }
+      }
+
+      .badges {
+        margin: remc(39) 0 remc(27) remc(34);
+      }
+      ::ng-deep {
+        app-secure-site-card-badges {
+          .card-badge {
+            flex-direction: column;
+            gap: remc(24.5);
+          }
+        }
+      }
+    }
+  }
+}

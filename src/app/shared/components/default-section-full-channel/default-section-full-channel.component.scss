@@ -1,0 +1,122 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .section-full {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 385px 1fr;
+    gap: 94px;
+
+    @media screen and (max-width: remc(768)) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      grid-template-columns: none;
+      grid-gap: unset;
+      gap: unset;
+    }
+
+    &__left {
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      @media screen and (max-width: remc(768)) {
+        margin-left: 7vw;
+        align-items: center;
+      }
+
+      img {
+        width: 19vw;
+        max-width: 160px;
+        margin-bottom: 10px;
+        @media screen and (max-width: remc(768)) {
+          margin-top: 4vw;
+          width: 15vw;
+        }
+      }
+
+      h3 {
+        font-size: remc(24);
+      }
+
+      p {
+        font-size: remc(14);
+        font-weight: remc(400);
+        line-height: remc(16);
+        letter-spacing: -0.02em;
+        margin-bottom: 41px;
+        margin-top: 20px;
+      }
+
+      @media screen and (max-width: remc(768)) {
+        min-width: remc(120);
+        margin-right: 0.1rem;
+
+        h3 {
+          font-size: remc(14);
+          display: block;
+          margin: auto;
+        }
+      }
+    }
+
+    &__right {
+      width: 100%;
+      height: remc(280);
+      display: flex;
+      justify-content: flex-end;
+
+      &-content {
+        position: relative;
+
+        img {
+          max-height: remc(280);
+          height: 100%;
+          width: 100%;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          height: 100%;
+          width: 41%;
+          background: linear-gradient(
+            90deg,
+            var(--primary-dark) 0%,
+            rgba(30, 30, 34, 0) 100%
+          );
+          //background-color: red;
+          z-index: 1;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        max-height: remc(70.61);
+        width: remc(920);
+      }
+    }
+  }
+  .nsportsApp {
+    width: 100%;
+    height: 12vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    img {
+      margin-bottom: 15px;
+      width: 28vw;
+      margin-left: 7vw;
+    }
+    .button {
+      margin-left: 7vw;
+    }
+  }
+}

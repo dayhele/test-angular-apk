@@ -1,0 +1,18 @@
+<div class="content">
+  <div class="container">
+    <h1>Os melhores filmes e as melhores séries em um único lugar.</h1>
+    <p>
+      As séries mais assistidas e comentadas, os maiores clássicos e sucessos do
+      cinema, além de diversos programas originais e exclusivos estão na
+      Paramount+ e na HBO Max. E tudo isso dentro da sua Multi+.
+    </p>
+  </div>
+  <div class="button" *ngIf="checkMobile && checkTablet">
+    <app-button
+      [text]="'QUERO MEUS 30 DIAS'"
+      routerLink="/login/voucher"
+      [classList]="'btn-secondary'"
+    >
+    </app-button>
+  </div>
+</div>

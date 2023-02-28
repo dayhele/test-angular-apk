@@ -1,0 +1,61 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  input {
+    display: block;
+    padding-left: remc(48);
+    width: remc(280);
+    height: remc(56);
+    border: 2px solid var(--light-gray);
+    border-radius: remc(4);
+    color: var(--primary-dark);
+    font-size: remc(42);
+    letter-spacing: 40px;
+    background-color: transparent;
+
+    &:focus {
+      border: 2px solid var(--light-gray);
+      color: transparent;
+      background-color: var(--white);
+      text-shadow: 0 0 0 var(--primary-dark);
+      outline: none;
+    }
+  }
+
+  .inputActive {
+    background-color: var(--white);
+    display: block;
+    padding-left: remc(48);
+    width: remc(280);
+    height: remc(56);
+    border: 2px solid var(--light-gray);
+    border-radius: remc(4);
+    color: var(--primary-dark);
+    font-size: remc(42);
+    letter-spacing: 40px;
+  }
+  .isPasswordFalse {
+    border: 2px solid var(--error-red) !important;
+    color: var(--error-red) !important;
+
+    &:focus {
+      border: 2px solid var(--error-red);
+      color: (--error-red);
+      background-color: var(--white);
+      text-shadow: 0 0 0 var(--error-red);
+      outline: none;
+    }
+  }
+  .isPasswordTrue {
+    border: 2px solid green !important;
+    color: green !important;
+
+    &:focus {
+      border: 2px solid green;
+      color: transparent;
+      background-color: var(--white);
+      text-shadow: 0 0 0 green;
+      outline: none;
+    }
+  }
+}

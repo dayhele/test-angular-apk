@@ -1,0 +1,215 @@
+@import '../../../themes/remc.scss';
+
+.wrap {
+  justify-content: center;
+  display: flex;
+  background-image: linear-gradient(#231032 60%, #0b0010);
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: remc(900)) {
+    background-image: linear-gradient(#000000, #000000);
+  }
+
+  img {
+    z-index: 1;
+  }
+
+  .container {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    margin-top: -15vw;
+    padding: remc(20);
+
+    @media screen and (max-width: remc(768)) {
+      margin-top: 0;
+      padding-top: remc(75);
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      z-index: 0;
+      margin-top: 4vw;
+    }
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      width: 71vw;
+      background-color: #442061;
+      border-radius: remc(10);
+
+      @media screen and (max-width: remc(900)) {
+        width: 85vw;
+      }
+
+      .divider {
+        width: 56vw;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+
+        @media screen and (max-width: remc(900)) {
+          width: 100%;
+        }
+      }
+
+      .text {
+        margin-top: remc(36);
+        font-size: remc(45);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-family: Elza;
+
+        .title {
+          color: #ffff;
+          font-family: Elza;
+
+          p {
+            @media screen and (max-width: remc(900)) {
+              font-size: remc(32);
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+            }
+          }
+        }
+
+        .subTitle {
+          font-family: Elza;
+          font-weight: 400;
+          margin-top: remc(20);
+          margin-bottom: remc(50);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: remc(24);
+          color: rgba(255, 255, 255, 0.6);
+
+          .white {
+            color: rgba(255, 255, 255, 1);
+          }
+
+          @media screen and (max-width: remc(900)) {
+            font-size: remc(16);
+          }
+        }
+      }
+
+      .informations {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .texts {
+          margin-top: remc(30);
+          margin-bottom: remc(38);
+          display: flex;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+
+          @media screen and (max-width: remc(900)) {
+            flex-direction: column;
+            font-size: remc(16);
+            margin-top: remc(0);
+          }
+
+          .inf {
+            margin-left: 3vw;
+            margin-right: 3vw;
+            font-size: remc(24);
+            color: #ffff;
+
+            @media screen and (max-width: remc(900)) {
+              margin-right: 3vw;
+              margin-top: remc(22);
+              font-size: remc(16);
+            }
+          }
+        }
+      }
+
+      .logos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .imgs {
+          margin-bottom: remc(58);
+
+          @media screen and (max-width: remc(768)) {
+            margin-bottom: remc(25);
+          }
+        }
+
+        img {
+          margin-top: remc(40);
+
+          @media screen and (max-width: remc(768)) {
+            margin-top: remc(35);
+          }
+
+          @media screen and (max-width: remc(1200)) {
+            width: 55vw;
+          }
+        }
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: remc(24);
+        margin-bottom: remc(30);
+
+        b {
+          font-family: Elza;
+          font-weight: 700;
+        }
+        p {
+          font-size: remc(16);
+          color: #ffff;
+          font-family: Elza;
+          font-weight: 400;
+
+          @media screen and (max-width: remc(768)) {
+            font-size: remc(14);
+            color: rgba(255, 255, 255, 0.6);
+
+            &.title-mobile b {
+              font-size: remc(24);
+              color: rgba(255, 255, 255, 1);
+            }
+          }
+        }
+
+        .button {
+          font-family: Elza;
+          font-size: remc(20);
+          font-weight: 700;
+          line-height: remc(24);
+          letter-spacing: -0.02em;
+          text-align: center;
+          margin: auto;
+          padding: remc(8) remc(38);
+          background: #fdfdfd;
+          color: #442061;
+          display: table;
+          margin-top: remc(18);
+          border-radius: remc(30);
+          cursor: pointer;
+
+          @media screen and (max-width: remc(900)) {
+            margin-bottom: 3vw;
+          }
+
+          @media screen and (min-width: 768px) and (max-width: 1024px) {
+            margin-right: auto;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="container" >
+  <app-card
+    class="container--card"
+    [properties]="{orientation: cardProperties.orientation}"
+    [data]="episode"
+  ></app-card>
+  <div class="container--details">
+    <h4>{{ episode.title }} - {{nextEpisodeLabel}}</h4>
+    <app-button
+      text="Próximo episódio"
+      type='button'
+      [classList]="'btn-secondary'"
+    ></app-button>
+    <p>
+      {{ episode.synopsis }}
+    </p>
+  </div>
+</div>

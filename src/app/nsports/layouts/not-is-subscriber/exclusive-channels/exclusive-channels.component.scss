@@ -1,0 +1,49 @@
+@import '../../../../../themes/remc.scss';
+
+.container {
+
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: remc(40);
+  flex-wrap: wrap;
+  padding: remc(40);
+  margin-top: remc(80);
+
+  .content-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+
+    .title {
+      font-size: remc(24);
+      font-weight: 700;
+      color: var(--text-color-nsports);
+    }
+
+    .sub-title {
+      font-size: remc(14);
+      font-weight: 400;
+      color: var(--text-color-nsports);
+    }
+  }
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: remc(20);
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content-container {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}

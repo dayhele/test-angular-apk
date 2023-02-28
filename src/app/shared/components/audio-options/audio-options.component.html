@@ -1,0 +1,31 @@
+<div class="button" (click)="toggleMenu()">
+  <img src="{{ environment.imageService }}/icons/player/legends.svg" />
+</div>
+<div
+  class="close"
+  (click)="toggleMenu(false)"
+  [ngClass]="isActive ? 'close__active' : ''"
+></div>
+<div [ngClass]="isActive ? 'active' : ''" class="menu">
+  <ul *ngIf="subtitlesLanguages.length>0">
+    <li><a>Legendas</a></li>
+    <li *ngFor="let languageItem of subtitlesLanguages; let index = index">
+      <a
+        [ngClass]="selectedSubtitleLanguageIndex === index ? 'active' : ''"
+        (click)="changeSubtitleLanguage(index)"
+        >{{ languageItem.language }}</a
+      >
+    </li>
+  </ul>
+  <div class="divider" *ngIf="subtitlesLanguages.length > 0 && audioLanguages.length > 0"></div>
+  <ul *ngIf="audioLanguages.length > 0">
+    <li><a>Áudio</a></li>
+    <li *ngFor="let languageItem of audioLanguages; let index = index">
+      <a
+        [ngClass]="selectedAudioLanguageIndex === index ? 'active' : ''"
+        (click)="changeAudioLanguage(index)"
+        >{{ languageItem.language }}</a
+      >
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,210 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .section-season {
+    width: 100%;
+    display: flex;
+    min-height: remc(290);
+    padding-bottom: 34px;
+
+
+    &__left {
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+      }
+      @media screen and (min-width: 1024px) {
+        width: 50%;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &--body {
+        @media screen and (max-width: 1024px) {
+          width: 100%;
+          padding: 3%
+        }
+        @media screen and (min-width: 1024px) {
+          width: 90%;
+          padding: remc(15) remc(10);
+        }
+
+        h2 {
+          margin-top: 24px;
+          font-weight: 700;
+          font-size: remc(24);
+          line-height: remc(28);
+          letter-spacing: -0.02em;
+          color: #ffffff;
+          padding-bottom: remc(25);
+        }
+
+        p {
+          font-weight: 400;
+          font-size: remc(14);
+          line-height: remc(16);
+          letter-spacing: -0.02em;
+          color: #fafafa;
+          max-width: remc(364);
+        }
+
+        .infos {
+          @media screen and (max-width: 1024px) {
+
+          }
+          @media screen and (min-width: 1024px) {
+            display: flex;
+            flex-wrap: wrap;
+          }
+
+
+          margin-top: 36px;
+          max-width: remc(510);
+
+          .col-6 {
+            width: 50%;
+            margin-bottom: remc(15);
+            padding-right: remc(10);
+          }
+
+          .col-12 {
+            width: 100%;
+            margin-bottom: remc(15);
+            padding-right: remc(10);
+          }
+
+          p {
+            font-weight: 400;
+            font-size: remc(14);
+            line-height: remc(20);
+            letter-spacing: -0.02em;
+            color: #fafafa;
+
+            span {
+              color: #99b6e7;
+              margin-left: remc(15);
+            }
+          }
+        }
+
+        .exclusive{
+          width: 30%;
+          display: flex;
+        }
+
+        .watchVideo {
+          margin-top: 14px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+
+          &__button {
+            width: 20%;
+
+          }
+
+          &__progress {
+            width: 50%;
+
+            progress {
+              @media screen and (max-width: 1024px) {
+                display: none;
+              }
+              @media screen and (min-width: 1024px) {
+                width: 90%;
+              }
+
+              margin: 0 auto;
+              height: remc(2);
+
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &::-webkit-progress-bar {
+                background: white;
+              }
+
+              &::-webkit-progress-value {
+                background: var(--primary-base);
+              }
+            }
+          }
+
+          &__censorship {
+            @media screen and (max-width: 1024px) {
+              width: 20%;
+            }
+            @media screen and (min-width: 1024px) {
+              width: 30%;
+            }
+            display: flex;
+            align-items: center;
+
+            p {
+              @media screen and (max-width: 1024px) {
+                display: none;
+              }
+              @media screen and (min-width: 1024px) {
+                font-weight: 700;
+                font-size: remc(16);
+                line-height: remc(19);
+                letter-spacing: -0.02em;
+                color: #FAFAFA;
+                margin-left: remc(10);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__right {
+      width: 50%;
+      position: relative;
+      display: flex;
+      justify-content: right;
+
+      @media screen and (max-width: 1024px) {
+        img {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        img {
+          position: absolute;
+          width: 750px;
+          height: 304.5px;
+          object-fit: cover;
+          top: 15px;
+          z-index: 1;
+          margin-bottom: 10px;
+          -webkit-mask-image: linear-gradient(to right, rgba(30, 30, 34, 0), #1E1E22 6.89%);
+        }
+      }
+
+    }
+  }
+
+  .section-episode {
+    min-height: remc(300);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: remc(250);
+      width: 100%;
+      background: linear-gradient(
+        180deg,
+        #000000 23.14%,
+        rgba(30, 30, 34, 0) 88.23%
+      );
+      opacity: 0.8;
+    }
+  }
+}

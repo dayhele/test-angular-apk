@@ -1,0 +1,207 @@
+<div class="card-nsports" *ngIf="carouselIsLoaded; else isLoading">
+  <div *ngIf="sectionCards.length > 0">
+    <div *ngIf="isSubscriber; else isNotSubscriber">
+      <ng-container *ngFor="let item of sectionCards">
+        <app-image-banner [imageBanner]="item.imageBanner"></app-image-banner>
+        <app-section
+          *ngIf="item.liveMatches.length > 0"
+          [title]="'Programação ao vivo'"
+          [data]="item.liveMatches"
+          [properties]="{
+            orientation: 'horizontal',
+            isLive: true,
+            secondDescription: true,
+            day: true,
+            sportTitle: true,
+            rentable: false,
+            rentMovieTitle: false
+          }"
+          [isNSportsCard]="true"
+        ></app-section>
+        <app-section
+          *ngIf="item.previousMatches.length > 0"
+          [title]="'Jogos anteriores'"
+          [data]="item.previousMatches"
+          [properties]="{
+            orientation: 'vertical',
+            sportTitle: true
+          }"
+        ></app-section>
+        <app-section
+          *ngIf="item.highlightMoments.length > 0"
+          [title]="'Melhores momentos'"
+          [data]="item.highlightMoments"
+          [properties]="{
+            orientation: 'horizontal',
+            sportTitle: true
+          }"
+        ></app-section>
+      </ng-container>
+    </div>
+    <ng-template #isNotSubscriber>
+      <div class="container">
+        <app-section
+          *ngIf="sectionCards.length > 0"
+          [title]="title"
+          [data]="sectionCards"
+          [properties]="properties"
+          [isInfinity]="true"
+          [isNSportsCard]="true"
+        >
+        </app-section>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #isLoading>
+  <div class="skeleton__sections" *ngIf="isSubscriber">
+    <ngx-skeleton-loader
+      class="loader"
+      [count]="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '270px',
+        width: '100%'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      [count]="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        display: 'block',
+        height: '28px',
+        width: '300px',
+        marginTop: '1.5rem',
+        marginLeft: screen_x > 768 ? '4rem' : '0rem'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      class="loader"
+      [count]="screen_x > 768 ? 2 : 1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: screen_x > 768 ? '357px' : '192px',
+        width: screen_x > 768 ? '517px' : '275px',
+        marginLeft: screen_x > 768 ? '4rem' : '0rem'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      [count]="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        display: 'block',
+        height: '28px',
+        width: '300px',
+        marginTop: '1.5rem',
+        marginLeft: screen_x > 768 ? '4rem' : '0rem'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      class="loader"
+      [count]="screen_x > 768 ? 4 : 3"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: screen_x > 768 ? '350px' : '193px',
+        width: screen_x > 768 ? '275px' : '125px',
+        marginLeft: screen_x > 768 ? '4rem' : '0.5rem'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      [count]="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        display: 'block',
+        height: '28px',
+        width: '300px',
+        marginTop: '1.5rem',
+        marginLeft: screen_x > 768 ? '4rem' : '0rem'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      class="loader"
+      [count]="screen_x > 768 ? 2 : 1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: screen_x > 768 ? '357px' : '192px',
+        width: screen_x > 768 ? '517px' : '275px',
+        marginLeft: screen_x > 768 ? '4rem' : '0rem'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+
+  <div
+    class="skeleton__sections"
+    *ngIf="
+      properties.orientation === 'horizontal' && !isSubscriber;
+      else isVertical
+    "
+  >
+    <ngx-skeleton-loader
+      [count]="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        display: 'block',
+        height: '28px',
+        width: '300px',
+        marginTop: '1.5rem',
+        marginLeft: screen_x > 768 ? '4rem' : '0rem'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      class="loader"
+      [count]="screen_x > 768 ? 2 : 1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: screen_x > 768 ? '357px' : '192px',
+        width: screen_x > 768 ? '517px' : '275px',
+        marginLeft: screen_x > 768 ? '4rem' : '0rem'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+
+  <ng-template #isVertical>
+    <div class="skeleton__sections">
+      <ngx-skeleton-loader
+        [count]="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '28px',
+          width: '300px',
+          marginTop: '1.5rem',
+          marginLeft: screen_x > 768 ? '4rem' : '0rem'
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        class="loader"
+        [count]="screen_x > 768 ? 4 : 3"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: screen_x > 768 ? '350px' : '193px',
+          width: screen_x > 768 ? '275px' : '125px',
+          marginLeft: screen_x > 768 ? '4rem' : '0.5rem'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+  </ng-template>
+</ng-template>

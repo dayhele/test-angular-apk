@@ -1,0 +1,21 @@
+<div class="section-full">
+  <div class="section-full__left">
+    <h3>{{ sectionTitle }}</h3>
+
+    <div class="section-full__left-content">
+      <p>{{ sectionDescription }}</p>
+      <app-button
+        *ngIf="sectionButtonText !== ''"
+        [type]="'button'"
+        [text]="sectionButtonText"
+        [classList]="'btn-secondary'"
+        (click)="highlightRedirect.emit()"
+      ></app-button>
+    </div>
+  </div>
+
+  <img
+    class="section-full__right"
+    src="https://sportsjob.com.br/wp-content/uploads/2021/06/Jogos-Olimpicos.jpeg"
+  />
+</div>

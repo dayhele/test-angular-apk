@@ -1,0 +1,42 @@
+<div class="grid">
+  <div class="text">
+    <p class="title"><b>TOP 5</b></p>
+    <p class="sub-title">
+      Os filmes e séries mais <br />
+      assistidos nos últimos dias.<br />
+      Não fique de fora!
+    </p>
+    <app-button
+      class="button"
+      [text]="
+        theme.header.ligga && isLigga
+          ? theme.landingPage.textButonLigga
+          : theme.landingPage.textButon
+      "
+      type="button"
+      classList="btn-primary"
+      (click)="goTo()"
+    ></app-button>
+  </div>
+
+  <swiper slidesPerView="auto">
+    <ng-template
+      swiperSlide
+      *ngFor="let item of sectionCard; let index = index"
+    >
+      <div class="top5">
+        <div class="ellipse">
+          <div class="number">{{ index + 1 }}</div>
+        </div>
+
+        <app-card
+          [properties]="{ orientation: 'vertical' }"
+          [data]="item"
+          [cardOnly]="true"
+          [isExclusiveContent]="true"
+          labelExclusiveContent="HBO Max"
+        ></app-card>
+      </div>
+    </ng-template>
+  </swiper>
+</div>

@@ -1,0 +1,22 @@
+@import '../../../../themes/remc.scss';
+
+select {
+  width: 100%;
+  height: remc(32);
+  border-radius: remc(6);
+  background: var(--white);
+  outline: none;
+  padding: 0 remc(8) 0 remc(8);
+  display: block;
+  margin: auto;
+
+  option {
+    border-radius: remc(6);
+    background: var(--white);
+  }
+}
+
+select.error {
+  border-bottom: remc(6) solid var(--error-red);
+  color: var(--error-red);
+}

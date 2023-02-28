@@ -1,0 +1,81 @@
+@import '../../../themes/remc.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: remc(280);
+  height: remc(150);
+  padding: remc(10);
+  background-color: var(--background-tutorial);
+
+  .title {
+    font-size: remc(24);
+    font-weight: 400;
+    color: var(--white);
+    text-align: center;
+    margin-top: remc(26);
+    margin-bottom: remc(16);
+  }
+
+  .icons {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100%;
+
+    .browser-icon,
+    .app-icon,
+    .smartv-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &:hover path {
+        stroke: var(--primary-base);
+        opacity: 0.4;
+      }
+
+      &:hover ellipse {
+        fill: var(--primary-base);
+        opacity: 0.4;
+      }
+
+      path,
+      ellipse {
+        opacity: 0.4;
+      }
+
+      &.selected path {
+        stroke: white;
+        opacity: 1;
+      }
+
+      &.selected ellipse {
+        fill: white;
+        opacity: 1;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      p {
+        font-size: remc(16);
+        font-weight: 700;
+        padding-top: remc(8);
+        color: var(--white);
+        opacity: 0.4;
+
+        &.selected {
+          opacity: 1;
+        }
+
+        &.unselected {
+          color: #fafafa;
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}

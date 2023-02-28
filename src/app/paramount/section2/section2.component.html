@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="image-banner-cta">
+    <img [src]="environment.bucket + 'bg/banner-paramount-cta.png'" />
+  </div>
+
+  <div class="texts">
+    <h3 class="title">
+      Bem vindo ao <br />
+      Universo Paramount+!
+    </h3>
+    <p class="subtitle">
+      Você ainda não possui os benefícios disponíveis <br />
+      nos pacotes Paramount+. Confira nessa página <br />
+      todas as vantagens e adicione já ao seu plano.
+    </p>
+    <div class="btn">
+      <app-button class="button" [text]="theme.landingPage.textButon" type="button" classList="btn-primary"
+        (click)="goTo()"></app-button>
+    </div>
+  </div>
+</div>

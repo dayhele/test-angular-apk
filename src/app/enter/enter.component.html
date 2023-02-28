@@ -1,0 +1,26 @@
+<div class="background" [ngClass]="theme.client">
+  <div class="gradient" *ngIf="theme.client === 'multilaser'"></div>
+  <div class="content">
+    <img class="logo" [src]="theme.splash.enterLogo" />
+    <app-button
+      classList="btn-primary"
+      text="Entrar"
+      (click)="login()"
+    ></app-button>
+    <!-- <app-button
+      classList="btn-secondary"
+      text="Novo por aqui"
+      routerLink="/new-here"
+    ></app-button> -->
+    <div
+      class="return"
+      [ngClass]="theme.splash.needHelpPositon"
+      (click)="goToFaqs()"
+    >
+      Preciso de ajuda
+    </div>
+    <p class="copyright" *ngIf="screenLoaded && theme.client === 'watch'">
+      {{ theme.splash.copyrightTitle + ' ' + theme.splash.copyrightSubtitle }}
+    </p>
+  </div>
+</div>

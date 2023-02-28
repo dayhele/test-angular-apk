@@ -1,0 +1,71 @@
+@import 'remc.scss';
+
+:root {
+  --white: #fff;
+  --white-50: #fff8;
+  --black: #000000;
+  --red: #ff2828;
+  --orange-300: #f67f21;
+  --orange-400: #e96744;
+  --orange-500: #b72600;
+  --orange-600: #541100;
+  --pink-100: #8c7c80;
+  --pink-500: #ba1540;
+  --blue-100: #8591a5;
+  --blue-200: #99b6e7;
+  --blue-300: #3d7ee9;
+  --blue-400: #0047bb;
+  --green-toast: #8bc53f;
+
+  // --blue-multi-base
+  --primary-base: #4ca8d5;
+
+  // --blue-multi-dark
+  --primary-dark: #fff;
+
+  --blue-multi-2: #0085b4;
+
+  // --blue-multi-4
+  --primary-background: #003e72;
+
+  --blue-multi-25: #d2e9f5;
+  --blue-multi-50: #a5d3ea;
+  --dark-blue-500: #071a2c;
+  --dark-blue-600: #03051c;
+
+  --purple-300: #7538a8;
+  --purple-multi-25: #d2c8d8;
+
+  --yellow-300: #fbd688;
+  --yellow-400: #ddae4a;
+
+  --error-red: #ff2828;
+  --gray: #363636;
+  --light-gray: #7a7a7a;
+  --medium-gray: #3d3d3f;
+  --base-gray: #707070;
+
+  --pink-400: #e04970;
+  --pink-100: #8c7c80;
+  --ocean-high-blue: #1b2c5d;
+  --orange-directvgo: #f67f21;
+
+  --dark-gray: #1e1e1e;
+
+  --faq-hover: #1e1e22;
+
+  --orange-directvgo: #f67f21;
+
+  --black-directvgo: #1b1c26;
+  --jeans-directvgo: #2e303f;
+
+  --hbomax-purple: #3f0796;
+  --hbo-background: #190822;
+  --gray-hbo: #707070;
+
+  --text-color-nsports: #fafafa;
+  
+
+  @import 'scss/multilaser.scss';
+  @import 'scss/watch.scss';
+}

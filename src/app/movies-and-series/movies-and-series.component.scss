@@ -1,0 +1,42 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .loading {
+    width: 100%;
+    height: 50vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loading-fullscreen{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 99;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container--suggestions {
+    margin-bottom: remc(56);
+
+    @media screen and (max-width: remc(768)) {
+      margin-left: remc(16);
+      margin-top: remc(32);
+    }
+  }
+
+  .spacer {
+    width: 100%;
+    height: remc(32);
+
+    @media screen and (max-width: remc(768)) {
+      display: none;
+    }
+  }
+}

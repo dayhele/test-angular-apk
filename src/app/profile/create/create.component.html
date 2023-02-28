@@ -1,0 +1,257 @@
+<div class="grid">
+  <div class="new-user-title"><p>Novo usuário</p></div>
+  <hr />
+  <div>
+    <div>
+      <div>
+        <div class="title">Visual do usuário</div>
+        <div class="subtitle">Escolha um avatar e nome para o seu perfil</div>
+      </div>
+      <div class="spacer-24"></div>
+    </div>
+    <div class="dados-usuario">
+      <div class="box-img-profile-dados-usuario">
+        <div class="edit-prifile-dados-usuario">
+          <label for="profileFoto">
+            <img
+              class="icon-edit-dados-usuario clicable"
+              src="/assets/icons/edit-icon.svg"
+            />
+          </label>
+          <input
+            id="profileFoto"
+            *ngIf="!isSelectingProfileIcon"
+            style="display: none"
+            type="file"
+            (change)="uploadFoto($event)"
+            accept="image/*"
+          />
+        </div>
+        <img
+          id="imagePreview"
+          [src]="profile.foto"
+        />
+        <a
+          class="subtitle-dados-usuario clicable"
+          (click)="openPopupUploadFoto()"
+          >Escolha um avatar
+        </a>
+      </div>
+      <div>
+        Nome: <br />
+        <input
+          class="input-dados-usuario"
+          placeholder="Escolha um nome"
+          [(ngModel)]="profile.nome"
+          maxlength="15"
+        />
+        <p class="subtitle-dados-usuario">Limite de até 15 caracteres</p>
+
+        <div class="perfil-infantil-dados-usuario">
+          <mat-slide-toggle
+            class="toggle-perfil-infantil"
+            [checked]="
+              profile.age_bracket === '0' || profile.age_bracket === '10'
+            "
+            (change)="changeProfileKids($event.checked)"
+          ></mat-slide-toggle>
+          <div class="text-perfil-infantil-dados-usuario">
+            <p>Tornar este perfil infantil</p>
+            <p class="subtitle-dados-usuario">
+              Apenas conteúdos infantis serão apresentados para este perfil.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div>
+    <div>
+      <div class="title">Classificação e visualização</div>
+      <div class="subtitle">
+        Escolha uma classificação etária para o seu perfil
+      </div>
+    </div>
+
+    <div class="spacer-24"></div>
+    <div class="classificacao">
+      <div>
+        <div class="title-secondary">Classificação etária</div>
+        <div class="subtitle">
+          Gerencie as restrições de visualização seu perfil.
+        </div>
+        <div class="labels" *ngIf="accordionRestricao.expanded">
+          <p class="subtitle0">
+            Escolha uma classificação etária para este perfil.
+          </p>
+          <p class="age-label-0" *ngIf="profile.age_bracket === '0'">
+            O perfil terá acesso aos conteúdos de classificação Livre.
+          </p>
+          <p class="age-label-10" *ngIf="profile.age_bracket === '10'">
+            O perfil terá acesso aos conteúdos de classificação 10 anos para
+            baixo.
+          </p>
+          <p class="age-label-12" *ngIf="profile.age_bracket === '12'">
+            O perfil terá acesso aos conteúdos de classificação 12 anos para
+            baixo.
+          </p>
+          <p class="age-label-14" *ngIf="profile.age_bracket === '14'">
+            O perfil terá acesso aos conteúdos de classificação 14 anos para
+            baixo.
+          </p>
+          <p class="age-label-16" *ngIf="profile.age_bracket === '16'">
+            O perfil terá acesso aos conteúdos de classificação 16 anos para
+            baixo.
+          </p>
+          <p class="age-label-18" *ngIf="profile.age_bracket === '18'">
+            O perfil terá acesso aos conteúdos de classificação 18 anos para
+            baixo.
+          </p>
+        </div>
+        <ng-container
+          *ngIf="profile.live_content && accordionRestricao.expanded"
+        >
+          <p
+            class="subtitle2"
+            *ngIf="profile.age_bracket === '0'; else showPerAge"
+          >
+            Apenas a programação de classificação Livre está habilitada para
+            esse perfil.
+          </p>
+          <ng-template #showPerAge>
+            <p class="subtitle2">
+              Está habilitada a programação até {{ profile.age_bracket }} anos
+              de idade para este perfil.
+            </p>
+          </ng-template>
+        </ng-container>
+      </div>
+
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel #accordionRestricao>
+            <mat-expansion-panel-header>
+              Restrições de visualização
+            </mat-expansion-panel-header>
+            <mat-panel-description>
+              <div class="title-secondary">Classificação etária</div>
+              <div class="text-allow">Permitir até:</div>
+              <app-age-classification-list
+                [(value)]="profile.age_bracket"
+              ></app-age-classification-list>
+              <div class="spacer-24"></div>
+
+              <div class="title-secondary">Perfil infantil</div>
+              <div class="spacer-24"></div>
+              <div class="kids-profile">
+                <mat-slide-toggle
+                  class="kids-profile-toggle"
+                  [checked]="
+                    profile.age_bracket === '0' || profile.age_bracket === '10'
+                  "
+                  (change)="profile.age_bracket = $event.checked ? '0' : '12'"
+                >
+                </mat-slide-toggle>
+                <div class="kids-profile-texts">
+                  <div class="kids-profile-title">
+                    Tornar este perfil infantil
+                  </div>
+                  <div class="kids-profile-subtitle">
+                    Apenas conteúdos infantis serão apresentados para este
+                    perfil.
+                  </div>
+                </div>
+              </div>
+              <div class="spacer-24"></div>
+              <hr />
+              <div class="spacer-24"></div>
+              <div class="title-secondary">Canais “Ao vivo”</div>
+              <div class="spacer-24"></div>
+              <div class="live-channels">
+                <mat-slide-toggle
+                  class="live-channels-toggle"
+                  [checked]="profile.live_content"
+                  (change)="profile.live_content = $event.checked"
+                >
+                </mat-slide-toggle>
+                <div class="live-channels-texts">
+                  <div class="live-channels-title">
+                    Permitir acesso da programação “Ao vivo”
+                  </div>
+                  <div class="live-channels-subtitle">
+                    A programação “Ao vivo” esta habilitada para este perfil.
+                  </div>
+                </div>
+              </div>
+              <div class="spacer-30"></div>
+              <div class="save-changes">
+                <app-button
+                  type="button"
+                  text="Salvar"
+                  classList="btn-secondary"
+                  (click)="accordionRestricao.expanded = false"
+                ></app-button>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div>
+    <div>
+      <div>
+        <div class="title">Controle e segurança</div>
+        <div class="subtitle">Faça uma senha de controle par o seu perfil</div>
+      </div>
+
+      <div class="spacer-24"></div>
+
+      <app-controle-parental-pin
+        #controleParentalPin
+        [profile]="profile"
+      ></app-controle-parental-pin>
+
+      <div class="name-label-error" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <div class="spacer-24"></div>
+      <hr />
+
+      <div class="spacer-24"></div>
+      <div class="buttons">
+        <button
+          class="salvar"
+          [disabled]="
+            accordionRestricao.expanded ||
+            controleParentalPin.parentalPin?.expanded
+          "
+          (click)="createProfile()"
+        >
+          Salvar
+        </button>
+        <span
+          [class.disabled]="
+            accordionRestricao.expanded ||
+            controleParentalPin.parentalPin?.expanded
+          "
+          >ou</span
+        >
+        <app-button
+          [disabled]="
+            accordionRestricao.expanded ||
+            controleParentalPin.parentalPin?.expanded
+          "
+          type="button"
+          text="Cancelar"
+          classList="btn-secondary"
+          (click)="cancelarCriacao()"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

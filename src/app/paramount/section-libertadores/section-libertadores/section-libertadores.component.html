@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="image-banner-cta">
+    <img 
+      src="https://watchbr-resources.s3.amazonaws.com/conmebol/libertadores/images/libertadores_bg_paramount.svg" 
+    />
+  </div>
+
+  <div class="texts">
+    <div class="libertadores-paramount-logo">
+      <img src="https://watchbr-resources.s3.amazonaws.com/conmebol/libertadores/images/libertadores_paramount_logo.svg" alt="Logos da paramount e Libertadores">
+    </div>
+    <p class="subtitle">
+      Assista a disputa pela Glória Eterna na Watch. <br />
+      Os melhores lances do seu time do coração, na 
+      melhor plataforma de conteúdo.
+    </p>
+    <div class="btn">
+      <app-button
+        class="button"
+        [text]="theme.landingPage.textButon"
+        type="button"
+        classList="btn-primary"
+        (click)="goTo()"
+      ></app-button>
+    </div>
+  </div>
+</div>

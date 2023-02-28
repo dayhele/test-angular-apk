@@ -1,0 +1,45 @@
+<section class="section-one">
+  <div class="banner-container">
+    <div CLASS="text">CHEGOU NA <span>{{ theme.title }}</span></div>
+    <img class="banner" [src]="environment.bucket + 'hbo-max/hbo-lp-banner.png'"
+      alt="HBO Max" />
+  </div>
+</section>
+<section class="section-two">
+  <div class="text">
+    A <img [src]="environment.bucket + 'hbo-max/hbo-max-log-hor.png'" /> é
+    uma plataforma de
+    streaming que oferece conteúdos exclusivos para toda a família!
+  </div>
+  <div class="subText">
+    Com a <span>{{ theme.title }}</span> você tem acesso a HBO Max. Contrate agora mesmo e desfrute da
+    comodidade de<br />
+    efetuar um único pagamento e ter acesso a várias plataformas de streaming!
+  </div>
+  <div class="button" routerLink="/planos">
+    <p class="button--content">{{theme.buttonHboMax}}</p>
+  </div>
+</section>
+<section class="section-three">
+  <img [src]="environment.bucket + 'hbo-max/casa-dragao.png'" alt="HBO Max"
+    width="100%" />
+</section>
+<section class="section-four">
+  <swiper slidesPerView="auto" [navigation]="!checkMobile">
+    <ng-template swiperSlide *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]">
+      <img class="swiper-item" src="assets/hbomax/slide/slide{{ item }}.png" />
+    </ng-template>
+  </swiper>
+</section>
+<section class="section-five">
+  <div class="title">
+    <img [src]="environment.bucket + 'hbo-max/hbo-max-horiz.svg'" />
+  </div>
+  <p class="description">
+    Contrate agora mesmo e não perca os conteúdos exclusivos que só a <span>{{ theme.title }}</span> e a
+    HBO Max oferecem.
+  </p>
+  <div class="button" routerLink="/planos">
+    <p class="button--content">{{theme.buttonHboMax}}</p>
+  </div>
+</section>

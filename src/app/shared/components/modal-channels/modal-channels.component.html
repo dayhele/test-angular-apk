@@ -1,0 +1,22 @@
+<div class="container" id="containerChannels">
+  <div class="modal">
+    <div class="modal--content">
+      <div class="modal--content--close-button" (click)="closeModal()">
+        <label>fechar</label>
+        <img [src]="environment.imageService + '/icons/close-small-icon.svg'" alt="" />
+      </div>
+      <div class="modal--content--title">
+      </div>
+
+      <div id="menu-section">
+        <ul>
+          <li *ngFor="let plan of plans" (click)="filterChannelsBySelectedPlan(plan.id)">
+            <app-plan-button [plan]="plan"></app-plan-button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="modal--content--channels"></div>
+    </div>
+  </div>
+</div>

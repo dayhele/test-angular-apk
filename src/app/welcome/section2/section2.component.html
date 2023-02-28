@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="title">
+    <h2>Canais de TV e Ao Vivo</h2>
+  </div>
+  <div class="channels">
+    <swiper
+      slidesPerView="auto"
+      [loop]="true"
+      [autoplay]="{ delay: 0, waitForTransition: false }"
+      [speed]="3000"
+    >
+      <ng-template swiperSlide *ngFor="let channel of sectionChannels">
+        <app-card-rounded
+          [disableClick]="true"
+          [channel]="channel"
+        ></app-card-rounded>
+      </ng-template>
+    </swiper>
+  </div>
+</div>

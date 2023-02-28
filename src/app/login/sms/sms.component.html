@@ -1,0 +1,129 @@
+<div
+  *ngIf="theme.client === 'multilaser'"
+  class="container"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="activate-voucher">
+    <h3 class="activate-voucher--title">Ativar conta por código</h3>
+    <p class="activate-voucher--subtitle">
+      Digite o código para realizar a ativação da sua conta.
+    </p>
+    <div class="activate-voucher--input-container">
+      <p class="activate-voucher--input-container--title">Ativar voucher:</p>
+      <app-input
+        (valueChange)="valueChange('voucher', $event)"
+        [disabled]="voucherDisabled"
+        [error]="voucherError.hasError || error.hasError"
+        (click)="clearError('voucher')"
+        placeholder="Digite o código de ativação"
+      ></app-input>
+      <div class="activate-voucher--input-container--info">
+        <p>O que é cupom voucher?</p>
+        <app-info-bubble
+          bubbleMessage="Voucher é um código promocional que disponibiliza uma degustação grátis da plataforma por até 30 dias."
+          bubbleTicketText="SACML0000"
+        ></app-info-bubble>
+      </div>
+    </div>
+    <span class="activate-voucher--separator">ou</span>
+    <div class="activate-voucher--input-container">
+      <p class="activate-voucher--input-container--title">
+        Ativar cupom promocional:
+      </p>
+      <app-input
+        (valueChange)="valueChange('cupom', $event)"
+        [disabled]="cupomDisabled"
+        [error]="cupomError.hasError || error.hasError"
+        (click)="clearError('cupom')"
+        placeholder="Digite o código de ativação"
+      ></app-input>
+      <div class="activate-voucher--input-container--info">
+        <p>O que é cupom promocional?</p>
+        <app-info-bubble
+          bubbleMessage="Cupom é um código promocional que disponibiliza uma degustação grátis da plataforma por até 30 dias."
+          bubbleTicketText="MULTI0000"
+        ></app-info-bubble>
+      </div>
+    </div>
+    <app-button
+      classList="btn-primary"
+      *ngIf="
+        !error.hasError &&
+        !voucherError.hasError &&
+        !cupomError.hasError &&
+        !waitingForCodeValidation
+      "
+      (click)="verifyCode()"
+      >Ativar</app-button
+    >
+    <div class="activate-voucher--loading" *ngIf="waitingForCodeValidation">
+      <app-loading></app-loading>
+    </div>
+    <div
+      class="activate-voucher--code-error-text"
+      *ngIf="error.hasError || voucherError.hasError || cupomError.hasError"
+    >
+      <p *ngIf="error.message !== ''">
+        {{ error.message }}
+      </p>
+      <p *ngIf="error.message === ''">
+        Desculpe. Não conseguimos validar este código. Tente mais tarde ou
+        <a>entre em contato</a>
+      </p>
+    </div>
+    <a routerLink="/faq" class="activate-voucher--code-info-link"> </a>
+  </div>
+</div>
+
+
+<div
+  *ngIf="theme.client !== 'multilaser'"
+  class="container"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="activate-voucher-watch">
+    <h3 class="activate-voucher-watch--title">Ativar conta via SMS</h3>
+    <p class="activate-voucher-watch--subtitle">
+      Digite o código recebido via SMS para realizar a ativação da sua conta.
+    </p>
+    <div class="activate-voucher-watch--input-container">
+      <app-input
+        [disabled]="smsDisabled"
+        [(value)]="smsCode"
+        [error]="smsError.hasError || error.hasError"
+        (click)="clearSms(smsCode)"
+        placeholder="Digite o código de ativação"
+      ></app-input>
+    </div>
+    <app-button
+      classList="btn-primary"
+      *ngIf="
+        !error.hasError &&
+        !voucherError.hasError &&
+        !smsError.hasError &&
+        !waitingForCodeValidation
+      "
+      (click)="verifySms()"
+      >Validar</app-button
+    >
+    <div class="activate-voucher-watch--loading" *ngIf="waitingForCodeValidation">
+      <app-loading></app-loading>
+    </div>
+    <div
+      class="activate-voucher-watch--code-error-text"
+      *ngIf="error.hasError || smsError.hasError"
+    >
+      <p *ngIf="smsError.message !== ''">
+        {{ smsError.message }}
+      </p>
+      <p *ngIf="smsError.message === ''">
+        Desculpe. Não conseguimos validar este código. Tente mais tarde ou
+        <a>entre em contato</a>
+      </p>
+    </div>
+    <a routerLink="/faq" class="activate-voucher-watch--code-info-link"> </a>
+  </div>
+  <app-successful-register
+  *ngIf="successModal"
+  ></app-successful-register>
+</div>

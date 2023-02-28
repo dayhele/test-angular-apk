@@ -1,0 +1,43 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .background {
+    .container {
+      width: 100vw;
+      height: remc(336);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: radial-gradient(
+          64.25% 164.96% at 6.77% 100%,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(237.71deg, #3f0796 4.04%, rgba(63, 7, 150, 0) 32.95%),
+        linear-gradient(
+          180.51deg,
+          rgba(116, 9, 121, 0.5) 0.44%,
+          rgba(116, 9, 121, 0) 55.39%
+        ),
+        linear-gradient(
+          216.34deg,
+          rgba(17, 0, 44, 0.5) 20.36%,
+          rgba(0, 0, 0, 0.05) 108.94%
+        ),
+        radial-gradient(
+          93.05% 797.77% at 0.89% 3.11%,
+          #840bb3 0%,
+          #480b7a 51.82%,
+          #0b0319 100%
+        );
+      .banner-directvgo {
+        background-repeat: no-repeat;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

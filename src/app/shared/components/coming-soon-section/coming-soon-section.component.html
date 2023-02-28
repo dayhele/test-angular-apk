@@ -1,0 +1,17 @@
+<div class="section">
+  <div class="section__start">
+    <h3>O que vem por aí</h3>
+    <p>
+      Aqui na Watch você pode acompanhar todas as transmissões do maior evento
+      esportivo do mundo.
+    </p>
+    <app-button
+      [type]="'button'"
+      [text]="'Assistir trailers'"
+      [classList]="'btn-secondary'"
+    ></app-button>
+  </div>
+  <div class="section__end">
+    <img *ngFor="let item of comingSoon" [src]="item.image" />
+  </div>
+</div>

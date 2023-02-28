@@ -1,0 +1,5 @@
+<app-is-subscriber *ngIf="isSubscriber; else isNotSubscriber"></app-is-subscriber>
+
+<ng-template #isNotSubscriber>
+  <app-not-is-subscriber></app-not-is-subscriber>
+</ng-template>

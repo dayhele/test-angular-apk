@@ -1,0 +1,27 @@
+<div class="section">
+  <div class="section--header">
+    <h3>{{ sectionTitle }}</h3>
+    <div class="section--header--content">
+      <div class="button">
+        <app-button
+          *ngIf="sectionButtonText !== ''"
+          [type]="'button'"
+          [text]="sectionButtonText"
+          [classList]="'btn-secondary'"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+  <swiper
+    [slidesPerView]="'auto'"
+    *ngIf="data?.length !== undefined"
+    [navigation]="!checkMobile"
+  >
+    <ng-template swiperSlide *ngFor="let item of data">
+      <app-keep-watching-card
+        [cardProperties]="cardProperties"
+        [data]="item"
+      ></app-keep-watching-card>
+    </ng-template>
+  </swiper>
+</div>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
+      name="viewport"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="loading-container" id="loading-container">
+      <div class="loading-circle"></div>
+    </div>
+    <div class="audio-modal" id="audio-modal"></div>
+    <div class="container">
+      <span id="digited-channel-container" class="channel-number-container">
+        <span id="digited-channel"></span>
+      </span>
+
+      <button class="details--button" id="details-button" onclick="goBack()">
+        <img
+          src="../../images/arrow-back-details.png"
+          class="details--button-arrow"
+        />
+      </button>
+      <div class="container--titles" id="container-title">
+        <div class="container--titles-title" id="player-title"></div>
+        <div class="container--titles-temp" id="player-temp"></div>
+      </div>
+      <div class="footer--player-control" id="footer-player">
+        <div class="controls--container" id="controls-container">
+          <button id="button-back-zero" onclick="backToZero()">
+            <img
+              class="back--button-to-zero"
+              src="../../images/back-to-zero-icon.png"
+            />
+          </button>
+          <button id="back-button" onclick="back()">
+            <img class="back--button" src="../../images/back-icon.png" />
+          </button>
+          <button id="pause-button" onclick="buttonPause()">
+            <img
+              class="pause--button"
+              id="pause-button-img"
+              src="../../images/pause-icon.png"
+            />
+          </button>
+          <button onclick="forward()" id="foward-button">
+            <img class="foward--button" src="../../images/foward-icon.png" />
+          </button>
+        </div>
+        <div class="timer--container">
+          <p class="text--timer" id="initial-time"></p>
+          <p class="text--timer" id="final-time"></p>
+        </div>
+        <div class="progress--bar-container">
+          <div class="progress--bar-background">
+            <div class="progress--bar" id="progress-bar"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container--player-kaltura">
+        <div id="kaltura_player_15630281" class="player--kaltura"></div>
+      </div>
+    </div>
+
+    <div class="container-epg" id="containerPopup">
+      <div class="popup" id="popup">
+        <div class="popup--arrow">
+          <button onclick="closeModalEPG()" class="arrow-container">
+            <img
+              src="../../images/arrow-back-details.png"
+              class="details--button-arrow"
+            />
+          </button>
+        </div>
+        <div class="popup--rows"></div>
+      </div>
+    </div>
+
+    <div class="container-popup" id="containerPopupConect">
+      <div class="popup">
+        <div class="popup--text-title">Ops!</div>
+        <p class="popup--text-description">
+          O perfil já está ativo em outro dispositivo.
+        </p>
+        <div class="popup--buttons">
+          <button
+            onclick="goTo('../profile-select/index.html')"
+            class="popup--buttons-button"
+          >
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../axios/axios.min.js"></script>
+    <script src="https://cdnapisec.kaltura.com/p/2267831/embedPlaykitJs/uiconf_id/44208331"></script>
+    <script src="./watch.js" async></script>
+  </body>
+</html>

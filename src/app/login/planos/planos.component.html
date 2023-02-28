@@ -1,0 +1,160 @@
+<!-- <app-modal-channels
+  [channels]="channels"
+  *ngIf="channelsLoaded"
+></app-modal-channels>
+<div
+  class="container"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="plans">
+    <div class="plans--title">
+      <h3>Planos</h3>
+    </div>
+    <div class="plans--subtitle">
+      <h4>Assine agora e ganhe 2 meses de acesso gratuito.</h4>
+    </div>
+
+    <div class="plans--description">
+      <p>
+        A Watch possui diferentes planos com conteúdos diversificados sem
+        anúncio na hora que quiser. Tenha acesso a conteúdos exclusivos, além de
+        filmes e séries. Escolha o plano ideal para você, altere e cancele sua
+        assinatura a qualquer momento.
+      </p>
+    </div>
+    <div class="plans--cards">
+      <div class="loading" *ngIf="isLoading; else plansBlock">
+        <app-loading></app-loading>
+      </div>
+    </div>
+    <ng-template #plansBlock>
+      <swiper [slidesPerView]="3" [navigation]="true">
+        <ng-template swiperSlide *ngFor="let plan of plans">
+          <div class="card">
+            <div class="card--title">
+              <h3>{{ plan?.planName }}</h3>
+            </div>
+            <ul class="card--benefits">
+              <li class="benefit">
+                <span class="quality">Qualidade dos vídeos:</span>
+                <p>{{ plan?.planBenefits?.videoQuality }}</p>
+              </li>
+              <li class="benefit">
+                <span class="quality">Resolução:</span>
+                <p>{{ plan?.planBenefits?.videoQuality }}</p>
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: !plan?.planBenefits?.playOnSmartTV,
+                    active: plan?.planBenefits?.playOnSmartTV
+                  }"
+                  >Reprodução em Smart TVs*</span
+                >
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: !plan?.planBenefits?.playOnPC,
+                    active: plan?.planBenefits?.playOnPC
+                  }"
+                  >Reprodução em Computadores</span
+                >
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: !plan?.planBenefits?.playOnMobile,
+                    active: plan?.planBenefits?.playOnMobile
+                  }"
+                  >Reprodução em Celulares</span
+                >
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: !plan?.planBenefits?.playOnTablet,
+                    active: plan?.planBenefits?.playOnTablet
+                  }"
+                  >Reprodução em Tablets</span
+                >
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: plan?.planBenefits?.linearChannels === 0,
+                    active: plan?.planBenefits?.linearChannels !== 0
+                  }"
+                  >Canais Lineares ({{
+                    plan?.planBenefits?.linearChannels
+                  }}
+                  canais)</span
+                >
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: !plan?.planBenefits?.stingrayChannels,
+                    active: plan?.planBenefits?.stingrayChannels
+                  }"
+                  >Canais Stringray*</span
+                >
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: !plan?.planBenefits?.hboMax,
+                    active: plan?.planBenefits?.hboMax
+                  }"
+                  >HBO Max*</span
+                >
+              </li>
+              <li class="benefit">
+                <span
+                  [ngClass]="{
+                    disabled: !plan?.planBenefits?.nsports,
+                    active: plan?.planBenefits?.nsports
+                  }"
+                  >Transmissões NSports*</span
+                >
+              </li>
+            </ul>
+            <div class="card--price">
+              <div class="price">
+                <p>Valor:</p>
+                <span>R${{ plan?.planPrice }}</span>
+              </div>
+              <div class="price">
+                <p>Por:</p>
+                <span>R${{ plan?.discountPlanPrice }}</span>
+              </div>
+            </div>
+            <div class="card--button">
+              <app-button
+                type="button"
+                text="assinar"
+                classList="btn-primary"
+                (click)="selectPlan(plan)"
+              ></app-button>
+            </div>
+          </div>
+        </ng-template>
+      </swiper>
+    </ng-template>
+    <div class="plans--linear-channels">
+      <app-button
+        (click)="modalChannels()"
+        text="Consultar grade de canais lineares"
+        type="button"
+        classList="btn-secondary"
+      >
+      </app-button>
+    </div>
+  </div>
+  <div class="caption">
+    <p>* Produtos que podem ser comprados separadamente</p>
+  </div>
+  <div class="badges">
+    <app-secure-site-card-badges></app-secure-site-card-badges>
+  </div>
+</div> -->

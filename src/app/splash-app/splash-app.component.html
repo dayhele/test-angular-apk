@@ -1,0 +1,27 @@
+<div class="background">
+  <div class="content">
+    <ng-container #watch *ngIf="theme.client === 'watch'">
+      <div class="logo1">
+        <img [class.active]="activeLogo1"
+          [src]="environment.bucket + 'logos/logo-watch-2.svg'" />
+      </div>
+      <div class="logo2">
+        <img [class.active]="activeLogo2"
+          [src]="environment.bucket + 'logos/logo-watch.svg'" />
+      </div>
+    </ng-container>
+    <ng-container #multi *ngIf="theme.client === 'multilaser'">
+      <img height="44px" [src]="environment.bucket + 'logos/logo-multi.svg'" />
+    </ng-container>
+    <div class="progress-bar">
+      <div class="bar" [class.active]="activeProgressBar" *ngIf="activeLogo2">
+        <div [class.active]="activeProgressBar" class="fill"></div>
+      </div>
+    </div>
+    <div class="copyright" [class.active]="activeLogo1 || activeLogo2">
+      <h3>{{ theme.splash.copyrightTitle }}</h3>
+      <p>{{ theme.splash.copyrightSubtitle }}</p>
+    </div>
+  </div>
+  <div class="fade"></div>
+</div>

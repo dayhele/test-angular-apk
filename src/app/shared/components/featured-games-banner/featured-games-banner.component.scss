@@ -1,0 +1,108 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 remc(56);
+    position: relative;
+    transition: all 0.2s;
+
+    .title-mobile {
+      display: flex;
+      align-items: center;
+
+      z-index: 2;
+
+      .logo-icon {
+        width: remc(87);
+        height: remc(50);
+        margin-right: remc(12);
+      }
+
+      h1 {
+        font-size: remc(16);
+        color: var(--blue-multi-25);
+      }
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      padding-top: remc(90);
+      z-index: 2;
+
+      .logo-icon {
+        width: remc(87);
+        height: remc(50);
+        margin-right: remc(12);
+      }
+
+      h1 {
+        font-size: remc(64);
+        color: var(--blue-multi-25);
+      }
+    }
+
+    &__image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    &__subtitle {
+      width: 100%;
+      margin-top: remc(17);
+      z-index: 2;
+      padding-bottom: remc(50);
+
+      p {
+        width: remc(773);
+        color: var(--blue-multi-25);
+        font-size: remc(14);
+      }
+    }
+
+    @media screen and (max-width: remc(900)) {
+      padding: 0 2rem;
+
+      h1 {
+        font-size: remc(40);
+      }
+
+      &__subtitle {
+        padding-bottom: remc(30);
+      }
+    }
+
+    @media screen and (max-width: remc(768)) {
+      padding: remc(16) 0 1rem 1rem;
+
+      h1 {
+        padding-top: remc(16);
+        padding-bottom: remc(5);
+        font-size: remc(18);
+      }
+
+      &__image {
+        max-height: remc(300);
+      }
+
+      &__subtitle {
+        display: none;
+      }
+    }
+
+    @media screen and (max-width: remc(600)) {
+      &__image {
+        max-height: remc(200);
+      }
+    }
+  }
+}

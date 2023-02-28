@@ -1,0 +1,14 @@
+
+  <div #modal class="modal">
+    <div class="modal--content">
+      <p>Você tem certeza de que deseja deletar este perfil?</p>
+    </div>
+    <div class="modal--options">
+      <app-button classList="btn-secondary" (click)="cancel()">
+        Cancelar
+      </app-button>
+      <app-button classList="btn-primary" (click)="confirmDelete()">
+        Excluir
+      </app-button>
+    </div>
+  </div>

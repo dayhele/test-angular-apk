@@ -1,0 +1,118 @@
+<main class="container">
+  <div
+    *ngIf="!environment.app"
+    class="{{ classBanner }}"
+    style="background-image: url('{{ banner }}')"
+  >
+    <div class="{{ classBannerContainer }}">
+      <div *ngIf="!isLoading">
+        <img *ngIf="icon" src="{{ icon }}" />
+        <h1 *ngIf="!icon">{{ titlePage }}</h1>
+
+        <p>{{ description }}</p>
+      </div>
+
+      <div *ngIf="isLoading" class="{{ classBannerContainer }}">
+        <div class="skeleton__results skeleton__results--hor">
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="pulse"
+            [theme]="{
+              display: 'block',
+              height: '50px',
+              width: '300px'
+            }"
+          ></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="pulse"
+            [theme]="{
+              display: 'block',
+              height: '100px',
+              width: '300px'
+            }"
+          ></ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="banner-container-app" *ngIf="environment.app && !isLoadingBanner">
+    <img class="background" src="assets/bg/xpe.banner.png" />
+
+    <img class="logo" src="assets/logos/logo-XPE.svg" />
+  </div>
+
+  <div *ngFor="let item of list$ | async as course">
+    <div *ngIf="!isLoading" class="container__section">
+      <app-default-section-season
+        [seasonTitle]="item.title"
+        [seasonDescricao]="item.description"
+        [seasonYear]="item.year"
+        [seasonIdSerie]="item.serieId"
+        [seasonIdSeason]="item.id"
+        [seasonVideos]="item.videos"
+        [seasonImg]="buildImage(item?.cdn, item?.highlight)"
+        [isNovelas]="isNovelas"
+        [bannerPageUrl]="item.bannerPageUrl"
+      >
+      </app-default-section-season>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading">
+    <div
+      class="skeleton__results skeleton__results--hor"
+      *ngIf="!environment.app"
+    >
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '350px',
+          width: '100%'
+        }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="4"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '288px',
+          width: '196px',
+          marginRight: '24px',
+          marginBottom: '24px',
+          display: 'row'
+        }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '350px',
+          width: '100%'
+        }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="4"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '288px',
+          width: '196px',
+          marginRight: '24px',
+          marginBottom: '24px',
+          display: 'row'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+    <div class="loading" *ngIf="environment.app">
+      <app-loading></app-loading>
+    </div>
+  </div>
+</main>

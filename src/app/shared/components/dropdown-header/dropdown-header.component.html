@@ -1,0 +1,53 @@
+<div class="dropdown">
+  <a class="icon" (click)="onDropdownClick()">
+    <img [ngClass]="active ? 'icon__active' : ''" src="{{ environment.imageService }}/icons/arrow-down.svg"
+      alt="arrow-down" />
+  </a>
+  <div class="close" (click)="onDropdownClick()" [ngClass]="active ? 'close__active' : ''"></div>
+  <div class="menu" [ngClass]="active ? 'menu__active' : ''">
+    <ul *ngIf="isSelected">
+      <li *ngFor="let profile of profileList; let i = index">
+        <a (click)="selectProfile(profile)">
+          <div class="circle" [ngStyle]="{
+              'background-color': 'var(' + profile?.backgroundColor + ')'
+            }">
+            <img [src]="profile?.foto" *ngIf="profile?.foto !== ''; else image" />
+            <ng-template #image>
+              <img [src]="theme.client === 'watch' ? environment.bucket + 'profiles/orange.svg' : environment.bucket + 'profiles/pink.svg'" />
+            </ng-template>
+          </div>
+          {{ profile?.nome }}
+        </a>
+      </li>
+
+      <li *ngIf="
+          profileList.length < profileLimit?.limitProfile && !this.profile.kids
+        ">
+        <a (click)="createProfile('/profile/create')">
+          <div class="circle circle__border">
+            <img src="{{ environment.imageService }}/icons/profile/add.svg" />
+          </div>
+          Novo usuário
+        </a>
+      </li>
+    </ul>
+    <div class="spacer" *ngIf="isSelected"></div>
+    <ul>
+      <ng-container *ngIf="(getAgeBracket() === '18' || profile?.master === 1) && !getCurrentUrl().includes('profile')">
+        <li *ngIf="planAcessControl.hasHBO">
+          <a routerLink="/produtos-adicionais/hbo-max-tutorial/web">Produtos adicionais</a>
+        </li>
+        <li>
+          <a (click)="onLogoutProfileClick()">Gerenciar perfis</a>
+        </li>
+        <li>
+          <a routerLink="/account">Conta</a>
+        </li>
+        <li *ngIf="theme.client === 'watch'">
+          <a routerLink="/feedback">Enviar feedback</a>
+        </li>
+      </ng-container>
+      <li><a (click)="onLogoutClick()">Sair</a></li>
+    </ul>
+  </div>
+</div>

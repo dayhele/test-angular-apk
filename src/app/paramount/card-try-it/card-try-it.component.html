@@ -1,0 +1,26 @@
+<div *ngIf="sectionCards.length > 0">
+  <div class="container" *ngIf="tryItCarouselIsLoaded; else isLoading">
+    <app-section [title]="'Experimente'" [properties]="{ orientation: 'vertical' }" [hasAwesomenessLogo]="true"
+      [isExclusiveContent]="true"
+      [hasCustomIcon]="environment.bucket + 'logos/logo-paramount-title.png'"
+      labelExclusiveContent="Planos Paramount+" [hasExclusiveContent]="true" [data]="sectionCards" [verMais]="false"
+      [isInfinity]="true"></app-section>
+  </div>
+  <ng-template #isLoading>
+    <div class="skeleton__sections">
+      <ngx-skeleton-loader count="1" appearance="line" animation="pulse" [theme]="{
+          display: 'block',
+          height: '28px',
+          width: '300px',
+          marginTop: '1.5rem',
+          marginLeft: '4rem'
+        }"></ngx-skeleton-loader>
+      <ngx-skeleton-loader class="loader" [count]="1" appearance="line" animation="pulse" [theme]="{
+          height: '208px',
+          width: '100%',
+          display: 'flex',
+          marginLeft: '4rem'
+        }"></ngx-skeleton-loader>
+    </div>
+  </ng-template>
+</div>

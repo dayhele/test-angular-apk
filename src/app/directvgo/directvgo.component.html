@@ -1,0 +1,97 @@
+<div class="directv">
+  <div class="directv--banner">
+    <img [src]="environment.bucket + 'bg/directv-banner.svg'"
+      alt="Directv Banner" />
+  </div>
+
+  <app-directvgo-secao-info></app-directvgo-secao-info>
+
+  <div class="directv--benefits">
+    <div class="directv--benefits--content">
+      <h2 class="directv--benefits--content--title">
+        curta tudo que a
+        <div>
+          <img [src]="environment.bucket + 'logos/DIRECTVGO.png'"
+            alt="DIRECTVGO" />
+        </div>
+        oferece:
+      </h2>
+
+      <ul class="directv--benefits--content--list">
+        <li class="directv--benefits--content--list--item">
+          <p>Mais de 70 canais de TV ao vivo;</p>
+        </li>
+        <li class="directv--benefits--content--list--item">
+          <p>Mais de 10.000 conteúdos para assistir quando quiser;</p>
+        </li>
+        <li class="directv--benefits--content--list--item">
+          <p>Voltar o tempo de um vídeo ao vivo;</p>
+        </li>
+        <li class="directv--benefits--content--list--item">
+          <p>
+            Possibilidade de assistir no celular, tablet, smartv ou computador.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <div class="directv--benefits--banner">
+      <img [src]="environment.bucket + 'bg/directv-devices.png'" alt="Devices" />
+    </div>
+  </div>
+  <div class="directv--channels">
+    <div class="directv--channels--content">
+      <h3>
+        Mais de 70 canais de TV ao vivo e cobertura exclusiva de esportes!
+      </h3>
+      <p>
+        Conteúdos locais, notícias, canais infantis e redes de TV internacionais
+        e entretenimento.
+      </p>
+      <p>Ligas locais e as melhores competições de esportes internacionais</p>
+      <p>Leve sua paixão por esportes</p>
+    </div>
+    <app-directv-channels-carousel></app-directv-channels-carousel>
+  </div>
+  <div class="directv--info">
+    <p>
+      Com a Multi+ você tem a comodidade de acessar várias plataformas
+      com um único login e senha.
+    </p>
+    <div routerLink="/planos" class="directvBtn">contrate agora!</div>
+    <span>Consulte termos e condições em www.directvgo.com.br/br/regulamento
+    </span>
+  </div>
+  <div class="directv--footer">
+    <div class="directv--footer--logos">
+      <img [src]="environment.bucket + 'logos/logo_multilaser.svg'"
+        alt="logo_Multimais" />
+      <div class="directv--footer--logos--divider"></div>
+      <img [src]="environment.bucket + 'logos/logo-directvgo.svg'"
+        alt="logo_directvgo" />
+    </div>
+    <div class="directv--footer--stores">
+      <img [src]="environment.bucket + 'icons/google_play_bck.png'"
+        alt="app-store" />
+      <img [src]="environment.bucket + 'icons/apple_store_bck.png'"
+        alt="google-play" />
+    </div>
+    <p class="directv--footer--description">
+      Para uso dos serviços, é necessária uma conexão estável de internet de, ao
+      menos, 4MB. Para conexões móveis, é necessária uma conexão de, no mínimo,
+      20MB. Confira os termos e condições de contratação em
+      https://directvgo.com/termos-condicoes. Para prestar e melhorar nossos
+      serviços, personalizar e otimizar sua experiência, enviar comunicações
+      sobre a DIRECTV GO ou parceiros, e cumprir com obrigações legais e
+      regulatórias, realizamos o tratamento de seus dados pessoais e fazemos uso
+      de cookies. Ao acessar o nosso site, você declara que lê e compreende
+      nossa Política de Privacidade e Política de Cookies. DIRECTV, o logotipo
+      DIRECTV e todas as marcas DIRECTV disponibilizadas nesse site são marcas
+      comerciais da VRIO Corp. O serviço DIRECTV GO é comercializado pela
+      STREAMCO DISTRIBUIÇÃO DE VÍDEO BRASIL LTDA. (DIRECTVGO), sociedade
+      limitada com sede na Rodovia Governador Doutor Adhemar Pereira de Barros,
+      Km 133, 10 PART ZL1-02, Jardim Roseira, Cidade de Jaguariúna, Estado de
+      São Paulo, CEP 13.917-470, inscrita no CNPJ sob nº. 35.473.202/0
+      001-355.473.202/0001-35
+    </p>
+  </div>
+</div>

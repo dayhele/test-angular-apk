@@ -1,0 +1,104 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .container {
+    width: 100%;
+    height: auto;
+
+    .banner {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      z-index: 1;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      padding: remc(96) 0 remc(76) remc(56);
+
+      .header {
+        display: flex;
+        align-items: center;
+        padding-bottom: remc(64);
+
+        img {
+          margin-right: remc(56);
+        }
+
+        .title {
+          display: flex;
+          align-items: center;
+
+          .logo {
+            margin-right: remc(12);
+            width: auto;
+            height: remc(50);
+          }
+
+          h1 {
+            color: var(--blue-multi-25);
+          }
+        }
+      }
+
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: remc(32) remc(24);
+
+        .item {
+          display: inline-block;
+        }
+      }
+    }
+    .content-banner {
+      background-position: center;
+      background-clip: padding-box;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      padding-top: remc(80.14);
+      z-index: 3;
+
+      .text-title {
+        p {
+          color: var(--white);
+          text-align: center;
+          font-size: remc(24);
+          font-weight: 700;
+          line-height: remc(28);
+        }
+      }
+      .text-subtitle {
+        p {
+          margin-top: remc(14);
+          color: var(--white);
+          text-align: center;
+          font-size: remc(18);
+          font-weight: 200;
+          line-height: remc(21);
+        }
+      }
+      .buttons {
+        margin-top: remc(20);
+        padding-bottom: remc(14);
+        display: flex;
+
+        .button:first-child {
+          margin-right: remc(16);
+        }
+      }
+    }
+  }
+}

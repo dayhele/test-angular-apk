@@ -1,0 +1,29 @@
+<main class="container" *ngIf="favoriteCards.length > 0">
+  <app-dropdown-favorites [categories]="categories"></app-dropdown-favorites>
+  <div
+    class="container__section"
+    *ngIf="!isLoading && favoriteCardsFilter.length > 0"
+  >
+    <div *ngFor="let card of favoriteCardsFilter">
+      <app-card
+        [properties]="{ orientation: 'vertical' }"
+        [data]="card"
+        [route]="'/details/' + card.id + '/' + card.type"
+        [idPerfil]="idPerfil"
+        [dataList]="favoriteCards"
+        [dataListFiltered]="favoriteCardsFilter"
+      >
+      </app-card>
+    </div>
+  </div>
+  <div class="container__loading" *ngIf="favoriteCardsFilter.length === 0">
+    <h3>Nenhum conteúdo disponível</h3>
+  </div>
+</main>
+
+<main class="loading" *ngIf="favoriteCards.length === 0">
+  <div class="loading">
+    <app-loading *ngIf="isLoading"></app-loading>
+    <h3 *ngIf="!isLoading">Nenhum conteúdo disponível</h3>
+  </div>
+</main>

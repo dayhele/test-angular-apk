@@ -1,0 +1,303 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  display: flex;
+  flex: 1;
+
+  .container-success {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: remc(65) 0;
+    width: 100%;
+
+    .main-card {
+      background-color: var(--primary-dark);
+      width: remc(684);
+      height: remc(418);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .main-title {
+        font-size: remc(16);
+        color: var(--white);
+        font-weight: 700;
+        margin-top: remc(22);
+      }
+
+      .plan-cards {
+        display: flex;
+        align-items: center;
+        margin-top: remc(48);
+
+        .card-current {
+          background-color: var(--primary-background);
+          width: remc(149);
+          height: remc(136);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .card-title {
+            color: var(--primary-base);
+            margin-top: remc(12);
+            opacity: 0.5;
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .line {
+            border: remc(1) var(--black) solid;
+            opacity: 0.5;
+            width: remc(131);
+            margin-top: remc(15);
+          }
+
+          .current-plan {
+            margin-top: remc(22);
+            color: var(--white);
+            opacity: 0.5;
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .current-price {
+            margin-top: remc(8);
+            margin-bottom: remc(33);
+            color: var(--white);
+            opacity: 0.5;
+            font-size: remc(12);
+            font-weight: 300;
+          }
+        }
+
+        .arrow {
+          margin: 0 remc(38.88);
+        }
+
+        .card-new {
+          background-color: var(--primary-background);
+          width: remc(149);
+          height: remc(136);
+          border: remc(2) solid var(--primary-base);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .card-title {
+            color: var(--primary-base);
+            margin-top: remc(12);
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .line {
+            border: remc(1) var(--black) solid;
+            width: remc(131);
+            margin-top: remc(15);
+            opacity: 0.2;
+          }
+
+          .new-plan {
+            margin-top: remc(22);
+            color: var(--white);
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .new-price {
+            margin-top: remc(8);
+            margin-bottom: remc(33);
+            color: var(--white);
+            font-size: remc(12);
+            font-weight: 300;
+          }
+        }
+      }
+
+      .message-upgrade, .message-downgrade {
+        width: remc(420);
+        height: remc(32);
+        margin-top: remc(36);
+        text-align: center;
+        font-size: remc(12);
+        font-weight: 300;
+        color: var(--white);
+      }
+
+      .error-message {
+        width: remc(420);
+        height: remc(32);
+        margin-top: remc(36);
+        text-align: center;
+        font-size: remc(13);
+        font-weight: 300;
+        color: var(--error-red);
+      }
+
+      .button {
+        margin-top: remc(34);
+      }
+
+      .cancelar {
+        margin-top: remc(18);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .main-card-mobile {
+      background-color: var(--primary-dark);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: remc(36);
+
+      .main-title {
+        font-size: remc(26);
+        color: var(--white);
+        font-weight: 700;
+        margin-top: remc(22);
+      }
+
+      .plan-cards {
+        display: flex;
+        align-items: center;
+        margin-top: remc(48);
+
+        .card-current {
+          background-color: var(--primary-background);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .card-title {
+            color: var(--primary-base);
+            margin-top: remc(12);
+            opacity: 0.5;
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .line {
+            border: remc(1) var(--black) solid;
+            opacity: 0.5;
+            width: remc(131);
+            margin-top: remc(15);
+          }
+
+          .current-plan {
+            margin-top: remc(22);
+            color: var(--white);
+            opacity: 0.5;
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .current-price {
+            margin-top: remc(8);
+            margin-bottom: remc(33);
+            color: var(--white);
+            opacity: 0.5;
+            font-size: remc(12);
+            font-weight: 300;
+          }
+        }
+
+        .arrow {
+          margin: 0 remc(2);
+        }
+
+        .card-new {
+          background-color: var(--primary-background);
+          border: remc(2) solid var(--primary-base);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .card-title {
+            color: var(--primary-base);
+            margin-top: remc(12);
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .line {
+            border: remc(1) var(--black) solid;
+            width: remc(131);
+            margin-top: remc(15);
+            opacity: 0.2;
+          }
+
+          .new-plan {
+            margin-top: remc(22);
+            color: var(--white);
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          .new-price {
+            margin-top: remc(8);
+            margin-bottom: remc(33);
+            color: var(--white);
+            font-size: remc(12);
+            font-weight: 300;
+          }
+        }
+      }
+
+      .message-upgrade, .message-downgrade {
+        width: 90%;
+        height: remc(32);
+        margin-top: remc(36);
+        margin-bottom: remc(36);
+        text-align: center;
+        font-size: remc(12);
+        font-weight: 300;
+        color: var(--white);
+      }
+
+      .error-message {
+        width: 90%;
+        height: remc(32);
+        margin-top: remc(36);
+        text-align: center;
+        font-size: remc(13);
+        font-weight: 300;
+        color: var(--error-red);
+      }
+
+      .button {
+        margin-top: remc(34);
+      }
+
+      .cancelar {
+        margin-top: remc(18);
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

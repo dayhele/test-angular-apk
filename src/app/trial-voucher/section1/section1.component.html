@@ -1,0 +1,24 @@
+<div class="container">
+  <img  [src]="environment.bucket + 'bg/trial-voucher/EX_2.png'">
+  <div class="content">
+    <div class="section-title-header">
+      <img class="paramount-logo" [src]="environment.bucket + 'bg/trial-voucher/Logo.png'" />
+      <p class="title-text-header">DE FÉRIAS COM O EX</p>
+      <p class="title-description-header">CARIBE SALSEIRO VIP</p>
+    </div>
+    <div class="section-title">
+      <div class="top">
+        <p class="title-text-top">Você merece</p>
+        <img class="multi-logo" [src]="environment.bucket + 'logos/logo-multi.svg'" />
+        <p class="title-text-top">conteúdos!</p>
+      </div>
+      <div class="section-button">
+        <app-button
+        routerLink="/login/voucher"
+        [text]="'QUERO MEUS '+daysFree+' DIAS'"
+        [classList]="'btn-secondary'">
+        </app-button>
+      </div>
+    </div>
+  </div>
+</div>

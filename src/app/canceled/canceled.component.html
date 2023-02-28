@@ -1,0 +1,58 @@
+<div
+  class="wrapes"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="container" *ngIf="!checkMobile">
+    <div class="title">A sua conta está inativa</div>
+    <div class="sub-title">
+      Há questões de pagamento que necessitam ser resolvidas na <br />
+      sua conta.
+    </div>
+    <div class="text">
+      Tente novamente, o pagamento não foi atualizado na nossa base de dados,
+      <br />
+      caso não consiga, o recomendado é atualizar os dados de pagamento e <br />
+      aguardar a liberação da sua conta.
+    </div>
+    <div class="button-or-link">
+      <p>
+        <button [routerLink]="'/account'">Atualizar pagamento</button> &nbsp;
+        <b>ou</b> &nbsp;
+        <a [routerLink]="'/login/sms'"><u>Ativar conta por código</u></a>
+      </p>
+    </div>
+    <div class="help">
+      <p>
+        Se estiver com algum problema e precisar de ajuda, clique em &nbsp;
+        <a [routerLink]="'/faq'"><u>Preciso de ajuda</u></a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-mobile" *ngIf="checkMobile">
+  <div class="title-mobile">A sua conta está inativa</div>
+  <div class="sub-title-mobile">
+    Há questões de pagamento que necessitam ser resolvidas na <br />
+    sua conta.
+  </div>
+  <div class="text-mobile">
+    Tente novamente, as vezes o pagamento não foi atualizado na <br />
+    nossa base de dados, caso não consiga, o recomendado é <br />
+    atualizar os dados de pagamento e aguardar a liberação da sua <br />
+    conta.
+  </div>
+  <div class="warning-mobile">
+    <p>
+      Para não haver o cancelamento da sua conta, sugerimos a <br />
+      atualização do pagamento da assinatura via desktop.
+    </p>
+  </div>
+  <div class="help-mobile">
+    <p>
+      Se estiver com algum problema e precisar de ajuda, clique em <br />
+      <br />
+      <a [routerLink]="'/faq'"><u>Preciso de ajuda</u></a>
+    </p>
+  </div>
+</div>

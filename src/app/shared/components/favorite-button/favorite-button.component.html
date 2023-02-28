@@ -1,0 +1,11 @@
+<app-button
+  [iconPath]="
+    !movieSerie.favorite
+      ? 'assets/icons/star.svg'
+      : 'assets/icons/star-black.svg'
+  "
+  [iconClass] = "!movieSerie.favorite ? false: true"
+  [onlyIcon]="true"
+  [favorite]="true"
+  (click)="toggleFavoriteState()"
+></app-button>

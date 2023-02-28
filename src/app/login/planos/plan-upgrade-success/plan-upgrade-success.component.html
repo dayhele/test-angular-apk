@@ -1,0 +1,19 @@
+<div class="container">
+  <div
+    [class.main-card-mobile]="checkMobile"
+    [class.main-card]="!checkMobile">
+    <img class="image" src="assets/icons/plan-upgrade-success.svg" />
+    <div class="main-title">Alteração de plano realizada com sucesso!</div>
+    <p>
+      Você receberá um e-mail de confirmação com as informações sobre a
+      alteração do seu plano.
+    </p>
+    <app-button
+      class="button"
+      [text]="'Acessar sua conta'"
+      [type]="'button'"
+      [classList]="'btn-primary'"
+      (click)="goToHome()"
+    ></app-button>
+  </div>
+</div>

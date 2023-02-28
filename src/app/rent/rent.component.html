@@ -1,0 +1,119 @@
+<div class="section">
+  <div class="skeleton-grid" *ngIf="isLoading">
+    <ngx-skeleton-loader
+      *ngIf="!checkMobile"
+      count="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '24px',
+        width: '414px'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      *ngIf="!checkMobile"
+      count="6"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '286px',
+        width: '194px'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      *ngIf="!checkMobile"
+      count="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '24px',
+        width: '414px'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      *ngIf="!checkMobile"
+      count="3"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '286px',
+        width: '414px'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      *ngIf="!checkMobile"
+      count="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '24px',
+        width: '414px'
+      }"
+    ></ngx-skeleton-loader>
+
+    <ngx-skeleton-loader
+      *ngIf="!checkMobile"
+      count="3"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '286px',
+        width: '414px'
+      }"
+    ></ngx-skeleton-loader>
+  </div>
+  <ng-container *ngIf="!isLoading && !noSectionContent; else noContent">
+    <ng-container *ngFor="let section of rentList?.lists">
+      <ng-container *ngIf="section.type === 'rented'; else default">
+        <app-section
+          *ngIf="rentedsLoaded && section.data?.length! > 0"
+          [showExpiredContent]="!environment.app"
+          [idPerfil]="id_perfil"
+          [title]="section.title!"
+          [properties]="section.cardProperties!"
+          [data]="section.data!"
+          [rented]="section.type!"
+          [isInfinity]="false"
+        ></app-section>
+
+        <div
+          class="erro-rent-mobile"
+          *ngIf="rentedsLoaded && checkMobile && section.data!.length === 0"
+        >
+          <h3>Não há nenhuma locação disponível</h3>
+          <p>
+            Para adquirir conteúdo é preciso acessar a plataforma via plataforma
+            web e na sessão minhas locações adquirir este conteúdo.
+          </p>
+        </div>
+      </ng-container>
+      <ng-template #default>
+        <app-section
+          *ngIf="!checkMobile"
+          [idPerfil]="id_perfil"
+          [title]="section.title!"
+          [properties]="section.cardProperties!"
+          [data]="section.data!"
+          [rented]="section.type!"
+          [isInfinity]="true"
+        ></app-section>
+      </ng-template>
+    </ng-container>
+  </ng-container>
+  <ng-template #noContent>
+    <div class="no-content-section" *ngIf="!checkMobile && !isLoading">
+      <h3>Nenhum conteúdo disponível</h3>
+    </div>
+    <div class="no-content-section-mobile" *ngIf="checkMobile && !isLoading">
+      <h3>Não há nenhuma locação disponível</h3>
+      <p>
+        Para adquirir conteúdo é preciso acessar a plataforma via plataforma web
+        e na sessão minhas locações adquirir este conteúdo.
+      </p>
+    </div>
+  </ng-template>
+</div>

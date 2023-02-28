@@ -1,0 +1,37 @@
+<div *ngIf="type !== 0" class="container">
+  <div class="modal">
+    <ng-container *ngIf="type === 1">
+      <h3>Ops!</h3>
+      <p>O perfil já está ativo em outro dispositivo. Deseja finalizar a outra sessão?</p>
+      <div class="buttons">
+        <app-button
+          text="Não"
+          type="button"
+          classList="btn-secondary"
+          (click)="click(false)"
+        >
+        </app-button>
+        <app-button
+          text="Sim"
+          type="button"
+          classList="btn-primary"
+          (click)="click(true)"
+        >
+        </app-button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="type === 2">
+      <h3>Ops!</h3>
+      <p>Seu perfil foi conectado em outro dispositivo.</p>
+      <div class="buttons">
+        <app-button
+          text="Escolher outro perfil"
+          type="button"
+          classList="btn-primary"
+          (click)="click(false)"
+        >
+        </app-button>
+      </div>
+    </ng-container>
+  </div>
+</div>

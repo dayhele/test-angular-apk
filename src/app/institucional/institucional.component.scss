@@ -1,0 +1,16 @@
+.page {
+  width: 100vw;
+  overflow: hidden;
+
+  app-section5 {
+    margin-top: -19vw;
+    display: flex;
+    z-index: 2;
+    background: linear-gradient(180deg, #231032 50%, #0b0010 100%);
+  }
+
+  app-section7 {
+    position: relative;
+    z-index: 2;
+  }
+}

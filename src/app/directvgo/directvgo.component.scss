@@ -1,0 +1,292 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .directv {
+    background-color: var(--black-directvgo);
+    height: 100%;
+    width: 100%;
+
+    &--banner {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &--benefits {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: remc(70) 0;
+      flex-wrap: wrap;
+      padding: 0 remc(56);
+
+      @media screen and (max-width: 768px) {
+        padding: 0 remc(4);
+      }
+
+      &--content {
+        width: auto;
+
+        &--title {
+          font-size: remc(36);
+          color: var(--white);
+          text-transform: uppercase;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          max-width: remc(405);
+          justify-content: flex-start;
+          margin-bottom: remc(43);
+          margin-top: remc(90);
+
+          img {
+            margin-right: remc(15);
+            max-width: remc(220);
+
+            @media screen and (max-width: 439px) {
+              margin-right: 0;
+            }
+          }
+
+          @media screen and (max-width: 900px) {
+            justify-content: center;
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: remc(24);
+            margin-bottom: remc(20);
+          }
+        }
+
+        &--list {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+
+          &--item {
+            color: var(--white);
+            font-size: remc(24);
+            display: flex;
+            margin-bottom: remc(20);
+
+            &:before {
+              content: '-';
+              margin-right: remc(10);
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            @media screen and (max-width: 900px) {
+              width: fit-content;
+              text-align: center;
+
+              &:before {
+                display: none;
+              }
+            }
+
+            @media screen and (max-width: 768px) {
+              font-size: remc(16);
+            }
+          }
+
+          @media screen and (max-width: 900px) {
+            align-items: center;
+          }
+        }
+
+        @media screen and (max-width: 1541px) {
+          width: 50%;
+        }
+
+        @media screen and (max-width: 900px) {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &--banner {
+        max-width: remc(1770);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: remc(720);
+        height: remc(405);
+        margin-left: remc(60);
+        margin-top: remc(115);
+
+        img {
+          width: 100%;
+        }
+
+        @media screen and (max-width: 900px) {
+          margin-left: 0;
+          margin-top: 0%;
+          margin-bottom: 0%;
+          width: 100%;
+        }
+      }
+    }
+
+    &--channels {
+      width: 100%;
+
+      &--content {
+        margin-top: remc(140);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h3 {
+          font-size: remc(36);
+          color: var(--white);
+          margin-bottom: remc(20);
+          text-align: center;
+
+          @media screen and (max-width: 768px) {
+            font-size: remc(24);
+          }
+        }
+
+        p {
+          color: var(--white);
+          font-size: remc(24);
+          margin-bottom: remc(20);
+          text-align: center;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: remc(16);
+          }
+        }
+      }
+    }
+
+    &--info {
+      display: flex;
+      flex-direction: column;
+      padding: 0 remc(56);
+      align-items: center;
+      justify-content: center;
+      margin-bottom: remc(95);
+
+      p {
+        color: var(--white);
+        font-size: remc(36);
+        max-width: remc(1135);
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: remc(40);
+
+        @media screen and (max-width: 768px) {
+          font-size: remc(24);
+          margin-bottom: remc(20);
+        }
+      }
+
+      span {
+        margin-top: remc(51);
+        color: var(--white);
+        font-size: remc(24);
+        text-align: center;
+
+        @media screen and (max-width: 768px) {
+          font-size: remc(14);
+          margin-top: remc(20);
+        }
+      }
+    }
+
+    &--footer {
+      width: 100%;
+      padding: remc(12);
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      &--logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--divider {
+          height: remc(35);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: remc(5);
+          margin: 0 remc(23);
+        }
+
+        img {
+          width: remc(162);
+
+          @media screen and (max-width: 768px) {
+            width: remc(120);
+          }
+        }
+      }
+
+      &--stores {
+        margin-top: remc(28);
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: remc(460);
+
+        img {
+          margin: remc(10);
+        }
+      }
+
+      &--description {
+        color: var(--white-50);
+        font-size: remc(16);
+        text-align: center;
+        max-width: remc(1538);
+        width: 80%;
+        margin-top: remc(20);
+
+        @media screen and (max-width: 768px) {
+          font-size: remc(14);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: remc(48);
+      }
+    }
+  }
+
+  .directvBtn {
+    background-color: var(--orange-300);
+    padding: remc(26) remc(103);
+    border-radius: remc(60);
+    cursor: pointer;
+    width: fit-content;
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: remc(31);
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+      padding: remc(16) remc(53);
+      font-size: remc(14);
+    }
+  }
+}

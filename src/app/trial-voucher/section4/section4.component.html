@@ -1,0 +1,92 @@
+<div class="wrap">
+  <img
+    *ngIf="!checkMobile"
+    [src]="environment.bucket + 'bg/trial-voucher/section4-banner.png'"
+  />
+  <div class="container">
+    <div class="box">
+      <div class="text">
+        <div class="title">
+          <p *ngIf="!checkMobile">Conheça o plano <b> Multi + Light</b></p>
+          <p *ngIf="checkMobile">
+            Conheça o plano <br />
+            <b> Multi + Light</b>
+          </p>
+        </div>
+        <div class="subTitle">
+          <ng-container *ngIf="!checkMobile">
+            <p>Com <span class='white'>35 canais ao vivo,</span> você tem uma programação</p>
+            <p>de televisão completa e diversificada.</p>
+          </ng-container>
+          <ng-container *ngIf="checkMobile">
+            <p>Com <span class='white'>35 canais ao vivo,</span> você</p>
+            <p>tem uma programação</p>
+            <p>de televisão completa e</p>
+            <p>diversificada.</p>
+          </ng-container>
+        </div>
+        <div class="divider"></div>
+      </div>
+
+      <div class="informations">
+        <div class="texts">
+          <div class="inf">
+            <p>
+              Mais de 900 <br />
+              horas de conteúdo
+            </p>
+          </div>
+          <div class="inf">
+            <p>
+              Mais de 05 canais <br />
+              On Demand
+            </p>
+          </div>
+          <div class="inf">
+            <p>
+              Mais de 35 canais <br />
+              Ao Vivo
+            </p>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </div>
+
+      <div class="logos">
+        <div class="imgs">
+          <img
+            [src]="
+              checkMobile
+                ? environment.bucket +
+                  'bg/trial-voucher/section4-mobile-logo.png'
+                : environment.bucket + 'bg/trial-voucher/section4-logo.png'
+            "
+          />
+        </div>
+        <div class="divider"></div>
+      </div>
+      <div class="footer">
+        <ng-container *ngIf="!checkMobile">
+          <p>
+            Garanta já seus {{daysFree}} dias. Não é necessário inserir um cartão de
+            crédito.
+          </p>
+          <p>
+            Após os {{daysFree}} dias, você pode continuar tendo acesso ao plano Multi+
+            Light
+          </p>
+          <p>por apenas R$ 9,90/mês.</p>
+          <div class="button" routerLink="/login/voucher">QUERO MEUS {{daysFree}} DIAS</div>
+        </ng-container>
+        <ng-container *ngIf="checkMobile">
+          <p class="title-mobile"><b>Garanta já seus {{daysFree}} dias.</b></p>
+          <p>Não é necessário inserir um cartão de crédito.</p>
+          <div class="button" routerLink="/login/voucher">QUERO MEUS {{daysFree}} DIAS</div>
+          <p>Após os {{daysFree}} dias, você pode continuar</p>
+          <p>tendo acesso ao plano Multi+ Light</p>
+          <p>por apenas R$ 9,90/mês.</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

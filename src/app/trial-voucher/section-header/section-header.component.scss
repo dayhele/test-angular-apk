@@ -1,0 +1,158 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: remc(53) remc(41) remc(29) remc(74);
+
+    @media screen and (max-width: 768px) {
+      padding: remc(45) remc(55) remc(31) remc(68);
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      padding: remc(45) remc(55) remc(31) remc(68);
+    }
+
+    .main-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: auto;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        flex-direction: column;
+      }
+
+      .section1 {
+        padding-right: remc(30);
+
+        @media screen and (max-width: 768px) {
+          padding-right: 0;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          padding-right: 0;
+        }
+      }
+
+      .section2 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: 768px) {
+          margin-top: remc(28);
+          max-width: remc(350);
+          flex-direction: column;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          margin-top: remc(28);
+          max-width: remc(350);
+          flex-direction: column;
+        }
+
+        .textCta {
+          color: #442061;
+          font-weight: 400;
+          font-size: remc(40);
+          font-family: 'Elza';
+
+          @media screen and (max-width: 768px) {
+            text-align: center;
+            line-height: 100%;
+          }
+
+          @media screen and (min-width: 768px) and (max-width: 1024px) {
+            text-align: center;
+            line-height: 100%;
+          }
+
+          p {
+            font-weight: 700;
+          }
+        }
+        .strong {
+          font-weight: 700;
+          padding: 0 remc(5);
+        }
+      }
+
+      .section3 {
+        display: flex;
+        align-items: center;
+
+        app-button {
+          padding-left: remc(41);
+
+          @media screen and (max-width: 768px) {
+            padding-left: remc(0);
+            margin-top: remc(40);
+          }
+
+          @media screen and (min-width: 768px) and (max-width: 1024px) {
+            padding-left: remc(0);
+            margin-top: remc(40);
+          }
+
+          ::ng-deep button {
+            font-size: remc(24);
+            font-family: Elza;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .line-top {
+        width: remc(2);
+        height: remc(55);
+        background-color: #848484;
+
+        @media screen and (max-width: 768px) {
+          margin: remc(25) 0 0 0;
+          width: remc(300);
+          height: remc(1);
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          margin: remc(25) 0 0 0;
+          width: remc(300);
+          height: remc(1);
+        }
+      }
+
+      .line {
+        width: remc(2);
+        height: remc(55);
+        background-color: #848484;
+      }
+
+      .subtitle-mobile {
+        font-size: remc(20);
+        font-family: 'Elza';
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #848484;
+        margin-top: remc(21);
+      }
+    }
+
+    .subtitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: remc(10);
+      color: #848484;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<app-modal-no-content
+  *ngIf="showNoContentModal"
+  (closeEvent)="showNoContentModal = false"
+></app-modal-no-content>
+<ng-container *ngIf="!mediaLoaded">
+  <div [ngClass]="firstTime ? 'loading' : 'loading-fullscreen'">
+    <app-loading></app-loading>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!firstTime">
+  <div>
+    <app-series-banner
+      [backgroundPath]="
+        buildImage(
+          serieMovie?.cdn,
+          mediaType === 'serie' ? serieMovie.highlight2 : serieMovie?.highlight
+        )
+      "
+      [type]="mediaType"
+      [title]="mediaTitle"
+      [data]="serieMovie"
+      [id]="mediaId"
+      [idPerfil]="idPerfil"
+      [favorite]="favoriteState"
+      [isParamount]="isParamount"
+      (hasntParamount)="showNoContentModal = true"
+    ></app-series-banner>
+    <div *ngIf="seriesDataLoaded">
+      <app-season-selector
+        [seriesSeasons]="seriesData.seasons!"
+      ></app-season-selector>
+      <app-episodes-section
+        *ngFor="
+          let episode of seriesData.seasons![seasonSelectedIndex].videos;
+          let index = index
+        "
+        [type]="mediaType"
+        [episode]="episode"
+        [episodePosition]="episodePosition[seasonSelectedIndex][index]"
+        [episodeDuration]="episodeDuration[seasonSelectedIndex][index]"
+        [cardProperties]="cardProperties"
+        [serieId]="seriesData?.id"
+        [censorship]="seriesData?.censorship"
+        [isParamount]="isParamount"
+        [isParamountFreemium]="isParamountFreemium"
+        (hasntParamount)="showNoContentModal = true"
+      ></app-episodes-section>
+    </div>
+  </div>
+  <div class="spacer" *ngIf="mediaType === 'serie'"></div>
+  <div class="container--suggestions" *ngIf="resultsLoaded!">
+    <app-section
+      *ngIf="!isEmptySugestions"
+      [title]="'Sugestões para você'"
+      [data]="resultsRecommended.list!"
+      [properties]="cardProperties"
+    ></app-section>
+  </div>
+</ng-container>

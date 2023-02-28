@@ -1,0 +1,154 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .activate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    min-height: remc(400);
+    width: 100%;
+
+    &--container {
+      display: flex;
+      flex-wrap: wrap;
+
+      &--profile {
+        display: flex;
+        flex-direction: column;
+        padding: 0 remc(57);
+        align-items: center;
+        border-right: 1px solid var(--medium-gray);
+
+        &--image {
+          border-radius: 100%;
+          overflow: hidden;
+          max-width: remc(120);
+          max-height: remc(120);
+
+          img {
+            width: remc(120);
+            height: remc(120);
+          }
+        }
+
+        h3 {
+          color: var(--primary-base);
+          margin-top: remc(7);
+        }
+
+        span {
+          color: var(--light-gray);
+          margin-top: remc(7);
+
+          &:last-child {
+            cursor: pointer;
+            color: var(--red);
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          padding: 0 remc(32);
+          border-right: 0;
+        }
+      }
+
+      &--code {
+        padding: 0 remc(57);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h3 {
+          color: var(--white);
+        }
+
+        span {
+          max-width: remc(279);
+          color: var(--light-gray);
+          text-align: center;
+          margin-top: remc(7);
+          margin-bottom: remc(20);
+        }
+
+        app-input {
+          width: 100%;
+          margin-bottom: remc(12);
+
+          @media screen and (max-width: 768px) {
+            max-width: remc(400);
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          margin-top: remc(50);
+          width: 100%;
+          padding: 0 remc(32);
+          border-right: 0;
+        }
+
+        p {
+          color: var(--red);
+          text-align: end;
+          width: 100%;
+        }
+
+        app-button {
+          margin-top: remc(21);
+        }
+      }
+    }
+
+    &--modal {
+      &--container {
+        width: remc(512);
+        height: remc(418);
+        background: var(--blue-multi-4);
+        position: relative;
+
+        &--header {
+          position: absolute;
+          right: 0;
+          padding: remc(14);
+
+          img {
+            cursor: pointer;
+          }
+        }
+
+        &--body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          padding: remc(74) 0 remc(38) 0;
+
+          img {
+            width: remc(114.72);
+            height: remc(119.6);
+          }
+
+          p {
+            max-width: remc(254);
+            text-align: center;
+            font-size: remc(14);
+            color: var(--white);
+            padding: remc(32) 0 remc(47) 0;
+          }
+
+          h4 {
+            padding-top: remc(40);
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

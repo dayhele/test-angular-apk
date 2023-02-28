@@ -1,0 +1,37 @@
+<div class="sports-card-link">
+  <div class="sports-card">
+    <img class="background-img" [src]="data?.imageUrl" />
+    <div *ngIf="cardProperties?.movieLogo && this.screen_x > 768" class="logo">
+      <img [src]="environment.bucket + 'icons/channels-brands/paramount.svg'"
+        alt="logo" />
+    </div>
+    <div *ngIf="cardProperties?.movieLogo && this.screen_x <= 768" class="logo-mobile">
+      <p>NSports</p>
+    </div>
+    <div *ngIf="!!cardProperties?.sportTitle" class="sports-card__badge">
+      <div *ngIf="this.screen_x > 768" class="sports-card__badge-desktop">
+        <div class="sports-card__badge-desktop__title">
+          <p>{{ data?.title }}</p>
+          <p class="sports-card__badge-desktop__title-live" *ngIf="!!cardProperties?.isLive">
+            Ao vivo
+          </p>
+        </div>
+        <div class="sports-card__badge-desktop__bottom">
+          <p>{{ data?.team1 }} vs {{ data?.team2 }}</p>
+          <p>{{ data?.timestamp }} h</p>
+        </div>
+      </div>
+
+      <div *ngIf="this.screen_x <= 768" class="sports-card__badge-mobile">
+        <img class="age-indication" src="{{ environment.imageService }}/icons/rate.svg" />
+
+        <div class="sports-card__badge-mobile__title">
+          <p class="sports-card__badge-mobile__title-text">{{ data?.title }}</p>
+          <p class="sports-card__badge-mobile__title-time">
+            {{ data?.timestamp }} h
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

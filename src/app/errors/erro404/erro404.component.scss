@@ -1,0 +1,34 @@
+@import '../../../themes/remc.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+
+  .code {
+    font-size: 120px;
+  }
+
+  .message {
+    margin: remc(20) 0;
+  }
+
+  @media screen and (max-width: remc(768)) {
+    .code {
+      font-size: 16vw;
+    }
+
+    .message {
+      font-size: 8vw;
+    }
+
+    .countdown {
+      font-size: 5vw;
+    }
+  }
+}

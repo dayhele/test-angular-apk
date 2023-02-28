@@ -1,0 +1,58 @@
+<div class="container-success" *ngIf="showConfirmation"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }">
+  <app-plan-upgrade-success></app-plan-upgrade-success>
+</div>
+
+<div class="container" *ngIf="isChangingPlan && !showConfirmation"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }">
+  <div
+    [class.main-card-mobile]="checkMobile"
+    [class.main-card]="!checkMobile"
+    >
+    <h4 class="main-title">Alteração de Plano</h4>
+    <div class="plan-cards">
+      <div class="card-current">
+        <div class="card-title">PLANO ATUAL</div>
+        <div class="line"></div>
+        <div class="current-plan">{{ currentPlan }}</div>
+        <div class="current-price">
+          {{
+          isVoucher
+          ? 'Voucher'
+          : 'R$ ' + currentPlanPrice.toString().replace('.', ',') + '/mês'
+          }}
+        </div>
+      </div>
+      <div class="arrow">
+        <img [src]="environment.bucket + 'icons/arrow_right-green.png'" />
+      </div>
+      <div class="card-new">
+        <div class="card-title">NOVO PLANO</div>
+        <div class="line"></div>
+        <div class="new-plan">{{ plan?.planName }}</div>
+        <div class="new-price">
+          R$ {{ newPlanPrice.toString().replace('.', ',') }}/mês
+        </div>
+      </div>
+    </div>
+    <div class="message-upgrade" *ngIf="currentPlanPrice < newPlanPrice && !hasError">
+      <p>
+        Você efetuará o upgrade do seu plano para {{ plan?.planName }}, e o
+        acesso aos novos conteúdos será liberado imediatamente. Em sua próxima
+        cobrança, o valor adicional de seu novo plano será cobrado
+        proporcionalmente.
+      </p>
+    </div>
+    <div class="message-downgrade" *ngIf="newPlanPrice < currentPlanPrice && !hasError">
+      Você efetuará o downgrade do seu plano para {{ plan?.planName }}. A
+      mudança será efetuada a partir da próxima cobrança de fatura. Você
+      continuará a ter acesso aos conteúdos até a mudança do plano.
+    </div>
+    <div class="error-message" *ngIf="hasError">{{ errorMessage }}</div>
+    <app-button class="button" [text]="'Confirmar alteração'" [classList]="'btn-primary'" (click)="confirmChanges()">
+    </app-button>
+    <div class="cancelar">
+      <a (click)="cancelling()">Cancelar</a>
+    </div>
+  </div>
+</div>

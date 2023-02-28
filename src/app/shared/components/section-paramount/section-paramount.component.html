@@ -1,0 +1,21 @@
+<div class="container">
+  <img class="logo" [src]="environment.bucket + 'logos/logo_paramount.svg'" />
+  <img class="banner" [src]="environment.bucket + 'logos/banner_paramount.png'" />
+</div>
+
+<div class="grid">
+  <div class="background"></div>
+  <div class="texts">
+    <h3 class="title"><b>Exclusivos Paramount+</b></h3>
+    <p class="subtitle" [innerHTML]="text"></p>
+    <div class="btn">
+      <app-button *ngIf="hasExploreButton" class="button" text="Explorar" type="button" classList="btn-primary"
+        (click)="goTo('paramount')"></app-button>
+    </div>
+  </div>
+  <div class="section">
+    <app-section [hasNavigation]="hasNavigation" [allowTouchMove]="allowTouchMove" [properties]="cardProperties"
+      [isExclusiveContent]="true" [data]="dataCards" [cardOnly]="true" labelExclusiveContent="Planos Paramount +">
+    </app-section>
+  </div>
+</div>

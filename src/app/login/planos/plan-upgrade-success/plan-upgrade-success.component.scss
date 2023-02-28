@@ -1,0 +1,71 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  display: flex;
+  flex: 1;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: remc(65) 0;
+    flex: 1;
+    position: relative;
+    width: 100%;
+
+    .main-card {
+      background-color: var(--primary-dark);
+      width: remc(684);
+      height: remc(418);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .image {
+        margin-top: remc(58);
+      }
+
+      .main-title {
+        font-size: remc(16);
+        color: var(--white);
+        font-weight: 700;
+        margin-top: remc(22);
+      }
+
+      p {
+        width: remc(350);
+        padding: remc(24);
+        font-size: remc(14);
+        color: var(--white);
+        font-weight: 300;
+        text-align: center;
+      }
+    }
+
+    .main-card-mobile {
+      background-color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: remc(33);
+      margin-bottom: remc(56);
+
+      .main-title {
+        font-size: remc(16);
+        color: var(--white);
+        font-weight: 700;
+        margin-top: remc(22);
+      }
+
+      p {
+        padding: remc(24);
+        margin-bottom: remc(22);
+        font-size: remc(14);
+        color: var(--white);
+        font-weight: 300;
+        text-align: center;
+      }
+    }
+  }
+}

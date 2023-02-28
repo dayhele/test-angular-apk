@@ -1,0 +1,181 @@
+@import '../../../../themes/remc.scss';
+
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  backdrop-filter: blur(2px);
+
+  .content {
+    position: relative;
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 512px;
+    margin-top: -130px;
+
+    .close-button {
+      width: remc(24);
+      height: remc(24);
+      align-self: flex-end;
+      margin-bottom: remc(34);
+      cursor: pointer;
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        margin-right: remc(52);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .profile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .lock {
+        height: remc(24);
+        width: remc(14);
+
+        .lock-icon {
+          position: absolute;
+          margin-left: remc(38);
+          margin-top: remc(-17);
+          height: remc(20);
+          width: remc(20);
+        }
+      }
+
+      .profile-image {
+        width: remc(120);
+        height: remc(120);
+        background-color: var(--primary-dark);
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      .profile-name {
+        color: var(--white);
+        margin-top: remc(4);
+        text-align: center;
+      }
+    }
+
+    .modal-container-pin {
+      max-width: remc(570);
+      margin-top: remc(25);
+      background-color: var(--primary-dark);
+      border-radius: remc(4);
+
+      .modal-header {
+        padding: remc(25) 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .modal-title {
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--white);
+        }
+
+        .modal-wrong-password {
+          text-align: center;
+          font-size: 16px;
+          font-weight: 700;
+          color: #ff2828;
+        }
+      }
+
+      .modal-body {
+        padding: 0 remc(145) remc(30) remc(145);
+
+        .modal-center {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .modal-recovery-password-button {
+          text-align: right;
+          a {
+            cursor: pointer;
+
+            font-size: 12px;
+            font-weight: 400;
+            padding-top: remc(8);
+            color: var(--primary-base);
+          }
+        }
+      }
+    }
+
+    .modal-container-recovery-password {
+      width: remc(570);
+      margin-top: remc(25);
+      padding: remc(16) remc(145);
+      background-color: var(--primary-dark);
+      border-radius: remc(4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .modal-title {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--white);
+        width: remc(220);
+      }
+
+      .modal-title-password-sent {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--white);
+        width: remc(220);
+      }
+
+      .modal-title-send-email {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--white);
+        width: remc(280);
+      }
+
+      .modal-wrong-email {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: #ff4d4d;
+      }
+
+      app-input {
+        margin: remc(24) 0;
+      }
+
+      .hide-button {
+        opacity: 0;
+      }
+    }
+  }
+}

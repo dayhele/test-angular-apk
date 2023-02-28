@@ -1,0 +1,136 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .watch-card-link {
+    width: remc(440);
+    height: remc(288);
+    border-radius: remc(16);
+    border: remc(3.5) solid transparent;
+    cursor: pointer;
+
+    .watch-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: remc(12);
+      overflow: hidden;
+
+      .background-img {
+        width: 100%;
+        height: 100%;
+
+      }
+
+      .logo {
+        top: remc(12);
+        right: remc(12);
+        position: absolute;
+      }
+
+      .logo-mobile {
+        top: remc(9);
+        right: remc(12);
+        position: absolute;
+        background: var(--medium-gray);
+        border-radius: remc(24);
+
+        p {
+          padding: remc(2) remc(8);
+          font-size: remc(10);
+          font-weight: 300;
+          color: white;
+        }
+      }
+
+      &__badge {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: remc(80);
+        bottom: 0;
+        padding: remc(12) remc(16);
+
+        &-progress {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 100%;
+          user-select: none;
+
+          &__title {
+            color: var(--white);
+            display: flex;
+            align-items: center;
+
+            &-age {
+              margin-right: remc(8);
+            }
+
+            p {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              font-size: remc(14);
+            }
+          }
+
+          &__bottom {
+            display: flex;
+
+            padding-bottom: remc(12);
+            &-bar {
+              width: 100%;
+              height: remc(3);
+
+              &::-webkit-progress-bar {
+                background: white;
+              }
+              &::-webkit-progress-value {
+                background: var(--primary-base);
+              }
+            }
+          }
+
+          @media screen and (max-width: remc(768)) {
+            &__title {
+              margin-bottom: remc(10);
+              &-age {
+                height: remc(18);
+                width: remc(18);
+              }
+              p {
+                font-size: remc(12);
+                padding-left: remc(4);
+              }
+            }
+
+            &__bottom {
+              &-bar {
+                height: remc(2);
+              }
+            }
+          }
+        }
+
+        @media screen and (max-width: remc(768)) {
+          height: remc(45);
+          padding: remc(4) remc(8);
+        }
+      }
+    }
+
+    @media screen and (max-width: remc(900)) {
+      width: remc(390);
+      height: remc(238);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      width: remc(220);
+      height: remc(154);
+    }
+    transition: border 0.2s;
+    &:hover {
+      border: remc(3.5) solid var(--primary-base);
+    }
+  }
+}

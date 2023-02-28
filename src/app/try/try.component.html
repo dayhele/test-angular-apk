@@ -1,0 +1,516 @@
+<app-rent-mobile-popup
+  *ngIf="checkMobile && clickedRent"
+  (closeEvent)="clickedRent = false"
+></app-rent-mobile-popup>
+<main class="container" *ngIf="!(theme.header.americanet && isAmericaNet)">
+  <ng-container *ngIf="loadingController.homeCarouselLoaded">
+    <app-home-carousel
+      [main]="main"
+      [movieList]="movieList"
+      [isMobile]="checkMobile"
+      [idPerfil]="idPerfil"
+    ></app-home-carousel>
+  </ng-container>
+  <ng-container *ngIf="!loadingController.homeCarouselLoaded">
+    <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      animation="false"
+      [theme]="{
+        height: getSkeletonInfo('highlights', 'height')+'px',
+        backgroundColor: 'rgba(122,122,122,.2)'
+      }"
+    ></ngx-skeleton-loader>
+  </ng-container>
+  <app-load-watch [isLoaded]="firstGroupLoaded"></app-load-watch>
+  <div *ngIf="firstGroupLoaded">
+    <div *ngFor="let section of sections; let indexSection = index">
+      <div [ngSwitch]="section.type">
+        <div *ngSwitchCase="'isLiveChannels'">
+          <app-channels-section
+            *ngIf="
+              !checkMobile &&
+              sectionsData[indexSection].list.length > 0
+            "
+            [title]="section.title!"
+            [channels]="sectionsData[indexSection].list"
+            [profileAgeBracket]="profileAgeBracket"
+            [profile]="profile!"
+            [disableClick]="true"
+          ></app-channels-section>
+        </div>
+
+        <div class="container__section" *ngSwitchCase="'isWatchForYou'">
+          <app-default-section-description
+            *ngIf="!checkMobile"
+            [sectionTitle]="section.title"
+            [sectionDescription]="section.categoryData?.description"
+            [hasHBO]="planAccessControlService.hasHBO"
+            [sectionButtonText]="''"
+            [tickets]="tickets"
+            [hbo]="true"
+            [cardProperties]="isWatchForYou"
+            [disableClick]="true"
+            [data]="
+              orderByActive([
+                {
+                  title: 'hbomax',
+                  imageUrl: planAccessControlService.hasHBO
+                    ? theme.home.hboMaxSmall
+                    : theme.home.hboMax,
+                  small: planAccessControlService.hasHBO
+                },
+                {
+                  title: 'stingray',
+                  imageUrl: planAccessControlService.hasStingrayMusic
+                    ? theme.home.stingraySmall
+                    : theme.home.stingray,
+                  small: planAccessControlService.hasStingrayMusic
+                },
+                {
+                  title: 'uolbanca',
+                  imageUrl: planAccessControlService.hasUolBanca
+                    ? theme.home.uolbancaSmall
+                    : theme.home.uolbanca,
+                  small: planAccessControlService.hasUolBanca
+                }
+              ])
+            "
+          ></app-default-section-description>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="firstGroupLoaded">
+    <div #sectionsLoadRef *ngFor="let section of homeControl; let indexSection = index" [attr.data-index]="indexSection">
+      <div *ngIf="!ignoreCallForIds.includes(section.id!)">
+        <div *ngIf="section.loadStatus !== 2"> <!-- Skeleton -->
+          <app-home-carousel-skeletons [type]="section.type" [screenX]="screen_x" [isLoggedOutHome]="true"></app-home-carousel-skeletons>
+        </div>
+        <div *ngIf="section.loadStatus === 2 && (section.data ? section.data!.length > 0 : false)"> <!-- Item Carregado -->
+          <div [ngSwitch]="section.type">
+            <div *ngSwitchCase="'isKeepWatching'">
+              <app-section
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [keepWatchingList]="keepWatchingList"
+                [id]="section.id!"
+                [goToWatch]="true"
+                [isInfinity]="true"
+              >
+              </app-section>
+            </div>
+
+            <div class="rentender" *ngSwitchCase="'isRented'">
+              <ng-container *ngIf="!checkMobile">
+                <div class="rentend">
+                  <div class="title">
+                    <b>
+                      <ng-container *ngIf="theme.logoweb"
+                      ><img
+                        class="logo-icon"
+                        src="/assets/logos/multi_mais.svg"
+                        alt="logo-icon"
+                      /></ng-container>
+                      ALUGADOS
+                    </b>
+                  </div>
+                  <div class="text">
+                    Você pode assistir seus conteúdos alugados pelo período de 48
+                    horas ou conteúdos ao vivo durante o periodo de transmissão.
+                  </div>
+                  <app-button
+                    class="button"
+                    [text]="'Ver todos'"
+                    [type]="'button'"
+                    [classList]="'btn-primary'"
+                    routerLink="/rent"
+                  ></app-button>
+                </div>
+                <app-section
+                  [idPerfil]="idPerfil"
+                  [properties]="section.cardProperties!"
+                  [data]="section.data!"
+                  [isInfinity]="true"
+                >
+                </app-section>
+              </ng-container>
+              <ng-container *ngIf="checkMobile">
+                <app-section
+                  [idPerfil]="idPerfil"
+                  [title]="section.title!"
+                  [properties]="section.cardProperties!"
+                  [data]="section.data!"
+                  [verMais]="false"
+                  [id]="section.id!"
+                  [isInfinity]="true"
+                ></app-section>
+              </ng-container>
+            </div>
+
+            <div *ngSwitchCase="'isReleases'">
+              <app-section
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+
+            <div class="container__section" *ngSwitchCase="'Xpeed'">
+              <app-default-section-full-channel
+                [sectionLogoChannel]="section.hasCustomIcon"
+                [sectionBackgroundImg]="section.hasCustomBanner"
+                [sectionDescription]="section.description"
+                [onlyView]="true"
+                [id]="section.id!"
+              >
+              </app-default-section-full-channel>
+            </div>
+
+            <div class="container__section" *ngSwitchCase="'isNovelas'">
+              <app-default-section-full-channel
+                *ngIf="!checkMobile"
+                [sectionLogoChannel]="section.hasCustomIcon"
+                [sectionBackgroundImg]="section.hasCustomBanner"
+                [sectionDescription]="section.description"
+                [sectionTitle]="section.title"
+                [isNovelas]="true"
+                [sectionButtonText]="'Explorar'"
+                [sectionButtonLink]="'/series/' + section.id! + '/novelas'"
+                [id]="section.id!"
+              >
+              </app-default-section-full-channel>
+            </div>
+
+            <div class="container__section" *ngSwitchCase="'isSpecificAdvertising'">
+              <app-default-section-full
+                [sectionTitle]="section.title"
+                [sectionDescription]="section.categoryData?.description"
+                [sectionButtonText]="'Explorar'"
+                (highlightRedirect)="redirectTo(section.id!)"
+              ></app-default-section-full>
+            </div>
+
+            <div *ngSwitchCase="'isMostWatched'">
+              <app-section
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+
+            <div *ngSwitchCase="'isToWatchAll'">
+              <app-section
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+
+            <div class="container__section" *ngSwitchCase="'isComingSoon'">
+              <app-default-section-full
+                [sectionTitle]="'O que vem por aí'"
+                [sectionDescription]="section.categoryData?.description"
+                [sectionButtonText]="'Assistir trailers'"
+              >
+              </app-default-section-full>
+            </div>
+
+            <div *ngSwitchCase="'isSport'">
+              <app-section
+                *ngIf="!checkMobile"
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [viewMore]="'/sports'"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+              <app-section
+                *ngIf="checkMobile"
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+
+            <div *ngSwitchCase="'isSuggestions'">
+              <app-section
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [hasAwesomenessLogo]="true"
+                [hasCustomIcon]="section.hasCustomIcon!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+
+            <div *ngSwitchCase="'isLiveAndOnDemand'">
+              <app-section
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [hasAwesomenessLogo]="false"
+                [hasCustomIcon]="section.hasCustomIcon!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+
+            <div class="container__section" *ngSwitchCase="'isForCouples'">
+              <app-default-section
+                [sectionTitle]="section.title"
+                [sectionSubtitle]="section.categoryData?.description"
+                [sectionButtonText]=""
+                [cardProperties]="section.cardProperties"
+                [data]="section.data"
+                [id]="section.id!"
+              >
+              </app-default-section>
+            </div>
+
+            <div *ngSwitchCase="'isKids'">
+              <app-section
+                *ngIf="!checkMobile"
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                [hasSectionIcon]="true"
+                [isInfinity]="true"
+              ></app-section>
+              <app-section
+                *ngIf="checkMobile"
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [data]="section.data!"
+                [id]="section.id!"
+                [hasSectionIcon]="true"
+                [isInfinity]="true"
+              >
+              </app-section>
+            </div>
+
+            <div *ngIf="!checkMobile">
+              <div *ngSwitchCase="'isToRent'">
+                <app-section
+                  [idPerfil]="idPerfil"
+                  [title]="section.title!"
+                  [properties]="section.cardProperties!"
+                  [data]="section.data!"
+                  [id]="section.id!"
+                  [verMais]="!checkMobile"
+                  [isInfinity]="true"
+                ></app-section>
+              </div>
+            </div>
+
+            <div *ngSwitchCase="'isParamount'">
+              <app-section
+                *ngIf="
+                !checkDeviceService.isMobile() ||
+                (checkDeviceService.isMobile() &&
+                  planAccessControlService.hasParamount)
+              "
+                [idPerfil]="idPerfil"
+                title="Sugestões"
+                [properties]="section.cardProperties!"
+                [hasAwesomenessLogo]="true"
+                [isExclusiveContent]="true"
+                labelExclusiveContent="Planos Paramount+"
+                [hasExclusiveContent]="planAccessControlService.hasParamount || false"
+                [hasCustomIcon]="section.hasCustomIcon!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                (hasntParamountEvent)="showNoContentModal = true"
+                [isInfinity]="true"
+              ></app-section>
+              <app-section-paramount
+                *ngIf="!checkMobile && theme.client !== 'multilaser'"
+                text="Aqui na Watch você pode contratar conteúdos de parceiros! Explore agora mesmo os conteúdos Paramount+."
+              ></app-section-paramount>
+            </div>
+            <div *ngSwitchCase="'isTryIt'">
+              <app-section
+                *ngIf="
+                !planAccessControlService.hasParamount && section.data!.length > 0
+              "
+                [idPerfil]="idPerfil"
+                [title]="section.title!"
+                [properties]="section.cardProperties!"
+                [hasAwesomenessLogo]="true"
+                [isExclusiveContent]="true"
+                labelExclusiveContent="Planos Paramount+"
+                [hasExclusiveContent]="true"
+                [hasCustomIcon]="section.hasCustomIcon!"
+                [data]="section.data!"
+                [verMais]="false"
+                [id]="section.id!"
+                (hasntParamountEvent)="showNoContentModal = true"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+            <div *ngSwitchCase="'isCnn'">
+              <app-section
+                [idPerfil]="idPerfil"
+                title="Especiais"
+                [properties]="section.cardProperties!"
+                [hasAwesomenessLogo]="true"
+                [hasCustomIcon]="section.hasCustomIcon!"
+                [data]="section.data!"
+                [verMais]="!checkMobile"
+                [id]="section.id!"
+                [isInfinity]="true"
+              ></app-section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-directv-go-section *ngIf="!checkMobile && theme.client !== 'multilaser'"></app-directv-go-section>
+    <app-hbo-max-section *ngIf="!checkMobile && theme.client !== 'multilaser'"></app-hbo-max-section>
+  </div>
+
+  <div *ngIf="!firstGroupLoaded && screen_x > 900">
+    <div class="skeleton__sections">
+      <div class="skeleton__sections-channels">
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="false"
+          [theme]="{
+            display: 'block',
+            width: '250px',
+            height: '28px',
+            marginTop: '1.5rem',
+            borderRadius: '8px',
+            background: 'rgba(122,122,122,.2)'
+          }"
+        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader
+          [count]="getSkeletonInfo('channels')"
+          class="loader"
+          appearance="circle"
+          animation="false"
+          [theme]="{
+            height: getSkeletonInfo('channels', 'width')+'px',
+            width: getSkeletonInfo('channels', 'width')+'px',
+            marginRight: getSkeletonInfo('channels', 'marginRight')+'px',
+            background: 'rgba(122,122,122,.2)'
+          }"
+        ></ngx-skeleton-loader>
+      </div>
+      <div class="skeleton__sections-row">
+        <div style="display:flex;flex-direction:column;justify-content:center;">
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="{
+            display: 'block',
+            width: '180px',
+            height: '25px',
+            borderRadius: '8px',
+            background: 'rgba(122,122,122,.2)'
+          }"
+          ></ngx-skeleton-loader>
+          <br/>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="{
+            display: 'block',
+            width: '145px',
+            height: '8px',
+            borderRadius: '4px',
+            marginBottom: '6px',
+            background: 'rgba(122,122,122,.2)'
+          }"
+          ></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="{
+            display: 'block',
+            width: '145px',
+            height: '8px',
+            borderRadius: '4px',
+            marginBottom: '6px',
+            background: 'rgba(122,122,122,.2)'
+          }"
+          ></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="{
+            display: 'block',
+            width: '100px',
+            height: '8px',
+            borderRadius: '4px',
+            marginBottom: '6px',
+            background: 'rgba(122,122,122,.2)'
+          }"
+          ></ngx-skeleton-loader>
+          <br/>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="{
+            display: 'block',
+            width: '60px',
+            height: '25px',
+            borderRadius: '8px',
+            background: 'rgba(122,122,122,.2)'
+          }"
+          ></ngx-skeleton-loader>
+        </div>
+        <ngx-skeleton-loader
+          [attr.style]="'display:flex;'"
+          [count]="3"
+          appearance="line"
+          animation="false"
+          [theme]="{
+            width: '440px',
+            height: '208px',
+            borderRadius: '10px',
+            marginLeft: '1.5rem',
+            background: 'rgba(122,122,122,.2)'
+          }"
+        ></ngx-skeleton-loader>
+      </div>
+    </div>
+  </div>
+</main>
+<app-modal-directv-go *ngIf="theme.home.directvGo"></app-modal-directv-go>

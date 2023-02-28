@@ -1,0 +1,42 @@
+<div
+  [style.width]="timeWidth"
+  class="card"
+  [class.live]="live"
+  [id]="'card--' + program?.id"
+  [attr.aria-value-text]="timeStart"
+  *ngIf="!isLoading"
+  (click)="goWatch()"
+>
+  <div
+    class="card--blocked"
+    [style.width]="timeWidthBlockedCard"
+    *ngIf="setBlocked()"
+  ></div>
+  <div class="card--details">
+    <div class="card--details--title">
+      <p>{{ program?.titleFull }}</p>
+    </div>
+    <div class="card--details--description">
+      <p>{{ program?.description }}</p>
+    </div>
+    <div class="card--details--additional-info">
+      <div class="card--details--additional-info--time">
+        <p>
+          {{ timeStart }}
+        </p>
+        <span class="card--details--additional-info--time--separator">-</span>
+        <p>{{ timeEnd }}</p>
+      </div>
+      <app-censorship
+        [age]="
+          censorship === 'L' || censorship === null || censorship === undefined
+            ? '0'
+            : censorship
+        "
+      ></app-censorship>
+      <div *ngIf="setBlocked()" class="blockedChannel">
+        <img src="assets/icons/lock.svg" alt="Locked channel" />
+      </div>
+    </div>
+  </div>
+</div>

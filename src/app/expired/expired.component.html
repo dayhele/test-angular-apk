@@ -1,0 +1,54 @@
+<div
+  class="wrapes"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="container" *ngIf="!checkMobile">
+    <div class="title">A sua degustação acabou</div>
+    <div class="sub-title">O período de gratuídade da sua conta expirou</div>
+    <div class="text">
+      Para não haver o cancelamento da sua conta, sugerimos a realização de uma
+      <br />
+      assinatura, ou também a ativação da conta por código ( voucher e cupom ).
+    </div>
+    <div class="button-or-link">
+      <p>
+        <button [routerLink]="'/planos'">Ver planos</button> &nbsp;
+        <b>ou</b> &nbsp;
+        <a [routerLink]="'/login/sms'"><u>Ativar conta por código</u></a>
+      </p>
+    </div>
+    <div class="help">
+      <p>
+        Se estiver com algum problema e precisar de ajuda, clique em &nbsp;<a
+          [routerLink]="'/faq'"
+          ><u>Precisa de ajuda?</u></a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-mobile" *ngIf="checkMobile">
+  <div class="title-mobile">A sua degustação acabou</div>
+  <div class="sub-title-mobile">
+    O período de gratuídade da sua conta expirou
+  </div>
+  <div class="text-mobile">
+    Para não haver o cancelamento da sua conta, sugerimos a realização de uma
+    <br />
+    assinatura, ou também a ativação da conta por código ( voucher e cupom ).
+  </div>
+  <div class="warning-mobile">
+    <p>
+      A assinatura ou ativação via código, deve ser realizada via <br />
+      desktop.
+    </p>
+  </div>
+  <div class="help-mobile">
+    <p>
+      Se estiver com algum problema e precisar de ajuda, clique em <br />
+      <br />
+      <a [routerLink]="'/faq'"><u>Preciso de ajuda</u></a>
+    </p>
+  </div>
+</div>

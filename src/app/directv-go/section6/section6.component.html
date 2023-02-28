@@ -1,0 +1,28 @@
+<div class="grid">
+  <div class="texts">
+    <h3 class="title">Exclusivos</h3>
+    <p class="subtitle">
+      Conteúdos exclusivos que você <br />
+      só vê por aqui.
+    </p>
+    <div class="btn">
+      <app-button
+        class="button"
+        [text]="theme.landingPage.textButon"
+        type="button"
+        classList="btn-primary"
+        (click)="goTo()"
+      ></app-button>
+    </div>
+  </div>
+  <div class="section">
+    <app-section
+      [properties]="cardProperties"
+      [isExclusiveContent]="true"
+      [data]="dataCards"
+      labelExclusiveContent="Direct TV GO"
+      [cardOnly]="true"
+      [isInfinity]="true"
+    ></app-section>
+  </div>
+</div>

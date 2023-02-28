@@ -1,0 +1,51 @@
+<div class="container" *ngIf="showModal">
+  <div class="modal">
+    <div class="row-1">
+      <img [src]="environment.bucket + 'logos/Logo_banner.svg'"
+        alt="Directv-GO" />
+      <div class="close-modal" (click)="closeModal()">
+        <img src="assets/icons/icon_close_orange.svg" alt="Directv-GO" />
+      </div>
+    </div>
+    <div class="row-2">
+      <h2>A DIRECTV GO chegou na Watch Brasil!</h2>
+    </div>
+    <div class="row-3">
+      <p>
+        Fale com seu provedor de internet e tenha acesso a canais de tv e
+        conteúdos exclusivos.
+      </p>
+    </div>
+    <div class="row-4">
+      <app-directvgo-button routerLink="/directvgo" (click)="closeModal()">Saiba Mais</app-directvgo-button>
+    </div>
+    <div class="row-5">
+      <img [src]="environment.bucket + 'directvgo/Grupo_13015.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13002.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13033.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13006.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13004.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13000.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13031.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13025.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13027.svg'"
+        alt="Directv-GO" />
+      <img [src]="environment.bucket + 'directvgo/Grupo_13040.svg'"
+        alt="Directv-GO" />
+    </div>
+    <div class="row-6">
+      <div class="checkBox">
+        <span>Não mostrar novamente</span>
+        <input type="checkbox" name="notify" id="notify" (change)="onChange($event)" />
+      </div>
+    </div>
+  </div>
+</div>

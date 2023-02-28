@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "Myriad-Pro";
+  src: url(http://www.anaveer.in/honda/font/MYRIADPRO-REGULAR.OTF)
+    format("truetype");
+}
+
+html {
+  height: 100%;
+}
+
+body,
+* {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 0.78125vw;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Myriad-Pro", Barlow, Sans-serif;
+}
+
+.container {
+  display: flex;
+
+  height: 100vh;
+
+  background: #1c1c1f;
+}
+
+.passwordButton {
+  background: #2b2c37;
+  width: 27.94792vw;
+  border-radius: 50px;
+  border: none;
+  padding: 2vw;
+  font-size: 1.5625vw;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.passwordButton:focus {
+  background-color: #e86041;
+}
+
+.description {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.container .description img {
+  width: 18.76042vw;
+  margin-top:40px;
+}
+
+.container .description .title {
+  margin: 0 auto;
+  text-align: center;
+  width: 33.85417vw;
+  font-size: 2.8vw;
+  font-weight: 600;
+  margin-bottom: 2.34375vw;
+}
+
+.container .description .text {
+  font-size: 2.08333vw;
+  line-height: 1.25;
+  margin-bottom: 2.08333vw;
+}
+
+span {
+  font-size: 1.9vw;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 2.08333vw;
+}
+
+.container .active-code {
+  display: inline-block;
+  font-size: 80px;
+  padding-left: 60px;
+}
+
+.container .code {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 25px;
+}
+
+.container .loading {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+
+.base-timer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: #e86041;
+}
+
+.base-timer__path-remaining.orange {
+  color: #e86041;
+}
+
+.base-timer__path-remaining.red {
+  color: #e86041;
+}
+
+.base-timer__label {
+  display: none;
+}

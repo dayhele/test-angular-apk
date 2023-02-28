@@ -1,0 +1,333 @@
+<div class="container" *ngIf="profilesLoaded; else loading">
+  <h3>Olá, {{ profileSelected?.nome }}.</h3>
+  <h4>Perfil administrador</h4>
+  <a>{{ profileMaster?.nome }}</a>
+  <div>
+    <a *ngIf="theme.client === 'multilaser'" routerLink="/account/historic" class="green"><img id="folder-icon" src="../../assets/historic/folderLink-green.svg" alt="folder icon"> Histórico de consumo</a>
+    <a *ngIf="theme.client === 'watch'" routerLink="/account/historic" class="blue" ><img id="folder-icon" src="../../assets/historic/folderLink.svg" alt="folder icon"> Histórico de consumo</a>
+  </div>
+  
+
+  <div class="divider"></div>
+  <div class="container--details" *ngIf="!environment.app">
+    <h4>Senha</h4>
+    <div class="section-password" *ngIf="!isEditingPassword">
+      <a *ngIf="passwordChanged">Senha alterada com sucesso</a>
+      <app-button
+        class="button"
+        [text]="'Alterar senha'"
+        [type]="'button'"
+        [classList]="'btn-secondary'"
+        (click)="isEditingPassword = true"
+      ></app-button>
+    </div>
+    <div class="section-password-edit" *ngIf="isEditingPassword">
+      <app-input
+        class="pass-current"
+        [type]="'password'"
+        [placeholder]="'Digite senha atual'"
+        [error]="this.error?.hasError"
+        [(value)]="passwordCurrent"
+      >
+      </app-input>
+      <app-input
+        class="pass-new-first"
+        [type]="'password'"
+        [placeholder]="'Digite nova senha'"
+        [(value)]="passwordFirst"
+        [error]="this.error?.hasError"
+        (click)="error.hasError = false"
+      >
+      </app-input>
+      <app-input
+        class="pass-new-second"
+        [type]="'password'"
+        [placeholder]="'Confirmar nova senha'"
+        [(value)]="passwordSecond"
+        [error]="this.error?.hasError"
+        (click)="error.hasError = false"
+      >
+      </app-input>
+      <div class="password-error" *ngIf="error?.hasError">
+        <p>{{ error?.message }}</p>
+      </div>
+      <app-button
+        class="button-save-password"
+        [text]="'Salvar'"
+        [type]="'button'"
+        [classList]="'btn-secondary'"
+        (click)="confirmPasswordChanges()"
+      ></app-button>
+    </div>
+    <div class="divider"></div>
+    <h4>Email de recuperação</h4>
+    <div class="section-email" *ngIf="!isEditingEmail">
+      <a>{{ emailText }}</a>
+      <div class="button">
+        <app-button
+          class="button"
+          [text]="'Adicionar um endereço de email'"
+          [type]="'button'"
+          [classList]="'btn-secondary'"
+          (click)="isEditingEmail = true"
+        ></app-button>
+      </div>
+    </div>
+    <div class="section-email-editing" *ngIf="isEditingEmail">
+      <app-input
+        class="inp-email"
+        [type]="'email'"
+        [placeholder]="'Adicionar email'"
+        [error]="this.emailError?.hasError"
+        [(value)]="recoveryEmail"
+      >
+      </app-input>
+      <div class="email-error" *ngIf="emailError?.hasError">
+        <p>{{ emailError?.message }}</p>
+      </div>
+      <app-button
+        class="button"
+        [text]="'Salvar'"
+        [type]="'button'"
+        [classList]="'btn-secondary'"
+        (click)="applyEmailChanges()"
+      ></app-button>
+    </div>
+    <div class="divider"></div>
+    <h4>Dados cadastrais</h4>
+    <ng-container *ngIf="!isEditingAccount">
+      <div class="row">
+        <p>Nome:</p>
+        <a>{{ account?.name }}</a>
+      </div>
+      <div class="row">
+        <p>Sexo:</p>
+        <a>{{ account?.gender ? account.gender : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>CPF:</p>
+        <a>{{ account?.cpf ? account.cpf : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>Data de nascimento:</p>
+        <a>{{ account?.birthDate ? account.birthDate : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>Estado:</p>
+        <a>{{ account?.state ? account.state : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>Cidade:</p>
+        <a>{{ account?.city ? account.city : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>Endereço:</p>
+        <a>{{ account?.address ? account.address : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>Telefone:</p>
+        <a>{{ account?.phone ? account.phone : 'Não definido' }}</a>
+      </div>
+      <div class="button">
+        <app-button
+          class="button"
+          [text]="'Editar dados'"
+          [type]="'button'"
+          [classList]="'btn-secondary'"
+          (click)="isEditingAccount = true"
+        ></app-button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isEditingAccount">
+      <div class="row">
+        <p>Nome:</p>
+        <app-input
+          class="inp-email"
+          [type]="'text'"
+          [placeholder]="account.name ? account.name : 'Peter Parker'"
+          [error]="this.emailError?.hasError"
+          [(value)]="updateAccount.pNome"
+        >
+        </app-input>
+      </div>
+      <div class="row">
+        <p>Sexo:</p>
+        <app-dropdown-gender
+          [actualGender]="account.gender ? account.gender : ''"
+          (gender)="updateAccount.pSexo = $event.gender"
+        >
+        </app-dropdown-gender>
+      </div>
+      <div class="row">
+        <p>CPF:</p>
+        <a>{{ account?.cpf ? account.cpf : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>Data de nascimento:</p>
+        <a>{{ account?.birthDate ? account.birthDate : 'Não definido' }}</a>
+      </div>
+      <div class="row">
+        <p>Estado:</p>
+        <app-input
+          class="inp-email"
+          [type]="'text'"
+          [placeholder]="account.state ? account.state : 'Nova Iorque'"
+          [error]="this.emailError?.hasError"
+          [(value)]="updateAccount.pEstado"
+        >
+        </app-input>
+      </div>
+      <div class="row">
+        <p>Cidade:</p>
+        <app-input
+          class="inp-email"
+          [type]="'text'"
+          [placeholder]="account.city ? account.city : 'Nova Iorque'"
+          [error]="this.emailError?.hasError"
+          [(value)]="updateAccount.pCidade"
+        >
+        </app-input>
+      </div>
+      <div class="row">
+        <p>Endereço:</p>
+        <app-input
+          class="inp-email"
+          [type]="'text'"
+          [placeholder]="
+            account.address ? account.address : 'Rua 172. ap 1322, Queens'
+          "
+          [error]="this.emailError?.hasError"
+          [(value)]="updateAccount.pEndereco"
+        >
+        </app-input>
+      </div>
+      <div class="row">
+        <p>Telefone:</p>
+        <app-input
+          class="inp-email"
+          [type]="'text'"
+          [placeholder]="account.phone ? account.phone : '(00) 00000-0000'"
+          [mask]="'(00) 00000-0000'"
+          [error]="this.emailError?.hasError"
+          [(value)]="updateAccount.pTelefone"
+        >
+        </app-input>
+      </div>
+      <div class="buttons">
+        <app-loading *ngIf="isLoadingRequest"></app-loading>
+        <app-button
+          *ngIf="!isLoadingRequest"
+          class="button"
+          [text]="'Salvar'"
+          [type]="'button'"
+          [classList]="'btn-secondary'"
+          (click)="updateAccountData()"
+        ></app-button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="theme.formaPagamento">
+      <div class="divider"></div>
+
+      <div class="section-card">
+        <h4>Forma de pagamento</h4>
+        <a>{{ selectedCard }}</a>
+        <app-button
+          class="button"
+          text="Editar cartão"
+          type="button"
+          classList="btn-secondary"
+          (click)="goToEditPaymentCard()"
+        ></app-button>
+      </div>
+    </ng-container>
+
+    <div class="divider"></div>
+    <h4>Minhas assinaturas</h4>
+    <div class="container--subscribes">
+      <div
+        *ngFor="
+          let subscription of accountSubscriptions.success?.data?.tickets!
+        "
+      >
+        <a>{{ subscription.description }}</a>
+      </div>
+      <div class="subscriptions">
+        <div *ngIf="planAcessControl.hasHBO">
+          <a>HBO Max |</a><a class="acess-link" routerLink="/produtos-adicionais/hbo-max-tutorial/web">Saiba como acessar</a>
+        </div>
+        <div *ngIf="planAcessControl.hasUolBanca"><a>UOL Banca</a></div>
+        <div *ngIf="planAcessControl.hasStingrayMusic">
+          <a>Stingray Música</a>
+        </div>
+        <div *ngIf="planAcessControl.hasParamount"><a>Paramount</a></div>
+        <div *ngIf="planAcessControl.hasDirectvGO"><a>DirecTV Go</a></div>
+      </div>
+    </div>
+
+    <div
+      class="container--subscriptions"
+      *ngIf="accountSubscriptions.success?.data?.subscriptions?.plano_id"
+    >
+      <div class="container--subscriptions--details">
+        <h4>
+          {{ accountSubscriptions.success?.data?.subscriptions?.infoPlan }}
+        </h4>
+        <br />
+        <p>
+          {{ accountSubscriptions.success?.data?.subscriptions?.nextPayment }}
+        </p>
+        <p>
+          Valor: R$
+          {{
+            accountSubscriptions.success?.data?.subscriptions
+              ?.price!.toString()
+              .replace('.', ',')
+          }}
+        </p>
+      </div>
+      <div class="container--subscriptions--button">
+        <app-button
+          class="button"
+          [text]="'Cancelar Plano'"
+          [type]="'button'"
+          [classList]="'btn-secondary'"
+          (click)="
+            cancelPlan(
+              accountSubscriptions.success?.data?.subscriptions?.plano_id!
+            )
+          "
+        ></app-button>
+      </div>
+    </div>
+
+    <div class="button" *ngIf="theme.client !== 'watch'">
+      <div class="container--subscribes--footer">
+        <app-button
+          class="button"
+          [text]="'Alterar plano'"
+          [type]="'button'"
+          [classList]="'btn-secondary'"
+          [classList]="'btn-primary'"
+          [classList]="'btn-tertiary'"
+          [routerLink]="'/planos'"
+        ></app-button>
+        <p>ou</p>
+        <a class="retention-link" routerLink="/retention"
+          >Cancelar assinatura</a
+        >
+      </div>
+    </div>
+  </div>
+  <p *ngIf="environment.app">
+    Para editar um perfil é preciso acessar a plataforma web com um perfil
+    administrador e acessar o painel de conta e usuário para realizar mudanças.
+  </p>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <app-loading></app-loading>
+  </div>
+</ng-template>

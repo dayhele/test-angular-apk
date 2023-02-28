@@ -1,0 +1,12 @@
+<input
+  type="password"
+  autocomplete="new-password"
+  maxlength="4"
+  placeholder="----"
+  (input)="checkPin()"
+  [(ngModel)]="value"
+  (ngModelChange)="valueChange.emit($event)"
+  [class.isPasswordTrue]="response || success"
+  [class.inputActive]="value"
+  [class.isPasswordFalse]="response === false || error"
+/>

@@ -1,0 +1,48 @@
+@import '../../../themes/remc.scss';
+
+.container {
+  width: 100%;
+  padding: remc(111) 21vw remc(186) 21vw;
+  text-align: center;
+  background-color: #231032;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (min-width: 769px) {
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: remc(86) 11vw remc(130) 11vw;
+    text-align: left;
+    background-color: #ffffff;
+    color: #848484;
+
+    h1 {
+      font-family: 'Elza';
+      line-height: remc(45) !important;
+      color: #848484;
+    }
+
+    p {
+      width: 90%;
+    }
+  }
+
+  h1 {
+    font-family: 'Elza';
+    line-height: remc(55);
+    font-weight: bold;
+    font-size: 48px;
+  }
+
+  p {
+    @media screen and (min-width: 769px) {
+      width: 44vw;
+    }
+    margin-top: remc(20);
+    line-height: remc(30);
+  }
+}

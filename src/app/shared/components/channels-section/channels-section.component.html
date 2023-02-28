@@ -1,0 +1,14 @@
+<div class="channels">
+  <div class="channels__title">
+    <h3>{{ title }}</h3>
+  </div>
+  <swiper [slidesPerView]="'auto'" [navigation]="!checkMobile">
+    <ng-template swiperSlide *ngFor="let channel of channels">
+      <app-card-rounded
+        [channel]="channel"
+        [profileAgeBracket]="profileAgeBracket"
+        [disableClick]="disableClick"
+      ></app-card-rounded>
+    </ng-template>
+  </swiper>
+</div>

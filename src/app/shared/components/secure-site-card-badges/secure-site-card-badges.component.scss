@@ -1,0 +1,57 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .card-badge {
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    justify-content: center;
+
+    p {
+      width: remc(100);
+      font-size: remc(14);
+      font-weight: 400;
+    }
+
+    &__secure {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: remc(27);
+        height: remc(31);
+        margin-right: remc(12);
+      }
+    }
+
+    &__brands {
+      display: flex;
+      justify-items: center;
+
+      img {
+        width: remc(37);
+        height: remc(21);
+        margin-left: remc(12);
+      }
+    }
+  }
+
+  /* Mobile */
+  @media screen and (max-width: remc(600)) {
+    .card {
+      flex-direction: column;
+
+      p {
+        width: auto;
+      }
+
+      &__secure {
+        margin-bottom: remc(20);
+      }
+
+      &__brands {
+        margin-bottom: remc(20);
+      }
+    }
+  }
+}

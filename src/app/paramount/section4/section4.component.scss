@@ -1,0 +1,60 @@
+@import '../../../themes/remc.scss';
+
+.wraps {
+  position: relative;
+  .fundo {
+    background: linear-gradient(
+      180deg,
+      #0065ff 23.14%,
+      rgba(0, 101, 255, 0) 88.23%
+    );
+    opacity: 0.2;
+    width: 100%;
+    height: remc(230);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  width: 100vw;
+  height: remc(326);
+  .container {
+    display: flex;
+    align-items: center;
+    .text {
+      width: remc(493);
+      margin-left: remc(102);
+      margin-top: remc(80);
+      .title {
+        font-size: remc(24);
+        margin-bottom: remc(38);
+        color: var(--white);
+      }
+      .sub-title {
+        width: remc(285);
+        font-size: remc(14);
+        margin-bottom: remc(34);
+        color: var(--white);
+      }
+      .button {
+        margin-bottom: remc(72);
+      }
+    }
+    .cards {
+      width: calc(100vw - remc(493));
+      margin-left: remc(80);
+      margin-top: remc(80);
+
+      ::ng-deep .swiper {
+        .swiper-wrapper {
+          .swiper-slide {
+            width: auto;
+            height: auto;
+
+            margin-right: remc(24);
+          }
+        }
+      }
+    }
+  }
+}

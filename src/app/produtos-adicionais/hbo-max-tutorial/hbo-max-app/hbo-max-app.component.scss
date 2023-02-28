@@ -1,0 +1,75 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .container {
+    margin-top: remc(28);
+    margin-left: remc(96);
+    margin-bottom: remc(75);
+
+    h1,
+    h3,
+    p {
+      font-family: 'Roboto';
+      font-style: normal;
+      color: #fafafa;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: remc(40);
+    }
+
+    .content {
+      width: 100%;
+      margin-top: remc(70);
+      font-size: remc(40);
+
+      h1 {
+        margin-bottom: 0;
+        color: var(--text-tutorial);
+      }
+
+      h3 {
+        font-weight: 700;
+        font-size: remc(24);
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 1.3vw;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+
+        .card {
+          display: flex;
+
+          .img-step {
+            margin-top: remc(70);
+            width: 20vw;
+          }
+
+          .subtitle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: remc(120);
+            gap: remc(8);
+
+            .apps {
+              display: flex;
+              justify-content: space-around;
+
+              img {
+                width: 12vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

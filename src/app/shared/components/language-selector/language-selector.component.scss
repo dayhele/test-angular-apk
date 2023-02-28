@@ -1,0 +1,119 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .language-selector {
+    &--button {
+      width: remc(56);
+      height: remc(56);
+      padding: remc(10);
+      display: flex;
+
+      img {
+        width: remc(36);
+        height: remc(36);
+        cursor: pointer;
+
+        opacity: 0.6;
+      }
+
+      img:hover {
+        opacity: 1;
+      }
+    }
+
+    &--menu {
+      position: absolute;
+      display: none;
+      justify-content: space-between;
+      background-color: var(--primary-background);
+      height: remc(200);
+      min-width: remc(240);
+      bottom: 100%;
+      right: 12%;
+      padding: remc(28) remc(33) remc(36) remc(50);
+      z-index: 10;
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease-out;
+
+      &.show {
+        display: flex;
+      }
+
+      &--audios {
+        min-width: remc(120);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: remc(10);
+        height: 100%;
+
+        &--title {
+          font-size: remc(16);
+          color: var(--blue-multi-50);
+          font-weight: 700;
+          margin-bottom: remc(20);
+        }
+
+        &--audio {
+          color: var(--white);
+          font-size: remc(16);
+          font-weight: 400;
+          margin-bottom: remc(20);
+          cursor: pointer;
+
+          &.selected {
+            color: var(--primary-base);
+            text-decoration: underline;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .vl {
+        width: remc(1);
+        height: remc(120);
+        background-color: lightgrey;
+        opacity: 0.5;
+        margin-right: remc(10);
+        margin-top: remc(5);
+      }
+
+      &--subtitles {
+        min-width: remc(120);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: remc(10);
+        height: 100%;
+        border-right: 1 solid var(--blue-multi-50);
+
+        &--title {
+          font-size: remc(16);
+          color: var(--blue-multi-50);
+          font-weight: 700;
+          margin-bottom: remc(20);
+        }
+
+        &--subtitle {
+          color: var(--white);
+          font-size: remc(16);
+          font-weight: 400;
+          margin-bottom: remc(20);
+          cursor: pointer;
+
+          &.selected {
+            color: var(--primary-base);
+            text-decoration: underline;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

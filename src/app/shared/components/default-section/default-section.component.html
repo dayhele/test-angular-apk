@@ -1,0 +1,29 @@
+<div class="section">
+  <div class="section--header">
+    <img *ngIf="sectionTitle === 'Sugestões' && hasAwesomenessLogo"
+      [src]="environment.bucket + 'icons/awesomeness.svg'" />
+    <h3 *ngIf="
+        sectionTitle === 'Sugestões' && hasAwesomenessLogo;
+        else sectionRegular
+      ">
+      | {{ sectionTitle }}
+    </h3>
+    <ng-template #sectionRegular>
+      <h3>{{ sectionTitle }}</h3>
+    </ng-template>
+    <div class="section--header--content">
+      <div class="button">
+        <app-button *ngIf="sectionButtonText !== ''" [type]="'button'" [text]="sectionButtonText"
+          [classList]="'btn-secondary'" (click)="goTo(categoryTitle!)"></app-button>
+      </div>
+    </div>
+  </div>
+  <p *ngIf="sectionSubtitle">{{ sectionSubtitle }}</p>
+  <swiper [slidesPerView]="'auto'" *ngIf="data?.length !== undefined" [navigation]="!checkMobile">
+    <ng-template swiperSlide *ngFor="let item of data">
+      <a [routerLink]="['/details', item.id, item.type]">
+        <app-default-card [cardProperties]="cardProperties" [data]="item"></app-default-card>
+      </a>
+    </ng-template>
+  </swiper>
+</div>

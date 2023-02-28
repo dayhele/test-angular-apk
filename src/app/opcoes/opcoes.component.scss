@@ -1,0 +1,133 @@
+@import '../../themes/remc.scss';
+
+.profile {
+  .mudar-perfil {
+    margin-top: remc(16);
+    margin-bottom: remc(16);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  padding: remc(30);
+  padding-bottom: 0;
+  text-align: center;
+  color: #fff;
+
+  > div {
+    text-align: center;
+    width: remc(60);
+    height: remc(60);
+    margin: auto;
+    margin-bottom: remc(20);
+    display: flex;
+    justify-content: center;
+
+    > img {
+      width: remc(60);
+      height: remc(60);
+    }
+  }
+}
+
+.menu {
+  .menu-item {
+    display: flex;
+    color: #fff;
+    line-height: remc(60);
+    border-top: remc(1) solid #7a7a7a;
+
+    .text {
+      width: 100%;
+    }
+
+    &:last-child {
+      border-bottom: remc(1) solid #7a7a7a;
+    }
+
+    &:after {
+      content: '>';
+      transition: all 0.2s ease-out;
+      color: var(--white);
+      display: flex;
+      font-size: remc(18);
+      margin-left: remc(5);
+      margin-top: remc(2);
+      padding-right: remc(10);
+    }
+  }
+
+  .icon {
+    width: remc(50);
+    height: remc(60);
+    background: #7a7a7a;
+  }
+
+  .account-icon {
+    -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/profile/profile.svg')
+      no-repeat center;
+    mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/profile/profile.svg')
+      no-repeat center;
+    mask-size: remc(24);
+  }
+
+  .user {
+    -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/user.svg')
+      no-repeat center;
+    mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/user.svg')
+      no-repeat center;
+    mask-size: remc(24);
+  }
+
+  .user_control {
+    -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/user_control.svg')
+      no-repeat center;
+    mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/user_control.svg')
+      no-repeat center;
+    mask-size: remc(24);
+  }
+
+  .avatar_kids_icon_small {
+    -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/avatar_kids_icon_small.svg')
+      no-repeat center;
+    mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/avatar_kids_icon_small.svg')
+      no-repeat center;
+    mask-size: remc(24);
+  }
+
+  .help_circle {
+    -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/help_circle.svg')
+      no-repeat center;
+    mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/help_circle.svg')
+      no-repeat center;
+    mask-size: remc(24);
+  }
+
+  .termosuso {
+    -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/termosuso.svg')
+      no-repeat center;
+    mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/menu-mobile/termosuso.svg')
+      no-repeat center;
+    mask-size: remc(24);
+  }
+}
+
+.logout {
+  text-align: center;
+  width: 100%;
+  margin: remc(40) 0 remc(88) 0;
+  text-decoration: underline;
+  color: #fff;
+}
+
+.avatar-icon {
+  width: remc(32);
+  height: remc(32);
+  border-radius: 50%;
+  background-color: var(--primary-base);
+
+  @media screen and (max-width: remc(768)) {
+    width: remc(18);
+    height: remc(18);
+  }
+}

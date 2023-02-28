@@ -1,0 +1,66 @@
+@import '../../../../themes/remc.scss';
+
+.container {
+  position: relative;
+  .background {
+    position: absolute;
+    width: 100%;
+    height: remc(284);
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(1, 174, 240, 0.8) 23.14%,
+      rgba(1, 174, 240, 0) 88.23%
+    );
+    opacity: 0.2;
+  }
+
+  .img-banner {
+    width: 100%;
+    display: block;
+    height: remc(360);
+  }
+
+  .grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: remc(124);
+
+    .texts {
+      padding-top: remc(78);
+      padding-right: remc(40);
+      color: var(--white);
+      margin-left: remc(78);
+      width: remc(344);
+      z-index: 1;
+
+      .title {
+        font-size: remc(24);
+        font-weight: 700;
+
+        h3 {
+          margin-top: remc(82);
+        }
+      }
+      .subtitle {
+        font-size: remc(14);
+        font-weight: 400;
+        margin-top: remc(32);
+      }
+      .btn {
+        margin-top: remc(40);
+      }
+    }
+    .section {
+      overflow: hidden;
+
+      ::ng-deep app-section {
+        .container .swiper .swiper-wrapper {
+          padding: 0;
+        }
+      }
+    }
+  }
+}

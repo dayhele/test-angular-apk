@@ -1,0 +1,97 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  app-development-tools {
+    z-index: 99999;
+  }
+
+  app-check-connection {
+    position: relative;
+    z-index: 2;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--primary-dark);
+
+    app-modal-pin {
+      z-index: 2;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      @media screen and (max-width: 768px) {
+        margin-top: 0;
+        justify-content: flex-start;
+      }
+    }
+    .content-toast {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: remc(30);
+
+      @media screen and (max-width: 768px) {
+        margin-top: 0;
+      }
+
+      @media screen and (min-width: 768px) {
+        justify-content: center;
+      }
+    }
+
+    .content-watch {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+    }
+
+    app-footer {
+      margin-top: 1rem;
+    }
+
+    app-footer-mobile {
+      padding-top: 4rem;
+    }
+
+    ::ng-deep app-header.isVoucher .container {
+      margin-top: 35px;
+    }
+
+    ::ng-deep app-toast.isVoucher .toast {
+      top: remc(64);
+    }
+
+    .fixedToastVoucher {
+      display: flex;
+      position: fixed;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      height: remc(35);
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--white);
+      padding: remc(10) 0;
+      z-index: 9999;
+
+      a {
+        margin-left: remc(5);
+        font-weight: 400;
+        cursor: pointer;
+        color: #f67f21;
+      }
+    }
+  }
+}

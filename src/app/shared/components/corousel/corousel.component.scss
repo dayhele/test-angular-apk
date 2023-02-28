@@ -1,0 +1,69 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    ::ng-deep .swiper {
+      .swiper-button-prev,
+      .swiper-button-next {
+        color: var(--white);
+      }
+
+      .swiper-button-disabled {
+        opacity: 0;
+      }
+
+      .swiper-wrapper {
+        padding: 0 remc(44);
+
+        @media screen and (max-width: 768px) {
+          padding: 0 remc(16);
+        }
+
+        .swiper-slide {
+          width: auto;
+          height: remc(210);
+          display: flex;
+          align-items: center;
+
+          margin: 0 remc(12);
+
+          @media screen and (max-width: 768px) {
+            height: remc(155.03);
+
+            margin: 0 remc(12) 0 0;
+          }
+
+          &:last-child {
+            padding-right: remc(240);
+          }
+
+          @media screen and (max-width: remc(900)) {
+            margin-right: remc(18);
+          }
+
+          @media screen and (max-width: remc(768)) {
+            margin-right: remc(12);
+          }
+          .cardCarousel {
+            width: remc(210);
+            height: remc(210);
+            background-color: var(--primary-base);
+            border-radius: 5px;
+            margin-right: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width: remc(768)) {
+              width: remc(112);
+              height: remc(112);
+            }
+          }
+        }
+      }
+    }
+  }
+}

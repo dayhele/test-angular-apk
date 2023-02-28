@@ -1,0 +1,19 @@
+<div class="censorship">
+  <div class="list">
+    <div
+      *ngFor="let age of ages; let i = index"
+      [class.selected]="selectedIndex === i"
+      [class.in-range]="i < selectedIndex"
+      class="item"
+    >
+      <div class="circle" (click)="select(age, i)"></div>
+      <div class="content" [class.inactive]="i > selectedIndex">
+        <app-censorship [age]="age.age"></app-censorship>
+        <div class="info">
+          <p>{{ age.title }}</p>
+          <span>{{ age.description }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

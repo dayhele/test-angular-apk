@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="button--position">
+    <mat-slider
+      [max]="duration"
+      [min]="min"
+      [value]="position"
+      (input)="changePosition($event)"
+    >
+    </mat-slider>
+  </div>
+</div>

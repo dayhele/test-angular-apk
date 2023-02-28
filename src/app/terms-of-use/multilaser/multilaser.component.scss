@@ -1,0 +1,58 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    color: var(--white);
+    padding: remc(30) remc(56) remc(60);
+    overflow-x: hidden;
+
+    @media only screen and (hover: none) and (pointer: coarse) {
+      padding: remc(30) remc(24) remc(60);
+    }
+
+    .center {
+      text-align: center;
+
+      @media screen and (min-width: 768px) {
+        padding-top: remc(60);
+      }
+    }
+
+    h2 {
+      margin-bottom: remc(32);
+    }
+
+    table {
+      border-spacing: 0;
+      margin-left: remc(45);
+      margin-right: remc(100);
+
+      td {
+        border: 1px solid var(--white);
+      }
+
+    }
+
+    tbody td {
+      width: remc(510);
+      height: remc(120);
+      vertical-align: top;
+      padding: remc(10);
+    }
+
+    .negative-indent {
+      margin-left: remc(40);
+      text-indent: remc(-40);
+    }
+
+    .horizontal-table {
+      overflow: auto;
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        font-size: 12px;
+      }
+
+    }
+  }
+
+}

@@ -1,0 +1,149 @@
+@use '@angular/material' as mat;
+@import './themes/fonts.scss';
+@import './themes/variables.scss';
+@import './themes/remc.scss';
+@import '~swiper/scss';
+@import '~swiper/scss/navigation';
+@import '~swiper/scss/pagination';
+@include mat.core();
+
+$watch-primary: mat.define-palette(mat.$indigo-palette, 500);
+$watch-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$watch-warn: mat.define-palette(mat.$red-palette);
+
+$watch-theme: mat.define-light-theme((color: (primary: $watch-primary,
+        accent: $watch-accent,
+        warn: $watch-warn )));
+
+@include mat.all-component-themes($watch-theme);
+
+@font-face {
+  font-family: elza, sans-serif;
+  src: url(assets/fonts/Elza-Light.otf) format('opentype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: elza, sans-serif;
+  src: url(assets/fonts/Elza-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: elza, sans-serif;
+  src: url(assets/fonts/Elza-Medium.otf) format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: elza, sans-serif;
+  src: url(assets/fonts/Elza-Bold.otf) format('opentype');
+  font-weight: bold;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  background: var(--primary-dark);
+}
+
+body {
+  overflow-x: hidden;
+
+  &.no-scroll {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+em {
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+  transition: all 0.2s ease-out;
+  font-weight: 500;
+
+  &:hover {
+    color: var(--primary-base);
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: var(--primary-base);
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--white);
+}
+
+h1 {
+  font-family: 'Roboto condensed', sans-serif;
+  font-weight: 700;
+  font-size: remc(64);
+}
+
+h2 {
+  font-size: remc(40);
+  font-weight: 500;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: remc(24);
+  line-height: remc(28.13);
+}
+
+h4 {
+  font-size: remc(16);
+  font-weight: 700;
+}
+
+// body,
+// html {
+//   &::-webkit-scrollbar {
+//     display: none; // Chrome, Safari and Others
+//     -ms-overflow-style: none; /* IE and Edge */
+//     scrollbar-width: none; /* Firefox */
+//   }
+// }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+@font-face {
+  font-family: "Elza";
+  font-weight: 700;
+  src: local("Elza"), url("assets/font/Elza/Elza-Bold.otf"), url("assets/font/Elza/Elza-Bold.ttf"), url("assets/font/Elza/Elza-Bold.woff"), url("assets/font/Elza/Elza-Bold.woff2");
+}
+
+@font-face {
+  font-family: "Elza";
+  font-weight: 400;
+  src: local("Elza"), url("assets/font/Elza/Elza-Regular.otf"), url("assets/font/Elza/Elza-Regular.ttf"), url("assets/font/Elza/Elza-Regular.woff"), url("assets/font/Elza/Elza-Regular.woff2");
+}

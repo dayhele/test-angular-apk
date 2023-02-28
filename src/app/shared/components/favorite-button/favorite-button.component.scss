@@ -1,0 +1,22 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .container{
+    width: remc(27);
+    height: remc(27);
+    border-radius: 50%;
+    border: remc(1) solid var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover{
+      background-color: var(--white);
+    }
+
+    img{
+      width: remc(14);
+      height: remc(14);
+    }
+  }
+}

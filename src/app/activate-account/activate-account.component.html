@@ -1,0 +1,7 @@
+<div class="background" [style.background-image]="'url(' + environment.bucket + 'bg/background_login.png)'">
+</div>
+<div class="container">
+  <app-step1 *ngIf="step === 1" (changeStepEmitter)="step = $event"></app-step1>
+  <app-step2 *ngIf="step === 2" (changeStepEmitter)="step = $event"></app-step2>
+  <app-step3 *ngIf="step === 3"></app-step3>
+</div>

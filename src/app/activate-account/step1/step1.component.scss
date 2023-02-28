@@ -1,0 +1,93 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: remc(65);
+    margin-bottom: remc(207);
+    width: 100%;
+
+    .loading {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .activate-account-sms {
+      width: remc(880);
+      background-color: var(--primary-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: remc(48);
+
+      p,
+      .subtitle {
+        letter-spacing: -0.02em;
+        color: white;
+      }
+
+      .subtitle {
+        margin-top: remc(32);
+        text-align: center;
+        font-weight: 700;
+        font-size: remc(16);
+        line-height: remc(19);
+      }
+
+      app-input {
+        width: remc(280);
+        margin-top: remc(68);
+      }
+
+      .error {
+        border: remc(1) solid #e96744;
+        padding: remc(10) remc(24);
+        background: #e96744;
+        margin-top: remc(12);
+
+        .message-error {
+          font-weight: 400;
+          font-size: remc(14);
+          line-height: remc(16);
+        }
+      }
+
+      .loading {
+        margin-top: remc(12);
+      }
+
+      .buttons {
+        display: flex;
+        gap: remc(32);
+        margin-top: remc(52);
+      }
+
+      .notice {
+        font-weight: 400;
+        font-size: remc(14);
+        line-height: remc(16);
+        margin-top: remc(34);
+      }
+
+      .resend-code {
+        margin-top: remc(94);
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
+}

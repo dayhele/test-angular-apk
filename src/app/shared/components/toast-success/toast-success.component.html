@@ -1,0 +1,11 @@
+<div class="container" *ngIf="toastExists">
+  <div class="content">
+    <span class="toast-message">{{ toastMessage }}</span>
+    <app-button
+      *ngIf="useUndoButton"
+      classList="btn-secondary"
+      text="Desfazer"
+      (click)="undo()"
+    ></app-button>
+  </div>
+</div>

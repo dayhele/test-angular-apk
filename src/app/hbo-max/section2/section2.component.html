@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="fade"></div>
+  <div class="image-banner-cta">
+    <img [src]="environment.bucket + 'hbo-max/Hero-background-mob%201.png'" />
+  </div>
+
+  <div class="texts">
+    <h3 class="title">
+      Bem vindo ao <br />
+      Universo HBO!
+    </h3>
+    <p class="subtitle">
+      A HBO Max é uma plataforma de streaming que oferece conteúdos exclusivos
+      para toda a família!
+    </p>
+    <div class="btn">
+      <app-button class="button" [text]="
+          theme.header.ligga && isLigga
+            ? theme.landingPage.textButonLigga
+            : theme.landingPage.textButon
+        " type="button" classList="btn-primary" (click)="goTo()"></app-button>
+    </div>
+  </div>
+</div>

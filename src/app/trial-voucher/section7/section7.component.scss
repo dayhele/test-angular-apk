@@ -1,0 +1,234 @@
+@import '../../../themes/remc.scss';
+
+.content {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: remc(115);
+  width: 100%;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    padding-top: remc(35);
+  }
+
+  .container {
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: remc(120) remc(193);
+
+    @media screen and (max-width: remc(768)) {
+      margin-top: remc(397);
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      padding: remc(120) remc(33) remc(33);
+    }
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: remc(10);
+      gap: remc(10);
+
+      @media screen and (max-width: remc(768)) {
+        width: 100%;
+        padding: 1.875rem 11vw 1.875rem 11vw;
+      }
+
+      h3 {
+        max-width: 22vw;
+        font-style: normal;
+        color: #442061;
+      }
+      h3 {
+        max-width: 22vw;
+        font-style: normal;
+        color: #442061;
+        @media screen and (max-width: remc(768)) {
+          max-width: 76vw;
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          max-width: 33vw;
+        }
+      }
+
+      p {
+        max-width: 16vw;
+        font-style: normal;
+        color: #442061;
+
+        @media screen and (max-width: remc(768)) {
+          max-width: 72vw;
+          padding-top: remc(10);
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          max-width: 33vw;
+        }
+      }
+
+      h3 {
+        font-family: 'Elza';
+        font-weight: 700;
+        font-size: remc(45);
+        line-height: 87.52%;
+        letter-spacing: -0.025em;
+
+        @media screen and (max-width: remc(768)) {
+          // padding: 27px;
+        }
+      }
+
+      p {
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: remc(16);
+        line-height: 176.02%;
+
+        @media screen and (max-width: remc(768)) {
+          text-align: left;
+          // padding: 27px;
+        }
+      }
+    }
+
+    .devices-container {
+      display: flex;
+      flex-direction: column;
+      gap: remc(40);
+      margin-left: remc(-11);
+
+      @media screen and (max-width: remc(768)) {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-left: remc(20);
+      }
+
+      .device {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: remc(12);
+        list-style: none;
+        padding-top: remc(25.38);
+        width: remc(82);
+
+        @media screen and (max-width: remc(768)) {
+          margin-right: remc(10);
+          width: 32vw;
+        }
+
+        .phone {
+          width: remc(20);
+          margin-right: remc(8);
+        }
+
+        img {
+          width: remc(40);
+        }
+
+        li {
+          font-family: 'Roboto';
+          font-style: normal;
+          font-weight: 700;
+          font-size: remc(16);
+          line-height: 116.52%;
+          text-align: left;
+          color: #442061;
+
+          @media screen and (max-width: remc(768)) {
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .devices-img {
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 50vw;
+      }
+    }
+
+    @media screen and (max-width: remc(768)) {
+      flex-direction: column;
+      padding: remc(44);
+
+      .devices-img {
+        width: remc(370);
+      }
+
+      .devices-container {
+        gap: remc(5);
+        align-items: center;
+        flex-direction: row;
+
+        .device {
+          align-items: center;
+
+          @media screen and (max-width: remc(768)) {
+            align-items: start;
+          }
+
+          li {
+            text-align: center;
+
+            @media screen and (max-width: remc(768)) {
+              text-align: left;
+            }
+          }
+          @media screen and (max-width: remc(768)) {
+            margin-right: remc(34.88);
+          }
+        }
+      }
+    }
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    padding-top: remc(20);
+
+    @media screen and (min-width: remc(768)) {
+      margin-top: remc(66);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      padding-bottom: remc(30);
+    }
+
+    ::ng-deep button {
+      font-family: 'Elza';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 87.52%;
+
+      padding: remc(11) remc(27) remc(9) remc(24);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      padding-bottom: remc(15);
+      padding-top: 0;
+    }
+  }
+
+  .line {
+    width: 73vw;
+    border: 1px solid #000000;
+    margin-top: remc(106);
+    margin-bottom: remc(85);
+
+    @media screen and (max-width: remc(768)) {
+      margin-top: remc(20);
+    }
+  }
+}

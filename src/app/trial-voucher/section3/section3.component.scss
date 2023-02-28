@@ -1,0 +1,64 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    @media screen and (min-width: remc(768)) {
+      padding-bottom: remc(13);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      flex-direction: column;
+    }
+
+    .left-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: rgba(193, 193, 193, 1);
+      padding: 0 0 0 10%;
+
+      @media screen and (max-width: remc(768)) {
+        padding: 1.875rem 11vw 1.875rem 11vw;
+      }
+
+      @media screen and (max-width: remc(420)) {
+        padding: remc(60) remc(20) remc(20) 11vw;
+      }
+
+      .small-title {
+        font-family: 'Elza';
+        font-weight: 400;
+        font-size: remc(16);
+      }
+
+      .main-text {
+        font-family: 'Elza';
+        font-weight: 700;
+        font-size: 3vw;
+        padding: remc(13) 0 remc(36) 0;
+
+        @media screen and (max-width: remc(768)) {
+          font-size: remc(40);
+        }
+      }
+
+      ::ng-deep app-button button {
+        font-family: 'Elza';
+        font-weight: 400;
+      }
+    }
+
+    .image {
+      width: 60vw;
+      height: auto;
+      vertical-align: middle;
+
+      @media screen and (max-width: remc(768)) {
+        width: 100vw;
+      }
+    }
+  }
+}

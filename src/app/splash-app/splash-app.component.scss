@@ -1,0 +1,122 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .background {
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/splash/splash-watch.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .content {
+    position: relative;
+    display: grid;
+    height: 100%;
+    text-align: center;
+    place-content: center;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+
+    .logo1 {
+      height: remc(50);
+      padding-top: remc(10);
+      overflow: hidden;
+
+      img {
+        margin-top: remc(40);
+        transition: all cubic-bezier(1, -0.65, 0, 1.68) 1s;
+
+        &.active {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .logo2 img {
+      height: 0;
+      transition: all cubic-bezier(1, -0.65, 0, 1.68) 1s;
+
+      &.active {
+        height: remc(40);
+      }
+    }
+
+    .progress-bar {
+      margin-top: remc(100);
+      position: relative;
+
+      .bar {
+        width: 100%;
+        border: remc(1) solid #fafafa;
+        border-radius: remc(183);
+        position: absolute;
+        opacity: 0;
+        transition: all ease 0.4s;
+        padding: remc(4);
+
+        .fill {
+          background: var(--primary-base);
+          border-radius: remc(266);
+          height: remc(6);
+          transition: all ease 1s;
+          transition-delay: 1s;
+          width: 0%;
+
+          &.active {
+            width: 100%;
+          }
+        }
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+
+    .copyright {
+      width: 100%;
+      position: absolute;
+      bottom: remc(38);
+      transition: all cubic-bezier(1, -0.65, 0, 1.68) 2s;
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+      }
+
+      h3,
+      p {
+        font-size: remc(10);
+        line-height: remc(12);
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #fafafa;
+      }
+
+      p {
+        font-weight: 300;
+      }
+    }
+  }
+
+  .fade {
+    background: linear-gradient(
+      180deg,
+      var(--primary-base) -14.3%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    opacity: 0.4;
+    transform: rotate(-180deg);
+    width: 100%;
+    height: 45vh;
+    bottom: 0;
+    position: absolute;
+  }
+}

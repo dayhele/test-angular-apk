@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="screen">
+    <h3>Escolha o seu avatar</h3>
+    <div class="screen--profiles">
+      <div class="profile">
+        <div class="profile-image">
+          <img
+            (click)="profileImage.click()"
+            src="assets/icons/profile/camera.svg"
+            [ngStyle]="{ 'background-color': '#7A7A7A' }"
+          />
+
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onFileSelected($event)"
+            #profileImage
+          />
+        </div>
+      </div>
+
+      <div class="profile" *ngFor="let color of profileColors">
+        <div class="profile-image">
+          <img
+            src="assets/icons/profile/default.svg"
+            [ngStyle]="{ 'background-color': color }"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingBlock>
+  <div class="loading">
+    <app-loading></app-loading>
+  </div>
+</ng-template>

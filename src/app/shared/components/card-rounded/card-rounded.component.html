@@ -1,0 +1,6 @@
+<a class="item" (click)="watch()">
+  <div *ngIf="censorchip > profileAgeBracket" class="blockedOpacity">
+    <img [src]="lockImgSrc" />
+  </div>
+  <img [src]="channel.channelBrand" [alt]="channel.title" />
+</a>

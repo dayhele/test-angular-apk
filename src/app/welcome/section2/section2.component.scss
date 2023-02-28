@@ -1,0 +1,52 @@
+@import '../../../themes/remc.scss';
+
+.container {
+  width: 100%;
+  height: auto;
+  padding: remc(103) 0 remc(104) 0;
+  background-color: #1e1e22;
+  text-align: center;
+
+  .channels {
+    width: 100%;
+    white-space: nowrap;
+    overflow: auto;
+    padding-top: remc(20);
+
+    .swiper-pointer-events {
+      padding-right: remc(60);
+    }
+
+    ::ng-deep .swiper {
+      .swiper-button-prev {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+      .swiper-button-disabled {
+        opacity: 0;
+      }
+      .swiper-button-next {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+
+      .swiper-wrapper {
+        padding: remc(24) 0 remc(8) remc(56);
+
+        .swiper-slide {
+          width: remc(152);
+          height: remc(152);
+
+          margin-right: remc(16);
+
+          @media screen and (max-width: remc(768)) {
+            width: remc(117);
+            height: remc(117);
+          }
+        }
+      }
+    }
+  }
+}

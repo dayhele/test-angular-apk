@@ -1,0 +1,29 @@
+<div *ngIf="modal" class="modal">
+  <div class="modal-header">
+    <div class="row">
+      <div class="arrow" (click)="closeModal()">
+        <img src="./assets/icons/nsports-wait-modal/arrow.svg" alt="" />
+      </div>
+      <div class="title">
+        <h3>{{ match.title }}</h3>
+      </div>
+    </div>
+    <div class="time">
+      <p>{{ formatDate(match.synopsis || '') }}</p>
+    </div>
+  </div>
+  <div class="img-modal">
+    <img src="./assets/icons/nsports-wait-modal/modal_icon.svg" alt="" />
+  </div>
+  <div class="title-center">
+    <h5>Esta programação ficará disponível</h5>
+    <h5>30 min antes do início da transmissão.</h5>
+    <p>Fique atento ao horário desta programação.</p>
+  </div>
+  <div class="icon">
+    <img *ngIf="theme.client === 'multilaser'; else isWatch" src="./assets/icons/nsports-wait-modal/multi_icon.svg" alt="" />
+    <ng-template #isWatch>
+      <img src="./assets/icons/nsports-wait-modal/watch_icon.svg" alt="" />
+    </ng-template>
+  </div>
+</div>

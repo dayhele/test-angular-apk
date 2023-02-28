@@ -1,0 +1,10 @@
+<div class="dropdown" (click)="toggleActive()">
+  <p [ngClass]="selectedGender === 'Sexo' ? 'default-color' : ''">
+    {{ selectedGender }}
+  </p>
+</div>
+<div class="menu" [ngClass]="active ? 'active' : ''">
+  <div class="choiceGenres" (click)="toggleGender('Não Definido')">Não Definido</div>
+  <div class="choiceGenres"(click)="toggleGender('Feminino')">Feminino</div>
+  <div class="choiceGenres" (click)="toggleGender('Masculino')">Masculino</div>
+</div>

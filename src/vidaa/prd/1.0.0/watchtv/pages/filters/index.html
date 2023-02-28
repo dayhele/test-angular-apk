@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
+      name="viewport"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <script src="../../axios/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container" id="container">
+      <header class="container--header">
+        <div class="container--header-icon">
+          <img src="../../images/logo.svg" />
+        </div>
+        <div class="container--header-items">
+          <div class="header--items">
+            <div
+              onclick="goTo('../home/index.html')"
+              class="header--item"
+              id="0-0"
+            >
+              Home
+            </div>
+            <div
+              onclick="goTo('../movie/index.html')"
+              class="header--item"
+              id="0-1"
+            >
+              Filmes
+            </div>
+            <div
+              onclick="goTo('../series/index.html')"
+              class="header--item"
+              id="0-2"
+            >
+              Séries
+            </div>
+            <div
+              onclick="goTo('../live/index.html')"
+              class="header--item"
+              id="0-3"
+            >
+              AO VIVO
+            </div>
+            <div
+              onclick="goTo('../favorites/index.html')"
+              class="header--item"
+              id="0-4"
+            >
+              Favoritos
+            </div>
+            <div class="header--items-sp">
+              <div class="header--items-search" id="0-5">
+                <img class="item-search-img" id="search-icon" />
+              </div>
+              <div
+                onclick="goTo('../profile-user/index.html')"
+                class="header--items-settings"
+                id="0-6"
+              >
+                <img class="item-settings-img" id="profile-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <main>
+      <div class="input">
+        <div class="input-search">
+          <p id="search-string"></p>
+        </div>
+        <div class="keyboard">
+          <div class="keyboard-line">
+            <div
+              onclick="buttonAddLetter('a')"
+              class="keyboard-button"
+              id="1-0"
+            >
+              <p>a</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('b')"
+              class="keyboard-button"
+              id="1-1"
+            >
+              <p>b</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('c')"
+              class="keyboard-button"
+              id="1-2"
+            >
+              <p>c</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('d')"
+              class="keyboard-button"
+              id="1-3"
+            >
+              <p>d</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('e')"
+              class="keyboard-button"
+              id="1-4"
+            >
+              <p>e</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('f')"
+              class="keyboard-button"
+              id="1-5"
+            >
+              <p>f</p>
+            </div>
+          </div>
+
+          <div class="keyboard-line">
+            <div
+              onclick="buttonAddLetter('g')"
+              class="keyboard-button"
+              id="1-6"
+            >
+              <p>g</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('h')"
+              class="keyboard-button"
+              id="1-7"
+            >
+              <p>h</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('i')"
+              class="keyboard-button"
+              id="1-8"
+            >
+              <p>i</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('j')"
+              class="keyboard-button"
+              id="1-9"
+            >
+              <p>j</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('k')"
+              class="keyboard-button"
+              id="1-10"
+            >
+              <p>k</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('l')"
+              class="keyboard-button"
+              id="1-11"
+            >
+              <p>l</p>
+            </div>
+          </div>
+
+          <div class="keyboard-line">
+            <div
+              onclick="buttonAddLetter('m')"
+              class="keyboard-button"
+              id="1-12"
+            >
+              <p>m</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('n')"
+              class="keyboard-button"
+              id="1-13"
+            >
+              <p>n</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('o')"
+              class="keyboard-button"
+              id="1-14"
+            >
+              <p>o</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('p')"
+              class="keyboard-button"
+              id="1-15"
+            >
+              <p>p</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('q')"
+              class="keyboard-button"
+              id="1-16"
+            >
+              <p>q</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('r')"
+              class="keyboard-button"
+              id="1-17"
+            >
+              <p>r</p>
+            </div>
+          </div>
+
+          <div class="keyboard-line">
+            <div
+              onclick="buttonAddLetter('s')"
+              class="keyboard-button"
+              id="1-18"
+            >
+              <p>s</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('t')"
+              class="keyboard-button"
+              id="1-19"
+            >
+              <p>t</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('u')"
+              class="keyboard-button"
+              id="1-20"
+            >
+              <p>u</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('v')"
+              class="keyboard-button"
+              id="1-21"
+            >
+              <p>v</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('w')"
+              class="keyboard-button"
+              id="1-22"
+            >
+              <p>w</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('x')"
+              class="keyboard-button"
+              id="1-23"
+            >
+              <p>x</p>
+            </div>
+          </div>
+
+          <div class="keyboard-line">
+            <div
+              onclick="buttonAddLetter('y')"
+              class="keyboard-button"
+              id="1-24"
+            >
+              <p>y</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('z')"
+              class="keyboard-button"
+              id="1-25"
+            >
+              <p>z</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('1')"
+              class="keyboard-button"
+              id="1-26"
+            >
+              <p>1</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('2')"
+              class="keyboard-button"
+              id="1-27"
+            >
+              <p>2</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('3')"
+              class="keyboard-button"
+              id="1-28"
+            >
+              <p>3</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('4')"
+              class="keyboard-button"
+              id="1-29"
+            >
+              <p>4</p>
+            </div>
+          </div>
+
+          <div class="keyboard-line">
+            <div
+              onclick="buttonAddLetter('5')"
+              class="keyboard-button"
+              id="1-30"
+            >
+              <p>5</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('6')"
+              class="keyboard-button"
+              id="1-31"
+            >
+              <p>6</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('7')"
+              class="keyboard-button"
+              id="1-32"
+            >
+              <p>7</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('8')"
+              class="keyboard-button"
+              id="1-33"
+            >
+              <p>8</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('9')"
+              class="keyboard-button"
+              id="1-34"
+            >
+              <p>9</p>
+            </div>
+            <div
+              onclick="buttonAddLetter('0')"
+              class="keyboard-button"
+              id="1-35"
+            >
+              <p>0</p>
+            </div>
+          </div>
+
+          <div class="keyboard-line">
+            <div
+              onclick="buttonChange('clean')"
+              class="keyboard-button-medium"
+              id="1-36"
+            >
+              <p>Limpar</p>
+            </div>
+            <div
+              onclick="buttonChange('space')"
+              class="keyboard-button-medium"
+              id="1-37"
+            >
+              <p class="space">]</p>
+            </div>
+            <div
+              onclick="buttonChange('backspace')"
+              class="keyboard-button-medium"
+              id="1-38"
+            >
+              <svg
+                class="cleanSvg"
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="backspace"
+                class="svg-inline--fa fa-backspace fa-w-20 __web-inspector-hide-shortcut__"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div class="keyboard-line">
+            <div
+              onclick="buttonChange('search')"
+              class="keyboard-button-large"
+              id="1-39"
+            >
+              <p>BUSCAR</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="loading-container" id="loading-container">
+        <div class="loading-circle"></div>
+      </div>
+
+      <div class="search-container" id="search"></div>
+    </main>
+
+    <script src="./filters.js" async></script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<app-loader *ngIf="loading || kaltura.State.IDLE"></app-loader>
+<app-modal-chromecast
+  *ngIf="isRunningOnChromecast && !playOnChromecast"
+  (reproduzirChromecast)="reproduzirChromecast()"
+  (reproduzirDispositivo)="reproduzirDispositivo()"
+></app-modal-chromecast>
+
+<div
+  class="video-layer"
+  id="kaltura_player_15630281"
+  *ngIf="!isPlayOnChromecast"
+  [style.opacity]="loadingMedia ? '0' : '1'"
+></div>
+
+<div class="player">
+  <div class="player--shadow" [ngClass]="inactive ? 'inactive' : ''"></div>
+
+  <div
+    class="player--kaltura"
+    *ngIf="!isPlayOnChromecast"
+    [style.opacity]="loadingMedia ? '0' : '1'"
+  ></div>
+  <div class="player--kaltura" *ngIf="isPlayOnChromecast">
+    <div class="poster" [style.background]="'url(' + getPoster() + ')'"></div>
+  </div>
+
+  <div class="player--header" [ngClass]="inactive ? 'inactive' : ''">
+    <div class="player--header--arrow-back" (click)="returnPrevious()">
+      <img
+        *ngIf="screen_x > 768; else arrowMobile"
+        src="{{ environment.imageService }}/icons/arrow_left.svg"
+        alt="arrow_left"
+      />
+      <ng-template #arrowMobile>
+        <img
+          src="{{ environment.imageService }}/icons/arrow-left-mobile.svg"
+          alt="arrow_left"
+        />
+      </ng-template>
+    </div>
+    <div class="player--header--title">
+      <h2>{{ movie?.title }}</h2>
+      <p [ngClass]="isLive === true ? 'liveWatch' : 'serie'">
+        {{ isLive === true ? 'Transmissão ao vivo' : episode.title }}
+      </p>
+    </div>
+    <div class="player--header--censorship">
+      <ng-container *ngIf="!isLive && !preRollActive">
+        <div
+          class="chromecast"
+          *ngIf="isMobile && (chromeCastDevicesAvailable | async)"
+        >
+          <img
+            src="assets/icons/player/chromecast.png"
+            (click)="openChromeCast()"
+          />
+        </div>
+      </ng-container>
+      <ng-container *ngIf="movie && movie?.censorship !== ''">
+        <p>Classificação</p>
+        <app-censorship
+          *ngIf="movie"
+          [age]="movie.censorship"
+          [forPlayer]="true"
+        ></app-censorship>
+      </ng-container>
+    </div>
+  </div>
+  <app-next-episode
+    class="player--next-episode"
+    *ngIf="
+      !preRollActive && nextEpisodeAvailable && showNextEpisode && nextEpisode
+    "
+    [episode]="nextEpisode"
+    (click)="marathon()"
+  ></app-next-episode>
+  <div
+    *ngIf="!preRollActive"
+    class="player--footer"
+    [ngClass]="inactive ? 'inactive' : ''"
+  >
+    <div class="player--footer--content">
+      <div class="player--footer--content--left" *ngIf="!isLive">
+        {{ !isPlayOnChromecast ? tempoAtual : tempoAtualChromeCast }} /
+        {{ fullTime }}
+      </div>
+      <div class="player--footer--content--left" *ngIf="isLive">
+        <span [style.color]="onTimeLive ? 'red' : 'gray'">•</span> Ao vivo
+      </div>
+      <div class="player--footer--content--center">
+        <button
+          [class.invisible]="!isLive || (isLive && onTimeLive)"
+          [disabled]="onTimeLive"
+          class="live-button"
+          [class.has-hover]="!isMobile && !onTimeLive"
+          type="button"
+          (click)="kaltura.currentTime = liveTime"
+        >
+          Ao vivo
+        </button>
+
+        <div
+          class="button"
+          (click)="handleRewind()"
+          [class.button__mobile]="screen_x < 1024"
+        >
+          <img src="{{ environment.imageService }}/icons/player/rewind.svg" />
+        </div>
+        <div
+          class="button"
+          (click)="togglePlay()"
+          [class.button__mobile]="screen_x < 1024"
+        >
+          <img
+            [src]="
+              isPlaying
+                ? environment.imageService + '/icons/player/pause.svg'
+                : environment.imageService + '/icons/player/play.svg'
+            "
+          />
+        </div>
+        <div
+          class="button"
+          (click)="handleForward()"
+          [class.invisible]="isLive && onTimeLive"
+          [class.button__mobile]="screen_x < 1024"
+        >
+          <img src="{{ environment.imageService }}/icons/player/forward.svg" />
+        </div>
+      </div>
+      <div class="player--footer--content--right">
+        <app-language-selector
+          #audioOptions
+          (click)="videoOptions?.close()"
+          *ngIf="!isLive"
+          (languageChange)="selectTrack($event)"
+          [audioPack]="audioPack"
+          [subtitlePack]="subtitlePack"
+        ></app-language-selector>
+        <ng-container *ngIf="!appleDevice && !isPlayOnChromecast">
+          <app-video-quality
+            #videoOptions
+            *ngIf="sources?.length"
+            (click)="audioOptions.close()"
+            (selectVideoQuality)="selectSource($event)"
+            [sources]="sources"
+          ></app-video-quality>
+        </ng-container>
+        <div
+          class="button"
+          (click)="playerToggleFullscreen()"
+          *ngIf="!mobileApple"
+        >
+          <img
+            src="{{ environment.imageService }}/icons/player/fullscreen.svg"
+          />
+        </div>
+        <ng-container>
+          <div
+            class="button no-padding"
+            (mouseover)="openVolume = true"
+            (mouseout)="openVolume = false"
+          >
+            <div class="click-area" (click)="clickVolume()">
+              <img
+                *ngIf="kaltura?.volume > 0"
+                src="{{ environment.imageService }}/icons/player/volume.svg"
+              />
+              <img
+                *ngIf="kaltura?.volume === 0"
+                src="{{ environment.imageService }}/icons/player/mute.svg"
+              />
+            </div>
+            <div
+              class="button--volume"
+              [class.button--volume--show]="openVolume"
+            >
+              <mat-slider
+                *ngIf="kaltura?.volume !== null"
+                min="0"
+                step="0.01"
+                [vertical]="true"
+                max="1"
+                [(ngModel)]="volume"
+              >
+              </mat-slider>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="player--footer--progress">
+      <app-custom-progress-bar
+        (updateCurrentTime)="updateCurrentTime($event)"
+        [class.inactive]="inactive"
+        *ngIf="kaltura && kaltura.duration > 0"
+        class="progress-bar"
+        [min]="!isLive ? 0 : liveTime - 14400"
+        [position]="!isPlayOnChromecast ? kaltura.currentTime : currentTimeCast"
+        [duration]="!isLive ? kaltura.duration : liveTime"
+      ></app-custom-progress-bar>
+    </div>
+  </div>
+</div>

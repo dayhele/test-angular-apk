@@ -1,0 +1,30 @@
+<div class="slide">
+  <swiper
+    class="swiperSlides"
+    [pagination]="{ clickable: true }"
+    [autoplay]="{ delay: 5000, disableOnInteraction: false }"
+    [slidesPerView]="1"
+    [loop]="true"
+  >
+    <ng-template swiperSlide *ngFor="let item of backgroundCarousel">
+      <div class="container_banner">
+        <div class="banner bg1">
+          <img [src]="item.image" />
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+  <div class="text-fixed">
+    <div class="texts_banner">
+      <p>Você merece</p>
+      <img src="{{ theme.logo }}" />
+      <p>conteúdos!</p>
+    </div>
+    <app-button
+      type="button"
+      text="Conheça os planos"
+      classList="btn-secondary"
+      (click)="scrollToSection()"
+    ></app-button>
+  </div>
+</div>

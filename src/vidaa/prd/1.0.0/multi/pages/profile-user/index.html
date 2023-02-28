@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="../../axios/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container-popup" id="containerPopup">
+      <div class="popup">
+        <div class="popup--text-title">FECHAR SESSAO?</div>
+        <p class="popup--text-description">
+          Tem certeza que deseja fechar a sessão?
+        </p>
+        <div class="popup--buttons">
+          <button class="popup--buttons-button" id="keepSection">
+            MANTER SESSÃO
+          </button>
+          <button class="popup--buttons-button" id="closeSection">
+            FECHAR SESSÃO
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-container">
+      <header class="container--header">
+        <div class="container--header-icon">
+          <img src="../../images/logo.png" />
+        </div>
+        <div class="container--header-items">
+          <div class="header--items">
+            <div
+              onclick="goTo('../home/index.html')"
+              class="header--item"
+              id="item-0"
+            >
+              Home
+            </div>
+            <div
+              onclick="goTo('../movie/index.html')"
+              class="header--item"
+              id="item-1"
+            >
+              Filmes
+            </div>
+            <div
+              onclick="goTo('../series/index.html')"
+              class="header--item"
+              id="item-2"
+            >
+              Séries
+            </div>
+            <div
+              onclick="goTo('../live/index.html')"
+              class="header--item"
+              id="item-3"
+            >
+              AO VIVO
+            </div>
+            <div
+              onclick="goTo('../favorites/index.html')"
+              class="header--item"
+              id="item-4"
+            >
+              Favoritos
+            </div>
+            <div class="header--items-sp">
+              <div
+                onclick="goTo('../filters/index.html')"
+                class="header--items-search"
+                id="item-5"
+              >
+                <img class="item-search-img" id="item-5-img" />
+              </div>
+              <div
+                onclick="goTo('../profile-user/index.html')"
+                class="header--items-settings"
+                id="item-6"
+              >
+                <img class="item-settings-img" id="item-6-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="container-options">
+      <div class="box-left box-left-item">
+        <ul>
+          <li onclick="clickTerms()" class="box-left-item" id="terms">
+            <p id="terms-text">TERMOS DE USO</p>
+          </li>
+          <li onclick="clickProfiles()" class="box-left-item" id="user">
+            PERFIL
+          </li>
+          <li onclick="logout()" class="box-left-item" id="logout">LOGOUT</li>
+          <li class="versão">Versão 2.2.16</li>
+        </ul>
+      </div>
+      <div class="box-right" id="box-right">
+        <div class="container-dinamic-terms" id="container-dinamic-terms">
+          <div class="user-terms">
+            <h1 class="title-termo">TERMOS DE USO E PRIVACIDADE</h1>
+            <p>Bem-vindo aos termos de uso e privacidade da MULTI+ e WATCH</p>
+
+            <p>
+              
+Primeiramente, é importante informar que os serviços prestados pela MULTI+, são desenvolvidos e oferecidos a você pela WATCH, criadora da plataforma e responsável pelo conteúdo, funcionalidades e recursos nela existentes.
+
+
+            </p>
+
+            <p>
+              Portanto, estes termos são válidos entre você USUÁRIO, a MULTI+ e a WATCH e servem para orientá-lo sobre o uso do site, do respectivo aplicativo móvel, das funcionalidades e recursos, bem como sobre seus direitos e obrigações decorrentes do seu contrato.
+
+
+            </p>
+
+            <p>
+              Lembramos que estes termos deverão ser respeitados por todos visitantes e usuários. Toda vez que você acessar, navegar ou utilizar o serviço MULTI+, você estará automaticamente de acordo com os termos de uso que integra o Contrato celebrado conosco.
+
+
+            </p>
+
+            <p>
+              Os presentes termos e condições de uso regem o uso da Plataforma <b>MULTI+</b> pelo <b>USUÁRIO</b>que declara e concorda expressamente que o presente contrato se formaliza, vinculando as partes, com a sua aceitação eletrônica, mediante o clique no botão “Aceito os Termos de Uso” e que leu e está ciente e de pleno acordo com todos os termos e condições do presente contrato, razão pela qual o aceita de livre e espontânea vontade.
+             
+            </p>
+
+            <p>
+              Integram os presentes TERMOS DE USO todos os avisos, regulamentos de uso, contrato e instruções levados ao conhecimento dos usuários e visitantes pela MULTI+ e pela WATCH
+            </p>
+            
+            <h2 class="title-termo">GLOSSÁRIO</h2>
+
+            <p class="description-termo">
+              Para facilitar a compreensão deste Termo de Uso e Privacidade, devem ser considerados os seguintes conceitos:
+            </p>
+
+            <p>
+              <b>Login:</b> Nome de usuário escolhido pelo visitante quando preenche o
+              cadastro para acesso a funcionalidades exclusivas do portal.
+            </p>
+
+            <p>
+              <b>Logon:</b> Ato de o visitante cadastrado ingressar na área restrita do
+              portal utilizando login e senha.
+            </p>
+
+            <p>
+              <b>Logs:</b> Registros de atividades do visitante efetuadas no portal.
+            </p>
+
+            <p>
+              <b>Senha:</b> Conjunto de caracteres que serve como prova de identidade
+              digital do usuário, cujo conhecimento deve ser exclusivo e único.
+            </p>
+
+            <p>
+              <b>Conta: </b>Credencial de um usuário cadastrado que permite o acesso à
+              área restrita e às funcionalidades exclusivas, que é definida por
+              nome de usuário (login) e senha.
+            </p>
+
+            <p>
+              <b>Layout:</b> Conjunto compreendido entre aparência, design e fluxos do
+              site.
+            </p>
+
+            <p> 
+              <b>Link:</b> Terminologia para endereço de Internet.</p>
+            <p>
+              <b>Webmastering:</b> Compreende criação, programação, desenvolvimento,
+              controle e disponibilidade de páginas de Internet.
+            </p>
+
+            <p>
+              <b>Cookies:</b>  Um cookie é um arquivo pequeno que contém uma sequência
+              de caracteres. Ele é enviado para seu computador quando você
+              visita um site. Quando você acessa o site novamente, o cookie
+              permite que o site reconheça seu navegador. Os cookies podem
+              armazenar as preferências do usuário e outras informações. É
+              possível configurar seu navegador para recusar todos os cookies ou
+              avisar quando um cookie estiver sendo enviado. No entanto, alguns
+              recursos ou serviços do site podem não funcionar adequadamente sem
+              cookies.
+            </p>
+
+            <p>
+              <b>Serviço:</b> O serviço permitirá a você acessar o conteúdo digital
+              através de uma assinatura, durante o tempo limitado do período da
+              assinatura.
+            </p>
+
+            <p>
+              <b>Usuário:</b>  Qualquer pessoa física com 18 anos completos ou pessoa
+              física legalmente capaz de praticar os atos da vida civil
+              (emancipada) que acesse a área restrita do site ou do aplicativo,
+              mediante uma conta de acesso.
+            </p>
+
+            <p>
+              <b> Dado pessoal:</b> Informação relacionada a pessoa natural identificada
+              ou identificável.
+            </p>
+
+            <p>
+              <b>Base legal para coleta de dados pessoais:</b>  fundamento legal que
+              permite a coleta e tratamento de dados pessoais, nos termos da
+              legislação.
+            </p>
+
+            <p>
+              <b>Consentimento expresso:</b> manifestação livre, informada e inequívoca
+              pela qual o titular concorda com o tratamento de seus dados
+              pessoais para uma finalidade determinada.
+            </p>
+
+            <p>
+              <b>Finalidade:</b> realização do tratamento para propósitos legítimos,
+              específicos, explícitos e informados ao titular.
+            </p>
+
+            <p>
+              <b>Combo:</b> conjunto promocional de Recursos oferecidos pela MULTI+,
+              cada qual composto de produtos específicos.
+            </p>
+
+            <p>
+              <b> Oferta:</b> Forma de disponibilização dos Planos aos USUÁRIOS com
+              periodicidade, valores e demais características especificadas aos
+              USUÁRIOS previamente à contratação.
+            </p>
+
+            <p>
+              <b>Plano: </b> significa os Planos de Assinatura, os Planos Avulsos ou os
+              Planos por Consumo.
+            </p>
+
+            <p>
+              <b>Plano Avulso:</b>  Recursos comercializados pela MULTI+ de forma não
+              recorrente, sob demanda do USUÁRIO, conforme características
+              específicas descritas na Oferta ou informado no ato da
+              contratação.
+            </p>
+
+            <p>
+              <b>Plano de Assinatura:</b>  Recursos comercializados pela MULTI+ com
+              periodicidade mensal, trimestral, semestral ou anual (ou outro
+              período recorrente definido na Oferta), conforme características
+              específicas descritas na Oferta ou informado no ato da
+              contratação.
+            </p>
+
+            <p>
+              <b>Plano por Consumo:</b>  Recursos comercializados pela MULTI+ tarifados
+              por hora ou volume, dependendo da demanda do USUÁRIO e modalidade
+              contratada, conforme características específicas descritas na
+              Oferta ou informado no ato da contratação.
+            </p>
+
+            <p>
+              <b>Portal MultilaserPlay:</b>  designa o endereço eletrônico da MULTI+ e
+              seus subdomínios, por meio do qual o USUÁRIO pode adquirir os
+              Recursos.
+            </p>
+
+            <p>
+              <b>Recursos:</b>  serviços, conteúdos, produtos e/ou licenças
+              comercializados pela MULTI+, os quais possuem termos de uso
+              específicos. Os Recursos podem ser de propriedade de terceiros,
+              sendo oferecidos aos USUÁRIOS por intermédio do MULTI+.
+            </p>
+
+            <p>
+              <b>MULTILASER :</b> MULTILASER INDUSTRIAL S.A., pessoa jurídica de direito
+              privado, inscrita no CNPJ nº 59.717.553/0001-02, com sede e foro
+              na cidade de São Paulo, Estado de São Paulo na Avenida Brigadeiro
+              Faria Lima, 1.811, 15º Andar, Jardim América, São Paulo/SP, CEP
+              01452-000.
+            </p>
+            <p>
+            <b>OVER THE TOP (OTT):</b> Representa qualquer conteúdo que é veiculado
+            diretamente para os espectadores por meio de um serviço de streaming
+            de vídeo pela Internet, através de dispositivos eletrônicos.
+            </p>
+            <p>
+              <b>VIDEO ON DEMAND (VOD):</b> Conceito implementado por sistemas que
+              permitem ao usuário selecionar e assistir conteúdo de vídeo sobre
+              uma rede como parte de um sistema de TV interativo. Podem ser em
+              streaming, no qual o vídeo é imediatamente executado à medida que
+              os pacotes de dados referentes ao conteúdo chegam através da rede,
+              ou baixados (download) inteiramente para após serem visualizados.
+            </p>
+
+            <p>
+              <b>SUBSCRIPTION VIDEO ON DEMAND (SVOD):</b> Termo utilizado para
+              especificar qualquer conteúdo que pode ser acessado pelos
+              consumidores que se inscreveram para a assinatura de um serviço
+              específico, permitindo visualizações ilimitadas por uma taxa fixa
+              mensal.
+            </p>
+
+            <p>
+              <b>TRANSACTIONAL VIDEO ON DEMAND (TVOD):</b> termo utilizado para
+              especificar o aluguel de qualquer conteúdo que é comprado por meio
+              de um modelo pay-per-view. Os espectadores podem comprar o
+              conteúdo para visualização repetida ou alugá-lo para um uso único.
+            </p>
+
+            <p>
+              <b>TRATAMENTO DE DADOS PESSOAIS:</b>  toda operação realizada com dados
+              pessoais, como as que se referem a coleta, produção, recepção,
+              classificação, utilização, acesso, reprodução, transmissão,
+              distribuição, processamento, arquivamento, armazenamento,
+              eliminação, avaliação ou controle da informação, modificação,
+              comunicação, transferência, difusão ou extração
+            </p>
+
+            <p>
+              <b>CANAIS LINEARES:</b>  Considera-se canais lineares aqueles de
+              programação 24 horas por dia, 7 dias por semana, seguindo uma
+              programação definida e que não pode ser alterada.
+            </p>
+
+            <p>
+              <b>SERVIÇO DE VALOR ADICIONADO (SVA):</b>  Trata-se de modalidade de
+              serviço implementado no plano contratado de telecomunicações –
+              principalmente a internet oferecida por provedores.
+            </p>
+
+            <p>
+              <b>FORNECEDORES:</b>  empresas, canais, produtoras, plataformas, dos quais
+              a MULTI+ tem parcerias.
+            </p>
+
+            <p>
+              <b>MULTIPLICADORES:</b> Definição dos parceiros da Multilaser (Pessoa Física ou Jurídica) que oferta serviços e produtos da Multilaser.
+            </p>
+
+            <h2 class="title-termo">OBJETO</h2>
+
+            <p>
+              <b>1.1. </b>Através do site e aplicativo móvel, a MULTILASER em parceria com a WATCH TV ENTRETENIMENTOS S/A. (“WATCH”), disponibilizará o acesso à plataforma MULTI+ (“Plataforma”) e ao conteúdo digital disponível na e/ou compatível com a Plataforma (“Conteúdo”), o qual pode ser adquirido separadamente pelo USUÁRIO diretamente pela Plataforma ou mediante Ofertas disponibilizadas pela MULTILASER.
+            </p>
+
+            <p>
+              <b>1.2. </b> A Plataforma funciona como uma central de Video On Demand (VOD), permitindo ao USUÁRIO acessar e consumir de um único lugar os planos de assinatura e/ou acesso por meio da modalidade Transactional Video On Demand (TVOD), a diversos conteúdos, como filmes digitais e outros conteúdos de vídeo, alocados em de um catálogo de
+            </p>
+
+            <p>
+              <b>1.3. </b>Para acessar o Conteúdo via Plataforma é necessário que sua aquisição tenha ocorrido por intermédio da MULTILASER e seus multiplicadores. Dessa forma, caso o USUÁRIO tenha adquirido Conteúdo diretamente do Fornecedor ou por intermédio de outras empresas que não a MULTILASER, não será possível visualizá-lo pela Plataforma.
+            </p>
+
+            <p>
+              <b>1.4. </b> Determinados Conteúdos e o funcionamento da Plataforma são regidos pela WATCH, conforme instruções disponíveis em <a href=" https://watch.tv.br/termos-e-privacidade"> <b>
+              https://watch.tv.br/termos-e-privacidade </b></a> .
+            </p>
+
+            <p>
+              &emsp;<b>1.4.1. </b>Todos os Conteúdos disponibilizados na Plataforma são de
+              responsabilidade única e exclusiva dos respectivos Fornecedores,
+              cabendo a WATCH prover a Plataforma onde os Conteúdos são
+              disponibilizados. O suporte ao USUÁRIO será realizado pela
+              Multi+  em conjunto com a WATCH no que a ela couber.
+            </p>
+
+            <h2 class="title-termo">
+              <br />
+              DAS CONDIÇÕES DE ACESSO E DISPONIBILIDADE DO CONTEÚDO
+            </h2>
+
+            <p>
+              <b>2.1.</b> A disponibilidade do Conteúdo e sua forma de visualização na
+              Plataforma dependem das regras estabelecidas pelos Fornecedores.
+            </p>
+
+            <p>
+              &emsp;<b>2.2.1</b>  O Usuário também poderá consumir o Conteúdo na forma de aluguel, que permite, mediante o pagamento de valores específicos, alugar Conteúdos disponíveis no catálogo. O aluguel consiste em disponibilizar o Conteúdo para visualizações ilimitadas por determinado período (estipulado na Plataforma), contado a partir de sua aquisição pelo Usuário. Todas as operações de aluguel são definitivas, não sendo admitida qualquer desistência ou devolução de valores já pagos.
+            </p>
+
+            <p>
+              <b>2.2.</b> O Usuário declara estar ciente e de acordo com as condições e requisitos de compatibilidade para acesso à Plataforma disponível em multimais.tv, o que inclui, mas não se limita a, sistemas operacionais e navegadores (browsers) compatíveis, responsabilizando-se caso pretenda acessar a Plataforma de dispositivos que não cumpram esses requisitos.
+            </p>
+
+            <p>
+              &emsp;<b>2.3.</b> Dada as particularidades dos contratos que regem a disponibilização do Conteúdo da Plataforma, NÃO é garantida a manutenção nem a disponibilidade imediata de nenhum Conteúdo específico que componha o acervo da Plataforma. A disponibilidade dos Conteúdos se dará de acordo com as regras estabelecidas pelos Fornecedores, conforme previsto nos respectivos Termos de Uso e Políticas de Privacidade aplicáveis, com os quais o USUÁRIO deve ler e concordar antes de utilizar a Plataforma.
+
+
+            </p>
+
+            <p>
+              &emsp;<b>2.3.1.</b>O USUÁRIO desde já se declara ciente e concorda que cabe única e exclusivamente aos Fornecedores determinar a inclusão ou exclusão desses Conteúdos na Plataforma, eximindo e isentando a MULTILASER de qualquer responsabilidade nesse sentido.
+            </p>
+
+            <p>
+              <b>2.4.</b>Os Fornecedores poderão impor restrições na Plataforma, como geoblocking, dessa forma certos Conteúdos somente podem ser acessados se o USUÁRIO estiver fisicamente no Território Nacional. O USUÁRIO desde já se declara ciente dessa restrição, isentando o MULTILASER e os Fornecedores de qualquer alegação de impossibilidade de acessar determinado Conteúdo em decorrência dessa funcionalidade.
+            </p>
+
+            <p>
+              &emsp;<b>2.4.1.</b>
+              O USUÁRIO se compromete a não utilizar qualquer ferramenta com o intuito de burlar as restrições de geoblocking, o que inclui, mas não se limita a, o uso de VPNs, se declarando ciente de que a MULTILASER e/ou os Fornecedores poderão adotar as medidas que entenderem cabíveis para cessar esse uso não autorizado da Plataforma, inclusive com o cancelamento imediato da conta do USUÁRIO.
+
+
+            </p>
+
+            <p>
+              <b>2.5.</b>Em decorrência de questões operacionais e de fornecimento de internet provido pelo provedor de internet de cada usuário, os acessos à Plataforma estão sujeitos a eventuais problemas de interrupção, falha técnica ou indisponibilidade de funcionamento temporário. Quando for razoavelmente possível a MULTILASER e a WATCH comunicarão previamente as interrupções programadas da Plataforma ao USUÁRIO.
+            </p>
+
+            <p>
+              <b>2.6.</b>O USUÁRIO se obriga a não utilizar a Plataforma e seus Conteúdos de forma nociva aos direitos e interesses da MULTILASER, da WATCH, de fornecedores e terceiros, ou de qualquer forma que possa vir a causar dano, sobrecarregar, inutilizar ou impedir a normal utilização da Plataforma ou seus Conteúdos.
+            </p>
+
+            <p>
+              <b>2.7.</b>O USUÁRIO se declara ciente que a MULTILASER, a WATCH e os Fornecedores envidam os melhores esforços para fornecer o Conteúdo na melhor qualidade de transmissão possível, porém sua visualização pelo USUÁRIO depende de diversos fatores externos a MULTILASER, WATCH e Fornecedores, tais como o tipo de dispositivo no qual o USUÁRIO está visualizando o Conteúdo e a velocidade de sua conexão. Cabe ao USUÁRIO verificar se possui todos os requisitos necessários para visualizar o Conteúdo na qualidade pretendida/contratada.
+            </p>
+
+            <p><b>2.8.</b> Os Usuários e Visitantes se comprometem a não:</p>
+
+            <p>i. transferir, copiar ou exibir o Conteúdo;</p>
+            <p>
+              ii. vender, alugar, conceder, distribuir ou transmitir qualquer
+              direito ao Conteúdo;
+            </p>
+            <p>
+              iii. remover qualquer aviso de propriedade intelectual ou etiqueta
+              do Conteúdo;
+            </p>
+            <p>
+              iv. tentar desabilitar, evitar, modificar, frustrar ou de outra
+              forma lograr qualquer gestão de direito digital ou outro sistema
+              de proteção de Conteúdo; e
+            </p>
+            <p>
+              v. usar a Plataforma ou Conteúdo para qualquer propósito comercial
+              ou ilegal.
+            </p>
+            <p>
+              vi. Acessar as áreas de programação do aplicativo móvel, seus
+              bancos de dados ou qualquer conjunto de informações que faça parte
+              da atividade de webmastering, ficando sujeito quem o fizer à
+              legislação penal brasileira e obrigado a reparar os danos que
+              causar.
+            </p>
+
+            <p>
+              <b>2.9.</b>O Usuário se compromete a manter suas informações e dados cadastrais atualizados e corretos, sendo o único e exclusivo responsável pela sua veracidade. O uso de suas informações e dados cadastrais em desconformidade com o disposto nestes Termos de Uso é de exclusiva responsabilidade do Usuário, isentando a MULTILASER e a WATCH de qualquer responsabilidade nesse sentido.
+            </p>
+
+            <p>
+              <b>2.10.</b> Quando um Usuário utiliza a plataforma MULTI+, serão coletados alguns dados pessoais, como o nome e o histórico de conteúdos acessados. Além disso, iremos monitorar os acessos ao aplicativo para garantir o uso dos serviços dentro dos parâmetros legais. Esses dados são destinados a formar um banco de dados das preferências do usuário e visam uma melhor experiência/histórico/sugestão de consumo de conteúdo ao próprio usuário.
+            </p>
+
+            <p>
+              <b>2.11.</b> Assim, ao utilizar e acessar a plataforma MULTI+, coletamos seus dados pessoais para poder prestar um serviço de alta qualidade e oferecer uma ótima experiência. Coletamos apenas os dados necessários para:
+            </p>
+            <br />
+
+            <table>
+              <thead>
+                <tr>
+                  <td><b>Atividade de Tratamento</b></td>
+                  <td><b>Dados pessoais</b></td>
+                  <td><b>Finalidade</b></td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Disponibilizar o acesso a plataforma para você</td>
+                  <td>
+                    Nome e e-mail Informações Pessoais; CPF; Data de Nascimento;
+                    País, CEP, Endereço de Cobrança Completo
+                  </td>
+                  <td>
+                    Esses são os dados necessários para disponibilizar o serviço, incluindo todas as etapas deste processo (Identificação, autenticação e verificação de requisitos para compra online e autenticação de transações financeiras). Direcionamento de conteúdos por faixa etária e localidade.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Oferecer comunicações personalizadas</td>
+                  <td>E-mail</td>
+                  <td>
+                    Coletamos o seu e-mail mediante o seu consentimento expresso para enviar comunicações direcionadas de marketing, prospecção, pesquisas de mercado, de opinião e promoção dos nossos produtos e serviços, inclusive com viabilização de ofertas e envio de informações sobre produtos, serviços, novidades, funcionalidades, conteúdos, notícias e demais eventos relevantes para a manutenção do relacionamento com você.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Oferecer serviços personalizados</td>
+                  <td>
+                    Histórico de Conteúdos acessados e logs de acesso com data e
+                    horários de cada acesso
+                  </td>
+                  <td>
+                    1) Sugestão de conteúdos personalizados e o ajuste da
+                    experiência do usuário quanto a interfaces web e mobile da
+                    plataforma <br />
+                    2) Utilização dos dados em investigações de fraudes ou de
+                    alterações indevidas no sistema da Multi+  <br />
+                    3) Cumprimento de obrigações legais e regulatórias (Art. 15
+                    da Lei nº 12.965 -Marco civil da Internet) <br />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+
+            <p>
+              <b>2.12.</b> Respeitando todos os níveis de segurança e demais
+              preceitos da Política de Privacidade da MULTI+ e da WATCH, os
+              dados coletados serão compartilhados entre Multi+  e WATCH,
+              detentora dos direitos de transmissão dos conteúdos e parceira
+              comercial da Multi+ .
+            </p>
+            <br />
+
+            <p>
+              <b>2.13.</b> Ainda, respeitando os limites legais, e dentro das
+              finalidades acima expostas, as controladoras conjuntas poderão
+              compartilhar os dados obtidos para viabilizar alguma das
+              atividades descritas neste termo. O compartilhamento dos seus
+              dados poderá ser feito com parceiros de negócio e com autoridades
+              e órgãos reguladores, quando necessário para: <br />
+              <br />
+              <b>a)</b> Aprimoramento dos nossos serviços <br />
+              <b>b)</b> Auxílio no desenvolvimento de novas funcionalidades das
+              nossas plataformas <br />
+              <b>c)</b> Transação financeira para realização de pagamento do
+              pedido <br />
+              <b>d)</b> Envio de comunicações e Marketing <br />
+              <b>e)</b> Prevenção e resolução de problemas técnicos ou de
+              segurança <br />
+              <b>f)</b> Exercício regular de direitos da Multilaser e Watch
+              <br />
+              <b>g)</b> Cumprimento de ordem judicial, de autoridade competente
+              ou de órgão fiscalizador Cumprimento de obrigação legal ou
+              regulatória <br />
+            </p>
+            <br />
+
+            <p>
+              <b>2.14.</b> E Com relação ao item ´b´, as controladoras
+              esclarecem que realizarão um controle rígido para contratar
+              empresas e consultores externos, ressaltando que, no caso da
+              contratação destes parceiros, realizará uma análise prévia a
+              respeito das políticas de governança e dos níveis de segurança da
+              base de dados do novo parceiro comercial.
+            </p>
+            <br />
+
+            <p>
+              <b>2.15.</b> A WATCH e Multi+  não coletam intencionalmente
+              dados de crianças e adolescentes, fornecendo o acesso ao
+              aplicativo móvel para Usuários que possuam 18 anos ou mais. Caso
+              você suspeite que qualquer dado pessoal de uma criança ou
+              adolescente foi coletado sem o consentimento expresso dos
+              responsáveis, solicitamos que entre em contato via e-mail para
+              <a href="privacidade@multilaser .com.br">
+                <b> <u> privacidade@multilaser.com.br </u> </b>
+              </a>
+              e
+              <a href="privacidade@watch.tv.br">
+                <b> <u> privacidade@watch.tv.br </u> </b> </a
+              >, solicitando a exclusão imediata destes dados.
+            </p>
+            <br />
+
+            <p>
+              <b>2.16.</b> A partir da entrada em vigor da LGPD, você, como
+              titular de dados pessoais, pode exercer seus direitos frente aos
+              controladores dos seus dados pessoais. Nós disponibilizamos os
+              mecanismos detalhados abaixo para que você entenda de forma clara
+              e transparente quais são seus direitos e como pode exercê-los.
+              Nossa equipe estará pronta para atender eventuais solicitações.
+              Armazenaremos os seus dados pelo tempo necessário para atender as
+              finalidades de tratamento estabelecidas neste termo. <br />
+              <br />
+              <b>Seus direitos:</b> <br />
+              <br />
+              ● Confirmação da existência de tratamento de dados pessoais <br />
+              ● Acesso aos dados pessoais <br />
+              ● Correção de dados pessoais incompletos, inexatos ou
+              desatualizados <br />
+              ● Anonimização, bloqueio ou eliminação de dados desnecessários,
+              excessivos ou tratados em desconformidade com a LGPD <br />
+              ● Eliminação dos dados pessoais tratados com o consentimento
+              <br />
+              ● Informação das empresas que compartilhamos seus dados <br />
+              ● Revogação do consentimento e possibilidade de não fornecimento
+              do consentimento. <br />
+              ● Informações sobre processos que envolvam Decisão Automatizada
+              <br />
+              ● Direito de Portabilidade <br /><br />
+              Para exercer seus Direitos envie um e-mail para
+              <a href="privacidade@multilaser.com.br">
+                <b> <u> privacidade@multilaser.com.br </u> </b>
+              </a>
+              e
+              <a href="privacidade@watch.tv.br">
+                <b> <u> privacidade@watch.tv.br </u> </b> </a
+              >. <br />
+              <br />
+              Para atender sua demanda, podemos solicitar algumas informações
+              complementares para fins de comprovação da sua identidade,
+              buscando impedir fraudes. Fazemos isso para garantir a segurança e
+              a privacidade.
+            </p>
+            <br />
+
+            <p>
+              <b>2.17.</b> Todos os dados pessoais coletados serão armazenados
+              na base de dados interna da MULTILASER  e da WATCH, ou na “nuvem”.
+              As bases de dados da MULTILASER  e da WATCH e de eventuais
+              parceiros que venham a ter acesso aos dados pessoais dos Usuários
+              são protegidas por diversos procedimentos de segurança, de modo
+              que a confidencialidade e a integridade dos dados sejam
+              protegidas.
+            </p>
+            <br />
+
+            <p>
+              <b>2.18.</b> Todavia, ainda que a MULTILASER e a WATCH adotem
+              diversas medidas de segurança, o usuário está plenamente ciente de
+              que podem ocorrer falhas físicas ou remotas de segurança, o que
+              pode comprometer a integridade e confidencialidade dos dados
+              pessoais. Assim, a MULTILASER e a WATCH não garantem, expressa ou
+              implicitamente, que evitará totalmente o acesso não autorizado a
+              tais informações.
+            </p>
+            <br />
+
+            <p>
+              <b>2.19.</b> Vale lembrar que sua conta de acesso, login e senha,
+              são de uso pessoal e que a navegação é de sua inteira
+              responsabilidade. A MULTILASER não se responsabiliza pelos atos
+              praticados por seus visitantes e usuários no ambiente oferecido
+              pelo aplicativo móvel, devendo cada um ser imputado de acordo com
+              a qualidade do uso da plataforma.
+            </p>
+            <br />
+
+            <p>
+              <b>2.20.</b> Os dados pessoais fornecidos pelos usuários poderão
+              ser transferidos internacionalmente, uma vez que os servidores de
+              nossa plataforma estão localizados em outros países.
+            </p>
+            <br />
+
+            <h2 class="title-termo"> DA PROPRIEDADE INTELECTUAL E DIREITO AUTORAL</h2>
+
+            <p>
+              3.1. É vedado o compartilhamento do acesso ao Conteúdo por
+              qualquer meio, sob pena das sanções penais e civis cabíveis, além
+              de rescisão contratual sem nenhuma devolução de valores, créditos
+              ou indenização.
+            </p>
+
+            <p>
+              3.2. O Conteúdo poderá ser atualizado ou modificado periodicamente
+              conforme definido pelos Fornecedores, não possuindo a MULTILASER
+              qualquer tipo de gerência, bem como não podendo ser entendidos que
+              os Conteúdos serão disponibilizados de forma definitiva.
+            </p>
+
+            <p>
+              3.3. Os textos, fotografias, imagens, logomarcas e Conteúdos
+              disponíveis na Plataforma se encontram protegidos por direitos
+              autorais e de propriedade intelectual. Ao acessar a Plataforma o
+              USUÁRIO declara que irá respeitar todos os direitos de propriedade
+              intelectual e autoral, bem como todos os direitos referentes a
+              terceiros que porventura estejam, ou estiveram, de alguma forma
+              disponíveis na Plataforma e seu respectivo Conteúdo.
+            </p>
+
+            <p>
+              3.4. O simples acesso à Plataforma não confere ao USUÁRIO qualquer
+              direito de uso ou reprodução dos nomes, títulos, palavras, frases,
+              marcas, patentes, obras literárias, artísticas, lítero-musicais,
+              entre outras, que nele estejam, ou estiveram, disponíveis.
+            </p>
+
+            <p>
+              3.5. Todas as marcas comerciais incluídas na Plataforma são de
+              propriedade da MULTILASER, da WATCH, dos Fornecedores ou de
+              terceiros autorizados.
+            </p>
+
+            <p>
+              3.6. É vedada a utilização do Conteúdo para finalidades
+              comerciais, publicitárias ou qualquer outra que contrarie a
+              realidade para o qual foi concebido conforme definido neste termo.
+              Restam igualmente proibidas a reprodução, distribuição e
+              divulgação, total ou parcial, dos textos, figuras, gráficos,
+              marcas e Conteúdo que compõem a Plataforma sem prévia e expressa
+              autorização da MULTILASER, da WATCH, dos Fornecedores ou de seus
+              respectivos titulares.
+            </p>
+
+            <p>
+              3.7. O USUÁRIO deverá abster-se de obter desenhos, informações,
+              gráficos, mensagens, arquivos, fotografias, gravações, programas,
+              Conteúdos e/ou qualquer outro tipo de material acessível por meio
+              da Plataforma empregando meios ou procedimentos diversos daqueles
+              disponibilizados para esse propósito pela MULTILASER.
+            </p>
+
+            <p>
+              3.8. O USUÁRIO se obriga a utilizar o Conteúdo de forma lícita, se
+              abstendo de copiá-lo, distribuí-lo, modificá-lo ou divulgá-lo ao
+              público através de qualquer modalidade de comunicação, além de
+              eliminar ou manipular o copyright ou outros dados que identifiquem
+              os direitos da MULTILASER, da WATCH ou dos Fornecedores, bem como
+              quaisquer mecanismos de informação/proteção presentes na
+              Plataforma e/ou nos Conteúdos.
+            </p>
+
+            <h2 class="title-termo"> <br />DA RESPONSABILIDADE DAS PARTES</h2>
+
+            <p>
+              <b>4.1.</b> A MULTILASER respeita a privacidade de cada USUÁRIO. A
+              Plataforma MULTI+ não irá, portanto, monitorar, editar, acessar ou
+              divulgar informações privativas de seus USUÁRIOS sem autorização
+              prévia, exceto nos casos expressamente previstos nos termos da
+              Política de Privacidade ou a menos que sejamos obrigados a fazê-lo
+              mediante ordem judicial ou por força de lei.
+            </p>
+
+            <p>
+              <b>4.2.</b> O USUÁRIO assume toda e qualquer responsabilidade, de caráter
+              civil e/ou criminal, pela sua utilização indevida das informações,
+              textos, gráficos, marcas, obras, enfim, todo e qualquer direito de
+              propriedade intelectual ou industrial do Conteúdo.
+            </p>
+
+            <h2 class="title-termo"> 
+              <br />
+              SOBRE A LIBERAÇÃO DO SERVIÇO
+            </h2>
+
+            <p>
+              <b>5.1.</b> O acesso à Plataforma somente será liberado para o USUÁRIO
+              após as respectivas confirmações de pagamento, exceto em
+              determinados casos de modalidade beta/trial.
+            </p>
+
+            <h2 class="title-termo"> 
+              <br />
+              DAS DISPOSIÇÕES GERAIS
+            </h2>
+
+            <p>
+              6.1. Todas as disposições dos Termos e Condições Gerais do
+              Contrato aplicam-se ao produto ora contratado naquilo que não for
+              específico. A MULTILASER  poderá unilateralmente revisar,
+              aprimorar, modificar e/ou atualizar, a qualquer momento, qualquer
+              cláusula ou disposição contidas nestes Termos e Condições de Uso.
+              A versão atualizada valerá para o uso do site e para as compras
+              realizadas a partir de sua divulgação pela Multi+ . A
+              continuidade de acesso ou utilização dos serviços, depois da
+              divulgação de quaisquer modificações, confirmará a aceitação dos
+              novos Termos e Condições de Uso da plataforma pelo usuário. Caso o
+              usuário não esteja de acordo com uma determinada alteração das
+              Políticas ou dos Termos e Condições de Uso, poderá rescindir seu
+              vínculo com a MULTILASER por meio de pedido de exclusão do cadastro
+              e cancelamento dos serviços.
+            </p>
+
+            <p>
+              6.2 Caso a MULTILASER não consiga ou não faça valer ou cumprir
+              qualquer cláusula ou condição contida nestes Termos e Condições de
+              Uso, tal fato não configurará desistência, tolerância ou novação
+              dessa cláusula ou condição destes Termos da MULTILASER. Se alguma
+              cláusula ou condição contida nestes Termos e Condições de Uso for
+              declarada inexequível, no todo ou parcialmente, tal
+              inexequibilidade não afetará as demais cláusulas dos Termos e
+              Condições de Uso. Neste caso, a MULTILASER fará as adaptações
+              necessárias para que reflitam da forma mais próxima possível, os
+              termos da provisão declarada inexequível.
+            </p>
+
+            <h2 class="title-termo"> 
+              <br />
+              LEI APLICÁVEL E FORO
+            </h2>
+
+            <p>
+              7.1. Estes Termos de Uso são regidos pelas leis brasileiras
+              vigentes, sendo que as Partes renunciam expressamente a qualquer
+              outro foro, se submetem ao Foro da Comarca de São Paulo/SP.
+            </p>
+          </div>
+        </div>
+        <div class="container-dinamic-user" id="container-dinamic-user"></div>
+      </div>
+    </div>
+
+    <div
+      style="display: none"
+      id="pin-keyboard--back-button"
+      class="pin-keyboard--back-button"
+    >
+      <p
+        onclick="KeyboardClickClose()"
+        id="pin-keyboard--back-button-text"
+        class="pin-keyboard--back-button-text"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="29.295"
+          height="47.266"
+          viewBox="0 0 29.295 47.266"
+        >
+          <g
+            id="Grupo_2108"
+            data-name="Grupo 2108"
+            transform="translate(-180.551 -127.169)"
+          >
+            <path
+              id="Caminho_321"
+              data-name="Caminho 321"
+              d="M-21567.809-11930.749l-17.98-17.977,17.98-17.975"
+              transform="translate(21771.998 12099.526)"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-width="8"
+            />
+          </g>
+        </svg>
+        <span class="pin-keyboard-text-voltar">Voltar</span>
+      </p>
+    </div>
+    <div
+      style="display: none"
+      id="pin-keyboard--container"
+      class="pin-keyboard--container"
+    >
+      <div class="pin-keyboard--header">
+        <div class="pin-keyboard--profile">
+          <img
+            id="pin-keyboard--profile-img"
+            class="pin-keyboard--profile-img"
+          />
+          <p id="pin-keyboard--username" class="pin-keyboard--username"></p>
+        </div>
+      </div>
+      <div class="pin-keyboard--body">
+        <div class="pin-keyboard--input">
+          <p id="pin-keyboard--input-label" class="pin-keyboard--input-label">
+            Insira aqui a sua senha de controle parental para entrar no perfil
+          </p>
+
+          <div id="pin-keyboard--input-field" class="pin-keyboard--input-field">
+            <p id="pin-keyboard--input-text" class="pin-keyboard--input-text">
+              - &nbsp - &nbsp - &nbsp -
+            </p>
+          </div>
+
+          <p
+            onclick="goTo('../forgetpassword/index.html')"
+            id="pin-keyboard--forget-link"
+            class="pin-keyboard--forget-link"
+          >
+            Esqueceu a senha?
+          </p>
+        </div>
+        <div class="pin-keyboard--buttons">
+          <div class="pin-keyboard--buttons-up">
+            <div
+              id="2-0"
+              onclick="handleUserClickNumber('2-0', 0)"
+              class="pin-keyboard--button background-active"
+            >
+              0
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-1', 1)"
+              id="2-1"
+              class="pin-keyboard--button"
+            >
+              1
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-2', 2)"
+              id="2-2"
+              class="pin-keyboard--button"
+            >
+              2
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-3', 3)"
+              id="2-3"
+              class="pin-keyboard--button"
+            >
+              3
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-4', 4)"
+              id="2-4"
+              class="pin-keyboard--button"
+            >
+              4
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-5', NaN)"
+              id="2-5"
+              class="pin-keyboard--button-xl"
+            >
+              Limpar
+            </div>
+          </div>
+          <div class="pin-keyboard--buttons-down">
+            <div
+              onclick="handleUserClickNumber('3-0', 5)"
+              id="3-0"
+              class="pin-keyboard--button"
+            >
+              5
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-1', 6)"
+              id="3-1"
+              class="pin-keyboard--button"
+            >
+              6
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-2', 7)"
+              id="3-2"
+              class="pin-keyboard--button"
+            >
+              7
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-3', 8)"
+              id="3-3"
+              class="pin-keyboard--button"
+            >
+              8
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-4', 9)"
+              id="3-4"
+              class="pin-keyboard--button"
+            >
+              9
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-5', NaN)"
+              id="3-5"
+              class="pin-keyboard--button-xl"
+            >
+              <svg
+                class="cleanSvg backspace-button"
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="backspace"
+                class="svg-inline--fa fa-backspace fa-w-20 __web-inspector-hide-shortcut__"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./profile-user.js" async></script>
+</html>

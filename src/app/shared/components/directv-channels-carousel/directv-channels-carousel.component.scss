@@ -1,0 +1,41 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .channels {
+    margin: remc(50) 0;
+
+    ::ng-deep .carousel {
+      .swiper-wrapper {
+        transition-timing-function: linear;
+
+        .swiper-slide {
+          width: auto;
+          height: auto;
+        }
+      }
+    }
+
+    &--channel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: remc(210);
+      height: remc(210);
+      background-color: var(--jeans-directvgo);
+      border-radius: remc(5);
+
+      img {
+        max-width: remc(140);
+
+        @media screen and (max-width: 768px) {
+          max-width: remc(70);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        width: remc(120);
+        height: remc(120);
+      }
+    }
+  }
+}

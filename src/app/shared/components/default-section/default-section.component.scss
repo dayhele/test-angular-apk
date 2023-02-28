@@ -1,0 +1,96 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .section {
+    width: 100%;
+
+    &:hover {
+      .button {
+        opacity: 1;
+      }
+    }
+
+    ::ng-deep .swiper {
+      .swiper-button-prev {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+
+      .swiper-button-disabled {
+        opacity: 0;
+      }
+
+      .swiper-button-next {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+          width: auto;
+          height: auto;
+
+          margin-right: remc(24);
+
+          @media screen and (max-width: remc(900)) {
+            margin-right: remc(18);
+          }
+
+          @media screen and (max-width: remc(768)) {
+            margin-right: remc(12);
+          }
+        }
+      }
+    }
+
+    p {
+      font-size: remc(16);
+      margin-top: remc(20);
+      margin-bottom: remc(30);
+      color: var(--white);
+    }
+
+    &--header {
+      margin: remc(-180) 0;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: remc(6);
+      }
+
+      h3 {
+        margin-right: remc(130);
+        z-index: 2;
+        margin-left: remc(3);
+        color: var(--white);
+      }
+
+      &--content {
+        .button {
+          opacity: 0;
+          transition: all 0.2s ease-out;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        margin-bottom: remc(11);
+
+        img {
+          height: remc(16);
+          margin-right: remc(4);
+        }
+
+        h3 {
+          font-size: remc(16);
+        }
+        &--content {
+          display: none;
+        }
+      }
+    }
+  }
+}

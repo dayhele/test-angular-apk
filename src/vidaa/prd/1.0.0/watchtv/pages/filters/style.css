@@ -1,0 +1,270 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Barlow, Sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: #fff;
+  background-color: #1c1c1f;
+  overflow: hidden;
+}
+
+.container--header {
+  align-items: center;
+  display: block;
+  height: 8.85417vw;
+  position: absolute;
+  top: 4.47917vw;
+  width: 100%;
+  z-index: 2;
+}
+
+.container--header-icon {
+  display: inline-block;
+  margin-left: 4.3125vw;
+  position: absolute;
+  top: -19%;
+}
+
+.container--header-icon img {
+  height: 1.92708vw;
+  top: 100%;
+  height: 5vw;
+  max-width: 147px;
+}
+
+.container--header-items {
+  display: inline-block;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.header--items {
+  text-align: center;
+}
+
+.header--item {
+  border-bottom-width: 0.26042vw;
+  display: inline-block;
+  font-size: 1.97917vw;
+  font-weight: 700;
+  height: 1.92708vw;
+  line-height: 1.92708vw;
+  margin: 0 2.60417vw;
+  text-shadow: 1px 1px #000;
+  text-transform: uppercase;
+}
+
+.selected-item {
+  color: #e86041;
+}
+
+.header--items-sp {
+  display: inline-block;
+  margin-right: 2.39583vw;
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+
+.header--items-search {
+  border-bottom-width: 0.26042vw;
+  display: inline-block;
+  font-size: 1.97917vw;
+  font-weight: 700;
+  height: 1.92708vw;
+  line-height: 1.92708vw;
+  margin: 0 2.60417vw;
+  text-shadow: 1px 1px #000;
+  text-transform: uppercase;
+}
+
+.item-search-img {
+  height: 1.97917vw;
+  width: 1.97917vw;
+}
+
+.header--items-settings {
+  border-bottom-width: 0.26042vw;
+  display: inline-block;
+  font-size: 1.97917vw;
+  font-weight: 700;
+  height: 1.92708vw;
+  line-height: 1.92708vw;
+  margin: 0 2.60417vw;
+  text-shadow: 1px 1px #000;
+  text-transform: uppercase;
+}
+
+.selected-item {
+  color: #e86041;
+}
+.selected {
+  border: 7px solid #e86041;
+}
+
+.item-settings-img {
+  height: 1.97917vw;
+  width: 1.97917vw;
+}
+
+main {
+  display: flex;
+  margin-top: 150px;
+}
+
+.input {
+  margin-left: 60px;
+  min-width: 28vw;
+}
+
+.input-search {
+  display: flex;
+  align-items: center;
+  height: 4.85417vw;
+  width: 26.8125vw;
+  border: 0.05208vw solid #2b2c37;
+}
+.input-search p {
+  font-size: 1.71875vw;
+  padding: 1.14583vw 0 1.04167vw 1.71875vw;
+}
+
+.keyboard {
+  margin-top: 20px;
+}
+
+.keyboard-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 4.375vw;
+  height: 4.375vw;
+
+  background: #2b2c37;
+}
+
+.keyboard-button-medium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 8.90625vw;
+  height: 4.375vw;
+
+  background: #2b2c37;
+}
+.keyboard-button-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 27.03125vw;
+  height: 4.375vw;
+
+  background: #2b2c37;
+}
+
+.keyboard-line {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.search-container {
+  margin-top: 1.40625vw;
+  margin-bottom: 0.88542vw;
+  margin-left: 50px;
+}
+
+.search-header h2 {
+  font-size: 2.5vw;
+  color: #7d7a77;
+  font-weight: 300;
+}
+
+.search-header h2 span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.search-items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  max-height: 75vh;
+  overflow-x: hidden;
+}
+
+.search-items::-webkit-scrollbar {
+  display: none;
+}
+
+.search-item {
+  height: 13.77083vw;
+  width: 26.27083vw;
+  box-sizing: border-box;
+  font-size: 1.31875vw;
+  line-height: normal;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.item-gradient {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 26.3125vw;
+  height: 13.34792vw;
+  border-radius: 0px 0px 1px 1px;
+
+}
+
+.loading-container {
+  width: 60.3125vw;
+  display: flex;
+  height: 70vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.space {
+  transform: rotate(90deg);
+}
+
+.loading-circle {
+  height: 100px;
+  width: 100px;
+  border: 5px solid rgba(255, 255, 255, 0);
+  border-top-color: #e86041;
+  border-left-color: #e86041;
+  border-bottom-color: #e86041;
+  border-radius: 50%;
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cleanSvg {
+  width: 1.25em;
+}

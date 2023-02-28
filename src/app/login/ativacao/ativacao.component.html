@@ -1,0 +1,51 @@
+
+
+<div class="container" [ngStyle]="{backgroundImage:'url(' + theme.login.loginBgUrl + ')'}" >
+  <app-successful-register class="success" *ngIf="successModal" (confirmClick)="goToHome()"></app-successful-register>
+  <div class="ativacao" *ngIf="!successModal">
+    <h1>Código de ativação</h1>
+    <div class="ativacao--code-input">
+      <app-input
+        [placeholder]="'Digite o código de ativação'"
+        [(value)]="code"
+        (click)="error.hasError = false"
+      ></app-input>
+    </div>
+    <div class="ativacao--error-message" *ngIf="error.hasError">
+      <p>{{ error.message }}</p>
+    </div>
+    <div class="ativacao--success-message" *ngIf="success.success">
+      <p>{{ success.message }}</p>
+    </div>
+    <div class="ativacao--activate-button">
+      <app-button [classList]="'btn-primary'" (click)="activateAccount()"
+        >Ativar conta</app-button
+      >
+    </div>
+    <div class="ativacao--info">
+      <p>
+        Caso não tenha recebido o código de ativação, verifique a caixa de Spam
+        do seu email.
+      </p>
+      <p>
+        O código ficará ativo por 1 hora, caso não seja ativado dentro deste
+        período, será preciso solicitar um novo.
+      </p>
+    </div>
+    <div class="ativacao--sender-code">
+      <p (click)="openConfirmationModal()">Reenviar o código</p>
+    </div>
+  </div>
+</div>
+
+<app-confirmation-modal
+  [modalOptions]="modalOptions"
+  (eventEmitter)="receiveEvent($event)"
+  *ngIf="successModal === false"
+>
+  <p>Email:</p>
+  <app-input
+    [(value)]="email"
+    placeholder="Insira aqui o seu-email"
+  ></app-input>
+</app-confirmation-modal>

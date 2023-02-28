@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="title">
+    <h2>Acessando a HBO Max</h2>
+  </div>
+  <div class="content">
+    <div class="step">
+      <h1>Etapa 1</h1>
+      <div class="card">
+        <img class="img-step" src="{{ theme.tutorial.hbo.app.step1 }}" />
+        <div class="subtitle">
+          <h3>Baixe o App HBO Max na <br />sua loja de Aplicativos</h3>
+          <p>
+            Procure por HBO Max e baixe o App oficial, o 1° <br />
+            acesso deve ser feito via Web no navegador.
+          </p>
+          <div class="apps">
+            <img (click)="goTo(theme.linkPlayStore)"
+              [src]="environment.bucket + 'hbo-max-app/google-play.svg'"
+              alt="google-play" />
+            <img (click)="goTo(theme.linkAppStore)"
+              [src]="environment.bucket + 'hbo-max-app/app-store.svg'"
+              alt="app-store" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="step">
+      <h1>Etapa 2</h1>
+      <div class="card">
+        <img class="img-step" src="{{ theme.tutorial.hbo.app.step2 }}" />
+        <div class="subtitle">
+          <h3>
+            Clique no icone de perfil na parte <br />
+            superior direita
+          </h3>
+          <p>e em seguida clique em entrar na conta</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="step">
+      <h1>Etapa 3</h1>
+      <div class="card">
+        <img class="img-step" src="{{ theme.tutorial.hbo.app.step3 }}" />
+        <div class="subtitle">
+          <h3>Clique em “Entrar com provedor”</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="step">
+      <h1>Etapa 4</h1>
+      <div class="card">
+        <img class="img-step" src="{{ theme.tutorial.hbo.app.step4 }}" />
+        <div class="subtitle">
+          <h3>
+            Pesquise e selecione Watch Brasil/Multi<br />
+            mais
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="step">
+      <h1>Etapa 5</h1>
+      <div class="card">
+        <img class="img-step" src="{{ theme.tutorial.hbo.app.step5 }}" />
+        <div class="subtitle">
+          <h3>
+            {{
+            theme.client === 'watch'
+            ? ' Digite seu usuário e senha padrão da'
+            : 'Digite seu usuário e senha padrão da'
+            }}
+            <br />
+            {{
+            theme.client === 'watch'
+            ? ' Watch Brasil, após essa etapa crie uma'
+            : 'Multi+'
+            }}
+            <br />
+            {{ theme.client === 'watch' ? ' conta HBO Max e um perfil' : '' }}
+          </h3>
+          <p>
+            Você não precisa se preocupar em lembrar contas e senhas, o seu
+            <br />
+            acesso HBO é seu acesso {{ theme.clientRoute }}!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="step">
+      <h1>Etapa Final</h1>
+      <div class="card">
+        <img class="img-step" src="{{ theme.tutorial.hbo.app.step6 }}" />
+        <div class="subtitle">
+          <h3>
+            Divirta-se com mais esse benefício da<br />
+            {{ theme.clientName }} !
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+@import '../../../../themes/remc.scss';
+
+.channels {
+  width: 100%;
+  white-space: nowrap;
+  overflow: auto;
+  padding-top: remc(20);
+
+  .swiper-pointer-events{
+    padding-right: remc(60);
+  }
+
+  ::ng-deep .swiper {
+    
+    .swiper-button-prev {
+      color: var(--white);
+      filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+      transition: all 0.2s;
+    }
+    .swiper-button-disabled {
+      opacity: 0;
+    }
+    .swiper-button-next {
+      color: var(--white);
+      filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+      transition: all 0.2s;
+    }
+
+    .swiper-wrapper {
+      padding: remc(24) 0 remc(8) remc(56);
+
+      .swiper-slide {
+        width: remc(152);
+        height: remc(152);
+
+        margin-right: remc(16);
+
+        @media screen and (max-width: remc(768)) {
+          width: remc(117);
+          height: remc(117);
+        }
+      }
+    }
+  }
+
+  &__title {
+    padding-left: remc(56);
+
+    h3{
+      color: var(--primary-text);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      margin-bottom: remc(11);
+
+      h3 {
+        font-size: remc(16);
+      }
+    }
+  }
+  .swiper-button-next:after{
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    text-transform: none;
+    font-variant: initial;
+    line-height: 1;
+  }
+  .swiper-button-next {
+    color: var(--white);
+    filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+    transition: all 0.2s;
+  }
+
+}

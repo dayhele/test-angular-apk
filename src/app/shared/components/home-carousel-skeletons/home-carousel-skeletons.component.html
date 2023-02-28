@@ -1,0 +1,118 @@
+<div [ngSwitch]="type">
+
+  <div *ngSwitchCase="(isLoggedOutHome && isLoggedOutHomeDontShowTypes.includes(type!)) ? type : 'isLoggedOutHomeTypeInvalid'">
+    <div></div>
+  </div>
+
+  <div *ngSwitchCase="bigTypes.includes(type!) ? type : 'bigTypeInvalid'">
+    <div class="sklt-wrapper flex flex-col">
+      <ngx-skeleton-loader
+        [count]="1"
+        class="loader"
+        appearance="line"
+        animation="false"
+        [theme]="getTheme(
+        screenX <= 900 ? '150px' : '260px',
+        screenX <= 900 ? '20px' : '28px',
+        { marginBottom: '1.5rem' }
+        )"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        [attr.style]="'display:row;'"
+        [count]="getSkeletonInfo('big')"
+        class="loader"
+        appearance="line"
+        animation="false"
+        [theme]="getTheme(
+        getSkeletonInfo('big', 'width')+'px',
+        getSkeletonInfo('big', 'height')+'px',
+        { marginRight: '1rem' }
+        )"></ngx-skeleton-loader>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="wideTypes.includes(type!) ? type : 'wideTypeInvalid'">
+    <div class="sklt-wrapper flex justify-between gap-1">
+      <div class="flex flex-col justify-center gap-1">
+        <ngx-skeleton-loader
+          count="1"
+          appearance="line"
+          animation="false"
+          [theme]="getTheme(
+          screenX <= 900 ? '120px' : '180px',
+          screenX <= 900 ? '18px' : '25px',
+          { display: 'block' }
+          )"></ngx-skeleton-loader>
+        <div>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="getTheme(
+            screenX <= 900 ? '150px' : '270px',
+            screenX <= 900 ? '5px' : '7px',
+            { display: 'block', borderRadius: '4px', marginBottom: screenX <= 900 ? '5px' : '6px' }
+            )"></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="getTheme(
+            screenX <= 900 ? '150px' : '270px',
+            screenX <= 900 ? '5px' : '7px',
+            { display: 'block', borderRadius: '4px', marginBottom: screenX <= 900 ? '5px' : '6px' }
+            )"></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            count="1"
+            appearance="line"
+            animation="false"
+            [theme]="getTheme(
+            screenX <= 900 ? '110px' : '190px',
+            screenX <= 900 ? '5px' : '7px',
+            { display: 'block', borderRadius: '4px', marginBottom: screenX <= 900 ? '5px' : '6px' }
+            )"></ngx-skeleton-loader>
+        </div>
+        <ngx-skeleton-loader
+          *ngIf="screenX > 900"
+          count="1"
+          appearance="line"
+          animation="false"
+          [theme]="getTheme('110px', '32px', { display: 'block', borderRadius: '8px' })"></ngx-skeleton-loader>
+      </div>
+      <ngx-skeleton-loader
+        [count]="1"
+        appearance="line"
+        animation="false"
+        [theme]="getTheme(
+        getSkeletonInfo('wide', 'width')+'vw',
+        getSkeletonInfo('wide', 'height')+'px',
+        { borderRadius: '10px', marginRight: '3rem' }
+        )"></ngx-skeleton-loader>
+    </div>
+  </div>
+
+  <div *ngSwitchDefault>
+    <div class="sklt-wrapper flex flex-col">
+      <ngx-skeleton-loader
+        [count]="1"
+        class="loader"
+        appearance="line"
+        animation="false"
+        [theme]="getTheme(
+        screenX <= 900 ? '150px' : '260px',
+        screenX <= 900 ? '20px' : '28px',
+        { marginBottom: '20px' }
+        )"></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        [attr.style]="'display:flex;gap:'+getSkeletonInfo('card', 'marginRight')+'px'"
+        [count]="getSkeletonInfo('card')"
+        class="loader"
+        appearance="line"
+        animation="false"
+        [theme]="getTheme(
+        getSkeletonInfo('card', 'width')+'px',
+        getSkeletonInfo('card', 'height')+'px'
+        )"></ngx-skeleton-loader>
+    </div>
+  </div>
+
+</div>

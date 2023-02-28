@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="container--header">
+    <img src="assets/icons/close_small_icon.svg" (click)="watchLater()" />
+  </div>
+  <div class="container--body">
+    <img src="assets/icons/successful-purchase.svg" />
+    <p>Compra realizada com sucesso!</p>
+    <div *ngIf="!isPlan">
+      <app-button
+        class="button"
+        [text]="'Assistir agora'"
+        [type]="'button'"
+        [classList]="'btn-primary'"
+        (click)="watchNow()"
+      ></app-button>
+      <h4 (click)="watchLater()">Assistir mais tarde</h4>
+    </div>
+  </div>
+</div>

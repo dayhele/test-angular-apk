@@ -1,0 +1,43 @@
+<div class="content" *ngIf="!checkMobile">
+  <div class="section-title">
+    <div class="top">
+      <p class="title-text-top">A</p>
+      <img
+        class="multi-logo"
+        [src]="environment.bucket + 'logos/logo-multi.svg'"
+      />
+      <p class="title-text-top">dá {{daysFree}} dias para você curtir o</p>
+    </div>
+    <div class="bot">
+      <p class="title-text-bot">que há de melhor no streaming e na TV.</p>
+    </div>
+  </div>
+  <div class="section-subtitle">
+    <p>
+      Venha fazer parte do mais novo conceito de streaming: o conceito Multi.
+      Além da melhor programação da televisão, com canais ao vivo, você vai
+      poder assistir às melhores séries e filmes, inclusive lançamentos.
+    </p>
+  </div>
+</div>
+<div class="content-mobile" *ngIf="checkMobile">
+  <div class="content-top">
+    <div class="mob-top">
+      <p class="mob-title-top">A</p>
+      <img
+        class="multi-logo"
+        [src]="environment.bucket + 'logos/logo-multi.svg'"
+      />
+    </div>
+    <p class="mob-title-bot">
+      dá {{daysFree}} dias para você curtir o que há de melhor no streaming e na TV
+    </p>
+  </div>
+  <div class="content-bot">
+    <p>
+      Venha fazer parte do mais novo conceito de streaming: o conceito Multi.
+      Além da melhor programação da televisão, com canais ao vivo, você vai
+      poder assistir às melhores séries e filmes, inclusive lançamentos.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+@import '../../../themes/remc.scss';
+
+.container {
+  font-family: 'Elza';
+  display: flex;
+  justify-content: center;
+  padding: 10% 15%;
+  background-color: #fafafa;
+
+  .faq {
+    width: 100%;
+
+    h3,
+    h4,
+    p {
+      font-family: 'Elza';
+      font-style: normal;
+    }
+
+    h3,
+    h4 {
+      font-family: 'Elza';
+      font-weight: 700;
+      line-height: 87.52%;
+      color: #442061;
+    }
+
+    h3 {
+      font-family: 'Elza';
+      font-size: remc(45);
+      letter-spacing: -0.02em;
+    }
+
+    .questions {
+      margin-top: remc(30);
+
+      .divider {
+        border: remc(1) solid #e1e1e1;
+      }
+
+      h4 {
+        font-family: 'Elza';
+        font-size: remc(24);
+        margin-top: remc(30);
+        cursor: pointer;
+      }
+
+      .answer-content {
+        margin-top: remc(20);
+
+        p {
+          font-family: 'Elza';
+          font-weight: 400;
+          font-size: remc(20);
+          line-height: 148%;
+          color: #565656;
+        }
+      }
+    }
+
+    .divider-bottom {
+      border: remc(1) solid #e1e1e1;
+      margin-top: remc(30);
+    }
+  }
+}

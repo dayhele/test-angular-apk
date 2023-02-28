@@ -1,0 +1,14 @@
+<input
+  type="{{ type }}"
+  placeholder="{{ placeholder }}"
+  [class.error]="error"
+  [ngModel]="value"
+  [disabled]="disabled"
+  [maxlength]="maxlength"
+  #input
+  (input)="valueChange.emit(input.value)"
+  (ngModelChange)="valueChange.emit(value)"
+  [mask]="mask"
+  [class.center]="center"
+  autocomplete="new-password"
+/>

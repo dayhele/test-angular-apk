@@ -1,0 +1,21 @@
+<div class="main-wrapper">
+  <div class="card-img-wrapper">
+    <div class="date-box">
+      <p class="date-number">{{ releaseDay }}</p>
+      <p class="date-text">{{ releaseMonth }}</p>
+    </div>
+    <img class="card-img" [src]="preSave.imageUrl" alt="Imagem do card de pré lançamentos" />
+  </div>
+  <div class="info-wrapper">
+    <p class="title">{{ preSave.title }}</p>
+    <p class="description">{{ preSave.fullReleaseDate }}</p>
+    <div class="divider"></div>
+    <div class="genres-wrapper">
+      <app-genre-item *ngFor="let genre of preSave.genres" [genreTitle]="genre"></app-genre-item>
+    </div>
+    <p class="text-body">{{ preSave.description }}</p>
+    <div class="btn-pre-save">
+      <app-reminder-pre-save-button [preSave]="preSave" [idPerfil]="idPerfil"></app-reminder-pre-save-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+export enum HomeControlType {
+  isSpecificAdvertising = 'isSpecificAdvertising',
+  isComingSoon = 'isComingSoon',
+  isCarouselMain = 'isCarouselMain', // 1
+  isLiveChannels = 'isLiveChannels', // 60
+  isWatchForYou = 'isWatchForYou', // 14
+  isKeepWatching = 'isKeepWatching', // 21
+  isPreSaveTitles = 'isPreSaveTitles', // 10061
+  isReleases = 'isReleases', // 15
+  isMostWatchedChannels = 'isMostWatchedChannels', // 10086
+  isParamount = 'isParamount', // 10023
+  isTryIt = 'isTryIt', // 10038
+  isMostWatched = 'isMostWatched', // 16
+  isConmebolLibertadores = 'isConmebolLibertadores', // 10090
+  Xpeed = 'Xpeed', // 10027
+  isToWatchAll = 'isToWatchAll', // 17
+  isHBO = 'isHBO', // 10060
+  isCnn = 'isCnn', // 10022
+  isDirectvGo = 'isDirectvGo', // 10059
+  isSuggestions = 'isSuggestions', // 67
+  isKids = 'isKids', // 18
+  isRented = 'isRented', // 59
+  isHighlights = 'isHighlights', // 10003
+  isLiveAndOnDemand = 'isLiveAndOnDemand', // 10055
+  isJump = 'isJump', // 61
+  isNovelas = 'isNovelas', // 10058
+  isNSportsMatches = 'isNSportsMatches', // 10057
+  isToRent = 'isToRent', // 65
+}

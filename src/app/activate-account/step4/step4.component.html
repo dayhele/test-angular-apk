@@ -1,0 +1,187 @@
+<div
+  class="container"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="form">
+    <div class="body">
+      <div class="header">
+        <div class="top">
+          <img class="cadastro-icon" src="assets/icons/cadastro-icon.svg" />
+          <h1>Nome de exibição</h1>
+        </div>
+        <p>Escolha o nome de exibição do seu primeiro usuário.</p>
+      </div>
+      <div class="space-14"></div>
+      <div class="usuario">
+        <app-input
+          type="usuario"
+          placeholder="Nome do usuário"
+          [(value)]="user.name"
+        >
+        </app-input>
+      </div>
+      <div class="space-62"></div>
+
+      <div class="form-title">
+        <p class="cadastro">Complete seu cadastro</p>
+      </div>
+
+      <div class="space-24"></div>
+
+      <div class="grid-form">
+        <div>
+          <p>Nome completo*</p>
+          <app-input
+            type="text"
+            placeholder="Insira seu nome"
+            [(value)]="user.nome"
+          ></app-input>
+          <div class="space-30"></div>
+
+          <div class="row-grid">
+            <div>
+              <p>Sexo</p>
+              <div class="select-sexo">
+                <select [(ngModel)]="user.sexo">
+                  <option value="" hidden disabled>Selecione o Sexo</option>
+                  <option value="F">Feminino</option>
+                  <option value="M">Masculino</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <p>CPF</p>
+              <app-input
+                type="text"
+                placeholder="000.000.000-00"
+                mask="000.000.000-00"
+                [(value)]="user.cpf"
+              ></app-input>
+            </div>
+          </div>
+          <div class="space-30"></div>
+          <div class="row-grid">
+            <div>
+              <p>Dia</p>
+              <app-input
+                type="text"
+                [maxlength]="2"
+                [(value)]="user.dia"
+              ></app-input>
+            </div>
+            <div>
+              <p>Mês</p>
+              <app-input
+                type="text"
+                [maxlength]="2"
+                [(value)]="user.mes"
+              ></app-input>
+            </div>
+            <div>
+              <p>Ano</p>
+              <app-input
+                type="text"
+                [maxlength]="4"
+                [(value)]="user.ano"
+              ></app-input>
+            </div>
+          </div>
+          <div class="space-30"></div>
+          <div>
+            <p>País</p>
+            <app-input
+              type="text"
+              placeholder="País"
+              [(value)]="user.pais"
+            ></app-input>
+          </div>
+        </div>
+        <div>
+          <div class="input-cep">
+            <p>CEP</p>
+            <app-input
+              type="text"
+              [maxlength]="8"
+              placeholder="Insira seu CEP"
+              [(value)]="user.cep"
+            ></app-input>
+            <a
+              href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+              target="_blank"
+              >Não sabe o CEP?</a
+            >
+          </div>
+
+          <div class="space-30"></div>
+          <div class="row-grid">
+            <div>
+              <p>Cidade</p>
+              <app-input
+                type="text"
+                placeholder="Cidade"
+                [(value)]="user.cidade"
+              ></app-input>
+            </div>
+            <div>
+              <p>Estado</p>
+              <app-input
+                type="text"
+                placeholder="Estado"
+                [(value)]="user.estado"
+              ></app-input>
+            </div>
+          </div>
+          <div class="space-30"></div>
+          <div>
+            <p>Endereço</p>
+            <app-input
+              type="text"
+              placeholder="Insira seu endereço"
+              [(value)]="user.endereco"
+            ></app-input>
+          </div>
+          <div class="space-30"></div>
+          <div class="row-grid">
+            <div>
+              <p>Número</p>
+              <app-input
+                type="text"
+                [maxlength]="10"
+                placeholder="Número"
+                [(value)]="user.enderecoNumero"
+              ></app-input>
+            </div>
+            <div>
+              <p>Complemento</p>
+              <app-input
+                type="text"
+                placeholder="Complemento"
+                [(value)]="user.enderecoComplemento"
+              ></app-input>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="error" *ngIf="error">{{ errorMessage }}</div>
+      <div class="buttons">
+        <app-button
+          classList="btn-secondary"
+          text="Cancelar"
+          (click)="cancel()"
+        >
+        </app-button>
+        <app-button
+          classList="btn-primary"
+          text="Criar Conta"
+          (click)="createAccount()"
+        >
+        </app-button>
+      </div>
+      <div class="badges">
+        <app-secure-site-card-badges
+          [hideBrands]="true"
+        ></app-secure-site-card-badges>
+      </div>
+    </div>
+  </div>
+</div>

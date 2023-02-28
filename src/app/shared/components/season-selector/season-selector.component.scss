@@ -1,0 +1,110 @@
+@import '../../../../themes/remc.scss';
+:host {
+
+  .container {
+    height: remc(56);
+    display: flex;
+    flex-direction: column;
+    padding: remc(24) 0;
+    margin-bottom: remc(40);
+
+    .selectors {
+      ::ng-deep {
+        .mat-tab-label {
+          opacity: 1;
+        }
+
+        .mat-ink-bar {
+          display: none;
+        }
+
+        .mat-tab-header-pagination-chevron {
+          border-color: var(--primary-base);
+        }
+
+        .mat-ripple-element{
+        display: none !important;
+        }
+      }
+
+      a {
+        margin-top: remc(24);
+        padding: 0 remc(8);
+        border-bottom: remc(5) solid transparent;
+      }
+
+      a:hover {
+        cursor: pointer;
+        color: var(--primary-base);
+        text-decoration: none;
+        border-bottom: remc(5) solid var(--primary-base);
+        transition: 0s;
+      }
+
+      .active {
+        color: var(--primary-base);
+        text-decoration: none;
+        border-bottom: remc(5) solid var(--primary-base);
+      }
+    }
+
+    .dropdown {
+      cursor: pointer;
+      margin-left: remc(20);
+      text-decoration: none;
+
+      &__menu {
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        padding: remc(16) remc(16);
+        color: var(--white);
+        font-size: remc(18);
+        font-weight: 500;
+        background-color: var(--primary-background);
+        transition: all 0.2s;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        li {
+          padding: remc(8) 0;
+        }
+
+        li:first-child {
+          padding-top: 0;
+        }
+
+        li:last-child {
+          padding-bottom: 0;
+        }
+      }
+
+      &__toggle {
+        display: flex;
+        align-items: center;
+
+        p {
+          color: var(--primary-base);
+        }
+
+        a {
+          color: var(--primary-base);
+        }
+      }
+
+      &__active {
+        opacity: 0.9;
+        visibility: visible;
+      }
+    }
+
+    .line {
+      border-bottom: remc(2) solid var(--primary-base);
+      margin-top: remc(-3);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      margin-bottom: remc(0);
+    }
+  }
+}

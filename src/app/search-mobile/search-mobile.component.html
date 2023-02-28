@@ -1,0 +1,48 @@
+<app-rent-mobile-popup *ngIf="clickedRent" (closeEvent)="clickedRent = false"></app-rent-mobile-popup>
+<main class="container">
+  <form class="input-search" (submit)="onSubmit()">
+    <input placeholder="O que você está buscando?" [ngModel]="keyword" type="text" name="keyword" maxlength="50"
+      (ngModelChange)="search($event)" />
+  </form>
+  <div class="loading">
+    <app-loading class="container__loading" *ngIf="searchLoading"></app-loading>
+  </div>
+  <div class="section-results">
+    <div class="results-counter">
+      <app-section-search-results-counter *ngIf="resultsLoaded && !searchLoading" [search]="resultsFeedback">
+      </app-section-search-results-counter>
+    </div>
+    <div class="container__cards" infiniteScroll
+    [infiniteScrollDistance]="10"
+    (scrolled)="onScrollDown()">
+      <div *ngFor="let item of svodCard">
+        <app-card [properties]="{ orientation: 'vertical' }" [data]="item"
+          [route]="'/details/' + item.id + '/' + item.type">
+          ></app-card>
+      </div>
+    </div>
+    <div class="container__movies">
+      <div *ngFor="let item of rentCard">
+        <app-rent-card [data]="item" [cardImage]="buildImage(item?.cdn, item?.highlight)" (click)="clickedRent = true">
+        </app-rent-card>
+      </div>
+    </div>
+    <div *ngIf="resultsLoaded && resultsFeedback.results === 0 && resultsRecommended?.total === 0" class="container__cardsRecommended">
+      <app-default-section class="container__cardsSuggested"
+        [sectionTitle]="'Sugestões para sua busca'" [data]="resultsRecommended.list">
+      </app-default-section>
+    </div>
+  </div>
+
+  <ng-container>
+    <div class="chips" *ngIf="categoriesLoaded">
+      <h4>Caso prefira, você pode explorar <br> conteúdos por categoria.</h4>
+      <div class="chips--categories">
+        <div *ngFor="let categorie of categories" class="chips--categories--chip"
+          (click)="chipSearch(categorie.title!)">
+          {{ categorie.title }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</main>

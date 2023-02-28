@@ -1,0 +1,52 @@
+<div class="activate">
+  <div class="activate--container" *ngIf="profile?.id_perfis && !isModalOpen">
+    <div class="activate--container--profile">
+      <div class="activate--container--profile--image">
+        <img [src]="imgSrc" />
+      </div>
+      <h3>{{ profile?.nome }}</h3>
+      <span>Não é você?</span>
+      <span routerLink="/profile/select">Sair</span>
+    </div>
+    <div class="activate--container--code">
+      <h3>Ativar Dispositivo</h3>
+      <span
+        >Digite o código que aparece na sua TV para autorizar o seu login:</span
+      >
+      <app-input
+        [error]="error.hasError"
+        (click)="error.hasError = false"
+        placeholder="Ex:QRFV43"
+        [(value)]="code"
+      ></app-input>
+      <p *ngIf="error.hasError">{{ error.message }}</p>
+      <app-button
+        *ngIf="!error.hasError"
+        classList="btn-primary"
+        (click)="submit()"
+        >Ativar</app-button
+      >
+    </div>
+  </div>
+  <div *ngIf="isModalOpen" class="activate--modal">
+    <div class="activate--modal--container">
+      <div class="activate--modal--container--header">
+        <img
+          (click)="isModalOpen = false"
+          src="assets/icons/close_small_icon.svg"
+        />
+      </div>
+      <div class="activate--modal--container--body">
+        <img src="assets/icons/verified.svg" />
+        <p>Dispositivo ativado com sucesso!</p>
+        <app-button
+          [text]="'Assistir agora'"
+          [type]="'button'"
+          [classList]="'btn-primary'"
+          (click)="isModalOpen = false"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+  <app-loading *ngIf="!profile?.id_perfis"></app-loading>
+</div>

@@ -1,0 +1,79 @@
+<app-toast
+*ngIf="sessionError"
+ [class.isVoucher]="sessionError"
+ [toastTime]="'100'"
+ [toastTitle]="'Aviso'"
+ [toastDesc]="sessionErrorMessage"
+ [toastClass]="'toast_7d'"
+ (closeEvent)="sessionError = false"></app-toast>
+
+<div class="container" [style.background-image]="'url(' + bgImage + ')'">
+  <form class="login" (submit)="onSubmit()">
+    <div class="title">
+      <h3>Entrar</h3>
+    </div>
+    <div class="fields">
+      <app-input
+        type="email"
+        placeholder="Digite seu email"
+        [error]="this.error.hasError"
+        [(value)]="user.email"
+        (click)="error.hasError = false"
+        [disabled]="isLoading"
+        [center]="theme.login.centerInputs"
+      >
+      </app-input>
+      <app-input
+        type="password"
+        placeholder="Digite sua senha"
+        [error]="this.error.hasError"
+        [(value)]="user.password"
+        (click)="error.hasError = false"
+        [disabled]="isLoading"
+        [center]="theme.login.centerInputs"
+      >
+      </app-input>
+    </div>
+    <div class="submit" *ngIf="!error.hasError">
+      <app-button
+        text="Entrar"
+        [disabled]="!isAllOk()"
+        type="submit"
+        classList="btn-primary"
+        *ngIf="!isLoading"
+      >
+      </app-button>
+      <app-loading *ngIf="isLoading"></app-loading>
+    </div>
+    <div class="error" *ngIf="error.hasError">
+      <p>{{ error.message }}</p>
+    </div>
+    <div
+      class="links"
+      [class.app-links]="environment.app"
+      [class.web-links]="theme.login.faq && !environment.app"
+    >
+      <a routerLink="/login/esqueci-minha-senha">Esqueci minha senha</a>
+      <div
+        class="register-link"
+        *ngIf="
+          checkDevice.isMobile() && !environment.app && theme.client === 'watch'
+        "
+      >
+        <p>Novo por aqui?</p>
+        <a href="">Quero ser um Watcher</a>
+      </div>
+      <!-- <a routerLink="/new-here" class="return" *ngIf="environment.app">
+        <img
+          src="{{ environment.imageService }}/icons/arrow-left-mobile.svg"
+          alt="arrow_left"
+        />
+        Não tenho cadastro</a
+      > -->
+      <a *ngIf="!environment.app" (click)="goToFaqs()">Preciso de ajuda</a>
+    </div>
+  </form>
+  <a class="need-help" *ngIf="environment.app" (click)="goToFaqs()"
+    >Preciso de ajuda</a
+  >
+</div>

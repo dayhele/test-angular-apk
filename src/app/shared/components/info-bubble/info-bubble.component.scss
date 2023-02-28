@@ -1,0 +1,65 @@
+@import '../../../../themes/remc.scss';
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  max-width: remc(30);
+  height: remc(30);
+  padding: remc(4);
+
+  .hide {
+    display: none;
+
+    .bubble {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: remc(8);
+      width: remc(293);
+      height: remc(112);
+      background: var(--primary-base);
+      color: var(--white);
+      border-radius: remc(10);
+      font-size: remc(12);
+      text-align: center;
+      position: absolute;
+      margin-top: remc(-145);
+      margin-left: remc(-147);
+
+      .ticket {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: remc(16);
+        z-index: 800;
+
+        .ticket-text {
+          font-size: remc(14);
+          text-transform: uppercase;
+          color: #000;
+          z-index: 999;
+          position: absolute;
+        }
+      }
+    }
+
+    .pointer {
+      height: remc(40);
+      width: remc(40);
+      background: var(--primary-base);
+      margin: 0 auto;
+      transform: rotate(45deg);
+      margin-top: remc(-60);
+      margin-left: remc(-20);
+      position: absolute;
+
+    }
+  }
+
+  .i-icon:hover + .hide {
+    display: block;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="dropdown">
+  <p class="favorite-title" *ngIf="checkMobile">Favoritos</p>
+  <div class="dropdown__button" (click)="toggleDropdown()">
+    <p class="title">{{ itemSelected }}</p>
+    <a class="icon">
+      <img [ngClass]="active ? 'icon__active' : ''" src="assets/icons/arrow-down.svg" alt="arrow-down" />
+    </a>
+  </div>
+  <div class="close" (click)="toggleDropdown()" [ngClass]="active ? 'close__active' : ''"></div>
+  <div class="menu" [ngClass]="active ? 'menu__active' : ''">
+    <ul>
+      <li><a (click)="selectCategorie('Todos')">Todos</a></li>
+      <li *ngFor="let categorie of categories"><a (click)="selectCategorie(categorie.title!)">{{categorie.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

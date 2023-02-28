@@ -1,0 +1,77 @@
+<app-modal-channels
+  [channels]="channels"
+  [plans]="menuPlans"
+  *ngIf="channelsLoaded && !checkMobile"
+></app-modal-channels>
+<app-plan-upgrade
+  *ngIf="isChangingPlan"
+  [(cancel)]="isChangingPlan"
+  [plan]="selectedPlan"
+  [isVoucher]="isVoucher"
+></app-plan-upgrade>
+
+<ng-template #plansBlock>
+  <app-section-planos></app-section-planos>
+</ng-template>
+
+<div
+  class="container"
+  *ngIf="!isChangingPlan && !checkMobile"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }">
+
+  <div class="plans">
+    <div class="plans--title">
+      <h3>Planos</h3>
+    </div>
+    <div class="plans--description">
+      <p>
+        A Multi+ oferece conteúdos exclusivos dos melhores estúdios para assistir <br />
+        como e quando quiser, sem anúncios para atrapalhar a diversão da família. <br /> <br />
+        Escolha o plano ideal para você, altere e cancele <br />
+        a sua assinatura a qualquer momento.
+      </p>
+    </div>
+    <div class="plans--cards">
+      <div class="loading" *ngIf="isLoading; else plansBlock">
+        <app-loading></app-loading>
+      </div>
+    </div>
+
+    <div class="badges">
+      <app-secure-site-card-badges></app-secure-site-card-badges>
+    </div>
+
+  </div>
+
+</div>
+
+<div
+  class="container-mobile"
+  *ngIf="!isChangingPlan && checkMobile"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="plans">
+    <div class="plans--title">
+      <h3>Planos</h3>
+    </div>
+
+    <div class="plans--description">
+      <p>
+        A Multi+ oferece conteúdos exclusivos dos melhores estúdios para assistir <br />
+        como e quando quiser, sem anúncios para atrapalhar a diversão da família. <br />
+      </p>
+    </div>
+    <div class="plans--cards">
+      <div class="loading" *ngIf="isLoading; else plansBlock">
+        <app-loading></app-loading>
+      </div>
+    </div>
+    <ng-template #plansBlock>
+      <app-section-planos></app-section-planos>
+    </ng-template>
+
+    <div class="badges">
+      <app-secure-site-card-badges></app-secure-site-card-badges>
+    </div>
+  </div>
+</div>

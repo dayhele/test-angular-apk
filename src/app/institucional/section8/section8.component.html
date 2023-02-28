@@ -1,0 +1,50 @@
+<section class="container">
+  <div class="section-seven">
+    <div class="container-titles">
+      <ng-container *ngIf="!checkMobile">
+        <div class="title">
+          Com mais de <span class="bold">50 canais ao vivo</span> no plano
+          <br />
+          Multi+ Premium, você tem uma programação de <br />
+          televisão diversificada e completa.
+        </div></ng-container
+      >
+      <ng-container *ngIf="checkMobile">
+        <div class="title">
+          Com mais de <br />
+          <span class="bold">50 canais ao vivo</span> <br />
+          plano Multi+ Premium, você tem <br />
+          uma programação de <br />
+          televisão diversificada e <br />
+          completa.
+        </div></ng-container
+      >
+    </div>
+    <div class="container-channels">
+      <div class="logo-dgo">
+        <img [src]="environment.bucket + 'logos/institucional/image 4.png'" />
+      </div>
+      <div class="container-channels-logos">
+        <div class="channels-logo">
+          <div>
+            <img
+              *ngIf="!checkMobile"
+              class="imagens-logo"
+              [src]="environment.bucket + 'bg/institucional/logos-web.png'"
+            />
+            <img
+              *ngIf="checkMobile"
+              class="imagens-logo"
+              [src]="
+                environment.bucket + 'bg/institucional/logos-webmobile.png'
+              "
+            />
+          </div>
+        </div>
+      </div>
+      <div class="container-button">
+        <div class="button white">Ver lista completa ></div>
+      </div>
+    </div>
+  </div>
+</section>

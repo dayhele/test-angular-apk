@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="../../axios/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container-popup" id="containerPopup">
+      <div class="popup">
+        <div class="popup--text-title">FECHAR SESSAO?</div>
+        <p class="popup--text-description">
+          Tem certeza que deseja fechar a sessão?
+        </p>
+        <div class="popup--buttons">
+          <button class="popup--buttons-button" id="keepSection">
+            MANTER SESSÃO
+          </button>
+          <button class="popup--buttons-button" id="closeSection">
+            FECHAR SESSÃO
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-container">
+      <header class="container--header">
+        <div class="container--header-icon">
+          <img src="../../images/logo.svg" />
+        </div>
+        <div class="container--header-items">
+          <div class="header--items">
+            <div
+              onclick="goTo('../home/index.html')"
+              class="header--item"
+              id="item-0"
+            >
+              Home
+            </div>
+            <div
+              onclick="goTo('../movie/index.html')"
+              class="header--item"
+              id="item-1"
+            >
+              Filmes
+            </div>
+            <div
+              onclick="goTo('../series/index.html')"
+              class="header--item"
+              id="item-2"
+            >
+              Séries
+            </div>
+            <div
+              onclick="goTo('../live/index.html')"
+              class="header--item"
+              id="item-3"
+            >
+              AO VIVO
+            </div>
+            <div
+              onclick="goTo('../favorites/index.html')"
+              class="header--item"
+              id="item-4"
+            >
+              Favoritos
+            </div>
+            <div class="header--items-sp">
+              <div
+                onclick="goTo('../filters/index.html')"
+                class="header--items-search"
+                id="item-5"
+              >
+                <img class="item-search-img" id="item-5-img" />
+              </div>
+              <div
+                onclick="goTo('../profile-user/index.html')"
+                class="header--items-settings"
+                id="item-6"
+              >
+                <img class="item-settings-img" id="item-6-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="container-options">
+      <div class="box-left box-left-item">
+        <ul>
+          <li onclick="clickTerms()" class="box-left-item" id="terms">
+            <p id="terms-text">TERMOS DE USO</p>
+          </li>
+          <li onclick="clickProfiles()" class="box-left-item" id="user">
+            PERFIL
+          </li>
+          <li onclick="logout()" class="box-left-item" id="logout">LOGOUT</li>
+          <li class="versão">Versão 2.2.16</li>
+        </ul>
+      </div>
+      <div class="box-right" id="box-right">
+        <div class="container-dinamic-terms" id="container-dinamic-terms">
+          <div class="user-terms">
+            <h1>TERMOS DE USO E PRIVACIDADE</h1>
+
+            <p>
+              Bem-vindo aos termos de uso e privacidade da WATCH BRASIL. Estes
+              termos são válidos entre você, USUÁRIO, e a WATCH BRASIL, para
+              regular o uso do site www.watch.tv.br, do respectivo aplicativo
+              móvel e dos seus conteúdos. Lembramos que estes termos deverão ser
+              respeitados por todos visitantes e usuários. Toda vez que você
+              acessar, navegar ou utilizar o serviço WATCH BRASIL, você estará
+              automaticamente de acordo com os termos deste contrato.
+            </p>
+
+            <p>
+              Integram os presentes TERMOS DE USO todos os avisos, regulamentos
+              de uso e instruções levados ao conhecimento dos usuários e
+              visitantes pela WATCH BRASIL.
+            </p>
+
+            <p>
+              Todos os avisos, regulamentos de uso e instruções passados pela
+              WATCH BRASIL para seus usuários e visitantes fazem parte dos
+              TERMOS DE USO.
+            </p>
+
+            <h2>GLOSSÁRIO</h2>
+
+            <p>
+              Para facilitar a compreensão deste Termo de Uso e Privacidade,
+              devem ser considerados os seguintes conceitos:
+            </p>
+
+            <p>
+              Antispam Sistema que evita correspondências não desejadas, como
+              publicidade em massa, pelo bloqueio de mensagens ou movendo-as
+              para pasta específica.
+            </p>
+
+            <h3>Aplicativo spider</h3>
+
+            <p>
+              Programa desenvolvido para obter informações de modo automatizado
+              na Internet, navegando pela web (teia) como se fosse uma spider
+              (aranha).
+            </p>
+
+            <h3>Conta de Acesso</h3>
+
+            <p>
+              Credencial de um usuário cadastrado que permite o acesso à área
+              restrita e às funcionalidades exclusivas, que é definida por nome
+              de usuário (login) e senha.
+            </p>
+
+            <h3>Dados Cadastrais</h3>
+
+            <p>
+              Conjunto de informações pessoais de um internauta que o
+              identificam, diferenciando-o dos demais. Por exemplo: número do
+              documento de identidade (RG ou RNE), cadastro de pessoa física
+              (CPF) ou jurídica (CNPJ), endereço residencial ou comercial, sede,
+              nome completo, entre outros.
+            </p>
+
+            <h3>Layout</h3>
+
+            <p>
+              Conjunto compreendido entre aparência, design e fluxos do site.
+            </p>
+
+            <h3>Link</h3>
+
+            <p>Terminologia para endereço de Internet.</p>
+
+            <h3>Login</h3>
+
+            <p>
+              Nome de usuário escolhido pelo visitante quando preenche o
+              cadastro para acesso a funcionalidades exclusivas do portal.
+            </p>
+
+            <h3>Logon</h3>
+
+            <p>
+              Ato de o visitante cadastrado ingressar na área restrita do portal
+              utilizando login e senha.
+            </p>
+
+            <h3>Logs</h3>
+
+            <p>Registros de atividades do visitante efetuadas no portal.</p>
+
+            <h3>Senha</h3>
+
+            <p>
+              Conjunto de caracteres que serve como prova de identidade digital
+              do usuário, cujo conhecimento deve ser exclusivo e único.
+            </p>
+
+            <h3>Usuário</h3>
+
+            <p>
+              Qualquer visitante que acesse a área restrita do site, mediante
+              uma conta de acesso.
+            </p>
+
+            <h3>Visitante</h3>
+
+            <p>Qualquer pessoa que navegar pelo site.</p>
+
+            <h3>Webmastering</h3>
+
+            <p>
+              Compreende criação, programação, desenvolvimento, controle e
+              disponibilidade de páginas de Internet.
+            </p>
+
+            <h3>Cookies</h3>
+
+            <p>
+              Arquivos enviados pelo servidor do portal para o computador dos
+              visitantes e usuários, com a finalidade de identificar o
+              computador e obter dados de acesso, como páginas navegadas ou
+              links clicados, permitindo, desta forma, personalizar a navegação
+              dos visitantes e usuários no portal, de acordo com seu perfil.
+            </p>
+
+            <h3>Video on demand (VOD)</h3>
+
+            <p>
+              Conceito implementado por sistemas que permitem ao usuário
+              selecionar e assistir conteúdo de vídeo sobre uma rede como parte
+              de um sistema de TV interativo. Podem ser em streaming, no qual o
+              vídeo é imediatamente executado a medida que os pacotes de dados
+              referentes ao conteúdo chegam através da rede, ou baixados
+              (download) inteiramente para após serem visualizados.
+            </p>
+
+            <h3>Subscription Video on Demand (SVOD)</h3>
+
+            <p>
+              Termo utilizado para especificar a assinatura de filmes digitais.
+              Neste caso, o assinante paga um valor fixo mensal e tem acesso a
+              todo o acervo digital da locadora virtual.
+            </p>
+
+            <h3>Transactional Video on Demand (TVOD)</h3>
+
+            <p>
+              Termo utilizado para especificar o aluguel de filmes digitais.
+              Neste caso, o consumidor paga individualmente por cada vídeo a ser
+              assistido, que estará disponível para “plays ilimitados” por um
+              prazo de 24h a 48h após o primeiro play.
+            </p>
+
+            <h2>OBJETO</h2>
+
+            <p>
+              Através do site e aplicativo móvel, a WATCH BRASIL disponibilizará
+              o acesso aos usuários e visitantes os diversos conteúdos. O site e
+              o aplicativo móvel são plataformas de acesso aos serviços SVOD e
+              TVOD prestados por intermédio da WATCH BRASIL, ou seja, as
+              plataformas oferecem filmes digitais, e outros conteúdos de vídeo,
+              por meio de um catálogo de títulos, para você assistir durante o
+              período de sua assinatura ou, em alguns casos específicos, através
+              de aluguel de filmes digitais.
+            </p>
+
+            <p>
+              O serviço e o conteúdo digital podem ser acessados tanto pelo
+              site, quanto pelo aplicativo móvel da WATCH BRASIL. Se você tem
+              menos de 18 anos, ou é menor de idade segundo a regra de sua
+              localidade, você poderá utilizar o serviço apenas mediante a
+              participação de pai, mãe ou responsável.
+            </p>
+
+            <p>
+              A WATCH BRASIL se reserva o direito de modificar unilateralmente,
+              a qualquer momento e sem prévio aviso, a apresentação e
+              configuração do site e do aplicativo móvel, assim como o de
+              eliminar ou modificar, os conteúdos, os termos de uso e
+              privacidade, os avisos, regulamentos e instruções de uso.
+            </p>
+
+            <h2>SERVIÇO</h2>
+
+            <p>
+              O serviço permitirá a você: (i) acessar o conteúdo digital através
+              de uma assinatura, durante o tempo limitado do período da
+              assinatura; (ii) alugar conteúdo digital para assistir por um
+              tempo limitado.
+            </p>
+
+            <h2>CONDIÇÕES DE ACESSO E UTILIZAÇÃO DO SITE</h2>
+
+            <h2>ACESSO E RESTRIÇÕES DE FUNCIONALIDADE</h2>
+
+            <p>
+              As plataformas da WATCH BRASIL são dedicadas às atividades de
+              disponibilização de conteúdo audiovisual por meio das modalidades
+              de serviço SVOD e TVOD. Para utilizar funcionalidades exclusivas,
+              você deverá obter uma conta de acesso, por meio de procedimento de
+              cadastro.
+            </p>
+
+            <p>
+              Vale lembrar que não é permitido aos visitantes e usuários
+              acessarem as áreas de programação do site e do aplicativo móvel,
+              seus bancos de dados ou qualquer conjunto de informações que faça
+              parte da atividade de webmastering, ficando sujeito quem o fizer à
+              legislação penal brasileira e obrigado a reparar os danos que
+              causar.
+            </p>
+
+            <p>
+              Também não é autorizado realizar ou permitir engenharia reversa,
+              nem traduzir, descompilar, copiar, modificar, reproduzir, alugar,
+              sublicenciar, publicar, divulgar, transmitir, emprestar,
+              distribuir ou, de outra maneira, dispor das ferramentas de
+              consulta deste portal, aplicativo móvel e de suas funcionalidades.
+            </p>
+
+            <p>
+              Destaca-se que nesse portal e aplicativo móvel é proibida a
+              utilização de aplicativo spider ou de mineração de dados, de
+              qualquer tipo ou espécie, além de outro aqui não tipificado, mas
+              que atue como um robô, tanto para realizar operações massificadas
+              ou para quaisquer outras finalidades, sob aplicação da legislação
+              penal brasileira e de reparar os danos que decorrerem desta
+              utilização.
+            </p>
+
+            <p>
+              Ressalta-se, também, que é ônus dos visitantes e usuários arcar
+              com os meios necessários para navegar neste portal e aplicativo
+              móvel, incluindo acesso à Internet.
+            </p>
+
+            <h2>
+              UTILIZAÇÃO DO SITE, APLICATIVO MÓVEL E DE SEUS CONTEÚDOS SOB A
+              EXCLUSIVA RESPONSABILIDADE DO USUÁRIO
+            </h2>
+
+            <p>
+              Vale lembrar que sua conta de acesso, login e senha, são de uso
+              pessoal e que a navegação é de sua inteira responsabilidade.
+            </p>
+
+            <p>
+              A WATCH BRASIL não se responsabiliza pelos atos praticados por
+              seus visitantes e usuários no ambiente oferecido pelo portal e
+              aplicativo móvel, devendo cada um ser imputado de acordo com a
+              qualidade do uso da plataforma.
+            </p>
+
+            <h2>UTILIZAÇÃO DO SITE, APLICATIVO MÓVEL E DOS SEUS CONTEÚDOS</h2>
+
+            <p>
+              A disponibilização dos conteúdos pela WATCH BRASIL somente
+              ocorrerá mediante o fornecimento de algumas informações sobre o
+              usuário, essas informações serão solicitadas a você para criação
+              da sua conta de acesso.
+            </p>
+
+            <p>
+              Pelo aceite destes termos, o usuário compromete-se a utilizar o
+              site, o aplicativo móvel e os seus conteúdos em conformidade com a
+              lei, com o disposto nestes Termos de Uso e Privacidade, com a
+              moral, os bons costumes e com a ordem pública. Da mesma forma, se
+              obriga a não utilizar o site e o aplicativo móvel e seus conteúdos
+              de forma nociva aos direitos e interesses de terceiros, ou de
+              qualquer forma que possa vir a causar dano, sobrecarregar,
+              inutilizar ou impedir a normal utilização das plataformas WATCH
+              BRASIL e dos seus conteúdos.
+            </p>
+
+            <p>
+              O usuário deverá abster-se de obter desenhos, informações,
+              gráficos, mensagens, arquivos de som e/ou imagem, fotografias,
+              gravações, programas e/ou qualquer outro tipo de material
+              acessível através do site e aplicativo móvel ou dos conteúdos,
+              inclusive de marca, empregando meios ou procedimentos diversos
+              daqueles que disponibilizados ou indicados com este propósito nas
+              páginas do site e aplicativo móvel.
+            </p>
+
+            <p>
+              O usuário obriga-se a utilizar os conteúdos de forma lícita e,
+              além disso: - Se abstém de copiar, distribuir, modificar, divulgar
+              o conteúdo ao público através de qualquer modalidade de
+              comunicação; de modificar os conteúdos, a menos que obtenha
+              autorização da WATCH BRASIL; - Se abstém de eliminar ou manipular
+              o copyright ou outros dados que identifiquem os direitos da WATCH
+              BRASIL ou ainda direitos incorporados ao site e aplicativo móvel e
+              seus conteúdos de propriedade de terceiros, bem como os
+              dispositivos de proteção, as marcas ou quaisquer mecanismos de
+              informação.
+            </p>
+
+            <h2>CONTA DE ACESSO DO USUÁRIO E DO CONTEÚDO</h2>
+
+            <p>
+              Condições de preço e ofertas para assinaturas, serviços de
+              assinatura, a extensão do conteúdo digital por assinatura
+              disponível e os títulos específicos disponíveis através de
+              serviços de assinatura poderão mudar conforme o tempo, sem aviso
+              (salvo se exigido por lei). A menos que indicado de outra forma,
+              quaisquer alterações de preço valem para o início do período de
+              assinatura seguinte. Se você não estiver de acordo com uma
+              modificação na assinatura, você poderá cancelar a assinatura nos
+              termos do seu Contrato de Adesão.
+            </p>
+
+            <p>
+              Não oferecemos garantias quanto à disponibilidade de um conteúdo
+              digital específico por assinatura ou quanto a uma quantidade
+              mínima de conteúdo digital disponível por assinatura em
+              determinada categoria de assinatura.
+            </p>
+
+            <h2>DO ACESSO AO CONTEÚDO</h2>
+
+            <p>
+              A WATCH BRASIL concede a você uma licença limitada, não exclusiva,
+              não transferível, não sublicenciável, durante o período de acesso
+              aplicável, para acessar e visualizar o conteúdo digital em
+              conformidade com as regras de uso e privacidade, para uso pessoal,
+              não comercial e privado. Nós poderemos remover automaticamente o
+              conteúdo digital do seu dispositivo compatível após o término do
+              período de acesso. O referido acesso ao conteúdo é sujeito ao
+              pagamento de valores para alugar ou acessar conteúdo digital, e ao
+              adimplemento de todos os termos deste contrato.
+            </p>
+
+            <p>
+              Assim, você não poderá (i) transferir, copiar ou exibir o conteúdo
+              digital, salvo nos termos autorizados por este contrato; (ii)
+              vender, alugar, conceder, distribuir ou transmitir qualquer
+              direito ao conteúdo digital; (iii) remover qualquer aviso de
+              propriedade intelectual ou etiqueta do conteúdo digital; (iv)
+              tentar desabilitar, evitar, modificar, frustrar ou de outra forma
+              lograr qualquer gestão de direito digital ou outro sistema de
+              proteção de conteúdo utilizado como parte do serviço; ou (v)
+              utilizar o serviço ou conteúdo digital para qualquer propósito
+              comercial ou ilegal.
+            </p>
+
+            <p>
+              Streaming - SVOD: você poderá assistir a vídeos online, via
+              streaming, através do seu navegador Web, aplicativo móvel para
+              smartphone (Android).
+            </p>
+
+            <p>
+              Conteúdo alugado – TVOD: você poderá assistir a vídeos online, via
+              streaming, através do seu navegador Web, aplicativo móvel para
+              smartphone (Android). Você terá, normalmente, entre 24 a 48 horas
+              para terminar de assistir a um vídeo alugado, contadas a partir do
+              começo do streaming.
+            </p>
+
+            <p>
+              Todas as operações de locação são definitivas, não é admitido
+              qualquer devolução de conteúdo ou indenização por desistência.
+            </p>
+
+            <p>
+              Qualidade: a qualidade e resolução de reprodução do conteúdo
+              digital que você recebe dependerá de um número de fatores,
+              incluindo o tipo de dispositivo compatível no qual você está
+              acessando o conteúdo digital e a velocidade da sua conexão, que
+              poderá aumentar ou diminuir durante a visualização. Mesmo fazendo
+              o máximo esforço para fornecer uma experiência de alta qualidade
+              de visualização, não oferecemos garantias quanto à resolução ou
+              qualidade do conteúdo digital ao qual você terá acesso por
+              streaming, mesmo que tenha pago um valor extra para ter conteúdo
+              de alta definição (HD), de ultra-alta definição (UHD) ou de grande
+              alcance dinâmico (HDR).
+            </p>
+
+            <p>
+              Disponibilidade do conteúdo digital: O conteúdo digital, via de
+              regra, ficará disponível para streaming, mas poderá tornar-se
+              indisponível devido a potenciais restrições de licenciamento do
+              provedor de conteúdo ou por outros motivos, e a WATCH BRASIL não
+              será responsável perante você se o conteúdo digital se tornar
+              indisponível.
+            </p>
+
+            <h2>
+              INFORMAÇÕES GERAIS SOBRE O SITE, APLICATIVO MÓVEL E SEU
+              FUNCIONAMENTO
+            </h2>
+
+            <p>
+              Este site e aplicativo móvel são apresentados ao público da web na
+              maneira como estão disponíveis, podendo passar por constantes
+              aprimoramentos e atualizações, não ficando obrigada a WATCH BRASIL
+              a manter uma estrutura ou layout, se não por sua própria
+              conveniência.
+            </p>
+
+            <p>
+              A WATCH BRASIL envida seus esforços para a disponibilidade
+              contínua e permanente do portal e aplicativo móvel, ficando
+              sujeita, todavia, a eventos extraordinários, como desastres
+              naturais, falhas ou colapsos nos sistemas centrais de comunicação
+              e acesso à Internet ou fatos de terceiro, que fogem de sua esfera
+              de vigilância e responsabilidade.
+            </p>
+
+            <p>
+              Dessa forma, os visitantes e usuários não possuem qualquer direito
+              para exigir a disponibilidade do portal/aplicativo móvel conforme
+              melhor lhes convém, tampouco poderão pleitear indenização ou
+              reparação de danos no caso de este portal permanecer fora do ar,
+              nas hipóteses de casos fortuitos ou de força maior, bem como por
+              culpa de terceiros e fornecedores de conteúdo.
+            </p>
+
+            <p>
+              Destaca-se que a WATCH BRASIL poderá, a seu exclusivo critério e
+              conveniência, excluir ou suspender a conta de acesso de
+              determinado usuário do portal, em virtude de suspeita de
+              inexatidão de informações ou prática criminosa de algum ato. Essa
+              faculdade não exime os usuários e visitantes de fornecer sempre os
+              dados verdadeiros e praticar condutas que coadunem com o propósito
+              de existência do portal e de seu cadastro nele.
+            </p>
+
+            <h2>COMUNICAÇÃO DA EMPRESA COM SEUS VISITANTES E USUÁRIOS</h2>
+
+            <p>
+              A WATCH BRASIL utilizará como principais canais de comunicação com
+              os usuários o e-mail informado durante a interação com o
+              site/aplicativo móvel, nas suas mais diversas modalidades, bem
+              como o sistema de mensagens nativo do próprio portal.
+            </p>
+
+            <p>
+              A responsabilidade pelo recebimento dos comunicados é exclusiva
+              dos usuários, por isso é indispensável que sempre forneçam os
+              dados corretos e precisos à WATCH BRASIL, e os mantenha
+              atualizados.
+            </p>
+
+            <p>
+              É igualmente de responsabilidade dos usuários deixarem seus
+              sistemas de antispam configurados de modo que não interfiram no
+              recebimento dos comunicados e matéria da WATCH BRASIL, não sendo
+              aceitável nenhuma escusa caso não tenha tido acesso a algum e-mail
+              em virtude desse bloqueio ou filtro similar.
+            </p>
+
+            <h2>
+              PRIVACIDADE E SEGURANÇA DO SITE, APLICATIVO MÓVEL E DOS SEUS
+              CONTEÚDOS
+            </h2>
+
+            <p>
+              A WATCH BRASIL tem o compromisso com a privacidade e a segurança
+              de seus usuários e visitantes durante todo o processo de navegação
+              pelo site e aplicativo móvel. Os dados cadastrais dos usuários não
+              são vendidos, trocados ou divulgados para terceiros, exceto quando
+              essas informações são necessárias para o processo de entrega, para
+              cobrança, ou para participação em promoções solicitadas pelos
+              usuários e visitantes. Seus dados pessoais são peça fundamental
+              para que seu cadastro seja feito.
+            </p>
+
+            <p>
+              A WATCH BRASIL utiliza cookies e informações de sua navegação
+              (sessão do browser) no portal de acesso/aplicativo móvel com o
+              objetivo de traçar um perfil do público que visita o
+              site/aplicativo móvel e aperfeiçoar sempre nossos serviços,
+              produtos e conteúdos.
+            </p>
+
+            <p>
+              Durante todo este processo, mantemos suas informações em sigilo
+              absoluto. Vale lembrar que seus dados são registrados pela WATCH
+              BRASIL de forma automatizada, dispensando manipulação humana.
+            </p>
+
+            <p>
+              Para que estes dados permaneçam intactos, nós desaconselhamos
+              expressamente a divulgação de sua senha a terceiros, mesmo a
+              amigos e parentes.
+            </p>
+
+            <p>
+              A WATCH BRASIL exime-se de responsabilidade pelos danos, prejuízos
+              e/ou lucros cessantes de qualquer natureza que possam advir do
+              conhecimento que possam ter terceiros não autorizados a respeito
+              de condições, características e circunstâncias de uso que os
+              usuários e visitantes fazem do site e aplicativo móvel ou de seus
+              conteúdos.
+            </p>
+
+            <p>
+              Os usuários e visitantes autorizam a receber demais conteúdos via
+              e- mail, relacionados aos parceiros da WATCH BRASIL, com assuntos
+              de interesse dos mesmos.
+            </p>
+
+            <p>
+              As alterações sobre nossa política de privacidade serão
+              devidamente informadas neste espaço.
+            </p>
+
+            <h2>OBTENÇÃO DOS DADOS E INFORMAÇÕES</h2>
+
+            <p>
+              Os dados e informações serão obtidos quando os visitantes e
+              usuários: - realizarem seus cadastros com preenchimento das
+              informações necessárias; - interagirem com as diversas
+              funcionalidades existentes no portal, fornecendo as informações
+              voluntariamente; ou - adquirirem alguns dos produtos ou serviços
+              oferecidos no site ou aplicativo móvel.
+            </p>
+
+            <h2>
+              INFORMAÇÕES COLETADAS – FINALIDADE, ATUALIZAÇÃO OU MUDANÇA DE
+              PERFIL E FORMA DE UTILIZAÇÃO
+            </h2>
+
+            <p>
+              Através dos cadastros, buscamos aprimorar nosso canal de
+              comunicação com nosso público, de forma a identifica-lo melhor
+              para atender às suas necessidades, expectativas e preferências.
+              Algumas informações são de preenchimento obrigatório, importantes
+              para que a WATCH BRASIL possa identifica-lo melhor e
+              disponibilizar adequadamente as informações e serviços de acordo
+              com sua necessidade.
+            </p>
+
+            <p>
+              As informações sobre os usuários e visitantes serão armazenadas em
+              um servidor seguro e têm o intuito exclusivo de fornecer
+              informações diversas e respostas às perguntas por eles realizadas.
+            </p>
+
+            <p>
+              Dessa forma, todos os dados e informações coletados dos visitantes
+              e usuários serão incorporados ao banco de dados do portal e
+              aplicativo móvel, sendo seu responsável WATCH TV ENTRETENIMENTOS
+              LTDA - ME, com endereço na Rua Ettore Giovine, 2477, Centro,
+              Paranavaí-PR, CEP 87701-150, inscrita no CNPJ/MF sob o nº
+              24.817.685/0001-21.
+            </p>
+
+            <p>
+              Contudo, considerando que nenhum sistema de segurança é
+              absolutamente seguro, a WATCH BRASIL se exime de quaisquer
+              responsabilidades por eventuais danos e/ou prejuízos decorrentes
+              de falhas, vírus ou invasores do banco de dados do portal, salvo
+              no caso de dolo ou culpa da mesma.
+            </p>
+
+            <p>
+              - O usuário, ao cadastrar-se no site e aplicativo móvel, autoriza
+              a WATCH BRASIL o envio de correspondências eletrônicas
+              periodicamente, para fins de informação e divulgação de seus
+              serviços; - O usuário se responsabiliza pela precisão e veracidade
+              dos dados informados e reconhece que a inconsistência destes
+              poderá implicar a impossibilidade de acessar o site e aplicativo
+              móvel; - O usuário assume inteira responsabilidade pela guarda,
+              sigilo e boa utilização do login e senhas cadastrados, isentando a
+              WATCH BRASIL de qualquer responsabilidade; - O login e senha só
+              poderão ser utilizados pelo usuário cadastrado, sendo
+              expressamente proibido o compartilhamento de login e/ou senha com
+              quaisquer terceiros; Os dados pessoais dos usuários não serão
+              compartilhados com terceiros, visando preservar a privacidade
+              destes, sendo que os dados adquiridos somente poderão ser
+              acessados por profissionais devidamente autorizados pela WATCH
+              BRASIL, respeitando a necessidade a que serão submetidos – aos
+              objetivos do portal e aplicativo móvel e aos interesses dos
+              visitantes e usuários.
+            </p>
+
+            <h2>USO DE COOKIES</h2>
+
+            <p>
+              O site e aplicativo móvel utilizam a tecnologia de identificação
+              baseada em cookies (pequenos arquivos de texto enviados através da
+              Internet para o seu navegador, que ficam armazenados em seu
+              computador e que permitem o reconhecimento dos computadores que
+              acessam nosso site). Um cookie não pode ler informações do disco
+              rígido do seu computador. Através deles, podemos conhecer suas
+              preferências e disponibilizar conteúdos personalizados para você.
+              Estes cookies são seguros, privados, anônimos, não transmitem
+              vírus e são utilizados para o benefício dos usuários e visitantes.
+            </p>
+
+            <p>
+              Em geral, os Web Browsers já são configurados de forma a permitir
+              a criação de cookies. Contudo, você pode especificar se deseja ou
+              não que o browser pergunte antes de gravar cookies de um site
+              determinado no disco rígido de seu computador. Da mesma forma,
+              você pode escolher se permite ou não que seu browser aceite
+              cookies da WATCH BRASIL ou de qualquer outro site, e especificar
+              configurações diferentes para zonas de segurança diferentes.
+            </p>
+
+            <p>
+              Vale ressaltar que os cookies, após aceitos, agem como “cartão de
+              visita” do usuário, ou seja, são uma forma de facilitar a sua
+              identificação na conexão com o site e aplicativo móvel. Caso o
+              usuário opte por bloquear os cookies, não será possível realizar o
+              login no site e aplicativo móvel.
+            </p>
+
+            <h2>REGISTRO DE ATIVIDADES</h2>
+
+            <p>
+              A WATCH BRASIL registrará todas as atividades efetuadas pelos
+              visitantes e usuários no portal, por meio de logs, incluindo: -
+              Ações efetuadas; - Datas e horários de cada acesso; Os referidos
+              registros poderão ser utilizados pela WATCH BRASIL em casos de
+              investigação de fraudes ou de alterações indevidas em seus
+              sistemas e cadastros.
+            </p>
+
+            <h2>VÍRUS E/OU OUTROS ELEMENTOS NOCIVOS NOS CONTEÚDOS</h2>
+
+            <p>
+              A WATCH BRASIL exime-se de responsabilidade pelos danos, prejuízos
+              e/ou lucros cessantes de qualquer natureza que possam advir de
+              vírus ou de outros elementos nocivos nos conteúdos e que, desta
+              forma, possam produzir alterações e/ou danos nos equipamentos e
+              programas dos usuários.
+            </p>
+
+            <h2>
+              CONFIABILIDADE E UTILIDADE DO PORTAL DE GERENCIAMENTO E DOS SEUS
+              CONTEÚDOS
+            </h2>
+
+            <p>
+              A WATCH BRASIL exime-se de responsabilidade pelos danos, prejuízos
+              e/ou lucros cessantes de qualquer natureza que possam decorrer: -
+              Da infração aos direitos de propriedade intelectual ou industrial,
+              dos segredos empresariais, de compromissos contratuais de qualquer
+              tipo, dos direitos à honra, à intimidade pessoal e familiar e à
+              imagem das pessoas, dos direitos de propriedade e de toda e
+              qualquer natureza pertencentes a um terceiro como consequência da
+              transmissão, difusão, armazenamento, disponibilização, recepção,
+              obtenção ou acesso ao site, aplicativo móvel ou aos seus
+              conteúdos; - Da transmissão, difusão, armazenamento,
+              disponibilização, recepção, obtenção ou acesso aos conteúdos, e em
+              particular, ainda que não de modo exclusivo, pelos danos,
+              prejuízos e/ou lucros cessantes que possam decorrer do
+              descumprimento da lei, da moral e dos bons costumes geralmente
+              aceitos ou a ordem pública como consequência da transmissão,
+              difusão, armazenamento, disponibilização, recepção, obtenção ou
+              acesso ao site, aplicativo móvel ou aos conteúdos; - Da
+              inadequação para qualquer tipo de propósito ou da frustração das
+              expectativas geradas pelo site, aplicativo móvel, ou seus
+              conteúdos; - Da falta de precisão, extinção, pertinência e/ou
+              atualidade do site ou dos seus conteúdos; - Da realização de atos
+              de concorrência desleal e publicidade ilícita em decorrência da
+              transmissão, difusão, armazenamento, disponibilização, recepção,
+              obtenção ou acesso ao site, aplicativo móvel ou aos conteúdos.
+            </p>
+
+            <h2>
+              UTILIZAÇÃO DO SITE, APLICATIVO MÓVEL E DOS CONTEÚDOS PELOS
+              CONTRATANTES
+            </h2>
+
+            <p>
+              A WATCH BRASIL não garante que os usuários e visitantes usem suas
+              plataformas e os conteúdos em conformidade com a lei, com estes
+              Termos de Uso e Privacidade respeitando a aplicação da moral e dos
+              bons costumes geralmente aceitos pela ordem pública.
+            </p>
+
+            <p>
+              A WATCH BRASIL também não possui a obrigação de verificar a
+              identidade dos usuários, nem a veracidade, vigência, extensão e/ou
+              autenticidade dos dados e informações que eles proporcionem sobre
+              si mesmos a outros usuários.
+            </p>
+
+            <p>
+              Portanto, a WATCH BRASIL exime-se de responsabilidade pelos danos,
+              prejuízos e/ou lucros cessantes de qualquer natureza que possam
+              advir da utilização dos serviços e dos conteúdos ou que possam
+              dever-se à falta de veracidade, vigência, extensão e/ou
+              autenticidade da informação que os usuários proporcionem a outros
+              usuários sobre si mesmos.
+            </p>
+
+            <h2>DIREITOS AUTORAIS E PROPRIEDADE INTELECTUAL DO PORTAL</h2>
+
+            <p>
+              O uso comercial das expressões da WATCH BRASIL, como marca, nome
+              empresarial ou nome de domínio, além dos conteúdos das telas do
+              portal, assim como os programas, conteúdos digitais, bancos de
+              dados, redes, arquivos que permitem que o usuário acesse sua conta
+              são de propriedade da WATCH TV ENTRETENIMENTOS LTDA - ME, com
+              endereço na Rua Ettore Giovine, 2477, Centro, Paranavaí- PR, CEP
+              87701-150, inscrita no CNPJ/MF sob o nº 24.817.685/0001- 21 e
+              estão protegidos pelas leis e tratados internacionais de direito
+              autoral, marcas e patentes, modelos e desenhos industriais.
+            </p>
+
+            <p>
+              A WATCH BRASIL não concede tacitamente nenhuma licença ou
+              autorização de uso de nenhum tipo sobre seus direitos de
+              propriedade industrial e intelectual, segredos empresariais ou
+              sobre qualquer outra propriedade ou direito relacionado com o
+              site, aplicativo móvel ou seus conteúdos.
+            </p>
+
+            <p>
+              A reprodução dos conteúdos descritos anteriormente está proibida,
+              salvo com prévia autorização por escrito da WATCH BRASIL ou se
+              destinarem a uso exclusivamente pessoal e sem que em nenhuma
+              circunstância os visitantes e usuários adquiram qualquer direito
+              sobre os mesmos.
+            </p>
+
+            <h2>RECUSA E RETIRADA DO ACESSO AO SITE E/OU AOS SEUS CONTEÚDOS</h2>
+
+            <p>
+              A WATCH BRASIL reserva-se o direito de recusar ou retirar o acesso
+              ao site, aplicativo móvel e/ou aos seus conteúdos, a qualquer
+              momento e sem necessidade de prévio aviso, por iniciativa própria
+              ou por exigência de um terceiro, daqueles usuários que descumpram
+              estes Termos de Uso e Privacidade ou que, de alguma forma,
+              executem ações que resultem ou possam resultar em atividades
+              ilegais.
+            </p>
+
+            <h2>DURAÇÃO E FINALIZAÇÃO</h2>
+
+            <p>
+              A WATCH BRASIL se reserva no direito de alterar esse termo para
+              adaptá-lo à legislação aplicável ou às boas práticas comerciais de
+              uso da internet.
+            </p>
+
+            <h2>ACEITE</h2>
+
+            <p>
+              Ao acessar o site ou aplicativo móvel da WATCH BRASIL e clicar no
+              campo “Li e aceito os Termos e Condições de Uso e Política de
+              Privacidade” os usuários, expressamente e sem ressalvas concordam
+              com todos os referidos termos e condições, inclusive com o
+              recebimento no seu e-mail contendo mensagens promocionais da WATCH
+              BRASIL e seus parceiros.
+            </p>
+
+            <h2>LEI APLICÁVEL E FORO</h2>
+
+            <p>
+              Estes Termos de Uso são regidos pelas leis brasileiras. A WATCH
+              BRASIL e o usuário, com renúncia expressa a qualquer outro foro,
+              se submetem ao Foro de Paranavaí/PR.
+            </p>
+          </div>
+        </div>
+        <div class="container-dinamic-user" id="container-dinamic-user"></div>
+      </div>
+    </div>
+
+    <div
+      style="display: none"
+      id="pin-keyboard--back-button"
+      class="pin-keyboard--back-button"
+    >
+      <p
+        onclick="KeyboardClickClose()"
+        id="pin-keyboard--back-button-text"
+        class="pin-keyboard--back-button-text"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="29.295"
+          height="47.266"
+          viewBox="0 0 29.295 47.266"
+        >
+          <g
+            id="Grupo_2108"
+            data-name="Grupo 2108"
+            transform="translate(-180.551 -127.169)"
+          >
+            <path
+              id="Caminho_321"
+              data-name="Caminho 321"
+              d="M-21567.809-11930.749l-17.98-17.977,17.98-17.975"
+              transform="translate(21771.998 12099.526)"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-width="8"
+            />
+          </g>
+        </svg>
+        <span class="pin-keyboard-text-voltar">Voltar</span>
+      </p>
+    </div>
+    <div
+      style="display: none"
+      id="pin-keyboard--container"
+      class="pin-keyboard--container"
+    >
+      <div class="pin-keyboard--header">
+        <div class="pin-keyboard--profile">
+          <img
+            id="pin-keyboard--profile-img"
+            class="pin-keyboard--profile-img"
+          />
+          <p id="pin-keyboard--username" class="pin-keyboard--username"></p>
+        </div>
+      </div>
+      <div class="pin-keyboard--body">
+        <div class="pin-keyboard--input">
+          <p id="pin-keyboard--input-label" class="pin-keyboard--input-label">
+            Insira aqui a sua senha de controle parental para entrar no perfil
+          </p>
+
+          <div id="pin-keyboard--input-field" class="pin-keyboard--input-field">
+            <p id="pin-keyboard--input-text" class="pin-keyboard--input-text">
+              - &nbsp - &nbsp - &nbsp -
+            </p>
+          </div>
+
+          <p
+            onclick="goTo('../forgetpassword/index.html')"
+            id="pin-keyboard--forget-link"
+            class="pin-keyboard--forget-link"
+          >
+            Esqueceu a senha?
+          </p>
+        </div>
+        <div class="pin-keyboard--buttons">
+          <div class="pin-keyboard--buttons-up">
+            <div
+              id="2-0"
+              onclick="handleUserClickNumber('2-0', 0)"
+              class="pin-keyboard--button background-active"
+            >
+              0
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-1', 1)"
+              id="2-1"
+              class="pin-keyboard--button"
+            >
+              1
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-2', 2)"
+              id="2-2"
+              class="pin-keyboard--button"
+            >
+              2
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-3', 3)"
+              id="2-3"
+              class="pin-keyboard--button"
+            >
+              3
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-4', 4)"
+              id="2-4"
+              class="pin-keyboard--button"
+            >
+              4
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-5', NaN)"
+              id="2-5"
+              class="pin-keyboard--button-xl"
+            >
+              Limpar
+            </div>
+          </div>
+          <div class="pin-keyboard--buttons-down">
+            <div
+              onclick="handleUserClickNumber('3-0', 5)"
+              id="3-0"
+              class="pin-keyboard--button"
+            >
+              5
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-1', 6)"
+              id="3-1"
+              class="pin-keyboard--button"
+            >
+              6
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-2', 7)"
+              id="3-2"
+              class="pin-keyboard--button"
+            >
+              7
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-3', 8)"
+              id="3-3"
+              class="pin-keyboard--button"
+            >
+              8
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-4', 9)"
+              id="3-4"
+              class="pin-keyboard--button"
+            >
+              9
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-5', NaN)"
+              id="3-5"
+              class="pin-keyboard--button-xl"
+            >
+              <svg
+                class="cleanSvg backspace-button"
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="backspace"
+                class="svg-inline--fa fa-backspace fa-w-20 __web-inspector-hide-shortcut__"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./profile-user.js" async></script>
+</html>

@@ -1,0 +1,197 @@
+<div class="controle">
+  <div>
+    <div class="title-secondary">Controle parental</div>
+    <div class="subtitle">Gerencie a segurança do seu perfil.</div>
+    <div class="status-messages-content" *ngIf="parentalPin.expanded">
+      <div [class.message-error]="messageHasError">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+  <div>
+    <mat-accordion>
+      <mat-expansion-panel #parentalPin>
+        <mat-expansion-panel-header>
+          Senha de controle parental
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <div class="control-content">
+            <div class="options">
+              <ul>
+                <li
+                  [class.disabled]="profile.use_pin"
+                  [class.option-active]="
+                    selectedOption === 'create' && !canEditPin
+                  "
+                  (click)="toggleOption('create')"
+                >
+                  Criar senha
+                </li>
+                <li
+                  [class.disabled]="isCreatePage || !profile.use_pin"
+                  [class.option-active]="
+                    selectedOption === 'edit' || canEditPin
+                  "
+                  (click)="toggleOption('edit')"
+                >
+                  Editar senha
+                </li>
+                <li
+                  [class.disabled]="isCreatePage || !profile.use_pin"
+                  [class.option-active]="selectedOption === 'delete'"
+                  (click)="toggleOption('delete')"
+                >
+                  Excluir senha
+                </li>
+              </ul>
+            </div>
+            <div class="content-pin">
+              <div
+                class="option"
+                *ngIf="selectedOption === 'create' || canEditPin"
+              >
+                <div class="option-title">
+                  {{ canEditPin ? 'Alterar senha' : 'Criar senha' }}
+                </div>
+                <div
+                  [ngClass]="
+                    messageHasError ? 'pin-label-error' : 'pin-top-label'
+                  "
+                >
+                  {{ pinTopLabelCreate }}
+                </div>
+                <div class="pin-top">
+                  <app-input-pin
+                    (changeEmitter)="pinValidate()"
+                    [(value)]="pinFirst"
+                    [error]="messageHasError"
+                    [success]="messageHasSuccess"
+                  ></app-input-pin>
+                </div>
+                <div
+                  [ngClass]="
+                    messageHasError ? 'pin-label-error' : 'pin-bot-label'
+                  "
+                >
+                  {{ pinBotLabelCreate }}
+                </div>
+                <div class="pin-bot">
+                  <app-input-pin
+                    (changeEmitter)="pinValidate()"
+                    [(value)]="pinSecond"
+                    [error]="messageHasError"
+                    [success]="messageHasSuccess"
+                  ></app-input-pin>
+                </div>
+                <app-button
+                  class="pin-save-changes"
+                  classList="btn-secondary"
+                  [disabled]="!messageHasSuccess"
+                  (click)="saveChanges()"
+                  >Salvar alterações</app-button
+                >
+              </div>
+              <div
+                class="option"
+                *ngIf="selectedOption === 'edit' && !canEditPin"
+              >
+                <div class="option-content" *ngIf="!requestingNewPin">
+                  <div class="option-title">Alterar senha</div>
+                  <div
+                    [ngClass]="
+                      messageHasError ? 'pin-label-error' : 'pin-top-label'
+                    "
+                  >
+                    {{ pinTopLabelEdit }}
+                  </div>
+                  <div class="pin-top">
+                    <app-input-pin
+                      (changeEmitter)="pinEdit()"
+                      [(value)]="pinFirst"
+                      [error]="messageHasError"
+                      [success]="messageHasSuccess"
+                    ></app-input-pin>
+                  </div>
+                  <div class="forgot-pin">
+                    <a (click)="toggleOption('forgot-pin')"
+                      >Esqueceu a senha?</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                class="option"
+                *ngIf="selectedOption === 'delete' && !pinDeleteModal"
+              >
+                <div class="option-title">Excluir senha</div>
+                <div class="pin-top-label">Senha atual</div>
+                <div class="pin-top">
+                  <app-input-pin
+                    (changeEmitter)="pinDelete()"
+                    [(value)]="pinFirst"
+                    [error]="messageHasError"
+                    [success]="messageHasSuccess"
+                  ></app-input-pin>
+                </div>
+                <div class="forgot-pin">
+                  <a (click)="toggleOption('forgot-pin')">Esqueceu a senha?</a>
+                </div>
+              </div>
+              <div class="option" *ngIf="selectedOption === 'forgot-pin'">
+                <div class="send-email-content">
+                  <div class="option-title">Esqueci a senha</div>
+                  <div
+                    [ngClass]="
+                      messageHasError ? 'pin-label-error' : 'pin-top-label'
+                    "
+                  >
+                    {{ pinTopLabelEmail }}
+                  </div>
+                  <div class="input-email">
+                    <app-input
+                      [(value)]="userEmail"
+                      [error]="emailError.hasError"
+                      (valueChange)="validateEmail()"
+                      placeholder="Digite seu email"
+                    ></app-input>
+                  </div>
+                  <div class="button-send-email" *ngIf="!emailError.hasError">
+                    <app-button
+                      [classList]="'btn-primary'"
+                      text="Enviar"
+                      (click)="sendEmailPin()"
+                    ></app-button>
+                  </div>
+                </div>
+              </div>
+              <div class="option" *ngIf="pinDeleteModal">
+                <div class="option-title">Excluir senha</div>
+                <div class="confirm-delete-content">
+                  <div class="buttons">
+                    <div class="button-yes">
+                      <app-button
+                        [classList]="'btn-primary'"
+                        text="Sim"
+                        (click)="pinDeleteConfirm()"
+                      ></app-button>
+                    </div>
+                    <div class="button-cancel">
+                      <a (click)="cancelPinDelete()">Cancelar</a>
+                    </div>
+                  </div>
+                  <app-button
+                    class="delete-save-changes"
+                    classList="btn-secondary"
+                    [disabled]="false"
+                    (click)="saveChanges()"
+                    >Salvar alterações</app-button
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

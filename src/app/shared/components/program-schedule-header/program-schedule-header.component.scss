@@ -1,0 +1,34 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .content {
+    display: flex;
+    align-items: center;
+    padding: remc(16) 0;
+    margin: 0 remc(56);
+
+    .btn-today {
+      margin-left: remc(25);
+    }
+
+    .btn-tomorrow {
+      margin-left: remc(17);
+    }
+
+    .all-channels-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: remc(33);
+
+      .all-channels {
+        color: var(--white);
+      }
+
+      .all-channels:hover {
+        color: var(--orange-400);
+        cursor: pointer;
+      }
+    }
+  }
+}

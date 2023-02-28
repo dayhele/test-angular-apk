@@ -1,0 +1,36 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: remc(12);
+    width: 100%;
+
+    p {
+      font-size: remc(24);
+      font-weight: 700;
+      color: var(--white);
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        font-size: remc(14);
+        padding-right: remc(80);
+        padding-top: remc(2);
+        text-align: left;
+        width: 100%;
+        margin-left: 0;
+        font-weight: 400;
+      }
+
+      @media screen and (max-width: remc(768)) {
+        font-size: remc(14);
+        padding-right: remc(80);
+        padding-top: remc(2);
+        text-align: left;
+        width: 100%;
+        margin-left: 0;
+        font-weight: 400;
+      }
+    }
+  }
+}

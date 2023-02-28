@@ -1,0 +1,166 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .content {
+    font-family: 'Elza';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    height: auto;
+    background-color: black;
+
+    .section-title {
+      width: 100%;
+      height: auto;
+      font-family: 'Elza';
+      font-weight: 700;
+      font-size: remc(48);
+      line-height: remc(48);
+      color: rgba(148, 147, 147, 1);
+
+      .top {
+        margin-top: remc(145);
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+
+        .multi-logo {
+          width: 15%;
+          height: auto;
+          margin: 0 remc(24);
+        }
+
+        .title-text-top {
+          font-family: 'Elza';
+          text-align: center;
+
+          @media screen and (max-width: remc(1100)) {
+            font-size: remc(40);
+          }
+
+          @media screen and (max-width: remc(900)) {
+            font-size: remc(32);
+          }
+        }
+      }
+
+      .bot {
+        .title-text-bot {
+          font-family: 'Elza';
+          margin-top: remc(10);
+          text-align: center;
+
+          @media screen and (max-width: remc(1100)) {
+            font-size: remc(40);
+          }
+
+          @media screen and (max-width: remc(900)) {
+            font-size: remc(32);
+          }
+        }
+      }
+    }
+
+    .section-subtitle {
+      font-family: 'Elza';
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: remc(860);
+      margin: remc(24) 0 remc(80) 0;
+
+      @media screen and (max-width: remc(1100)) {
+        max-width: remc(700);
+      }
+
+      p {
+        font-family: 'Elza';
+        font-weight: 400;
+        font-size: remc(16);
+        color: rgba(193, 193, 193, 1);
+        line-height: remc(28.16);
+        text-align: center;
+
+        @media screen and (max-width: remc(1100)) {
+          font-size: remc(14);
+        }
+      }
+    }
+  }
+
+  .content-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    height: auto;
+    font-family: 'Elza';
+    font-weight: 700;
+    font-size: remc(40);
+    line-height: remc(48);
+    color: rgba(148, 147, 147, 1);
+
+    .content-top {
+      display: flex;
+      flex-direction: column;
+      margin-top: remc(43);
+      padding-top: remc(48);
+
+      .mob-top {
+        display: flex;
+        align-items: baseline;
+        margin: 0 remc(82) 0 remc(49);
+
+        @media (max-width: 768px) {
+          margin: 0 15vw 0 remc(49);
+        }
+
+        .mob-title-top {
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+        }
+
+        .multi-logo {
+          width: 65vw;
+          max-width: remc(270);
+          height: auto;
+          margin: remc(16) 0 0 remc(16);
+        }
+      }
+
+      .mob-title-bot {
+        display: flex;
+        align-items: baseline;
+        max-width: remc(329);
+        margin: 0 remc(49);
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+          max-width: remc(629);
+        }
+      }
+    }
+
+    .content-bot {
+      display: flex;
+      flex-direction: column;
+      max-width: remc(340);
+      margin: remc(40) remc(20) remc(45) remc(20);
+      font-family: 'Elza';
+      font-weight: 400;
+      font-size: remc(18);
+      color: rgba(193, 193, 193, 1);
+      line-height: remc(28.16);
+
+      @media (max-width: 768px) {
+        margin: remc(40) remc(20) remc(45) 11vw;
+      }
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        max-width: remc(629);
+      }
+    }
+  }
+}

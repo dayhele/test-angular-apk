@@ -1,0 +1,83 @@
+@import '../../themes/remc.scss';
+
+:host {
+  height: 100%;
+
+  @media screen and (max-width: remc(768)) {
+    height: calc(100vh - remc(40));
+  }
+
+  .section {
+    margin: 2rem 0 0 0;
+    margin-top: 0;
+    height: 100%;
+  }
+
+  .skeleton-grid {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: remc(18) remc(56) remc(14) remc(56);
+
+    ngx-skeleton-loader {
+      width: 100%;
+      display: flex;
+      column-gap: remc(24);
+      margin-bottom: remc(34);
+    }
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .no-content-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .no-content-section-mobile {
+    height: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: remc(5);
+    }
+  }
+
+  .grid {
+    display: grid;
+  }
+  .erro-rent-mobile {
+    text-align: center;
+
+    h3 {
+      font-size: remc(18);
+      color: var(--white);
+    }
+
+    p {
+      color: var(--white);
+    }
+  }
+
+  @media screen and (max-width: remc(900)) {
+    .section {
+      margin-left: 2rem;
+    }
+  }
+
+  @media screen and (max-width: remc(768)) {
+    .section {
+      margin: remc(19) remc(16);
+    }
+  }
+}

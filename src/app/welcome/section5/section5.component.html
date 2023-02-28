@@ -1,0 +1,32 @@
+<div
+  class="wraps"
+  [style.background-image]="
+    'url(' + environment.bucket + 'welcome/background_logged_out.png)'
+  "
+>
+  <div class="container">
+    <div class="text">
+      <p class="title">
+        <b>Muito mais conteúdo</b>
+      </p>
+      <p class="sub-title">
+        Com o leque de conteúdos dos nossos parceiros, você terá a experiência
+        de assistir suas programações favoritas quando e como quiser.
+      </p>
+      <app-button
+        class="button"
+        text="EXPLORAR CONTEÚDOS"
+        type="button"
+        classList="btn-primary"
+        (click)="goTo()"
+      ></app-button>
+    </div>
+    <div class="cards">
+      <swiper slidesPerView="auto">
+        <ng-template swiperSlide *ngFor="let card of sectionCards">
+          <img [src]="card.imageUrl" />
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<p
+  [ngClass]="{ player: forPlayer }"
+  [class]="'censorship age_' + age"
+  *ngIf="age !== '0'; else elseBlock"
+>
+  {{ age === '0' ? 'L' : age === 'A0' ? 'AL' : age }}
+</p>
+
+<ng-template #elseBlock>
+  <p [ngClass]="{ player: forPlayer }" [class]="'censorship age_0'" #elseBlock>
+    L
+  </p>
+</ng-template>

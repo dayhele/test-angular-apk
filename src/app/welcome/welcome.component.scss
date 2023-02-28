@@ -1,0 +1,14 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .container {
+    width: 100%;
+    .title {
+      font-size: remc(40);
+    }
+
+    .sections {
+      display: flex;
+    }
+  }
+}

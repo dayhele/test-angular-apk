@@ -1,0 +1,29 @@
+<a (click)="play()">
+  <div class="watch-card-link">
+    <div class="watch-card">
+      <img class="background-img" [src]="data?.imageUrl" />
+        <div *ngIf="false" class="logo">
+        <img [src]="environment.bucket + 'icons/paramount.svg'" alt="logo" />
+      </div>
+
+      <div *ngIf="cardProperties?.movieLogo && this.screen_x <= 768" class="logo-mobile">
+      </div>
+
+      <div *ngIf="!!cardProperties?.hasProgressBar" class="watch-card__badge">
+        <div class="watch-card__badge-progress">
+          <div class="watch-card__badge-progress__title">
+            <app-censorship class="watch-card__badge-progress__title-age" [age]="censorship ?? '0'"></app-censorship>
+            <p>
+              {{ data?.title }}
+            </p>
+          </div>
+
+          <div class="watch-card__badge-progress__bottom">
+            <progress class="watch-card__badge-progress__bottom-bar" value="{{ progress}}"
+              max="{{duration}}"></progress>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,17 @@
+<div class="channels">
+  <swiper
+    class="carousel"
+    [slidesPerView]="'auto'"
+    [spaceBetween]="8"
+    [loop]="true"
+    [autoplay]="{ delay: 0, disableOnInteraction: false }"
+    [speed]="3000"
+    [allowTouchMove]="false"
+  >
+    <ng-template swiperSlide *ngFor="let channel of channels">
+      <div class="channels--channel">
+        <img [src]="channel?.imagePath" [alt]="channel?.name" />
+      </div>
+    </ng-template>
+  </swiper>
+</div>

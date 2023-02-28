@@ -1,0 +1,72 @@
+<div [ngClass]="environment.app ? 'section-season-app' : 'section-season'">
+  <div class="section-season__left" *ngIf="!environment.app">
+    <div class="section-season__left--body">
+      <h2>{{ seasonTitle }}</h2>
+      <p>{{ seasonDescricao }}</p>
+
+      <div class="infos">
+        <div class="col-12">
+          <p>
+            Elenco principal:<span>{{ seriesData.actors }}</span>
+          </p>
+        </div>
+        <div class="col-6">
+          <p>
+            Ano: <span>{{ seasonYear }}</span>
+          </p>
+        </div>
+        <div class="col-6" *ngIf="seriesData.director != ''">
+          <p>Direção: <span> {{ seriesData.director }}</span></p>
+        </div>
+
+        <div *ngIf="false" class="col-6">
+          <p>Legendas: <span></span></p>
+        </div>
+
+
+      </div>
+
+      <div class="exclusive">
+        <ng-container *ngIf="isUnloggedSession">
+          <app-exclusive-content></app-exclusive-content>
+        </ng-container>
+      </div>
+
+      <div class="watchVideo">
+        <div class="watchVideo__button">
+          <app-play-button (clickEvent)="watch()" [isKeepWatching]="!(!serieMovie.position)" [resumido]="true">
+          </app-play-button>
+
+        </div>
+
+        <div class="watchVideo__progress">
+          <progress [value]="serieMovie.position ?? 0" [max]="serieMovie.duration ?? 100"></progress>
+        </div>
+
+        <div class="watchVideo__censorship">
+          <app-censorship [age]="serieMovie.censorship"></app-censorship>
+          <p>{{ toMinutes(serieMovie.duration!) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-season__right" *ngIf="!environment.app">
+    <img src="{{ seasonImg }}" *ngIf="!isNovelas"/>
+    <img src="{{bannerPageUrl}}" *ngIf="(isNovelas && bannerPageUrl != '')"/>
+  </div>
+  <div class="section-season-title" *ngIf="environment.app">
+    <app-section [idPerfil]="idPerfil" [title]="seasonTitle!" [properties]="{ orientation: 'vertical' }" [id]="0"
+      [isInfinity]="true">
+    </app-section>
+  </div>
+</div>
+<div [ngClass]="environment.app ? 'section-episode-app' : 'section-episode'">
+  <div>
+    <app-section-episode-season *ngIf="!environment.app" [idPerfil]="idPerfil" [serieId]="seasonIdSerie!"
+      [properties]="seasonproperties!" [data]="seasonVideos!" [isInfinity]="false" [goToWatch]="true">
+    </app-section-episode-season>
+    <app-section-episode-season *ngIf="environment.app" [idPerfil]="idPerfil" [properties]="seasonproperties!"
+      [data]="seasonVideos!" [isInfinity]="false" [goToWatch]="true">
+    </app-section-episode-season>
+  </div>
+</div>

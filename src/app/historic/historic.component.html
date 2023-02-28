@@ -1,0 +1,67 @@
+<div class="container-fluid" >
+  <div [ngClass]="{background : blackOut}">
+    <div id="title">
+      
+      <h4><img src="../../assets/historic/folder icon.png" alt="historic icon"> Histórico de consumo</h4>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+         
+          <th scope="col">Data e hora</th>
+          <th scope="col">Conteúdo</th>
+          <th scope="col">Total assistido</th>
+          <div id="dropdowObserverClick">
+
+            <th scope="col" class="dropdowIcon" #dropdown >Todos os usuários &nbsp; <a (click)="showUsers()">
+              <img src="../../assets/historic/Vector 1.png" alt=""></a>
+              <div class="dropdown" *ngIf="showDropdow" [class.backgroundMulti] = "theme.client === 'multilaser'">
+                <p><a id="dropdownFirstElement" (click)="selectAllusers()" [class.greenDark] = "theme.client === 'multilaser'">Todos os usuários</a></p>
+                <ul *ngFor="let profile of profiles">
+                  <li><a (click)="selectProfile(profile.nome, profile.id_perfis)" [class.greenDark] = "theme.client === 'multilaser'">{{profile.nome}}</a></li>
+                </ul>
+              </div>
+            </th>
+          </div>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+    
+      <tbody>
+        <ng-container *ngIf="showHistoric">
+          <tr id="tableRowLine" *ngFor="let dado of historic">
+            <td>{{dado.date_desc}} &nbsp; {{dado.time_desc}}</td>
+
+            <td class="textUnderline"   [class.green] = "theme.client === 'multilaser'">{{dado.title}}</td>
+            <td>{{dado.percent_desc}}</td>
+
+            <td class="textUnderline" [class.green] = "theme.client === 'multilaser'">{{dado.nome}}</td>
+
+            <td class="textUnderline " ><a  (click)="deleteIndividualContent(dado.id_perfil,dado.watchedreport_id)"(click)="updateArray(dado.watchedreport_id
+              )" [class.green] = "theme.client === 'multilaser'">Excluir</a></td>
+          </tr>
+        </ng-container>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="cleanHistoric">
+    <a (click)="cleanCancel()" #alert *ngIf="showDeleteLink">Limpar histórico</a>
+  </div>
+ 
+
+  <div class="alert" *ngIf="showAlert" #alert [class.backgroundMulti] = "theme.client === 'multilaser'">
+    <div class="alertTextWrapper">
+      <p>{{textAlert}}</p>
+      <a id="closeAlert" (click)="cleanCancel()"><img src="../../assets/historic/close icon.svg" alt="close icon"></a>
+    </div>
+    <div class="buttonwrapper">
+      <button *ngIf="showButton" class="buttonsAlert" id="buttonCancel" (click)="cleanCancel()">Cancelar</button>
+      <button *ngIf="showButton" class="buttonsAlert" id="buttonConfirm" (click)="cleanHistoric()"[class.colorMulti] = "theme.client === 'multilaser'">Limpar Histórico</button>
+    </div>
+  </div>
+
+</div>

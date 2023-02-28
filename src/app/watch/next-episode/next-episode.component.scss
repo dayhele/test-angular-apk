@@ -1,0 +1,39 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container{
+    width: remc(560);
+    height: remc(360);
+    background-color: var(--primary-background);
+    opacity: 0.8;
+    padding: remc(36) remc(13);
+    display: flex;
+
+    &--card{
+      margin-right: remc(27);
+    }
+
+    &--details{
+      width: 100%;
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      h4{
+        padding: remc(20.5) 0;
+      }
+
+      p{
+        padding: remc(12) 0;
+        color: var(--white);
+      }
+    }
+
+
+    @media screen and (max-width: 600px) {
+      width: remc(400);
+      height: remc(250);
+    }
+
+  }
+}

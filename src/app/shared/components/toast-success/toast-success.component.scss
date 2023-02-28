@@ -1,0 +1,32 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: remc(36);
+    background-color: var(--green-toast) !important;
+    z-index: 13;
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .toast-message {
+        background-color: var(--green-toast) !important;
+        width: 100%;
+        font-size: remc(14);
+        font-weight: 400;
+        line-height: remc(16.41);
+        color: var(--white);
+        padding: remc(10);
+      }
+      app-button {
+        background-color: var(--green-toast) !important;
+        height: remc(36);
+      }
+    }
+  }
+}

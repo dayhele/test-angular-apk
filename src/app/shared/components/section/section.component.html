@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="header" [class.padding]="hasPadding">
+    <div class="row">
+      <img *ngIf="hasCustomIcon" [src]="hasCustomIcon" width="170" />
+      <h3 *ngIf="hasCustomIcon && !isNSportsCard">
+        | {{ title || 'Sugestões' }}
+      </h3>
+
+      <h3 *ngIf="!hasCustomIcon">
+        <ng-container *ngIf="theme.logoweb && hasSectionIcon"><img class="logo-icon"
+            [src]="environment.bucket + 'logos/multi_mais.svg'" alt="logo-icon" />
+        </ng-container>{{ title }}
+      </h3>
+
+      <div *ngIf="verMais" class="ver-mais" (click)="openCategory()">
+        <app-button type="button" text="ver mais" classList="btn-secondary"></app-button>
+      </div>
+
+      <div *ngIf="viewMore !== ''" class="ver-mais" (click)="viewMoreClick()">
+        <app-button type="button" text="ver mais" classList="btn-secondary"></app-button>
+      </div>
+    </div>
+    <div class="row">
+      <p *ngIf="subtitle !== ''">{{ subtitle }}</p>
+    </div>
+  </div>
+  <swiper *ngIf="data.length > 0" slidesPerView="auto" [navigation]="!checkMobile && hasNavigation"
+    [allowTouchMove]="allowTouchMove" [loop]="data.length >= 7 && isInfinity">
+    <ng-template swiperSlide *ngFor="let item of data">
+      <app-card *ngIf="showExpiredContent || !item.expired" [isExclusiveContent]="isExclusiveContent"
+        [labelExclusiveContent]="labelExclusiveContent" [idPerfil]="idPerfil" [rented]="rented"
+        [isExpired]="item.expired!" [properties]="properties" [data]="item" [route]="item.route!"
+        [hasExclusiveContent]="hasExclusiveContent" [cardOnly]="cardOnly" (hasntParamountEvent)="hasntParamount()"
+        [isNSports]="isNSportsCard" [noClick]="noClick" [isConmebolLibertadores]="isConmebolLibertadores"></app-card>
+    </ng-template>
+  </swiper>
+</div>

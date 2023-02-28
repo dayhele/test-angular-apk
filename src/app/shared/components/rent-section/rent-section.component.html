@@ -1,0 +1,28 @@
+<app-rent-mobile-popup *ngIf="clickedRent" (closeEvent)="clickedRent = false"></app-rent-mobile-popup>
+<div class="section">
+  <div class="section--header">
+    <img *ngIf="sectionTitle === 'Sugestões'"
+      [src]="environment.bucket + 'icons/awesomeness.svg'" />
+    <h3 *ngIf="sectionTitle === 'Sugestões'; else sectionRegular">
+      | {{ sectionTitle }}
+    </h3>
+    <ng-template #sectionRegular>
+      <h3>{{ sectionTitle }}</h3>
+    </ng-template>
+
+    <div class="section--header--content">
+      <div class="button">
+        <app-button *ngIf="sectionButtonText !== ''" [type]="'button'" [text]="sectionButtonText"
+          [classList]="'btn-secondary'"></app-button>
+      </div>
+    </div>
+  </div>
+  <swiper [slidesPerView]="'auto'" *ngIf="data?.length !== undefined" [navigation]="!isMobile">
+    <ng-template swiperSlide *ngFor="let item of data">
+      <app-card *ngIf="isMobile" [properties]="cardProperties" [data]="item" (click)="clickedRent = true"></app-card>
+
+      <app-card *ngIf="!isMobile" [properties]="cardProperties" [data]="item"
+        [route]="'/details/'+item.id+'/'+item.type"></app-card>
+    </ng-template>
+  </swiper>
+</div>

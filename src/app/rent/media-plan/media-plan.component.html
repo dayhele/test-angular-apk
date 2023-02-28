@@ -1,0 +1,46 @@
+<section>
+  <div class="loading" *ngIf="!mediaLoaded">
+    <app-loading></app-loading>
+  </div>
+  <div class="popup" *ngIf="completedPurchase">
+    <div class="popup--content">
+      <app-successful-purchase
+        [itemId]="itemId"
+        [isPlan]="true"
+      ></app-successful-purchase>
+    </div>
+  </div>
+
+  <div class="media">
+    <ng-container *ngIf="mediaLoaded">
+      <div class="media--img" *ngIf="!hasError">
+        <img class="image" [src]="urlImg" />
+      </div>
+      <div class="media--info">
+        <ng-container *ngIf="!hasError; else rented">
+          <h3 class="media--info--title">{{ planDetails?.nomemarketplace }}</h3>
+          <p class="media--info--title">{{ planDetails?.descricao }}</p>
+          <div class="media--info--price">
+            <p class="final-price">
+              Valor: <span>{{ planDetails?.preco_formatado }}</span>
+            </p>
+          </div>
+        </ng-container>
+        <ng-template #rented>
+          <h3>{{ messageError }}</h3>
+        </ng-template>
+      </div>
+    </ng-container>
+  </div>
+  <div class="payment-wrapper" *ngIf="mediaLoaded && !hasError">
+    <form class="payment">
+      <div class="payment--content">
+        <div class="loading" *ngIf="!adyenReady">
+          <app-loading></app-loading>
+        </div>
+        <div id="payment"></div>
+      </div>
+    </form>
+    <app-secure-site-card-badges></app-secure-site-card-badges>
+  </div>
+</section>

@@ -1,0 +1,264 @@
+<div class='space' *ngIf="!checkMobile"></div>
+<nav class="container" [class.not-mobile]="!checkMobile" [class.is-institutional]="currentRoute.includes('/institucional')"
+  *ngIf="(!currentRoute.includes('/institucional') && checkMobile) || !checkMobile">
+  <app-side-bar *ngIf="checkMobile && isLogged && getCurrentPage() !== 'profile'" [categories]="categories"
+    [profileName]="profile">
+  </app-side-bar>
+  <div class="navbar">
+    <a *ngIf="(currentRoute !== '/institucional' && checkMobile) || !checkMobile" class="logo" (click)="logoClick()">
+      <img src="{{ theme.logo }}" [alt]="theme.title" />
+    </a>
+    <div class="nav-links__container" *ngIf="!checkMobile">
+      <ul class="navbar-nav" *ngIf="
+          isLogged &&
+          showHeaderOptions &&
+          isAmericanet &&
+          theme.header.americanet
+        ">
+        <li class="nav-item" [ngClass]="{ selected: getCurrentPage() === 'now' }">
+          <a routerLink="/now">Início</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav" *ngIf="
+          isLogged &&
+          getCurrentUrl() !== '/activate-account-sms/first-registration' &&
+          showHeaderOptions &&
+          !(isAmericanet && theme.header.americanet)
+        ">
+        <ng-container *ngIf="theme.client === 'watch'">
+          <li class="nav-item" [ngClass]="{ selected: getCurrentPage() === 'home' }">
+            <div class="svg">
+              <a routerLink="/home">
+                <div class="icon-header">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="icon-home">
+                    <path
+                      d="M8.3716 1.05529C8.12818 0.989382 7.8716 0.989382 7.62818 1.05529C7.34455 1.13209 7.10675 1.31913 6.93131 1.45712L6.88111 1.49647L2.30504 5.05555C2.0571 5.24787 1.8262 5.42698 1.65373 5.66016C1.50263 5.86445 1.39007 6.09459 1.32158 6.33928C1.2434 6.61858 1.24379 6.91081 1.2442 7.22459L1.24426 12.1453C1.24425 12.4944 1.24423 12.8008 1.26494 13.0542C1.28692 13.3232 1.33596 13.5984 1.47194 13.8653C1.67222 14.2583 1.99179 14.5779 2.38485 14.7782C2.52299 14.8486 2.67164 14.8767 2.74385 14.8896C2.83997 14.9067 2.94762 14.9198 3.05636 14.9302C3.27525 14.9512 3.54306 14.9659 3.82209 14.9764L3.85142 14.9775C4.18819 14.9902 4.48819 15.0015 4.74003 14.9889C5.01192 14.9752 5.28672 14.9323 5.55982 14.8021C5.96344 14.6096 6.30836 14.2775 6.51585 13.8814C6.65814 13.6098 6.71027 13.3297 6.73364 13.0541C6.75555 12.7958 6.75553 12.4841 6.75552 12.1301L6.75552 9.31691C6.75552 9.17206 6.75583 9.07759 6.7583 9.00866C6.82724 9.00618 6.92171 9.00587 7.06656 9.00587H8.93322C9.07807 9.00587 9.17254 9.00618 9.24148 9.00866C9.24395 9.07759 9.24426 9.17206 9.24426 9.31691L9.24426 12.1301C9.24424 12.4841 9.24423 12.7958 9.26614 13.0541C9.2895 13.3297 9.34164 13.6098 9.48392 13.8814C9.69142 14.2775 10.0363 14.6096 10.44 14.8021C10.7131 14.9323 10.9879 14.9752 11.2597 14.9889C11.5116 15.0015 11.8116 14.9902 12.1484 14.9775L12.1777 14.9764C12.4567 14.9659 12.7245 14.9512 12.9434 14.9302C13.0522 14.9198 13.1598 14.9067 13.2559 14.8896C13.3281 14.8767 13.4768 14.8486 13.6149 14.7782C14.008 14.5779 14.3276 14.2583 14.5278 13.8653C14.6638 13.5984 14.7129 13.3232 14.7348 13.0542C14.7555 12.8008 14.7555 12.4944 14.7555 12.1453L14.7556 7.2246C14.756 6.91081 14.7564 6.61858 14.6782 6.33928C14.6097 6.09459 14.4971 5.86445 14.3461 5.66016C14.1736 5.42698 13.9427 5.24787 13.6947 5.05556L9.11867 1.49647L9.06847 1.45712C8.89303 1.31913 8.65523 1.13209 8.3716 1.05529Z"
+                      fill="#FAFAFA" />
+                  </svg>
+                </div>
+                Início
+              </a>
+            </div>
+          </li>
+          <li class="nav-item categorias" [ngClass]="{ selected: getCurrentPage() === 'ver-mais' }">
+            <div class="svg">
+              <a (click)="onCategoryClick()">
+                <div class="icon-header">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="icon-categories">
+                    <g clip-path="url(#clip0_10329_43029)">
+                      <path
+                        d="M7.49414 14.5117C11.0735 14.5117 13.9851 11.5993 13.9851 8.01964C13.9851 6.84718 13.6687 5.74876 13.1228 4.79786C13.6767 3.75685 14.578 2.93865 15.6734 2.48629C16.3194 2.24407 15.9173 1.27729 15.29 1.56454C14.1393 2.03984 13.1674 2.85167 12.4986 3.88792C11.3068 2.44506 9.50625 1.52361 7.49385 1.52361C3.91423 1.52361 1.0018 4.44004 1.0018 8.01966C1.0018 11.599 3.91423 14.5117 7.49385 14.5117L7.49414 14.5117ZM7.49213 12.5123C7.22728 12.5123 6.97322 12.407 6.78585 12.2198C6.59858 12.0324 6.49335 11.7783 6.49335 11.5135C6.49335 11.2486 6.59858 10.9946 6.78585 10.8072C6.97323 10.6199 7.22728 10.5147 7.49213 10.5147C7.75698 10.5147 8.01104 10.6199 8.19841 10.8072C8.38568 10.9946 8.49091 11.2486 8.49091 11.5135C8.49091 11.7783 8.38568 12.0324 8.19841 12.2198C8.01103 12.407 7.75698 12.5123 7.49213 12.5123ZM10.4962 10.7644C10.3289 10.7605 10.1651 10.7145 10.0202 10.6307C9.79066 10.4983 9.62324 10.2802 9.55469 10.0242C9.48603 9.7684 9.52192 9.49564 9.65446 9.26623C9.78688 9.03671 10.005 8.86929 10.261 8.80075C10.5168 8.73208 10.7896 8.76798 11.019 8.90051C11.2485 9.03294 11.4159 9.25109 11.4844 9.50703C11.5531 9.76285 11.5172 10.0356 11.3847 10.265C11.2951 10.4204 11.1653 10.5487 11.0089 10.6366C10.8526 10.7245 10.6755 10.7687 10.4961 10.7644L10.4962 10.7644ZM4.48781 10.7644C4.30845 10.7686 4.13133 10.7245 3.97504 10.6365C3.81864 10.5487 3.6889 10.4204 3.59927 10.265C3.46673 10.0356 3.43084 9.7628 3.4995 9.507C3.56805 9.25106 3.73548 9.03292 3.96499 8.90048C4.1944 8.76795 4.46717 8.73205 4.72298 8.80072C4.97891 8.86927 5.19705 9.0367 5.32949 9.26621C5.46203 9.49561 5.49792 9.76839 5.42926 10.0242C5.3607 10.2801 5.19327 10.4983 4.96377 10.6307C4.81886 10.7144 4.65512 10.7605 4.48778 10.7644L4.48781 10.7644ZM7.49185 8.51714C7.35942 8.51714 7.23234 8.46452 7.13871 8.37089C7.04507 8.27726 6.99246 8.15018 6.99246 8.01775C6.99246 7.88532 7.04507 7.75825 7.13871 7.66461C7.23234 7.57098 7.35942 7.51836 7.49185 7.51836C7.62427 7.51836 7.75135 7.57098 7.84499 7.66461C7.93862 7.75825 7.99124 7.88532 7.99124 8.01775C7.99124 8.15018 7.93862 8.27726 7.84499 8.37089C7.75135 8.46452 7.62427 8.51714 7.49185 8.51714ZM10.5427 7.26867C10.3633 7.2729 10.1862 7.22876 10.0299 7.14081C9.87352 7.05297 9.74378 6.92467 9.65414 6.76926C9.5216 6.53986 9.48571 6.26708 9.55438 6.01128C9.62293 5.75534 9.79036 5.5372 10.0199 5.40476C10.2493 5.27223 10.522 5.23633 10.7779 5.305C11.0338 5.37355 11.2519 5.54098 11.3844 5.77048C11.5169 5.99989 11.5528 6.27267 11.4841 6.52847C11.4156 6.78441 11.2481 7.00255 11.0186 7.13499C10.8737 7.2187 10.71 7.26474 10.5427 7.26864L10.5427 7.26867ZM4.44072 7.26867C4.27341 7.26477 4.10964 7.21873 3.96473 7.13501C3.73521 7.00259 3.56779 6.78444 3.49925 6.5285C3.43058 6.27268 3.46648 5.99992 3.59901 5.77051C3.73144 5.54099 3.94958 5.37357 4.20553 5.30503C4.46135 5.23636 4.73411 5.27225 4.96352 5.40479C5.19303 5.53722 5.36046 5.75536 5.429 6.01131C5.49767 6.26713 5.46177 6.53989 5.32924 6.76929C5.23961 6.92468 5.10986 7.05299 4.95347 7.14084C4.79718 7.22879 4.62005 7.27293 4.44069 7.2687L4.44072 7.26867ZM7.49156 5.52081C7.22671 5.52081 6.97265 5.41558 6.78528 5.22831C6.59801 5.04093 6.49278 4.78688 6.49278 4.52203C6.49278 4.25718 6.59801 4.00312 6.78528 3.81575C6.97266 3.62848 7.22671 3.52325 7.49156 3.52325C7.75641 3.52325 8.01047 3.62848 8.19784 3.81575C8.38511 4.00313 8.49034 4.25718 8.49034 4.52203C8.49034 4.78688 8.38511 5.04094 8.19784 5.22831C8.01046 5.41558 7.75641 5.52081 7.49156 5.52081Z"
+                        fill="#FAFAFA" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_10329_43029">
+                        <rect width="16" height="16" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                Categorias
+              </a>
+            </div>
+            <app-dropdown-categories [active]="clickedCategory" (closeEvent)="clickedCategory = false"
+              [isSelected]="false" [categories]="categories" [icons]="theme.client === 'watch'">
+            </app-dropdown-categories>
+          </li>
+          <li class="nav-item" [ngClass]="{ selected: getCurrentPage() === 'now' }" *ngIf="hasLiveChannels">
+            <div class="svg">
+              <a routerLink="/now">
+                <div class="icon-header">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="icon-now">
+                    <path
+                      d="M11.0937 2.43127L7.99996 4.90626L4.90623 2.43127M4.78248 13.5687H11.2174C12.257 13.5687 12.7768 13.5687 13.1739 13.3664C13.5232 13.1884 13.8071 12.9045 13.9851 12.5552C14.1874 12.1581 14.1874 11.6383 14.1874 10.5987V7.87624C14.1874 6.83665 14.1874 6.31685 13.9851 5.91978C13.8071 5.57051 13.5232 5.28654 13.1739 5.10858C12.7768 4.90626 12.257 4.90626 11.2174 4.90626H4.78248C3.74289 4.90626 3.22309 4.90626 2.82602 5.10858C2.47675 5.28654 2.19278 5.57051 2.01482 5.91978C1.8125 6.31685 1.8125 6.83665 1.8125 7.87624V10.5987C1.8125 11.6383 1.8125 12.1581 2.01482 12.5552C2.19278 12.9045 2.47675 13.1884 2.82602 13.3664C3.22309 13.5687 3.74289 13.5687 4.78248 13.5687Z"
+                      stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M13.999 5.01587H2.04688V13.5688H13.999V5.01587ZM9.8065 8.45082C9.85246 8.4814 9.92216 8.52777 9.98086 8.57511C10.0458 8.62747 10.1807 8.74448 10.2621 8.94083C10.3554 9.1659 10.3554 9.41885 10.2621 9.64393C10.1807 9.84027 10.0458 9.95729 9.98086 10.0096C9.92216 10.057 9.85245 10.1034 9.8065 10.1339L7.98239 11.35C7.92606 11.3876 7.84753 11.4401 7.77447 11.4797C7.70214 11.5189 7.51654 11.6147 7.27222 11.6001C7.00436 11.5841 6.75692 11.4517 6.59503 11.2377C6.44736 11.0425 6.42415 10.8349 6.41664 10.753C6.40906 10.6702 6.40914 10.5758 6.40919 10.508V8.07671C6.40914 8.00897 6.40906 7.91454 6.41664 7.83178C6.42415 7.74986 6.44736 7.54227 6.59503 7.34707C6.75692 7.13307 7.00436 7.00065 7.27222 6.98465C7.51654 6.97006 7.70214 7.0659 7.77447 7.10509C7.84754 7.14469 7.92606 7.19714 7.98239 7.23475L9.8065 8.45082Z"
+                      fill="#FAFAFA" class="now" />
+                  </svg>
+                </div>
+                Ao Vivo
+              </a>
+            </div>
+          </li>
+          <li class="nav-item" [ngClass]="{ selected: getCurrentPage() === 'favorites' }">
+            <div class="svg">
+              <a routerLink="/favorites">
+                <div class="icon-header">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="icon-list">
+                    <path d="M8.00004 2.99988V13M3 7.99992H13.0001" stroke="#FAFAFA" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                Minha lista
+              </a>
+            </div>
+          </li>
+          <li class="nav-item" [ngClass]="{
+              selected: getCurrentPage() === 'rent' || isRentScreen
+            }">
+            <div class="svg">
+              <a *ngIf="isRentScreen">
+                <div class="icon-header">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="icon-rented">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M14.3946 5.49601H3.35996L8.85389 4.13034L10.2713 3.77982L14.0672 2.8366C14.2053 2.80231 14.2894 2.66289 14.2553 2.52483L13.9461 1.275C13.8727 0.958284 13.6809 0.681712 13.4101 0.501914C13.3957 0.492826 13.3801 0.485808 13.3638 0.481322C13.0696 0.307147 12.7183 0.257104 12.3871 0.342119L11.8434 0.476144L10.4312 0.818863L7.43679 1.56618L5.35718 2.07893L1.63106 3.0041C1.29915 3.08635 1.01351 3.29711 0.837155 3.59002C0.660679 3.88292 0.607874 4.2339 0.690475 4.56581L0.994525 5.7847V12.7115C0.994525 13.0532 1.13028 13.3809 1.37185 13.6227C1.61355 13.8643 1.94131 14 2.283 14H13.3639C13.7056 14 14.0333 13.8643 14.275 13.6227C14.5166 13.381 14.6523 13.0532 14.6523 12.7115V5.75377C14.6523 5.68544 14.6252 5.61986 14.5769 5.57155C14.5286 5.52323 14.4629 5.49601 14.3946 5.49601ZM12.0753 0.94527L12.5186 0.834485C12.6412 0.803997 12.7695 0.803882 12.8923 0.83437L11.6348 2.91916L10.7509 3.1382L12.0753 0.94527ZM9.06811 1.68993L9.95199 1.47089L8.63522 3.65611L7.75134 3.87516L9.06811 1.68993ZM6.0659 2.43472L6.94978 2.21568L5.633 4.4009L4.74912 4.61994L6.0659 2.43472ZM1.84504 5.34325L2.64368 5.14834L3.96046 2.96047L3.08618 3.17723L1.84504 5.34325Z"
+                      fill="#D9D9D9" />
+                  </svg>
+                </div>
+
+                Minhas locações
+              </a>
+              <a *ngIf="!isRentScreen" routerLink="/rent">
+                <div class="icon-header">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="icon-rented">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M14.3946 5.49601H3.35996L8.85389 4.13034L10.2713 3.77982L14.0672 2.8366C14.2053 2.80231 14.2894 2.66289 14.2553 2.52483L13.9461 1.275C13.8727 0.958284 13.6809 0.681712 13.4101 0.501914C13.3957 0.492826 13.3801 0.485808 13.3638 0.481322C13.0696 0.307147 12.7183 0.257104 12.3871 0.342119L11.8434 0.476144L10.4312 0.818863L7.43679 1.56618L5.35718 2.07893L1.63106 3.0041C1.29915 3.08635 1.01351 3.29711 0.837155 3.59002C0.660679 3.88292 0.607874 4.2339 0.690475 4.56581L0.994525 5.7847V12.7115C0.994525 13.0532 1.13028 13.3809 1.37185 13.6227C1.61355 13.8643 1.94131 14 2.283 14H13.3639C13.7056 14 14.0333 13.8643 14.275 13.6227C14.5166 13.381 14.6523 13.0532 14.6523 12.7115V5.75377C14.6523 5.68544 14.6252 5.61986 14.5769 5.57155C14.5286 5.52323 14.4629 5.49601 14.3946 5.49601ZM12.0753 0.94527L12.5186 0.834485C12.6412 0.803997 12.7695 0.803882 12.8923 0.83437L11.6348 2.91916L10.7509 3.1382L12.0753 0.94527ZM9.06811 1.68993L9.95199 1.47089L8.63522 3.65611L7.75134 3.87516L9.06811 1.68993ZM6.0659 2.43472L6.94978 2.21568L5.633 4.4009L4.74912 4.61994L6.0659 2.43472ZM1.84504 5.34325L2.64368 5.14834L3.96046 2.96047L3.08618 3.17723L1.84504 5.34325Z"
+                      fill="#D9D9D9" />
+                  </svg>
+                </div>
+
+                Minhas locações
+              </a>
+            </div>
+          </li>
+          <li class="search">
+            <img class="search__icon" (click)="isSearchInputActive = true" src="assets/icons/search.svg" alt="buscar"
+              *ngIf="!isSearchInputActive" alt="search logo" />
+            <form class="search__container" (submit)="onSubmit()">
+              <img class="search__container-close" src="assets/icons/close_small_icon.svg" alt="limpar busca" (click)="
+                  isSearchInputActive = false; keyword = ''; keywordSize = 0
+                " *ngIf="isSearchInputActive" />
+              <input class="search__container-input" *ngIf="isSearchInputActive"
+                (keyup.enter)="isSearchInputActive = false" type="text" name="keyword" maxlength="50" size="{{
+                  keywordSize === 0 ? placeholderTerm.length : keywordSize
+                }}" placeholder="{{ placeholderTerm }}" [ngModel]="keyword" (ngModelChange)="search($event)" />
+            </form>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="theme.client === 'multilaser'">
+          <li class="nav-item" [ngClass]="{ selected: getCurrentPage() === 'home' }">
+            <div class="svg">
+              <a routerLink="/home"> Início</a>
+            </div>
+          </li>
+          <li class="nav-item" [ngClass]="{ selected: getCurrentPage() === 'now' }" *ngIf="hasLiveChannels">
+            <div class="svg">
+              <a routerLink="/now"> Ao vivo</a>
+            </div>
+          </li>
+          <li
+            *ngIf="theme.client === 'multilaser'"
+            class="nav-item"
+            [ngClass]="{ selected: getCurrentPage() === 'nsports' }"
+          >
+            <a routerLink="/nsports">Esportes</a>
+          <li *ngIf="theme.client !== 'multilaser'" class="nav-item"
+            [ngClass]="{ selected: getCurrentPage() === 'sports' }">
+            <a routerLink="/sports">Esportes</a>
+          </li>
+          <li class="nav-item" [ngClass]="{ selected: getCurrentPage() === 'favorites' }">
+            <div class="svg">
+              <a routerLink="/favorites"> Meus Favoritos</a>
+            </div>
+          </li>
+          <li class="nav-item categorias">
+            <div class="svg">
+              <a (click)="onCategoryClick()"> Categorias</a>
+            </div>
+            <app-dropdown-categories [active]="clickedCategory" (closeEvent)="clickedCategory = false"
+              [isSelected]="false" [categories]="categories"></app-dropdown-categories>
+          </li>
+          <li class="nav-item" [ngClass]="{
+              selected: getCurrentPage() === 'rent' || isRentScreen
+            }">
+            <div class="svg">
+              <a *ngIf="isRentScreen">Minhas locações</a>
+              <a *ngIf="!isRentScreen" routerLink="/rent"> Minhas locações</a>
+            </div>
+          </li>
+          <li class="search">
+            <img class="search__icon" (click)="isSearchInputActive = true" src="assets/icons/search.svg" alt="buscar"
+              *ngIf="!isSearchInputActive" alt="search logo" />
+            <form class="search__container" (submit)="onSubmit()">
+              <img class="search__container-close" src="assets/icons/close_small_icon.svg" alt="limpar busca" (click)="
+                  isSearchInputActive = false; keyword = ''; keywordSize = 0
+                " *ngIf="isSearchInputActive" />
+              <input class="search__container-input" *ngIf="isSearchInputActive"
+                (keyup.enter)="isSearchInputActive = false" type="text" name="keyword" maxlength="50" size="{{
+                  keywordSize === 0 ? placeholderTerm.length : keywordSize
+                }}" placeholder="{{ placeholderTerm }}" [ngModel]="keyword" (ngModelChange)="search($event)" />
+            </form>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <div class="user-wrapper" *ngIf="
+      isLogged &&
+        getCurrentUrl() !== '/activate-account-sms/first-registration';
+      else signIn
+    ">
+    <app-notification *ngIf="profile?.nome !== undefined && theme.client !== 'multilaser'"></app-notification>
+
+    <div *ngIf="profile?.nome !== undefined && !getCurrentUrl().includes('profile')">
+      <span *ngIf="!isSearchInputActive">
+        Olá {{ doTheFirstName(profile?.nome) }}, qual vai ser o play de hoje?
+      </span>
+    </div>
+    <img (click)="changeDropDown()" class="avatar-icon" [src]="profile.foto" *ngIf="!checkMobile && profile.foto !== '' && isSelected; else image" />
+    <ng-template #image>
+      <div class="avatar-icon" *ngIf="!checkMobile">        
+        <img (click)="changeDropDown()" class="avatar-icon" [src]="theme.client === 'watch' ? environment.bucket + 'profiles/orange.svg' : environment.bucket + 'profiles/pink.svg'" />
+      </div>
+    </ng-template>
+    <app-dropdown-header (closeEvent)="inDropDown = false" *ngIf="!isLoadingProfileList" [active]="inDropDown"
+      [isSelected]="isSelected" [profileList]="profileList" [profile]="profile"
+      (profileToEnterEmitter)="getProfileToEnter($event)"></app-dropdown-header>
+  </div>
+
+  <ng-template #signIn>
+    <div class="nav-links__container2" id="voucher" *ngIf="
+        !environment.app &&
+        getCurrentUrl() !== '/activate-account-sms/first-registration' &&
+        !isLogged
+      ">
+      <ul class="navbar-nav">
+        <li class="nav-item primary" routerLink="/institucional/plans" *ngIf="theme.header.sejaUmMultilaser">
+          <a *ngIf="currentRoute.includes('/institucional'); else choosePlan">Seja um Multi+</a>
+          <ng-template #choosePlan><a>Escolha o seu plano</a></ng-template>
+        </li>
+        <li class="nav-item">
+          <a class="blue-text" [class.strong]="currentRoute.includes('/institucional')" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="{{ theme.header.activeRouterHeader }}"
+            >
+            <p *ngIf="currentRoute.includes('/institucional'); else isInstitutional">{{ theme.header.activeTextHeader }}</p>
+            <ng-template #isInstitutional><p>Ativar Voucher ou Cupom</p></ng-template>
+          </a>
+        </li>
+        <li class="nav-item divider"></li>
+        <li class="nav-item">
+          <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            class="login">Entrar</a>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+</nav>
+
+<div class="content-institutional" *ngIf="currentRoute.includes('/institucional') && checkMobile">
+  <a class=" inst-button" (click)="goToPlans()">Seja um Multi+</a>
+  <div class="right">
+    <a class="coupom-activate" (click)="goToUrl('/login/voucher')">Ativar Cupom</a>
+    <div class="divider"></div>
+    <a class="enter" (click)="goToUrl('/login')">Entrar</a>
+  </div>
+</div>
+<app-toast-download-app *ngIf="!checkAppleDevice"></app-toast-download-app>

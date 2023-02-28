@@ -1,0 +1,52 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+
+    .checkbox-wrap {
+        input[type="checkbox"] {
+            margin-right: remc(8);
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            min-width: 16px;
+            max-width: 16px;
+            height: 16px;
+            min-height: 16px;
+            max-height: 16px;
+            cursor: pointer;
+            position: relative;
+            transition: .10s;
+            -webkit-transition: .10s;
+            background-color: transparent;
+            border: 2px solid var(--primary-background);
+            contain: strict;
+
+            &::before,
+            &:checked::before {
+              position: absolute;
+              top: -2px;
+              left: -2px;
+              width: 16px;
+              min-width: 16px;
+              max-width: 16px;
+              height: 16px;
+              min-height: 16px;
+              max-height: 16px;
+              background-color: var(--primary-base);
+            }
+
+            &:checked::before {
+              content: "";
+            }
+
+            &:disabled {
+                border: 2px solid #687282;
+                cursor: not-allowed;
+            }
+
+            &.error {
+                border: 2px solid var(--error-red);
+            }
+        }
+    }
+}

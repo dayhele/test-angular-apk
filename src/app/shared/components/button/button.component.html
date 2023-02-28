@@ -1,0 +1,26 @@
+<button
+  [type]="type"
+  [class]="classList!"
+  [class.inactive]="disabled"
+  [disabled]="disabled"
+  [class.large]="largeButton"
+  [ngClass]="{
+    icon: onlyIcon === true,
+    disabled: disabled === true,
+    'favorite-color': iconClass && favorite,
+    'favorite-default': !iconClass && favorite
+  }"
+>
+  <img
+    [src]="iconPath"
+    *ngIf="iconPath !== '' && iconFirst !== false"
+    alt="icon"
+    class="first-icon"
+  />
+  {{ text }}<ng-content></ng-content>
+  <img
+    [src]="iconPath"
+    *ngIf="iconPath !== '' && iconFirst !== true"
+    alt="icon"
+  />
+</button>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+        <!-- Sender -->
+        <!-- Reciever -->
+        <script src="//cdnapisec.kaltura.com/p/2267831/embedPlaykitJs/uiconf_id/45943321"></script>
+    </head>
+    <style>
+    cast-media-player {
+      --splash-image: url('https://hmlplay.multilaser.com.br/assets/chromecast/logo.png');
+      --logo-image: url('https://hmlplay.multilaser.com.br/assets/chromecast/logo.png');
+    }
+  </style>
+    <body>
+        <cast-media-player id="player"/>
+        <script>
+var receiver = new KalturaPlayer.cast.receiver.Receiver({
+    logLevel: 'DEBUG',
+    provider: {
+      partnerId: 2267831,
+     uiConfId: 45943321
+    },
+	player: {
+		playback: {
+	"streamPriority": [
+				{
+					"engine": "cast",
+					"format": "dash"
+				},
+				{
+					"engine": "cast",
+					"format": "hls"
+				},
+				{
+					"engine": "cast",
+					"format": "progressive"
+				}
+			]
+		}
+	}
+
+  });
+
+receiver.start();
+</script>
+    </body>
+</html>

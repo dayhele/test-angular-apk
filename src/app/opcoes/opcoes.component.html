@@ -1,0 +1,44 @@
+<div class="profile">
+  <div class="flex-center" *ngIf="!profile.foto">
+    <app-loading></app-loading>
+  </div>
+  <div
+    *ngIf="profile.foto"
+    class="avatar-icon"
+    [ngStyle]="{
+      'background-color': 'var(' + profile?.backgroundColor + ')'
+    }"
+  >
+    <img class="avatar-icon" [src]="profile.foto" />
+  </div>
+  {{ profile.nome }}
+  <div class="mudar-perfil">
+    <app-button
+      text="Mudar de perfil"
+      type="submit"
+      classList="btn-primary"
+      routerLink="/profile/select"
+    >
+    </app-button>
+  </div>
+</div>
+<div class="menu">
+  <div routerLink="/account" class="menu-item">
+    <div class="icon user"></div>
+    <div class="text">Conta</div>
+  </div>
+  <div routerLink="/profile/select" class="menu-item">
+    <div class="icon user_control"></div>
+    <div class="text">Gerenciar Perfis</div>
+  </div>
+  <div routerLink="/termos" class="menu-item">
+    <div class="icon termosuso"></div>
+    <div class="text">Termos de uso</div>
+  </div>
+  <div routerLink="/faq" class="menu-item" *ngIf="theme.client !== 'watch'">
+    <div class="icon help_circle"></div>
+    <div class="text">Ajuda</div>
+  </div>
+</div>
+
+<div (click)="onLogoutClick()" class="logout">Sair da conta</div>

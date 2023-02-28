@@ -1,0 +1,115 @@
+@import '../../../themes/remc.scss';
+
+.wrapes {
+  background-image: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/bg/background_login.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    margin-top: remc(196);
+    margin-bottom: remc(334);
+    width: remc(678);
+    height: remc(434);
+
+    .title {
+      margin-top: remc(48);
+      margin-left: remc(99);
+      margin-bottom: remc(24);
+      font-size: remc(40);
+    }
+
+    .sub-title {
+      margin-left: remc(99);
+      margin-bottom: remc(24);
+      font-size: remc(16);
+    }
+
+    .text {
+      margin-left: remc(99);
+      margin-bottom: remc(40);
+      font-size: remc(14);
+    }
+
+    .button-or-link {
+      margin-left: remc(173);
+      margin-bottom: remc(68);
+
+      button {
+        padding-top: remc(7);
+        padding-left: remc(24);
+        padding-right: remc(24);
+        padding-bottom: remc(6);
+        border-radius: remc(16);
+        background-color: var(--primary-base);
+        color: var(--white);
+        font-size: remc(16);
+        cursor: pointer;
+      }
+
+      a {
+        font-size: remc(14);
+        color: var(--primary-base);
+        font-weight: remc(400);
+      }
+    }
+
+    .help {
+      padding-left: remc(99);
+      font-size: remc(14);
+      font-weight: remc(400);
+      a {
+        color: var(--primary-base);
+      }
+    }
+  }
+}
+
+.container-mobile {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  width: 100%;
+
+  .title-mobile {
+    margin-left: remc(16);
+    font-size: remc(16);
+  }
+
+  .sub-title-mobile {
+    margin-top: remc(15);
+    margin-left: remc(16);
+    font-size: remc(12);
+  }
+
+  .text-mobile {
+    margin-top: remc(15);
+    margin-left: remc(16);
+    margin-right: remc(16);
+    font-size: remc(12);
+    opacity: 70%;
+  }
+
+  .warning-mobile {
+    margin-top: remc(15);
+    margin-left: remc(16);
+    font-size: remc(12);
+    opacity: 70%;
+  }
+
+  .help-mobile {
+    margin-top: remc(32);
+    margin-left: remc(16);
+    font-size: remc(12);
+    font-weight: remc(400);
+    opacity: 70%;
+
+    a {
+      color: var(--primary-base);
+    }
+  }
+}

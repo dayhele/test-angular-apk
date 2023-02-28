@@ -1,0 +1,18 @@
+<swiper #swiper [autoplay]="{ delay: 5000, disableOnInteraction: false }" [pagination]="{ clickable: true }"
+  [loop]="true" class="swipper-container">
+  <ng-template swiperSlide>
+    <img [src]="environment.bucket + 'welcome/corrousel/image1.png'"/>
+  </ng-template>
+
+  <ng-template swiperSlide>
+    <img [src]="environment.bucket + 'welcome/corrousel/image2.png'"/>
+  </ng-template>
+
+  <ng-template swiperSlide>
+    <img [src]="environment.bucket + 'welcome/corrousel/image3.png'"/>
+  </ng-template>
+
+  <ng-template swiperSlide>
+    <img [src]="environment.bucket + 'welcome/corrousel/image4.png'"/>
+  </ng-template>
+</swiper>

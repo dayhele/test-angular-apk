@@ -1,0 +1,8 @@
+<div id="bell-wrapper">
+    <div *ngIf="hasNewNotification()" id="ping-elipse-wrapper">
+        <div id="ping-elipse"></div>
+    </div>
+    <img id="main-icon" (click)="openNotifications()" [src]="bellIcon()" alt="Ícone de notificações">
+</div>
+<app-notification-modal [notifications]="notifications" [imagePath]="imagePath" [onlyRead]="onlyRead"
+    [idPerfil]="idPerfil" *ngIf="isOpened"></app-notification-modal>

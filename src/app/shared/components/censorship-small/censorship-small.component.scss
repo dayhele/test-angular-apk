@@ -1,0 +1,60 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .censorship {
+    border-radius: remc(4);
+
+    width: remc(18);
+    height: remc(18);
+
+    text-align: center;
+
+    line-height: 1.125rem;
+    font-size: remc(12);
+    font-weight: 300;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--white);
+
+    @media screen and (max-width: 900px) {
+      font-weight: 500;
+    }
+  }
+
+  .age_A10, .age_A12, .age_A14, .age_A16, .age_A18 {
+    width: remc(24);
+  }
+
+  .age_0,
+  .age_A0 {
+    background-color: #00af51;
+  }
+
+  .age_12,
+  .age_A12 {
+    background-color: var(--yellow-400);
+  }
+
+  .age_10,
+  .age_A10 {
+    background-color: var(--blue-300);
+  }
+
+  .age_14,
+  .age_A14 {
+    background-color: var(--orange-400);
+  }
+
+  .age_16,
+  .age_A16 {
+    background-color: var(--pink-500);
+  }
+
+  .age_18,
+  .age_A18 {
+    background-color: #000;
+  }
+}

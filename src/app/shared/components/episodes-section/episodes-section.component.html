@@ -1,0 +1,30 @@
+<div class="section">
+  <div class="card">
+    <app-keep-watching-card
+      [isToPlay]="!isUnloggedSession"
+      [cardProperties]="cardProperties"
+      [data]="episode"
+      [type]="type"
+      [serieId]="serieId"
+      [censorship]="censorship"
+      [progress]="episodePosition"
+      [duration]="episodeDuration"
+    ></app-keep-watching-card>
+    <div class="card__details">
+      <div class="play" (click)="play()">
+        <img src="{{ environment.imageService }}/icons/play.svg" />
+      </div>
+      <h4 class="title">{{ episode?.order }}. {{ episode?.title }}</h4>
+    </div>
+  </div>
+  <div class="details">
+    <div class="details__header">
+      <div class="play" (click)="play()" *ngIf="!isUnloggedSession">
+        <img src="{{ environment.imageService }}/icons/play.svg" />
+      </div>
+      <h4 class="title">{{ episode?.order }}. {{ episode?.title }}</h4>
+    </div>
+
+    <p>{{ episode?.synopsis }}</p>
+  </div>
+</div>

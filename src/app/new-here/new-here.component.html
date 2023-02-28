@@ -1,0 +1,10 @@
+<app-header></app-header>
+<div class="background">
+  <div class="content">
+    <h3>Novo por aqui?</h3>
+    <app-button class='button' classList="btn-primary" text="Quero me cadastrar" (click)='gotoPlans()'></app-button>
+
+    <div class="return" routerLink="/login"> <img src="{{ environment.imageService }}/icons/arrow-left-mobile.svg" alt="arrow_left" /> Já tenho cadastro</div>
+  </div>
+  <div class="faq" (click)="goToFaqs()">Preciso de ajuda</div>
+</div>

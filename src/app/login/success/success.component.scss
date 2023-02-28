@@ -1,0 +1,19 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  display: flex;
+  flex: 1;
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 remc(10);
+    flex: 1;
+
+    padding: remc(65) 0 remc(165) 0;
+  }
+}

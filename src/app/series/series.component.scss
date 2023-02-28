@@ -1,0 +1,176 @@
+@import '../../themes/remc.scss';
+
+:host {
+  padding-bottom: remc(60);
+  .container {
+    justify-content: inherit;
+
+    &__banner-novelas {
+      @media screen and (max-width: 731px) {
+        height: 400px;
+      }
+      @media screen and (min-width: 731px) {
+        height: 400px;
+      }
+
+      background-position: right;
+      background-repeat: no-repeat;
+
+      &__desc {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px 0px 0px 56px;
+        gap: 1px;
+        width: 840px;
+        height: 140px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+
+        .skeleton__results--hor {
+          margin-top: 16%;
+        }
+
+        @media screen and (max-width: 731px) {
+          h1 {
+            width: 100%;
+            font-family: 'Roboto Condensed';
+            font-style: normal;
+            font-weight: 100;
+            font-size: 34px;
+            line-height: 75px;
+            letter-spacing: -0.02em;
+            color: #fafafa;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            margin-top: 10%;
+          }
+
+          p {
+            width: 40%;
+            height: 33px;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: -0.02em;
+            color: #fafafa;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+          }
+        }
+        @media screen and (min-width: 731px) {
+          h1 {
+            width: 784px;
+            height: 75px;
+            font-family: 'Roboto Condensed';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 75px;
+            letter-spacing: -0.02em;
+            color: #fafafa;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            margin-top: 20%;
+          }
+
+          p {
+            margin-top: 10px;
+            width: 559px;
+            height: 32px;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: -0.02em;
+            color: #fafafa;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+          }
+        }
+      }
+    }
+
+    .banner-default {
+      height: remc(280);
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    .banner {
+      width: 100%;
+      height: remc(500);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__container {
+        width: 90%;
+        z-index: 2;
+
+        h1 {
+          font-family: 'Roboto Condensed';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 64px;
+          line-height: 75px;
+          letter-spacing: -0.02em;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: remc(14);
+          line-height: remc(16);
+          letter-spacing: -0.02em;
+          color: #fafafa;
+          max-width: remc(500);
+          margin-top: remc(15);
+        }
+      }
+    }
+  }
+
+  .banner-container-app {
+    position: relative;
+    height: auto;
+    max-height: remc(180);
+    display: flex;
+    align-items: center;
+
+    .background {
+      width: 100vw;
+      height: auto;
+    }
+
+    .logo {
+      position: absolute;
+      width: auto;
+      height: 25%;
+      margin-left: remc(50);
+    }
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 80vh;
+  }
+}

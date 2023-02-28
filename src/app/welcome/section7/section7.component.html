@@ -1,0 +1,31 @@
+<div class="faq">
+  <h3 class="faq-title">Ainda com dúvida?</h3>
+  <p class="faq-subtitle">
+    Criamos uma sessão com as respostas para as principais dúvidas.
+  </p>
+  <div class="questions">
+    <div class="question" *ngFor="let question of questions" appQuestion>
+      <div class="header" (click)="question.showing = !question.showing">
+        <p class="header-title">
+          {{ question.title }}
+        </p>
+        <img
+          [src]="environment.imageService + '/icons/arrow-down.svg'"
+          alt="arrow-down"
+          class="header-arrow-down"
+          [class.active]="question.showing"
+        />
+      </div>
+      <div class="answer" *ngIf="question.showing">
+        <p>{{ question.answer }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="faq-footer">
+    <p class="faq-footer-text">
+      Não encontrou o que procurava? Você pode encontrar mais dúvidas em nossa
+      página de perguntas frequentes.
+    </p>
+    <a class="faq-footer-redirect" href="https://watchbr.com.br/faq/">Perguntas frequentes</a>
+  </div>
+</div>

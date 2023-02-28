@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="banner" *ngIf="listId !== 10023 || planAccessControlService.hasParamount">
+    <img src="{{ theme.verMais.backgoudConteudos }}" />
+  </div>
+  <div class="content-banner" *ngIf="
+      listId === 10023 &&
+      !planAccessControlService.hasParamount &&
+      planAccessControlService.hasParamount !== undefined
+    " [ngStyle]="{
+      'background-image':
+        theme.client === 'watch'
+          ? 'url(https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/bg/background_conteudos.png)'
+          : 'url(https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/bg/bg-paramount-linear.png)'
+    }">
+    <div class="image-paramout">
+      <img src="./assets/logos/logo-paramount.png" alt="logo-paramount" />
+    </div>
+
+    <div class="text-title">
+      <p>
+        POXA, que pena! <br />
+        Este adicional não faz parte do seu plano
+      </p>
+    </div>
+
+    <div class="text-subtitle">
+      <p>
+        Acesse nossa tela de planos para contratar e <br />
+        tenha os conteúdos disponibilizados na hora.
+      </p>
+    </div>
+
+    <div class="buttons">
+      <app-button *ngIf="theme.client !== 'watch'" class="button" text="Saiba mais" type="button"
+        classList="btn-secondary" (click)="goTo('paramount')"></app-button>
+      <app-button *ngIf="theme.client !== 'watch'" class="button" text="Assine já!" [type]="'button'"
+        [classList]="'btn-primary'" (click)="redirectParamont()"></app-button>
+      <app-button *ngIf="theme.client === 'watch'" class="button" text="Saiba mais" type="button"
+        classList="btn-secondary" (click)="goTo('paramount')"></app-button>
+      <app-button *ngIf="theme.client === 'watch'" class="button" text="Fale com seu provedor" type="button"
+        classList="btn-primary" (click)="goTo()"></app-button>
+    </div>
+  </div>
+  <div class="content">
+    <div class="header" *ngIf="
+        listId !== 10023 ||
+        planAccessControlService.hasParamount ||
+        planAccessControlService.hasParamount === undefined
+      ">
+      <img *ngIf="hasCustomIcon" [src]="hasCustomIcon" />
+      <div class="title">
+        <ng-container *ngIf="theme.verMais.titlelogo && !hasCustomIcon">
+          <img class="logo" src="https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/logos/multi_mais.svg"
+            alt="logo" />
+        </ng-container>
+        <h1 *ngIf="!hasCustomIcon">{{ title }}</h1>
+      </div>
+    </div>
+
+    <div class="list" infiniteScroll [infiniteScrollDistance]="10" (scrolled)="onScrollDown()">
+      <div class="item" *ngFor="let item of list;">
+        <app-card [data]="item" [isExclusiveContent]="listId === 10023"
+          [hasExclusiveContent]="planAccessControlService.hasParamount" [properties]="{
+            orientation: 'vertical',
+            rentable: title === 'Alugue'
+          }" [route]="'/details/' + item.id + '/' + (item?.tipo || item?.type)">
+        </app-card>
+      </div>
+    </div>
+    <div *ngIf="isLoading">
+      <div class="skeleton__results skeleton__results--hor">
+        <ngx-skeleton-loader count="12" appearance="line" animation="false" [theme]="{
+            height: '288px',
+            width: '196px',
+            marginRight: '24px',
+            marginBottom: '24px',
+            display: 'row',
+            background: 'rgba(122,122,122,.2)'
+          }"></ngx-skeleton-loader>
+      </div>
+    </div>
+  </div>
+</div>

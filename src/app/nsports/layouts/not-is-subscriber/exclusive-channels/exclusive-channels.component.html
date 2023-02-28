@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="content-container">
+    <p class="title">
+      O melhor do esporte está <br />
+      na Watch!
+    </p>
+    <p class="sub-title">
+      Com a NSports você acompanha coberturas <br />
+      exclusivas dos mais variados esportes de onde <br />
+      estiver.
+    </p>
+    <app-button
+      class="button"
+      text="Fale com seu provedor"
+      type="button"
+      classList="btn-secondary"
+      (click)="goTo()"
+    ></app-button>
+  </div>
+  <div class="cards">
+    <img [src]="card.imageUrl" *ngFor="let card of sectionCards" />
+  </div>
+</div>

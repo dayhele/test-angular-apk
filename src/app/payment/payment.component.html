@@ -1,0 +1,9 @@
+<div *ngIf="!isLoading && !showSucessModal" id="payment"></div>
+<div *ngIf="isLoading" id="loading">
+  <app-loading></app-loading>
+</div>
+<div class="modal-container" *ngIf="showSucessModal" [ngStyle]="{backgroundImage:'url(' + theme.login.loginBgUrl + ')'}">
+  <app-successful-register
+    (confirmClick)="goToHome()"
+  ></app-successful-register>
+</div>

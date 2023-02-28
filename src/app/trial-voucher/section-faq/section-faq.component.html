@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="faq">
+    <h3>Dúvidas frequentes</h3>
+    <div>
+      <div class="questions" *ngFor="let question of questions">
+        <div class="divider"></div>
+        <h4 (click)="question.showing = !question.showing">
+          {{ question.question }}
+        </h4>
+        <div class="answer-content" *ngIf="question.showing">
+          <p *ngFor="let i of question.answer">{{ i }}</p>
+        </div>
+      </div>
+      <div class="divider-bottom"></div>
+    </div>
+  </div>
+</div>

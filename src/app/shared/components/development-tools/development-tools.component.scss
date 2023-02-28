@@ -1,0 +1,86 @@
+@import '../../../../themes/remc.scss';
+
+.open-button {
+  position: absolute;
+  width: remc(20);
+  height: remc(20);
+  top: remc(20);
+  left: remc(20);
+  border-radius: 50%;
+}
+.container {
+  visibility: hidden;
+  width: remc(300);
+  height: auto;
+  position: fixed;
+  top: remc(20);
+  right: remc(20);
+  padding: remc(20);
+  background-color: rgba($color: #ffffff, $alpha: 1);
+  border-radius: 12px;
+  transition: all 0.2s ease-out;
+
+  .title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: remc(10);
+  }
+
+  .force-mode-warning {
+    margin: remc(10) 0;
+  }
+
+  b {
+    cursor: pointer;
+  }
+
+  .move-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ccc;
+    cursor: move;
+    width: 24px;
+    height: 24px;
+  }
+
+  .button {
+    margin: remc(10) 0;
+    cursor: pointer;
+    border-radius: 22px;
+    padding: remc(5) remc(10);
+    color: white;
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .button-success {
+    background-color: #a8e163;
+  }
+
+  .button-watch {
+    background-color: #1e1e22;
+  }
+
+  .button-multi {
+    background-color: #2b0e39;
+  }
+
+  .button-sair {
+    background-color: #f42121;
+  }
+}
+
+.spacer {
+  width: 100%;
+  height: 1px;
+  margin: remc(10) 0;
+  background-color: #202020;
+}
+
+.show-menu {
+  visibility: visible;
+}

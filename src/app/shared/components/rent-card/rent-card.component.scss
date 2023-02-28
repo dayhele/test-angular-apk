@@ -1,0 +1,158 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .rent-card-link {
+    width: remc(453);
+    height: remc(288);
+    border-radius: remc(16);
+    border: remc(3.5) solid transparent;
+    margin-bottom: remc(58);
+    cursor: pointer;
+
+    .rent-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: var(--light-gray);
+      border-radius: remc(12);
+      overflow: hidden;
+
+      .background-img {
+        width: 100%;
+        height: 100%;
+
+        background-color: var(--light-gray);
+      }
+
+      .logo {
+        top: remc(12);
+        right: remc(12);
+        position: absolute;
+      }
+
+      .logo-mobile {
+        top: remc(9);
+        right: remc(12);
+        position: absolute;
+        background: var(--medium-gray);
+        border-radius: remc(24);
+
+        p {
+          padding: remc(2) remc(8);
+          font-size: remc(10);
+          font-weight: 300;
+          color: white;
+        }
+      }
+
+      .triangle {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .rent-label {
+        position: absolute;
+        bottom: remc(45);
+        width: 100%;
+        background: var(--primary-base);
+        z-index: 3;
+        text-align: center;
+        cursor: pointer;
+
+        p {
+          color: white;
+          font-size: remc(14);
+          font-weight: 400;
+          padding: remc(4) 0;
+        }
+      }
+
+      &__badge {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: remc(80);
+        background: var(--dark-blue-600);
+
+        bottom: 0;
+        padding: remc(12) remc(16);
+
+        &-desktop {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 100%;
+          user-select: none;
+          font-weight: 400;
+          font-size: remc(14);
+
+          &__title {
+            p {
+              margin-right: 1rem;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              color: var(--blue-multi-25);
+            }
+          }
+
+          &__bottom {
+            width: 100%;
+            color: var(--white);
+
+            p {
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 2; /* number of lines to show */
+              line-clamp: 2;
+              -webkit-box-orient: vertical;
+            }
+          }
+        }
+
+        &-mobile {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          font-size: remc(12);
+
+          color: white;
+          font-weight: 300;
+
+          .age-indication {
+            width: remc(18);
+            height: remc(18);
+            margin-right: remc(8);
+          }
+
+          p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        @media screen and (max-width: remc(768)) {
+          height: remc(45);
+          padding: remc(3) remc(8);
+        }
+      }
+    }
+
+    @media screen and (max-width: remc(900)) {
+      width: remc(390);
+      height: remc(238);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      width: remc(220);
+      height: remc(154);
+    }
+    transition: border 0.2s;
+    &:hover {
+      border: remc(3.5) solid var(--primary-base);
+    }
+  }
+}

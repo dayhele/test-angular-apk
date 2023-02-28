@@ -1,0 +1,11 @@
+<div class="content" [class.below-header]="tabletCheck ? scrollPosition > 40 : scrollPosition > 64"
+  *ngIf="toastExists && theme.deepLink">
+  <div class="text">
+    <p>Para uma melhor experiência baixe o nosso aplicativo.</p>
+  </div>
+  <app-button class="button" text="Baixe o APP" type="text" classList="btn-secondary" (click)="openAppLink()">
+  </app-button>
+  <div class="close">
+    <img src="assets/icons/close_small_icon.svg" (click)="closeToast()" />
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<div *ngIf="isLoading" class="loading">
+  <app-loading></app-loading>
+</div>
+
+<div class="now">
+  <app-most-watched-channels> </app-most-watched-channels>
+  <!-- <app-now-section [data]="liveProgramList"> </app-now-section> -->
+
+  <div class="now--day-channel" *ngIf="this.theme.header.americanet && this.isAmericaNet">
+    <div class="title">
+      <h3>Canais</h3>
+    </div>
+    <div class="cards">
+      <app-card [properties]="cardProperties" [data]="{
+          imageUrl:
+            'https://watchbr-resources.s3.amazonaws.com/marketplace/xpeed.png'
+        }" [route]="'/series/10027/curso'"></app-card>
+    </div>
+  </div>
+
+  <div class="now--day-grid">
+    <div class="grade">
+      <h3>Grade de programação</h3>
+      <div class="programacao">
+        <div class="botoes">
+          <app-button (click)="!isLoadingRequest ? toggleDay('current') : ''"
+            [classList]="isNextDay ? 'btn-secondary ' : 'btn-primary '" [disabled]="isLoadingRequest">
+            Hoje, {{ currentDay.day }} de {{ handleMonth(currentDay.month!) }}
+          </app-button>
+          <app-button (click)="!isLoadingRequest ? toggleDay('next') : ''"
+            [classList]="isNextDay ? 'btn-primary' : 'btn-secondary'" [disabled]="isLoadingRequest">
+            Amanhã, {{ nextDay.day }} de {{ handleMonth(nextDay.month!) }}
+          </app-button>
+        </div>
+      </div>
+    </div>
+    <div #channelsFilter class="now--day-grid--channels" (selectstart)="(false)">
+      <p (click)="openChannels()">Todos os canais</p>
+      <ul class="now--day-grid--channels--list">
+        <ng-template ngFor let-category [ngForOf]="channelsCategories">
+          <li>
+            <a (click)="filterChannelsByCategory(category.id, category.name)">{{
+              category.name
+              }}</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+  <div class="now--schedule-guide">
+    <div *ngIf="!isNextDay" [appTimeline]="horizontalTimelineCurrentSlideX" class="now--schedule-guide--timeline"
+      [class.mobile]="isMobile" #timeline>
+      <div>
+        <p class="counter" [class.mobile]="isMobile" (click)="goToNow()">
+          {{
+          timer
+          .getHours()
+          .toLocaleString('pt-BR', { minimumIntegerDigits: 2 })
+          }}:{{
+          timer
+          .getMinutes()
+          .toLocaleString('pt-BR', { minimumIntegerDigits: 2 })
+          }}
+        </p>
+      </div>
+    </div>
+    <div #schedulesCarousel class="now--schedule-guide--schedules-wrapper">
+      <div #next class="now--schedule-guide--schedules-wrapper--button-next" (click)="goNext()"></div>
+      <div #prev class="now--schedule-guide--schedules-wrapper--button-prev" (click)="goBack()"></div>
+      <div #schedules class="now--schedule-guide--schedules-wrapper--schedules">
+        <ng-template ngFor let-schedule [ngForOf]="currentDay.schedules" let-i="index">
+          <div class="now--schedule-guide--schedules-wrapper--schedules--schedule" [id]="'schedule-' + i">
+            <p>
+              <span>
+                {{
+                schedule
+                .getHours()
+                .toLocaleString('pt-BR', { minimumIntegerDigits: 2 })
+                }}:{{
+                schedule
+                .getMinutes()
+                .toLocaleString('pt-BR', { minimumIntegerDigits: 2 })
+                }}
+              </span>
+            </p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="category-name">{{ selectedCategoryName }}</div>
+
+    <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScrollDown()">
+      <ng-template ngFor let-channel [ngForOf]="channelsFiltered">
+        <div *ngIf="channel.channel_number">
+          <app-tv-program-scheduled-section [channel]="channel" [isNextDay]="isNextDay" (isLoaded)="
+              this.updateEPGTranslate(horizontalTimelineCurrentSlideX)
+            " (emitter)="getLivePrograms($event)" [profileAgeBracket]="profileAgeBracket">
+          </app-tv-program-scheduled-section>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div *ngIf="showSpinner" class="spinner">
+    <app-loading></app-loading>
+  </div>
+</div>

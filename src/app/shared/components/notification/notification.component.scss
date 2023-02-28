@@ -1,0 +1,29 @@
+#bell-wrapper {
+  margin-right: 18px;
+  width: 20px;
+  cursor: pointer;
+}
+#main-icon {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  justify-content: center;
+}
+#ping-elipse-wrapper {
+  position: absolute;
+  margin-top: 3px;
+  margin-left: 9px;
+  padding-top: 1px;
+  padding-left: 1px;
+  width: 7px;
+  height: 7px;
+  border-radius: 12px;
+  background-color: #1e1e22;
+}
+#ping-elipse {
+  justify-content: center;
+  width: 5px;
+  height: 5px;
+  border-radius: 12px;
+  background-color: #ff2828;
+}

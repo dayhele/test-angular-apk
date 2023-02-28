@@ -1,0 +1,93 @@
+@import '../../../themes/remc.scss';
+:host {
+  display: flex;
+  flex: 1;
+
+  .container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: remc(173) 0 remc(268) 0;
+    color: var(--white);
+    text-align: center;
+
+    .content {
+      background-color: #1e1e22;
+      width: 54vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    .greetingText {
+      .welcomeText {
+        margin-top: remc(64);
+        font-size: remc(24);
+      }
+      p {
+        color: var(--white-50);
+        font-weight: 300;
+        margin-top: remc(4);
+        margin-bottom: remc(20);
+      }
+    }
+
+    .subText {
+      color: var(--white-50);
+      font-weight: 300;
+      margin-top: remc(23);
+
+      h3 {
+        font-size: remc(16);
+        margin-top: remc(8);
+      }
+    }
+
+    .inputs {
+      margin-top: remc(68);
+      text-align: initial;
+
+      .labelForm {
+        margin-bottom: remc(12);
+      }
+    }
+    .hasError {
+      padding: remc(20) remc(25) remc(20) remc(25);
+      margin-top: remc(10);
+      background-color: coral;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: remc(30);
+      margin-top: remc(86);
+    }
+    .secureSite {
+      margin-top: remc(68);
+      margin-bottom: remc(20);
+    }
+  }
+
+  .space-12 {
+    margin-top: remc(12);
+  }
+  .space-30 {
+    margin-top: remc(30);
+  }
+
+  .loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

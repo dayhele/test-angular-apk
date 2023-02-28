@@ -1,0 +1,28 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .background {
+    background-color: rgb(7, 26, 44);
+    .container {
+      width: 100vw;
+      height: remc(336);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(
+        180deg,
+        rgba(7, 26, 44, 1) 0%,
+        rgba(11, 90, 148, 0.4) 50%,
+        rgba(7, 26, 44, 1) 100%
+      );
+
+      .banner-directvgo {
+        background-repeat: no-repeat;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

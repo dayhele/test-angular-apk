@@ -1,0 +1,105 @@
+@import '../../../../themes/remc.scss';
+:host {
+  .dropdown {
+    padding: remc(23) remc(56) remc(22) remc(72);
+    position: relative;
+    @media screen and (max-width: remc(768)) {
+      padding: remc(26) remc(56) remc(12) remc(15);
+    }
+
+    .favorite-title {
+      font-size: remc(16);
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    &__button {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: remc(26);
+      z-index: 997;
+
+      .title {
+        font-size: remc(16);
+        font-weight: 500;
+        color: var(--primary-base);
+      }
+
+      .icon {
+        img {
+          transition: all 0.2s;
+        }
+        &__active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .close {
+      position: fixed;
+      z-index: 998;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      visibility: hidden;
+      &__active {
+        visibility: visible;
+      }
+    }
+    .menu {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      width: auto;
+      top: 73%;
+      left: remc(72);
+      z-index: 9999;
+      padding: 0 remc(16);
+      color: var(--white);
+      font-size: remc(16);
+      line-height: remc(19);
+      background-color: var(--primary-background);
+      transition: all 0.2s;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      @media only screen and (hover: none) and (pointer: coarse) {
+        left: remc(15);
+      }
+      ul {
+        width: remc(153);
+        li {
+          cursor: pointer;
+          margin: remc(14) 0;
+        }
+      }
+      ul:first-child {
+        width: remc(123);
+      }
+      ul:last-child {
+        width: remc(123);
+      }
+      &__active {
+        opacity: 1;
+        visibility: visible;
+      }
+      @media screen and (max-width: remc(1360)) {
+        font-size: remc(15);
+      }
+      @media screen and (max-width: remc(1275)) {
+        font-size: remc(14);
+      }
+      @media screen and (max-width: remc(1100)) {
+        font-size: remc(12);
+      }
+      @media screen and (max-width: remc(1000)) {
+        font-size: remc(11);
+      }
+      @media screen and (max-width: remc(900)) {
+      }
+    }
+  }
+}

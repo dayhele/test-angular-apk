@@ -1,0 +1,36 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  input {
+    width: 100%;
+    height: remc(32);
+    border-radius: remc(4);
+    background: var(--white);
+    outline: none;
+    padding: 0 remc(8) 0 remc(8);
+    display: block;
+    margin: auto;
+  }
+
+  input.center {
+    text-align: center;
+    &::placeholder {
+      text-align: center;
+    }
+  }
+  input::placeholder {
+    color: var(--blue-100);
+    opacity: 0.5;
+    font-size: remc(14);
+  }
+
+  .error {
+    border: remc(2) solid var(--error-red);
+    color: var(--error-red);
+  }
+
+  .error::placeholder {
+    color: var(--error-red);
+    opacity: 1;
+  }
+}

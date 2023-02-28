@@ -1,0 +1,61 @@
+<div class="space" *ngIf="!checkMobile"></div>
+<nav class="container">
+  <div class="navbar">
+    <a class="logo" (click)="logoClick()">
+      <img src="{{ theme.logo }}" [alt]="theme.title" />
+    </a>
+    <div class="nav-links__container" *ngIf="!checkMobile">
+      <ul class="navbar-nav">
+        <li
+          class="nav-item"
+          [ngClass]="{ selected: getCurrentPage() === 'welcome' }"
+        >
+          <a (click)="goTo('welcome')">Início</a>
+        </li>
+        <li
+          class="nav-item"
+          [ngClass]="{ selected: getCurrentPage() === 'try' }"
+        >
+          <a (click)="goTo('try')">Conheça a Watch</a>
+        </li>
+        <li class="nav-item categorias" *ngIf="showCategories">
+          <a (click)="onCategoryClick()">Categorias</a>
+          <app-dropdown-categories
+            [active]="clickedCategory"
+            (closeEvent)="clickedCategory = false"
+            [isSelected]="false"
+            [categories]="categories"
+            [isUnloggedSession]="true"
+          ></app-dropdown-categories>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ng-container>
+    <div class="nav-links__container2" id="voucher">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a
+            class="blue-text"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            (click)="goTo(theme.header.activeRouterHeader, true)"
+          >
+            {{ theme.header.activeTextHeader }}</a
+          >
+        </li>
+        <li class="nav-item divider"></li>
+        <li class="nav-item">
+          <a
+            routerLinkActive="active"
+            (click)="goTo('login', true)"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="login"
+            >Entrar</a
+          >
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+</nav>

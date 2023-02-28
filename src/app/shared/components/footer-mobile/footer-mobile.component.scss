@@ -1,0 +1,72 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: fit-content;
+  z-index: 20;
+
+  .footer-mobile {
+    height: remc(48);
+    padding: remc(12) remc(26);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 30;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.12);
+    background-color: #3d3d3f;
+    z-index: 2;
+    overflow: hidden;
+    &__icons {
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+
+      div {
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all 0.2s ease-in-out;
+        background-color: white;
+      }
+
+      .home-icon {
+        -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/footer-mobile/home-icon.svg')
+          no-repeat center;
+        mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/footer-mobile/home-icon.svg')
+          no-repeat center;
+      }
+      .live-icon {
+        -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/footer-mobile/live-icon.svg')
+          no-repeat center;
+        mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/footer-mobile/live-icon.svg')
+          no-repeat center;
+      }
+      .search-icon {
+        -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/footer-mobile/search-icon.svg')
+          no-repeat center;
+        mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/footer-mobile/search-icon.svg')
+          no-repeat center;
+      }
+      .menu-icon {
+        -webkit-mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/profile/profile.svg')
+          no-repeat center;
+        mask: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/profile/profile.svg')
+          no-repeat center;
+        mask-size: remc(24);
+      }
+      .active {
+        background-color: var(--primary-base);
+      }
+      .home-icon,
+      .live-icon,
+      .search-icon,
+      .menu-icon {
+        &:hover {
+          background-color: var(--footer-mobile);
+        }
+      }
+    }
+  }
+}

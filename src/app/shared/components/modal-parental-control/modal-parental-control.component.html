@@ -1,0 +1,52 @@
+<div class="container" *ngIf="showModal">
+  <div class="modal">
+    <div class="profile-wrap">
+      <div class="close-icon" (click)="closeModal()">
+        <img src="assets/icons/close_blue_small_icon.svg" alt="Fechar" />
+      </div>
+      <div class="profile">
+        <div class="profile-image">
+          <img [src]="profile?.foto" *ngIf="profile?.foto !== ''; else image" />
+          <ng-template #image>
+            <img src="https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/profiles/orange.svg" />
+          </ng-template>
+        </div>
+        <p class="profile-name">
+          {{ profile?.nome }}
+        </p>
+      </div>
+    </div>
+    <div class="content">
+      <div id="loading" *ngIf="isLoading; else noLoading">
+        <app-loading></app-loading>
+      </div>
+      <ng-template #noLoading>
+        <div class="pin" [ngClass]="{ error: response === false }" *ngIf="!redefinePass">
+          <h4>
+            {{ apiMsg || 'Insira aqui a sua senha de controle parental' }}
+          </h4>
+
+          <div>
+            <app-input-pin (click)="handleClick()" [response]="response"
+              (valueEmitter)="pinCheck(profile.id_perfis!, (pin = $event))"></app-input-pin>
+            <span (click)="handleForgotPass()">Esqueci a minha senha</span>
+          </div>
+        </div>
+        <div class="email" [ngClass]="{ error: response === false, success: response }" *ngIf="redefinePass">
+          <div *ngIf="!apiMsg">
+            <h4>Para redefinir sua senha, informe</h4>
+            <h4>seu e-mail cadastrado</h4>
+          </div>
+          <div *ngIf="apiMsg">
+            <h4>{{ apiMsg }}</h4>
+          </div>
+
+          <app-input *ngIf="response !== true" [type]="'email'" [placeholder]="'Digite seu email'"
+            [error]="response === false" [(value)]="email" (click)="handleClick()" [disabled]="isLoading"></app-input>
+          <app-button *ngIf="response !== true" text="Enviar" type="button" classList="btn-primary"
+            (click)="forgotPass(profile.id_perfis!, email)"></app-button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

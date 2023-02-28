@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="content">
+    <h3>Grade de programação</h3>
+    <app-button
+      class="btn-today"
+      [text]="'Hoje, ' + btnToday"
+      [classList]="'btn-primary'"
+    ></app-button>
+    <app-button
+      class="btn-tomorrow"
+      [text]="'Amanhã, ' + btnTomorrow"
+      [classList]="'btn-secondary'"
+    ></app-button>
+    <div class="all-channels-div">
+      <a class="all-channels" routerLink="/">Todos os canais</a>
+      <a class="arrow-icon" routerLink="/">
+        <img src="{{ environment.imageService }}/icons/arrow-down.svg" alt="arrow-down" />
+      </a>
+    </div>
+  </div>
+</div>

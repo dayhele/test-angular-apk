@@ -1,0 +1,283 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .active {
+    text-decoration: underline;
+    color: var(--primary-base);
+  }
+  .space{
+    @media screen and (min-width: 768px) {
+      height: remc(64);
+    }
+  }
+
+  .container {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+
+    @supports (-webkit-touch-callout: none) {
+      /* CSS specific to iOS devices */
+      margin-top: 4vh;
+    }
+
+    width: 100%;
+    height: remc(64);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 remc(56);
+    box-shadow: 0 0 remc(10) 0 rgba(0, 0, 0, 0.6);
+
+    & > div {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar {
+      .logo {
+        cursor: pointer;
+      }
+
+      .nav-links__container {
+        margin-left: remc(44);
+
+        .navbar-nav {
+          display: flex;
+          align-items: center;
+          .nav-item {
+            padding: 0 remc(20);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            &.categorias{
+              position: relative;
+            }
+
+            &.primary {
+              padding-left: remc(80);
+            }
+
+            &.dropdown {
+              &::after {
+                content: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/arrow-down.svg');
+                display: inline;
+                padding-left: remc(4);
+                padding-top: remc(4);
+              }
+            }
+
+            &.selected {
+              a {
+                text-decoration: underline;
+                color: var(--primary-base);
+              }
+            }
+
+            @media screen and (max-width: remc(1360)) {
+              padding: 0 0.8rem;
+            }
+
+            @media screen and (max-width: remc(1275)) {
+              padding: 0 0.5rem;
+            }
+
+            @media screen and (max-width: remc(980)) {
+              padding: 0 0.3rem;
+            }
+          }
+
+          .selected {
+            color: var(--primary-base);
+            text-decoration: underline;
+          }
+
+          .categories {
+            display: flex;
+            align-items: center;
+          }
+        }
+
+        .search {
+          display: flex;
+
+          &__icon {
+            cursor: pointer;
+          }
+
+          &__container {
+            display: flex;
+            background: var(--primary-background);
+            border-radius: remc(4);
+            overflow: hidden;
+            margin-right: remc(14);
+
+            &-close {
+              opacity: 0.5;
+              padding-left: remc(5);
+              cursor: pointer;
+            }
+
+            &-input {
+              width: 100%;
+              height: remc(32);
+              background: var(--primary-background);
+              color: var(--white);
+              padding: 0 remc(15) 0 remc(10);
+              outline: none;
+              display: block;
+
+              &::placeholder {
+                color: var(--blue-100);
+                font-size: remc(12);
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+
+        @media screen and (max-width: remc(768)) {
+          display: none;
+        }
+      }
+    }
+    .nav-links__container2 {
+      .navbar-nav {
+        display: flex;
+        align-items: center;
+        .nav-item {
+          padding: 0 remc(20);
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          &.primary {
+            width: remc(151);
+            height: remc(32);
+            background-color: var(--primary-base);
+            padding: 6px;
+            border-radius: 16px;
+            text-align: center;
+
+            a {
+              align-self: center;
+              width: 100%;
+              height: 100%;
+              text-decoration: none;
+              font-style: normal;
+              font-weight: 500;
+              line-height: remc(19);
+              font-size: remc(16);
+            }
+
+            a:hover {
+              color: var(--white);
+            }
+
+            @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+              width: remc(94);
+              height: auto;
+              margin-left: remc(22);
+              padding: remc(2);
+
+              a {
+                font-weight: 700;
+                font-size: remc(10);
+                line-height: remc(12);
+              }
+            }
+          }
+
+          &.divider {
+            width: 1px;
+            height: remc(20);
+            background-color: #d9d9d9;
+            padding: 0;
+          }
+
+          @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+            padding: 0 remc(10);
+
+            a {
+              font-weight: 400;
+              font-size: remc(10);
+              line-height: remc(12);
+            }
+          }
+        }
+      }
+    }
+
+    .user-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      span {
+        color: var(--white);
+        margin-right: remc(8);
+
+        @media screen and (max-width: remc(900)) {
+          display: none;
+        }
+      }
+
+      img {
+        cursor: pointer;
+      }
+
+      .avatar-icon {
+        width: remc(32);
+        height: remc(32);
+        border-radius: 50%;
+        background-color: var(--primary-base);
+        object-fit: cover;
+        object-position: center;
+
+        @media screen and (max-width: remc(768)) {
+          width: remc(18);
+          height: remc(18);
+        }
+      }
+
+      .arrow-icon {
+        @media screen and (max-width: remc(768)) {
+          display: none;
+        }
+      }
+    }
+
+    @media screen and (max-width: remc(1360)) {
+      font-size: remc(15);
+      padding: remc(20) remc(35);
+    }
+
+    @media screen and (max-width: remc(1275)) {
+      font-size: remc(14);
+      padding: remc(20) remc(25);
+    }
+
+    @media screen and (max-width: remc(1100)) {
+      font-size: remc(12);
+    }
+
+    @media screen and (max-width: remc(1000)) {
+      font-size: remc(11);
+      padding: remc(20) remc(10);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      position: relative;
+      justify-content: center;
+
+      .user-wrapper {
+        position: absolute;
+        right: remc(16);
+      }
+
+      height: remc(32);
+    }
+  }
+}

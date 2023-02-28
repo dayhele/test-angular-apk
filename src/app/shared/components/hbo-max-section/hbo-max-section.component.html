@@ -1,0 +1,23 @@
+<div class="container">
+  <img class="img-banner"
+    [src]="environment.bucket + 'icons/carrosel-watch-para-voce.png'" />
+  <div class="grid">
+    <div class="background"></div>
+    <div class="texts">
+      <h3 class="title">Exclusivos HBO Max</h3>
+      <p class="subtitle" *ngIf="!text">
+        Aqui na {{ theme.clientName }} você pode contratar conteúdos de
+        parceiros! Explore agora mesmo os conteúdos HBO Max.
+      </p>
+      <p class="subtitle" *ngIf="text" [innerHTML]="text"></p>
+      <div class="btn">
+        <app-button *ngIf="hasExploreButton" class="button" text="Explorar" type="button" classList="btn-primary"
+          (click)="goTo('hbomax')"></app-button>
+      </div>
+    </div>
+    <div class="section">
+      <app-section [hasNavigation]="hasNavigation" [allowTouchMove]="allowTouchMove" [properties]="cardProperties"
+        [isExclusiveContent]="true" [data]="dataCards" labelExclusiveContent="HBO Max" [cardOnly]="true"></app-section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,317 @@
+<div class="carrosel" *ngIf="!checkMobile">
+  <h1 class="carrosel-title">Escolha o plano ideal para você</h1>
+  <div *ngFor="let plan of plans">
+    <div class="card card-position-{{ plan.index }}" (click)="selectCard(plan)">
+      <div class="content">
+        <div class="header">
+        <div class="title">{{ plan.planName }}</div>
+        <div class="details" [innerHTML]="plan.planDetails"></div>
+        </div>
+        <hr />
+        <div class="body">
+        <div class="discount" *ngIf="!(plan.discountPlanPrice > 0)"></div>
+        <div class="discount" *ngIf="plan.discountPlanPrice > 0">De: R$ {{ plan.discountPlanPrice | currency:'':'' }}</div>
+        <div class="price">
+          <span class="rs">
+            <span *ngIf="plan.discountPlanPrice > 0">Por: </span>
+            R$ </span>
+          <span class="plan-price" *ngIf="plan.discountPlanPrice == 0" >{{ plan.planPrice | currency:'':'' }}</span>
+          <span class="plan-price" *ngIf="plan.discountPlanPrice > 0">{{ plan.planPrice | currency:'':'' }}</span>
+          <span class="month">/mês</span>
+        </div>
+
+        <div class="button" (click)="planSelected(plan)">ASSINAR</div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="item">
+          <div class="item-title">Conteúdos do seu combo:</div>
+        </div>
+        <div class="item">
+          <div
+            class="item-title"
+            (click)="openedChannelsDropdown = !openedChannelsDropdown"
+          >
+            <strong>
+              {{ plan.planBenefits.canaisAbertos }} canais abertos</strong
+            >
+            <img
+              [class.active]="openedChannelsDropdown && plan.index === 1"
+              src="assets/icons/arrow-up.svg"
+            />
+          </div>
+          <div
+            class="item-container"
+            *ngIf="openedChannelsDropdown && plan.index === 1"
+          >
+            <img
+              *ngFor="let plansChannels of plan.planBenefits.canaisAbertosList"
+              [src]="plansChannels.white"
+            />
+          </div>
+        </div>
+        <div class="item">
+          <div
+            class="item-title"
+            (click)="specialChannelsDropdown = !specialChannelsDropdown"
+          >
+            <strong
+              >{{ plan.planBenefits.canaisEspeciais }} Canais especiais</strong
+            >
+            <img
+              [class.active]="specialChannelsDropdown && plan.index === 1"
+              src="assets/icons/arrow-up.svg"
+            />
+          </div>
+          <div
+            class="item-container"
+            *ngIf="specialChannelsDropdown && plan.index === 1"
+          >
+            <img
+              *ngFor="
+                let plansChannels of plan.planBenefits.canaisEspeciaisList
+              "
+              [src]="plansChannels.white"
+            />
+          </div>
+        </div>
+        <div class="item">
+          <div
+            class="item-title"
+            (click)="onDemandDropdown = !onDemandDropdown"
+          >
+            <strong>On Demand</strong>
+            <img
+              [class.active]="onDemandDropdown && plan.index === 1"
+              src="assets/icons/arrow-up.svg"
+            />
+          </div>
+          <div
+            class="item-container"
+            *ngIf="onDemandDropdown && plan.index === 1"
+          >
+            <img
+              *ngIf="plan?.planBenefits?.awesomeness"
+              [src]="environment.bucket + 'icons/institucional/Awsomeness.svg'"
+            />
+            <img
+              *ngIf="plan?.planBenefits?.cnn"
+              [src]="environment.bucket + 'icons/institucional/cnn-brasil.svg'"
+            />
+            <img
+              *ngIf="plan?.planBenefits?.directTvGo"
+              class="image-taller"
+              [src]="environment.bucket + 'icons/institucional/DGO.svg'"
+            />
+            <img
+              *ngIf="plan?.planBenefits?.hboMax"
+              [src]="environment.bucket + 'icons/institucional/HBO-Max.svg'"
+            />
+            <img
+              *ngIf="plan?.planBenefits?.medialand"
+              [src]="environment.bucket + 'icons/institucional/Medialand.svg'"
+            />
+            <img
+              *ngIf="plan?.planBenefits?.nsports"
+              [src]="environment.bucket + 'icons/institucional/Nsports.svg'"
+            />
+            <img
+              *ngIf="plan?.planBenefits?.paramount"
+              [src]="
+                environment.bucket + 'icons/institucional/logoParamount.svg'
+              "
+            />
+            <img
+              *ngIf="plan?.planBenefits?.sony"
+              [src]="environment.bucket + 'icons/institucional/Sony.png'"
+            />
+            <img
+              *ngIf="plan?.planBenefits?.stingrayChannels"
+              [src]="
+                environment.bucket + 'icons/institucional/Stingray-Music.svg'
+              "
+            />
+            <img
+              *ngIf="plan?.planBenefits?.xpeed"
+              [src]="environment.bucket + 'icons/institucional/XPE-logo.svg'"
+            />
+
+            <img
+              *ngIf="plan?.planBenefits?.cisnero"
+              [src]="environment.bucket + 'icons/institucional/Cisneros.svg'"
+            />
+
+            <img
+              *ngIf="plan?.planBenefits?.europa_filmes"
+              [src]="environment.bucket + 'icons/institucional/EuropaFilmes.svg'"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="border"></div>
+    </div>
+  </div>
+</div>
+
+<div class="carrosel-mobile" *ngIf="checkMobile">
+  <h1 class="carrosel-title-mobile">Escolha o plano ideal para você</h1>
+  <div class="container">
+    <div
+      *ngFor="let plan of plans; let planIndex = index"
+      (click)="selectCard(plan)"
+      class="card-position-{{ plan.index }}"
+    >
+      <div *ngIf="plan.active" class="plans-container">
+        <div class="card" [class.plan-active]="plan.active">
+          <div class="content">
+            <div class="title">{{ plan.planName }}</div>
+            <div class="details" [innerHTML]="plan.planDetails"></div>
+            <hr />
+
+            <div class="discount-mobile" *ngIf="!(plan.discountPlanPrice > 0)"></div>
+            <div class="discount-mobile" *ngIf="plan.discountPlanPrice > 0">De: R$ {{ plan.discountPlanPrice | currency:'':'' }}</div>
+            <div class="price">
+              <span class="rs">
+                <span *ngIf="plan.discountPlanPrice > 0">Por: </span>
+                R$ </span>
+              <span class="plan-price" *ngIf="plan.discountPlanPrice == 0" >{{ plan.planPrice | currency:'':'' }}</span>
+              <span class="plan-price" *ngIf="plan.discountPlanPrice > 0">{{ plan.planPrice | currency:'':'' }}</span>
+              <span class="month">/mês</span>
+            </div>
+
+            <div class="button" (click)="planSelected(plan)">ASSINAR</div>
+          </div>
+          <div class="dropdown">
+            <div class="item">
+              <div class="item-title">Conteúdos do seu combo:</div>
+            </div>
+            <div class="item">
+              <div
+                class="item-title"
+                (click)="openedChannelsDropdown = !openedChannelsDropdown"
+              >
+                {{ plan.planBenefits.canaisAbertos }} canais abertos
+                <img src="assets/icons/arrow-up.svg" />
+              </div>
+              <div class="item-container" *ngIf="openedChannelsDropdown">
+                <img
+                  *ngFor="
+                    let plansChannels of plan.planBenefits.canaisAbertosList
+                  "
+                  [src]="plansChannels.white"
+                />
+              </div>
+            </div>
+            <div class="item">
+              <div
+                class="item-title"
+                (click)="specialChannelsDropdown = !specialChannelsDropdown"
+              >
+                {{ plan.planBenefits.canaisEspeciais }} Canais especiais
+                <img src="assets/icons/arrow-up.svg" />
+              </div>
+              <div class="item-container" *ngIf="specialChannelsDropdown">
+                <img
+                  *ngFor="
+                    let plansChannels of plan.planBenefits.canaisEspeciaisList
+                  "
+                  [src]="plansChannels.white"
+                />
+              </div>
+            </div>
+            <div class="item">
+              <div
+                class="item-title"
+                (click)="onDemandDropdown = !onDemandDropdown"
+              >
+                On Demand
+                <img src="assets/icons/arrow-up.svg" />
+              </div>
+              <div class="item-container" *ngIf="onDemandDropdown">
+                <img
+                  *ngIf="plan?.planBenefits?.awesomeness"
+                  [src]="
+                    environment.bucket + 'icons/institucional/Awsomeness.svg'
+                  "
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.cnn"
+                  [src]="
+                    environment.bucket + 'icons/institucional/cnn-brasil.svg'
+                  "
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.directTvGo"
+                  class="image-taller"
+                  [src]="environment.bucket + 'icons/institucional/DGO.svg'"
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.hboMax"
+                  [src]="environment.bucket + 'icons/institucional/HBO-Max.svg'"
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.medialand"
+                  [src]="
+                    environment.bucket + 'icons/institucional/Medialand.svg'
+                  "
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.nsports"
+                  [src]="environment.bucket + 'icons/institucional/Nsports.svg'"
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.paramount"
+                  [src]="
+                    environment.bucket + 'icons/institucional/logoParamount.svg'
+                  "
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.sony"
+                  [src]="environment.bucket + 'icons/institucional/Sony.png'"
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.stingrayChannels"
+                  [src]="
+                    environment.bucket +
+                    'icons/institucional/Stingray-Music.svg'
+                  "
+                />
+                <img
+                  *ngIf="plan?.planBenefits?.xpeed"
+                  [src]="
+                    environment.bucket + 'icons/institucional/XPE-logo.svg'
+                  "
+                />
+                <img
+                *ngIf="plan?.planBenefits?.cisnero"
+                [src]="environment.bucket + 'icons/institucional/Cisneros.svg'"
+              />
+
+              <img
+                *ngIf="plan?.planBenefits?.europa_filmes"
+                [src]="environment.bucket + 'icons/institucional/EuropaFilmes.svg'"
+              />
+              </div>
+            </div>
+          </div>
+          <div class="border"></div>
+        </div>
+      </div>
+      <div
+        *ngIf="!plan.active"
+        class="plans-container"
+        [class.plan-unactive]="!plan.active"
+      >
+        <div
+          class="card unactive-plans"
+          [class.no-border-top]="plan.index === 2"
+          [class.border-unactive-start]="plan.index === 4"
+          [class.border-unactive-end]="plan.index === 3"
+        >
+          <p class="title">{{ plan.planName }}</p>
+          <img src="assets/icons/arrow-up.svg" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<main class="container">
+  <app-section-search-results-counter
+    *ngIf="resultsLoaded && !searchLoading && !category"
+    [search]="resultsFeedback"
+  >
+  </app-section-search-results-counter>
+  <h3 class="category" *ngIf="resultsLoaded && !searchLoading && category">
+    {{ category }}
+  </h3>
+  <div class="container__movies">
+    <div class="card__movies" *ngFor="let item of resultCards">
+      <app-card
+        [idPerfil]="idPerfil"
+        [properties]="{ orientation: 'vertical', rentable: item.availability === 'TVOD' }"
+        [data]="item"
+        [route]="'/details/' + item.id + '/' + item.type"
+      >
+      </app-card>
+    </div>
+  </div>
+  <div
+    *ngIf="resultsLoaded && resultsFeedback.results === 0"
+    class="container__cardsRecommended"
+  >
+    <app-default-section
+      *ngIf="resultsRecommended?.total === 0"
+      class="container__cardsSuggested"
+      [sectionTitle]="'Sugestões com base na sua busca'"
+      [data]="resultsRecommended.list"
+    >
+    </app-default-section>
+  </div>
+  <div *ngIf="searchLoading" class="skeleton">
+    <div class="skeleton__results skeleton__results--bar">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '28px',
+          width: '300px',
+          marginBottom: '24px'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+
+    <div class="skeleton__results skeleton__results--hor">
+      <ngx-skeleton-loader
+        count="6"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '288px',
+          width: '196px',
+          marginRight: '24px',
+          marginBottom: '24px',
+          display: 'row'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+
+    <div class="skeleton__results skeleton__results--ver">
+      <ngx-skeleton-loader
+        count="3"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '288px',
+          width: '416px',
+          marginRight: '24px',
+          marginBottom: '24px',
+          display: 'row'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</main>

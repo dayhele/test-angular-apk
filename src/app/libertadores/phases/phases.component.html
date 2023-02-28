@@ -1,0 +1,12 @@
+<div *ngFor="let phase of data!">
+  <app-section *ngIf="phase" [title]="phase.title" [properties]="{
+          orientation: 'vertical',
+          isLive: false,
+          secondDescription: true,
+          day: true,
+          sportTitle: true,
+          rentable: false,
+          rentMovieTitle: false
+        }" [data]="phase?.data ?? []" [isNSportsCard]="false" [isConmebolLibertadores]="true">
+  </app-section>
+</div>

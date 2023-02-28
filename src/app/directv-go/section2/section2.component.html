@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="image-banner-cta">
+    <img [src]="environment.bucket + 'directvgo/imagem-section-2-directvgo.png'"
+      alt="" />
+  </div>
+
+  <div class="texts">
+    <h3 class="title">
+      TV AO VIVO <br />
+      E STREAMING? <br />
+      GO!
+    </h3>
+    <p class="subtitle">
+      Além do melhor da TV e a cobertura exclusiva de diversos esportes, são
+      milhares de filmes e séries 100% on-line para assistir como e onde quiser.
+      Contrate agora mesmo e tenha acesso a tudo que a Watch e a DIRECTV GO
+      oferecem!
+    </p>
+    <div class="btn">
+      <app-button class="button" [text]="theme.landingPage.textButon" type="button" classList="btn-primary"
+        (click)="goTo()"></app-button>
+    </div>
+  </div>
+</div>

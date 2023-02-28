@@ -1,0 +1,37 @@
+@import '../../../themes/remc.scss';
+
+.wraps {
+  display: flex;
+  justify-content: row;
+
+  .container {
+    width: 100%;
+    background: linear-gradient(
+      #081a2c 0%,
+      #162c3c 25%,
+      rgba(0, 0, 0, 0) 50%,
+      #162c3c 75%,
+      #081a2c
+    );
+    text-align: center;
+    padding-bottom: remc(120);
+
+    .title {
+      margin-top: remc(86);
+      margin-bottom: remc(21);
+      font-size: remc(24);
+      color: #fff;
+      font-weight: 700;
+      line-height: remc(28);
+      letter-spacing: -0.02em;
+    }
+
+    .card-league {
+      display: block;
+      width: 100%;
+      max-width: remc(1440);
+      margin: auto;
+      margin-bottom: remc(39);
+    }
+  }
+}

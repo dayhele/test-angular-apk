@@ -1,0 +1,56 @@
+<div class="shadow" *ngIf="menuActive" (click)=" toggleSideMenu()"></div>
+<div class="menu-icon" [class.active]="menuActive">
+  <a><img *ngIf="!menuActive" src="/assets/icons/hamburguer.svg" (click)="toggleSideMenu()" /></a>
+  <a><img *ngIf="menuActive" src={{closePath}} (click)="toggleSideMenu()" /></a>
+</div>
+<div class="menu-content" [class.active]="menuActive">
+  <div class="top">
+    <div class="profile-image">
+      <div class="circle">
+        <img [src]="buildImg(profileName.foto)" />
+      </div>
+      <p class="profile-name">{{ profileName.nome }}</p>
+    </div>
+  </div>
+  <div class="middle">
+    <div class="options">
+      <div class="link" (click)="optionSelect('filmes')">
+        <p>Filmes</p>
+        <div class="arrow" [class.active]="selectedOption === 'filmes'">
+          <img src={{arrowPath}} />
+        </div>
+      </div>
+      <mat-expansion-panel #expansionFilmes [expanded]="selectedOption === 'filmes'">
+        <a class="link-item" *ngFor="let cat of filmeCategories" (click)="openCategory(cat.title!, 'filme', cat.id)">
+          <p>{{ cat.title }}</p>
+        </a>
+      </mat-expansion-panel>
+      <div class="link" (click)="optionSelect('series')">
+        <p>Séries</p>
+        <div class="arrow" [class.active]="selectedOption === 'series'">
+          <img src={{arrowPath}} />
+        </div>
+      </div>
+      <mat-expansion-panel #expansionSeries [expanded]="selectedOption === 'series'">
+        <a class="link-item" *ngFor="let cat of serieCategories" (click)="openCategory(cat.title!, 'serie', cat.id)">
+          <p>{{ cat.title }}</p>
+        </a>
+      </mat-expansion-panel>
+      <a routerLink="/favorites" (click)="menuActive = false">
+        <div class="link" (click)="optionSelect('favoritos')">
+          <p>Favoritos</p>
+        </div>
+      </a>
+      <a routerLink="/rent" (click)="menuActive = false">
+        <div class="link" (click)="optionSelect('alugados')">
+          <p>Minhas Locações</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="logo">
+      <img src="{{ theme.logoMobile }}" [alt]="theme.title" />
+    </div>
+  </div>
+</div>

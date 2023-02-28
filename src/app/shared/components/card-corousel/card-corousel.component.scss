@@ -1,0 +1,19 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .cardCarousel {
+    width: remc(210);
+    height: remc(210);
+    background-color: var(--primary-base);
+    border-radius: 5px;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: remc(768)) {
+      width: remc(112);
+      height: remc(112);
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<app-exclusive-channels *ngIf="!isMultiEnvironment; else isMulti"></app-exclusive-channels>
+
+<ng-template #isMulti>
+
+  <app-multi-nsports-banner></app-multi-nsports-banner>
+
+</ng-template>
+
+<app-card-nsports
+  [carouselIsLoaded]="carouselIsLoaded"
+  title="Melhores momentos"
+  [sectionCards]="sectionCards.highlightMoments"
+  [properties]="{
+    orientation: 'horizontal',
+    sportTitle: true
+  }"
+></app-card-nsports>
+
+<div class="container">
+  <div *ngIf="carouselIsLoaded; else isLoading">
+    <div *ngIf="sectionCards.allPreviousMatches && sectionCards.allPreviousMatches!.length > 0">
+      <h3>Jogos Anteriores</h3>
+    
+      <div class="list" infiniteScroll>
+        <div class="item" *ngFor="let item of sectionCards.allPreviousMatches; else: loading">
+          <app-card [data]="item" [isExclusiveContent]="false"
+            [hasExclusiveContent]="false" [properties]="{
+              orientation: 'vertical',
+              sportTitle: true
+            }" [route]="'/details/' + item.id + '/' + (item?.tipo || item?.type)">
+          </app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #isLoading>
+    <div class="skeleton__results skeleton__results--hor">
+      <ngx-skeleton-loader count="12" appearance="line" animation="pulse" [theme]="{
+          height: '288px',
+          width: '196px',
+          marginRight: '24px',
+          marginBottom: '24px',
+          display: 'row'
+        }"></ngx-skeleton-loader>
+    </div>
+  </ng-template>
+</div>

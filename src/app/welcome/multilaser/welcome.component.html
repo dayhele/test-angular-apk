@@ -1,0 +1,256 @@
+<div class="trial">
+  <div class="circle"></div>
+  <div class="big--circle"></div>
+  <div class="trial--title">Multi Mais Filmes, Séries e TV.</div>
+
+  <div class="trial--subtitle">
+    <p>
+      Na Multi+ quem decide é você. Monte seu plano com filmes, séries, conteúdo
+      infantil,<br />
+      notícias, esportes, documentários, cursos, canais ao vivo e canais de
+      áudio. <br /><br />
+      Assista onde e quando quiser. O melhor do entretenimento em um único
+      lugar.
+    </p>
+  </div>
+
+  <div class="action">
+    <app-button classList="btn-primary" text="Quero experimentar" routerLink="/planos/multi"></app-button>
+    <p>Experimente por 7 dias e cancele a hora que quiser.</p>
+  </div>
+</div>
+
+<section class="section-two">
+  <div class="grid">
+    <div class="texto">
+      <img class="image" [src]="environment.bucket + 'icons/multi.png'" />
+      <div class="title">Mais de 50 canais de TV <br />ao vivo.</div>
+      <div class="text">
+        Acesse os melhores canais de TV, ao escolher o plano que mais combina
+        com os seus interesses. <br /><br />
+
+        Monte o seu HUB com canais variados e conteúdos diversos. <br /><br />
+
+        Na Multi + você tem acesso aos principais canais infantis, conteúdos
+        culinários, canais de notícia e muito mais. <br /><br />
+
+        Aproveite os melhores conteúdos para desfrutar em família. <br /><br />
+      </div>
+    </div>
+    <div class="slide">
+      <swiper [slidesPerView]="1" [pagination]="{ clickable: true }" [loop]="true">
+        <ng-template swiperSlide>
+          <img [src]="environment.bucket + 'slides/slide1.png'" width="90%" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img [src]="environment.bucket + 'slides/slide2.png'" width="90%" />
+        </ng-template>
+        <ng-template swiperSlide>
+          <img [src]="environment.bucket + 'slides/slide3.png'" width="90%" />
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
+</section>
+<div class="space-24"></div>
+<div class="section-three">
+  <div class="gradiente"></div>
+  <div class="background" [style.background-image]="'url(' + environment.bucket + 'bg/Group-829.png)'"></div>
+  <div class="container">
+    <img [src]="environment.bucket + 'logos/logo-paramount-lp.png'" class="paramount-logo" />
+
+    <div class="title">
+      Aproveite o pacote
+      <span><img [src]="environment.bucket + 'logos/logo-paramount-small.png'" class="logo-paramount" /></span>
+    </div>
+    <div class="text">
+      Tenha acesso aos melhores conteúdos que o streaming oferece, desde filmes
+      e séries, até os melhores canais e programas, para maratonar quando e como
+      quiser.
+    </div>
+    <div class="image">
+      <img [src]="environment.bucket + 'logos/logos.png'" />
+    </div>
+  </div>
+</div>
+<div class="space-32"></div>
+<div class="section-four">
+  <div class="container" [style.background-image]="'url(' + environment.bucket + 'bg/Group_113.png)'">
+    <div class="fade">
+      <div class="alignText">
+        <div class="title">
+          <h2>Leve sua paixão com você.</h2>
+        </div>
+        <div class="subtitle">Transmissões de esportes exclusivos!</div>
+        <div class="text">
+          Tenha acesso ao plano com canais de TV, ou assista aos conteúdos
+          exclusivos através da NSports. <br /><br />
+
+          Acesse os melhores canais de TV, ao escolher o plano que mais combina
+          com os seus interesses. <br /><br />
+
+          Monte o seu HUB com canais variados e conteúdos diversos. <br /><br />
+
+          Na Multi + você tem acesso aos principais canais infantis, conteúdos
+          culinários, canais de notícia e muito mais. <br /><br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section5">
+  <div class="container-section5">
+    <div class="container-left">
+      <div class="text-wrapper">
+        <p>Aqui <span class="color-text-blue">você</span> é quem decide!</p>
+        <p class="text-space">
+          Crie seus planos do <span class="color-text-blue">seu jeito</span>,
+          como
+          <span class="color-text-blue">você quiser.</span>
+        </p>
+        <p>
+          Filmes, séries, documentários, cursos de finanças, <br />
+          canais de tv ou app de áudio? <br /><br />
+        </p>
+        <p>Na Multi+ tem!</p>
+      </div>
+    </div>
+    <div class="container-right">
+      <app-welcome-carousel> </app-welcome-carousel>
+    </div>
+    <div class="circle-section5"></div>
+  </div>
+
+  <div class="hbomax">
+    <div class="background" [style.background-image]="
+        'url(' + environment.bucket + 'home/hbo-s7-bg.png)'
+      "></div>
+
+    <div *ngIf="!isMobile" class="header">
+      <div class="text">
+        <div class="text-top">
+          <p>A</p>
+          <img [src]="environment.bucket + 'hbo-max/hbo-max-log-hor.png'" />
+          <p>é uma plataforma de streaming que</p>
+        </div>
+        <div class="text-bottom">
+          <p>oferece conteúdos exclusivos para toda a família!</p>
+        </div>
+      </div>
+      <div class="subtitle">
+        <p>
+          Vantagens que só um assinante Multi+ tem. Um login, vários acessos.
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="isMobile" class="container-mobile">
+      <img [src]="environment.bucket + 'hbo-max/hbo-max-log-hor.png'" />
+      <p class="title">
+        é uma plataforma de streaming que oferece conteúdos exclusivos para toda
+        a família!
+      </p>
+      <p class="subtitle">
+        Vantagens que só um assinante Multi+ tem. Um login, vários acessos.
+      </p>
+    </div>
+
+    <div class="cards">
+      <app-section [hasPadding]="false" [data]="sectionCards" [properties]="{ orientation: 'vertical' }"
+        [cardOnly]="true"></app-section>
+    </div>
+  </div>
+
+  <div class="section5-b">
+    <div class="container-left">
+      <img [src]="environment.bucket + 'home/notebook.png'" alt="" />
+    </div>
+    <div class="container-right">
+      <div class="title-section5-b">
+        <div class="title">
+          <p>Somos muitos, somos MULTI plataformas para muitos dispositivos</p>
+        </div>
+        <!-- <div class="ver-mais">
+          <p>Saiba mais</p>
+        </div> -->
+      </div>
+      <div class="boxes">
+        <div class="box-1">
+          <div class="img-box">
+            <div class="tv-box"></div>
+            <div class="tv-box2"></div>
+          </div>
+          <div class="text-box">
+            <p>
+              Televisores android TV (Sony, TCL, Philco, AOC), SmartTV Samsung
+              (Tizen 2017-2020), Smart TV LG (WebOS 2018-2020)
+            </p>
+          </div>
+        </div>
+        <div class="box-1">
+          <div class="img-box">
+            <div class="browser-box"></div>
+            <div class="browser-box2"></div>
+          </div>
+          <div class="text-box">
+            <p>Chrome, Safari, Edge e outros.</p>
+          </div>
+        </div>
+        <div class="box-1">
+          <div class="img-box">
+            <div class="chorme-box"></div>
+            <div class="chorme-box2"></div>
+          </div>
+          <div class="text-box">
+            <p>Chromecast a partir da versão 2</p>
+          </div>
+        </div>
+        <div class="box-1">
+          <div class="img-box">
+            <div class="cellphone-box">
+              <div class="cellphone-box2"></div>
+            </div>
+          </div>
+          <div class="text-box last-text-box">
+            <p>
+              Devices IOS acima do 5, iPad acima do 2 com iOS acima da versão 9,
+              celulares e tablets a partir da versão Android 7.0 Nougat
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="faq">
+  <h3 class="faq--title">Ainda com dúvida?</h3>
+  <p class="faq--subtitle">
+    Criamos uma sessão com as principais dúvidas, e suas respectivas respostas,
+    para você consultar.
+  </p>
+  <div class="faq--questions">
+    <div class="faq--questions--question" *ngFor="let question of questions" appQuestion>
+      <div class="faq--questions--question--header">
+        <p class="faq--questions--question--header--title">
+          {{ question.title }}
+        </p>
+        <img [src]="environment.imageService + '/icons/arrow-down.svg'" alt="arrow-down"
+          class="faq--questions--question--header--arrow-down" />
+      </div>
+      <div class="faq--questions--question--body collapsed">
+        <p>{{ question.answer }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="faq--footer">
+    <p class="faq--footer--text">
+      Não encontrou o que procurava? Você pode encontrar mais dúvidas em nossa
+      página de perguntas frequentes.
+    </p>
+  </div>
+  <div class="faq--footer-div">
+    <a routerLink="/faq" class="faq--footer--redirect">Perguntas frequentes</a>
+  </div>
+</div>

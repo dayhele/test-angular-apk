@@ -1,0 +1,35 @@
+<div
+  class="container"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="register-confirmation">
+    <div class="header" (click)="goTo('login')">
+      <img src="assets/icons/close_small_icon.svg" />
+    </div>
+    <div class="body">
+      <img src="assets/icons/successful-purchase.svg" />
+      <h1>Ativação realizada com <span>sucesso</span>!</h1>
+      <div class="subtitles">
+        <p class="first">
+          Para realizar o login, utilize o e-mail informado <br />
+          pela sua operadora
+        </p>
+        <p class="email">{{ smsActivateData.userdata.email }}</p>
+        <p class="welcome">
+          Bem vindo ao universo Watch. Aproveite o <br />melhor do
+          entretenimento.
+        </p>
+      </div>
+      <app-button
+        text="Cadastrar perfil"
+        type="button"
+        classList="btn-primary"
+        (click)="goTo('login')"
+      ></app-button>
+      <p class="notice">
+        O SMS é apenas para ativação da conta. <br />Para login, utilize o
+        e-mail informado.
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div *ngIf="!loading; else loadingBlock" class="container">
+  <app-modal-pin *ngIf="showPinModal" (closeAction)="showPinModal = false" [profile]="selectedProfile"
+    (getPinInputed)="verifyPin($event)" [responsePin]="verifyPinSuccess" [responseEmail]="verifyEmailSuccess"
+    (getEmailInputed)="verifyEmail($event)"></app-modal-pin>
+
+  <div class="screen">
+    <h3>{{ getTitle() }}</h3>
+    <div class="screen--profiles">
+      <div *ngFor="let profile of profileList?.data" class="profile" [ngClass]="{ 'can-select': !isEditingProfile }"
+        (click)="selectProfile(profile)">
+        <div class="lock">
+          <img class="lock-icon" src="assets/icons/lock.svg" *ngIf="profile.use_pin" />
+        </div>
+
+        <div class="profile-edit-circle" *ngIf="isEditingProfile">
+          <a (click)="editProfile(profile)">
+            <img class="profile-edit-icon" src="assets/icons/edit-icon.svg" />
+          </a>
+        </div>
+        <div class="profile-image">
+          <img [src]="profile?.foto" *ngIf="profile?.foto !== ''; else image" />
+          <ng-template #image>
+            <img [src]="theme.client === 'watch' ? environment.bucket + 'profiles/orange.svg' : environment.bucket + 'profiles/pink.svg'" />
+          </ng-template>
+        </div>
+        <p class="profile-name">
+          {{ profile?.nome }}
+        </p>
+        <p class="kids" *ngIf="profile.kids">KIDS</p>
+      </div>
+      <div *ngIf="
+          !checkMobile &&
+          !isEditingProfile &&
+          profileList.data?.length! < profileList?.limitProfile! &&
+          (isManagePage || profileList.data?.length! === 0)
+        " routerLink="/profile/create" class="new-profile">
+        <div class="new-profile__image">
+          <img [src]="environment.bucket + 'icons/add_icon_small.svg'" />
+        </div>
+        <p class="new-profile__name">
+          {{ screen_x > 768 ? 'Novo perfil' : 'Novo' }}
+        </p>
+      </div>
+    </div>
+    <div class="screen--edit-profile" *ngIf="!checkMobile && !isEditingProfile">
+      <app-button *ngIf="isManagePage" [classList]="'btn-primary'" [text]="screen_x > 768 ? 'Editar perfil' : 'Editar'"
+        (click)="isEditingProfile = true"></app-button>
+    </div>
+    <div class="screen--cancel-edit-profile" *ngIf="isEditingProfile">
+      <app-button [classList]="'btn-secondary'" [text]="'Cancelar'" (click)="isEditingProfile = false"></app-button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingBlock>
+  <div class="loading">
+    <app-loading></app-loading>
+  </div>
+</ng-template>
+
+<div id="loading">
+  <app-loading> </app-loading>
+</div>

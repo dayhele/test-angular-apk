@@ -1,0 +1,68 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .background {
+    width: 100%;
+    height: calc(100vh - remc(40));
+    background-image: url('../../assets/splash/splash-watch.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    align-items: center;
+  }
+
+  .content {
+    background-color: var(--primary-dark);
+    display: flex;
+    text-align: center;
+    height: 70%;
+    justify-items: center;
+    flex-direction: column;
+    align-items: center;
+    padding: remc(34);
+    position: relative;
+
+    .button {
+      margin-top: remc(90);
+    }
+
+    .return {
+      bottom: remc(18);
+      position: absolute;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: remc(12);
+      line-height: remc(14);
+
+      text-align: center;
+      letter-spacing: -0.02em;
+      text-decoration-line: underline;
+      display: flex;
+      gap: remc(10);
+
+      color: #ffffff;
+    }
+
+    .logo {
+      margin-bottom: remc(34);
+    }
+  }
+
+  .faq {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+    letter-spacing: -0.02em;
+    -webkit-text-decoration-line: underline;
+    text-decoration-line: underline;
+    color: #ffffff;
+    position: absolute;
+    bottom: 1.0625rem;
+    width: 100%;
+    text-align: center;
+  }
+}

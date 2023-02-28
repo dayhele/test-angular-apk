@@ -1,0 +1,45 @@
+@import '../../../../themes/remc.scss';
+
+.container {
+  background-color: var(--background-tutorial);
+  padding-bottom: remc(150);
+
+  .menu-theme {
+    display: flex;
+    justify-content: space-between;
+    .title {
+      font-size: remc(40);
+      margin-top: remc(28);
+      margin-left: remc(96);
+    }
+    .button {
+      margin-top: remc(33);
+      margin-right: remc(48);
+    }
+  }
+  .step {
+    .title {
+      margin-top: remc(80);
+      margin-left: remc(96);
+      font-size: remc(40);
+      color: var(--text-tutorial);
+    }
+    .subtitle {
+      margin-top: 2vw;
+      margin-left: remc(96);
+      font-size: remc(24);
+    }
+    .text {
+      margin-top: 0.5vw;
+      margin-left: remc(96);
+      font-size: remc(14);
+      color: #fff;
+    }
+    .image {
+      height: auto;
+      width: 75%;
+      margin-top: remc(100);
+      margin-left: remc(96);
+    }
+  }
+}

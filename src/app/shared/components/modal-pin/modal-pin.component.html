@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="content">
+    <div class="close-button" (click)="closeAction.emit()">
+      <img src="{{ theme.modalPin.closeButton }}" />
+    </div>
+    <div class="profile">
+      <div class="profile-image">
+        <img [src]="profile.foto" *ngIf="profile?.foto !== ''; else image" />
+          <ng-template #image>
+            <img [src]="theme.client === 'watch' ? environment.bucket + 'profiles/orange.svg' : environment.bucket + 'profiles/pink.svg'" />
+          </ng-template>
+      </div>
+      <div class="lock" *ngIf="!checkDevice.isMobile()">
+        <img
+          class="lock-icon"
+          src="assets/icons/lock.svg"
+          *ngIf="profile.use_pin"
+        />
+      </div>
+      <p class="profile-name">{{ profile.nome }}</p>
+    </div>
+    <div class="modal-container-pin" *ngIf="!showRecoveryModal">
+      <div class="modal-header">
+        <p
+          class="modal-title"
+          *ngIf="responsePin === true || responsePin === undefined"
+        >
+          Insira aqui a sua senha de controle parental
+        </p>
+        <p class="modal-wrong-password" *ngIf="responsePin === false">
+          Senha incorreta
+        </p>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-center">
+          <app-input-pin
+            (valueEmitter)="getPinInputed.emit($event)"
+            [response]="responsePin"
+            autocomplete="new-password"
+          ></app-input-pin>
+        </div>
+        <div class="modal-recovery-password-button">
+          <a (click)="showRecoveryModal = true">Esqueci a minha senha</a>
+        </div>
+      </div>
+    </div>
+    <div class="modal-container-recovery-password" *ngIf="showRecoveryModal">
+      <p class="modal-title-send-email" *ngIf="responseEmail === undefined">
+        Para redefinir sua senha, informe seu e-mail cadastrado
+      </p>
+      <p class="modal-wrong-email" *ngIf="responseEmail === false">
+        E-mail não cadastrado entre em contato com seu provedor de internet
+      </p>
+      <p class="modal-title-password-sent" *ngIf="responseEmail === true">
+        Sua nova senha foi enviada para o e-mail cadastrado
+      </p>
+      <ng-container
+        *ngIf="responseEmail === undefined || responseEmail === false"
+      >
+        <app-input
+          [type]="'email'"
+          [placeholder]="'Digite seu email'"
+          [error]="responseEmail === false"
+          [(value)]="inputResetEmail"
+          (click)="responseEmail = undefined"
+        ></app-input>
+        <app-button
+          [ngClass]="{ 'hide-button': responseEmail === false }"
+          text="Enviar"
+          type="submit"
+          classList="btn-primary"
+          (click)="getEmailInputed.emit(inputResetEmail)"
+        >
+        </app-button>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,322 @@
+body {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 0.78125vw;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  background-color: #1c1c1f;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.container--logo {
+  display: block;
+  height: 7.55208vw;
+  margin: 4.94792vw auto 1.875vw;
+}
+
+.container--phrase {
+  font-size: 2.08333vw;
+  margin-bottom: 5.88542vw;
+  text-align: center;
+}
+
+.container--profiles {
+  text-align: center;
+}
+
+.container--profiles-profile {
+  display: inline-block;
+  margin: 0 auto;
+  width: 71vw;
+}
+
+.container--profiles-profile-prelist {
+  position: relative;
+  display: block;
+}
+
+.container--profiles-profile-list {
+  transform: translateZ(0);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.container--profiles-profile-list-track {
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+  display: flex;
+
+}
+
+.profile--item {
+  outline: none;
+  border: 1.52083vw  solid transparent;
+  height: 19.39583vw;
+  width: 17.0625vw;
+  min-width: 16.0625vw;
+  max-width: 17.0625vw;
+}
+
+.selected {
+  outline: none;
+  border: 0.52083vw solid #e86041;
+  border-radius: 12px;
+  height: 19.39583vw;
+  width: 14.0625vw;
+  transition: 2ms;
+}
+
+.profile--item-img {
+  border-radius: 50%;
+  height: 9.375vw;
+  margin: 1.92708vw auto;
+  width: 9.375vw;
+}
+
+.profile--item-text {
+  font-size: 1.97917vw;
+  overflow: hidden;
+  padding: 0.52083vw;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.container-popup {
+  display: none;
+ background-color: #1c1c1f;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 5;
+}
+
+.popup {
+  background-color: rgb(17, 21, 30);
+  display: block;
+  margin-left: 14.84375vw;
+  min-height: 26.5625vw;
+  padding-bottom: 1.30208vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70.3125vw;
+}
+
+.popup--text-title {
+  color: rgb(255, 255, 255);
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  text-align: center;
+  font-size: 3.5vw;
+  font-weight: 700;
+  margin-top: 4.16667vw;
+}
+
+.popup--text-description {
+  color: rgb(202, 202, 202);
+  font-size: 3vw;
+  font-weight: 200;
+  margin-left: 0.98958vw;
+  margin-right: 0.98958vw;
+  margin-top: 0.98958vw;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  text-align: center;
+}
+
+.popup--buttons {
+  margin-top: 7.5vw;
+  text-align: center;
+}
+
+.popup--buttons-button {
+  background-color: rgb(43, 44, 55);
+  color: rgb(255, 255, 255);
+  border-radius: 12px;
+  border: 0;
+  display: inline-block;
+  font-size: 1.5625vw;
+  font-weight: 700;
+  line-height: 1.5625vw;
+  margin-right: 0.83333vw;
+  padding: 0.78125vw 2.08333vw;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.selected-button {
+  background-color: #e86041;
+}
+
+body {
+  position: absolute;
+}
+
+.pin-keyboard--container {
+  z-index: 5;
+  position: relative;
+  backdrop-filter: blur(5px);
+  width: 100vw;
+  height: 92vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pin-keyboard--back-button {
+  position: absolute;
+  padding-left: 10vw;
+  padding-top: 3vw;
+  z-index: 6;
+}
+
+.pin-keyboard--header {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5vh;
+}
+
+.pin-keyboard--back-button-text {
+  font-size: 2.3vw;
+  font-weight: bold;
+  display: flex;
+}
+
+.pin-keyboard-text-voltar {
+  padding-left: 20px;
+}
+
+.pin-keyboard--profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.7vw;
+}
+
+.pin-keyboard--profile-img {
+  border-radius: 50%;
+  height: 10vw;
+  border: 4px solid #fff;
+}
+
+.pin-keyboard--body {
+  background: #20222e;
+  border-radius: 0.5vw;
+  padding: 0.5vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-keyboard--input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-keyboard--input-label {
+  font-size: 1.5vw;
+  max-width: 25vw;
+  line-height: 2vw;
+}
+
+.pin-keyboard--forget-link {
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+.pin-keyboard--input-field {
+  background: #1b1c26;
+  font-size: 2vw;
+  width: 20vw;
+  line-height: 0;
+  text-align: center;
+  border-radius: 0.5vw;
+  border: 2px solid #6f6f77;
+}
+
+.pin-keyboard--buttons-up {
+  display: flex;
+}
+.pin-keyboard--buttons-down {
+  display: flex;
+}
+
+.pin-keyboard--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.5vw;
+  height: 10vh;
+  width: 10vh;
+  background: #2a2a36;
+  margin: 0.2vw;
+}
+.pin-keyboard--button-xl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.5vw;
+  height: 10vh;
+  width: 18vh;
+  background: #2a2a36;
+  margin: 0.2vw;
+}
+
+.backspace-button {
+  height: 7.7vh;
+  width: 7.7vh;
+}
+
+.background-active {
+  background: #e86041;
+}
+.text-active {
+  color: #e86041;
+}
+.text-wrong {
+  color: #ff3b3b;
+}
+.text-white {
+  color: white;
+}
+
+.container-popup-offline {
+  background-color: #1c1c1f;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 5;
+  display: none;
+}

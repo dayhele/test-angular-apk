@@ -1,0 +1,137 @@
+<div class="container" *ngIf="!showModal">
+  <div class="texts">
+    <h3>Tem alguma sugestão?</h3>
+    <p>
+      Sua opnião é muito importante para nós, assim podemos melhorar os <br />
+      serviços. Deixe aqui um feedback sobre a Watch
+    </p>
+  </div>
+  <div class="inputs">
+    <div class="input">
+      <h3>Nome:</h3>
+      <input
+        type="text"
+        placeholder="Insira o seu nome"
+        name="name"
+        ngDefaultControl
+        #name="ngModel"
+        required
+        [(ngModel)]="form.nome"
+      />
+      <div class="error" *ngIf="name.errors?.['required'] && name.touched">
+        <p>Nome é obrigatório</p>
+      </div>
+    </div>
+    <div class="input">
+      <h3>Cidade:</h3>
+      <input
+        class="city-input"
+        type="text"
+        name="city"
+        ngDefaultControl
+        [(ngModel)]="form.cidade"
+        #city="ngModel"
+        required
+      />
+      <div class="error" *ngIf="city.errors?.['required'] && city.touched">
+        <p>Cidade é obrigatório</p>
+      </div>
+    </div>
+    <div class="plataforms input">
+      <h3>Plataforma:</h3>
+      <p>
+        Escolha uma plataforma onde você acredita que a sua sugestão se encaixe.
+      </p>
+      <div class="checkboxs">
+        <div class="checkbox">
+          <mat-checkbox
+            [(ngModel)]="allSelected"
+            [value]="allPlataforms"
+            (change)="setAll($event.checked)"
+          >
+            <p>
+              {{ allPlataforms.value }}
+            </p>
+          </mat-checkbox>
+          <mat-checkbox
+            *ngFor="let plataform of allPlataforms.plataforma"
+            [(ngModel)]="plataform.isSelected"
+            (ngModelChange)="updateAllSelected()"
+          >
+            <p>
+              {{ plataform.value }}
+            </p>
+          </mat-checkbox>
+        </div>
+        <div class="error" *ngIf="plataformError">
+          <p>Plataforma é obrigatório</p>
+        </div>
+      </div>
+    </div>
+    <div class="select input">
+      <h3>Assunto:</h3>
+      <div class="select-topic" (click)="selectedOpen = !selectedOpen">
+        <img src="assets/icons/black-arrow-down.png" />
+        <p>{{ form.assunto || 'Escolha o assunto desejado' }}</p>
+      </div>
+      <div class="option-topic" *ngIf="selectedOpen">
+        <div *ngFor="let assunto of assuntos; let index = index" class="option">
+          <p (click)="form.assunto = assunto; selectedOpen = false">
+            {{ assunto }}
+          </p>
+          <div class="divider" *ngIf="index === 1"></div>
+        </div>
+      </div>
+      <div class="error" *ngIf="topicError">
+        <p>Assunto é obrigatório</p>
+      </div>
+    </div>
+    <div class="input textarea">
+      <h3>Comentário:</h3>
+      <p>
+        Deixe aqui um feedback, sugestão, problema identificado ou reclamação.
+      </p>
+      <textarea
+        placeholder="Insira aqui o seu comentário em até 1.200 caracteres"
+        maxlength="1200"
+        [(ngModel)]="form.feedback"
+        name="observation"
+        ngDefaultControl
+        required
+        #observation="ngModel"
+      ></textarea>
+      <div
+        class="error"
+        *ngIf="observation.errors?.['required'] && observation.touched"
+      >
+        <p>Comentário é obrigatório</p>
+      </div>
+    </div>
+  </div>
+  <app-button text="Enviar" (click)="sendForm()"></app-button>
+</div>
+<div class="modal-container" *ngIf="showModal">
+  <div class="modal-box">
+    <img
+      class="close-icon"
+      src="assets/icons/close_small_icon.svg"
+      alt="fechar"
+      (click)="goHome()"
+    />
+    <img
+      class="success-icon"
+      src="assets/icons/feedback-success.png"
+      alt="sucesso"
+    />
+    <p class="message">A sua sugestão foi enviada com sucesso!</p>
+    <app-button
+      class="button"
+      classList="btn-primary"
+      text="Ir para a home"
+      (click)="goHome()"
+    ></app-button>
+    <a class="message-bottom" (click)="newFeedback()"
+      >Enviar uma nova sugestão</a
+    >
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<a (click)="cardClick()">
+  <div
+    class="card-link"
+    [ngClass]="{ onlyView: onlyView }"
+    *ngIf="cardProperties"
+    [ngSwitch]="cardProperties.orientation"
+  >
+    <div *ngSwitchCase="'horizontal'">
+      <div
+        *ngIf="!!cardProperties?.smallCard"
+        class="card"
+        [class.horizontalSmall]="!small"
+        [class.has-content-card]="small"
+      >
+        <img
+          [class.disabled]="isExpired"
+          class="image"
+          [src]="data?.imageUrl ?? cardImage"
+        />
+      </div>
+    </div>
+
+    <div *ngSwitchDefault>
+      <div class="card">
+        <div *ngIf="cardProperties.movieLogo" class="card__movie-logo">
+          <img
+            *ngIf="screen_x > 768"
+            src="{{
+              environment.imageService
+            }}/icons/channels-brands/paramount.svg"
+            alt="logo"
+          />
+        </div>
+        <div *ngIf="screen_x <= 768" class="logo-mobile">
+          <p>Nickelodeon</p>
+        </div>
+        <div
+          *ngIf="!!cardProperties?.rentable && this.screen_x <= 768"
+          class="rent-label"
+        >
+          <p>ADQUIRIR</p>
+        </div>
+        <img
+          class="image"
+          [class.disabled]="isExpired"
+          [src]="data?.imageUrl ?? cardImage"
+        />
+      </div>
+    </div>
+  </div>
+</a>

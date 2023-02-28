@@ -1,0 +1,9 @@
+<select
+  [(ngModel)]="value"
+  [className]="error ? 'error' : ''"
+  (change)="onChange()"
+>
+  <option *ngFor="let option of options" [value]="option.methodId">
+    {{ option.methodText }}
+  </option>
+</select>

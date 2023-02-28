@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="container--header" *ngIf="hasClose">
+    <img src="assets/icons/close_small_icon.svg" />
+  </div>
+  <div class="container--body">
+    <img src="assets/icons/successful-purchase.svg" />
+    <p class="title ">Ativação realizada com sucesso!</p>
+     <p> Bem vindo ao universo {{theme.clientName}}.
+      Aproveite o melhor do entretenimento.</p>
+    <app-button
+      [text]="'Acessar sua conta'"
+      [type]="'button'"
+      [classList]="'btn-primary'"
+      (click)="confirm()"
+    ></app-button>
+  </div>
+</div>

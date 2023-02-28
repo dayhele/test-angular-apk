@@ -1,0 +1,27 @@
+#card {
+  margin-top: 280px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.pre-save-loading-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .pre-save-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loading-text {
+      max-width: 100%;
+    }
+  }
+}

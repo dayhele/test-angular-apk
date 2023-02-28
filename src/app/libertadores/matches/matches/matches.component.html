@@ -1,0 +1,23 @@
+<app-section *ngIf="data?.liveMatches && data?.liveMatches?.data?.length! > 0 " [title]="data?.liveMatches?.title!"
+  [properties]="{
+    orientation: 'horizontal',
+    isLive: true,
+    secondDescription: true,
+    day: true,
+    sportTitle: true,
+    rentable: false,
+    rentMovieTitle: false
+  }" [data]="data?.liveMatches?.data ?? []" [isNSportsCard]="false" [isConmebolLibertadores]="true">
+</app-section>
+<app-section *ngIf="data?.isComingSoonMatches && data?.isComingSoonMatches?.data?.length! > 0"
+  [noClick]="true"
+  [title]="data?.isComingSoonMatches?.title!" [properties]="{
+    orientation: 'horizontal',
+    isLive: false,
+    secondDescription: true,
+    day: true,
+    sportTitle: true,
+    rentable: false,
+    rentMovieTitle: false
+  }" [data]="data?.isComingSoonMatches?.data ?? []" [isNSportsCard]="false" [isConmebolLibertadores]="true">
+</app-section>

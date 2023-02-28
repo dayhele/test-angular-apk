@@ -1,0 +1,37 @@
+<div *ngIf="checkMobile" class="return">
+  <a (click)="goBack()">
+    <div class="return-icon">
+      <img
+        width="30px"
+        src="assets/icons/button/arrow-return-left.svg"
+        alt="return"
+      />
+    </div>
+  </a>
+</div>
+
+<div class="container">
+  <div class="header">
+    <div class="title">
+      <h2>O que é a Multi+?</h2>
+    </div>
+    <div class="subtitle">
+      <p>
+        A Multi+ é o conjunto de streamings e canais de TV ao vivo. Tudo em um
+        só aplicativo, em um único lugar para você assistir quando e onde
+        quiser. Na Multi+ você tem um mundo de opções que incluem seus canais de
+        tv favoritos, as melhores séries e filmes mais recentes do cinema.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <ng-container *ngFor="let item of faqList">
+    <h4 class="question" (click)="item.showing = !item.showing">
+      {{ item.question }}
+    </h4>
+    <div class="answer-content" *ngIf="item.showing">
+      <p class="answer" *ngFor="let i of item.answer">{{ i }}</p>
+    </div>
+  </ng-container>
+</div>

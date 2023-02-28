@@ -1,0 +1,217 @@
+@import '../../../../themes/remc.scss';
+
+.toast {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  padding: remc(16) remc(56);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 12;
+
+  @media only screen and (hover: none) and (pointer: coarse) {
+    padding: 1rem 1.5rem;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+
+    .icon {
+      width: remc(54);
+      height: remc(54);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: remc(42);
+      z-index: 32px;
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        width: remc(38);
+        height: remc(38);
+        margin-top: remc(45);
+      }
+
+      img {
+        width: remc(28);
+        height: remc(28);
+
+        @media only screen and (hover: none) and (pointer: coarse) {
+          width: remc(14);
+          height: remc(14);
+        }
+      }
+    }
+
+    .icon-reg{
+      margin-top: remc(18);
+      margin-bottom: remc(18);
+      margin-right: remc(57);
+      margin-left: remc(170);
+    }
+
+    .title-reg{
+      margin-top: remc(25);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .main {
+      height: 100%;
+      color: var(--white);
+
+      .title {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .description {
+        width: 48vw;
+        font-size: 12px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  .timer{
+    display: flex;
+    flex-direction: row;
+
+    .timer-count{
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      padding-right: remc(20);
+
+      .timer-count-item{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+      }
+
+      .timer-count-desc{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+      }
+    }
+
+    .timer-title{
+      margin-top: remc(20);
+      margin-right: remc(14);
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .main-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-right: remc(1);
+      margin-top: remc(10);
+      height: remc(43);
+      width: remc(168);
+      margin-left: remc(21);
+      padding: remc(6) remc(24);
+      color: var(--white);
+      border: 1px solid var(--white);
+      border-radius: remc(40);
+      cursor: pointer;
+
+    }
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main-button {
+      padding: remc(6) remc(24);
+      color: var(--white);
+      border: 1px solid var(--white);
+      border-radius: remc(16);
+      cursor: pointer;
+    }
+
+    .close-button {
+      width: remc(24);
+      height: remc(24);
+      cursor: pointer;
+      margin-left: 14vw;
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        margin-top: remc(-108);
+        margin-left: 1vw;
+      }
+    }
+  }
+}
+
+.toast_15d {
+  background-color: #e96744;
+
+  .content {
+    background-color: #e96744;
+
+    .icon {
+      background-color: #ff4d4d;
+    }
+  }
+}
+
+.toast_7d {
+  background-color: #b31c1c;
+
+  .content {
+    background-color: #b31c1c;
+
+    .icon {
+      background-color: #942323;
+    }
+  }
+}
+
+.toast_reg{
+  background: rgba(229, 30, 42, 0.8);
+  mix-blend-mode: normal;
+
+  @media (max-width:480px) {
+    display: none;
+  }
+}
+
+.toast_30d {
+  background-color: #24ac7c;
+
+  .content {
+    background-color: #24ac7c;
+
+    .icon {
+      background-color: #34b890;
+    }
+  }
+}

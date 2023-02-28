@@ -1,0 +1,67 @@
+<div class="container-web" *ngIf="!isMobile">
+  <div class="header-area">
+    <img class="logo" *ngIf="theme.client === 'multilaser'"
+      [src]="environment.bucket + 'produtos-adicionais/m-plus-logo.png'" />
+    <p>Como acessar os adicionais</p>
+  </div>
+  <div class="content">
+    <div class="left-content">
+      <div class="link" routerLink="hbo-max-tutorial/web">
+        <p [class.disabled]="selectedOption !== 'hbo-max-tutorial'">
+          Como acessar a HBO Max?
+        </p>
+        <img [class.opened]="selectedOption === 'hbo-max-tutorial'" class="arrow" src="assets/icons/arrow_right.svg" />
+      </div>
+      <!-- <div class="link">
+        <p [class.disabled]="selectedOption !== 'directv'">Como acessar a DirecTV GO?</p>
+        <img [class.opened]="selectedOption === 'directv'" class="arrow" src="assets/icons/arrow_right.svg">
+      </div> -->
+      <!-- <div class="link" routerLink='stingray-tutorial/web'>
+        <p [class.disabled]="selectedOption !== 'stingray-tutorial'">Como acessar Stingray Music?
+        </p>
+        <img [class.opened]="selectedOption === 'stingray-tutorial'" class="arrow" src="assets/icons/arrow_right.svg">
+      </div> -->
+    </div>
+    <div class="right-content">
+      <div class="selector">
+        <app-platform-selector [parentRoute]="router.url"></app-platform-selector>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<div class="container-mobile" *ngIf="isMobile">
+  <div class="header-area">
+    <img class="logo"
+      src="environment.bucket + 'produtos-adicionais/m-plus-logo.png" />
+    <p>Como acessar os adicionais</p>
+  </div>
+  <div class="selector"></div>
+  <div class="menu">
+    <div class="link">
+      <p [class.disabled]="selectedOption !== 'hbo-max-tutorial'">
+        Como acessar a HBO Max?
+      </p>
+      <img [class.opened]="selectedOption === 'hbo-max-tutorial'" class="arrow" src="assets/icons/arrow-down.svg" />
+    </div>
+    <mat-expansion-panel #accordionHBO [expanded]="selectedOption === 'hbo'">
+    </mat-expansion-panel>
+    <div class="link">
+      <p [class.disabled]="selectedOption !== 'directv'">
+        Como acessar a DIRECT TV GO?
+      </p>
+      <img [class.opened]="selectedOption === 'directv'" class="arrow" src="assets/icons/arrow-down.svg" />
+    </div>
+    <mat-expansion-panel #accordionDTV [expanded]="selectedOption === 'directv'">
+    </mat-expansion-panel>
+    <div class="link">
+      <p [class.disabled]="selectedOption !== 'stingray-tutorial'">
+        Como acessar a STINGRAY?
+      </p>
+      <img [class.opened]="selectedOption === 'stingray-tutorial'" class="arrow" src="assets/icons/arrow-down.svg" />
+    </div>
+    <mat-expansion-panel #accordionSting [expanded]="selectedOption === 'stingray'">
+    </mat-expansion-panel>
+  </div>
+</div>

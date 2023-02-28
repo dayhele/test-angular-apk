@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="../../axios/axios.min.js"></script>
+  </head>
+
+  <body id="testeoffline">
+    <div class="container-popup" id="containerPopup">
+      <div class="popup">
+        <div class="popup--text-title">FECHAR SESSAO?</div>
+        <p class="popup--text-description">
+          Tem certeza que deseja fechar a sessão?
+        </p>
+        <div class="popup--buttons">
+          <button class="popup--buttons-button" id="keepSection">
+            MANTER SESSÃO
+          </button>
+          <button class="popup--buttons-button" id="closeSection">
+            FECHAR SESSÃO
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="menu-container">
+      <header class="container--header">
+        <div class="container--header-icon">
+          <img src="../../images/header-logo.png" />
+        </div>
+        <div class="container--header-items">
+          <div class="header--items">
+            <div
+              onclick="goTo('../home/index.html')"
+              class="header--item"
+              id="item-0"
+            >
+              Home
+            </div>
+            <div
+              onclick="goTo('../movie/index.html')"
+              class="header--item"
+              id="item-1"
+            >
+              Filmes
+            </div>
+            <div
+              onclick="goTo('../series/index.html')"
+              class="header--item"
+              id="item-2"
+            >
+              Séries
+            </div>
+            <div
+              onclick="goTo('../live/index.html')"
+              class="header--item"
+              id="item-3"
+            >
+              AO VIVO
+            </div>
+            <div
+              onclick="goTo('../favorites/index.html')"
+              class="header--item"
+              id="item-4"
+            >
+              Favoritos
+            </div>
+            <div class="header--items-sp">
+              <div
+                onclick="goTo('../filters/index.html')"
+                class="header--items-search"
+                id="item-5"
+              >
+                <img class="item-search-img" id="item-5-img" />
+              </div>
+              <div
+                onclick="goTo('../profile-user/index.html')"
+                class="header--items-settings"
+                id="item-6"
+              >
+                <img class="item-settings-img" id="item-6-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="container-options">
+      <div class="box-left box-left-item">
+        <ul>
+          <li onclick="clickTerms()" class="box-left-item" id="terms">
+            <p id="terms-text">TERMOS DE USO</p>
+          </li>
+          <li onclick="clickProfiles()" class="box-left-item" id="user">
+            PERFIL
+          </li>
+          <li onclick="logout()" class="box-left-item" id="logout">LOGOUT</li>
+          <li class="versão">Versão 2.2.16</li>
+        </ul>
+      </div>
+      <div class="box-right" id="box-right">
+        <div class="container-dinamic-terms" id="container-dinamic-terms">
+          <div class="user-terms">
+            <h1>Termos de Uso e Privacidade Vero Vídeo</h1>
+
+            <h3>Sobre os Termos de Uso e Privacidade</h3>
+
+            <p>
+              Sua privacidade é importante para a Vero Internet. Por isso,
+              desenvolvemos uma Política de Privacidade que abrange a forma como
+              coletamos, usamos, divulgamos, transferimos e armazenamos suas
+              informações pessoais.
+            </p>
+
+            <p>
+              Transparência e respeito são os pilares que sustentam uma relação
+              tão importante quanto a nossa e, por isso, você pode continuar
+              confiando
+            </p>
+
+            <p>
+              A nossa política de privacidade é para assegurar que suas
+              informações são o nosso bem mais valioso.
+            </p>
+
+            <p>
+              Estes termos são válidos entre você, USUÁRIO, e a Vero Internet.
+              Lembramos que estes termos deverão ser respeitados por todos
+              visitantes e usuários. Toda vez que você acessar, navegar ou
+              utilizar o serviço, você estará automaticamente de acordo com os
+              termos deste contrato.
+            </p>
+
+            <p>
+              Todos os avisos, regulamentos de uso e instruções passados pela
+              Vero Internet para seus usuários e visitantes fazem parte dos
+              Termos de Uso e Privacidade.
+            </p>
+
+            <h2>Definições</h2>
+
+            <p>
+              Para facilitar a compreensão deste Termo de Uso e Privacidade,
+              devem ser considerados os seguintes conceitos:
+            </p>
+
+            <p>
+              Conta de Acesso: Credencial de um usuário cadastrado que permite o
+              acesso à área restrita e às funcionalidades exclusivas, que é
+              definida por nome de usuário (login) e senha.
+            </p>
+
+            <p>
+              Layout: Conjunto compreendido entre aparência, design e fluxos do
+              site.
+            </p>
+
+            <p>Link: Terminologia para endereço de Internet.</p>
+
+            <p>
+              Login: Nome de usuário escolhido pelo visitante quando preenche o
+              cadastro para acesso a funcionalidades exclusivas do portal.
+            </p>
+
+            <p>
+              Logon: Ato de o visitante cadastrado ingressar na área restrita do
+              portal utilizando login e senha.
+            </p>
+
+            <p>
+              Logs: Registros de atividades do visitante efetuadas no portal.
+            </p>
+
+            <p>
+              Senha: Conjunto de caracteres que serve como prova de identidade
+              digital do usuário, cujo conhecimento deve ser exclusivo e único.
+            </p>
+
+            <p>
+              Webmastering: Compreende criação, programação, desenvolvimento,
+              controle e disponibilidade de páginas de Internet.
+            </p>
+
+            <p>
+              Cookies: Um cookie é um arquivo pequeno que contém uma sequência
+              de caracteres. Ele é enviado para seu computador quando você
+              visita um site. Quando você acessa o site novamente, o cookie
+              permite que o site reconheça seu navegador. Os cookies podem
+              armazenar as preferências do usuário e outras informações. É
+              possível configurar seu navegador para recusar todos os cookies ou
+              avisar quando um cookie estiver sendo enviado. No entanto, alguns
+              recursos ou serviços do site podem não funcionar adequadamente sem
+              cookies.
+            </p>
+
+            <p>
+              Serviço: O serviço permitirá a você acessar o conteúdo digital
+              através de uma assinatura, durante o tempo limitado do período da
+              assinatura.
+            </p>
+
+            <p>
+              Usuário: Qualquer pessoa física com 18 anos completos ou pessoa
+              física legalmente capaz de praticar os atos da vida civil
+              (emancipada) que acesse a área restrita do site ou do aplicativo,
+              mediante uma conta de acesso.
+            </p>
+
+            <p>
+              Dado pessoal: Informação relacionada a pessoa natural identificada
+              ou identificável.
+            </p>
+
+            <p>
+              Base legal para coleta de dados pessoais: fundamento legal que
+              permite a coleta e tratamento de dados pessoais, nos termos da
+              legislação.
+            </p>
+
+            <p>
+              Consentimento expresso: manifestação livre, informada e inequívoca
+              pela qual o titular concorda com o tratamento de seus dados
+              pessoais para uma finalidade determinada.
+            </p>
+
+            <p>
+              Finalidade: realização do tratamento para propósitos legítimos,
+              específicos, explícitos e informados ao titular.
+            </p>
+
+            <h3>Objeto</h3>
+
+            <p>
+              Através do aplicativo móvel, a Vero Internet disponibilizará aos
+              Usuários o acesso a diversos conteúdos, como filmes digitais e
+              outros conteúdos de vídeo, alocados em de um catálogo de títulos,
+              para visualização durante o período de sua assinatura.
+            </p>
+
+            <p>Coleta e uso de dados pessoais</p>
+
+            <p>
+              Quando um Usuário utiliza a plataforma Vero Vídeo, nós coletamos
+              alguns dados pessoais, como o nome e o histórico de conteúdos
+              acessados. Além disso, iremos monitorar os acessos ao aplicativo
+              para garantir o uso dos serviços dentro dos parâmetros legais.
+            </p>
+
+            <h3>Consentimento</h3>
+
+            <p>
+              Ao utilizar e acessar a plataforma Vero Vídeo, você concorda com
+              os termos da presente Política de Privacidade e autoriza,
+              expressamente, a coleta, tratamento e uso dos dados pessoais, tal
+              como exposto na tabela abaixo.
+            </p>
+
+            <h3>Compartilhamento e tratamento dos dados pessoais</h3>
+
+            <p>
+              Respeitando todos os níveis de segurança e demais preceitos desta
+              Política de Privacidade, a Vero Internet compartilhará seus dados
+              pessoais com a empresa WATCH TV ENTRETENIMENTOS LTDA – ME,
+              detentora dos direitos de transmissão do conteúdo e nossa parceira
+              comercial.
+            </p>
+
+            <p>
+              Ainda, respeitando os limites legais, e dentro das finalidades
+              acima expostas, a Vero também poderá compartilhar os dados obtidos
+              com:
+            </p>
+
+            <p>a) sociedades do mesmo Grupo Econômico.</p>
+
+            <p>
+              b) sociedades e consultores externos que venham a auxiliar no
+              aprimoramento do aplicativo móvel e dos níveis de segurança dos
+              bancos de dados.
+            </p>
+
+            <p>
+              c) autoridades competentes, em decorrência de obrigação
+              regulamentar, legal ou requisição judicial
+            </p>
+
+            <p>
+              Com relação ao item ‘b’, a Vero Internet esclarece que realizará
+              um controle rígido para contratar empresas e consultores externos,
+              ressaltando que, no caso da contratação destes parceiros,
+              realizará uma análise prévia a respeito das políticas de
+              governança e dos níveis de segurança da base de dados do novo
+              parceiro comercial.
+            </p>
+
+            <h3>Crianças e adolescentes</h3>
+
+            <p>
+              A Vero Internet não coleta intencionalmente dados de crianças e
+              adolescentes, fornecendo o acesso ao aplicativo móvel para
+              Usuários que possuam 18 anos ou mais. Caso você suspeite que
+              qualquer dado pessoal de uma criança ou adolescente foi coletado
+              sem o consentimento expresso dos responsáveis, solicitamos que
+              entre em contato no e-mail app@minhavero.com.br, solicitando a
+              exclusão imediata destes dados.
+            </p>
+
+            <h3>Como você pode acessar seus dados pessoais?</h3>
+
+            <p>
+              Suas informações estarão disponíveis em nosso banco de dados e
+              você poderá:
+            </p>
+
+            <p>
+              a) solicitar a exclusão dos dados pessoais, desde que eles não
+              sejam mais necessários para a finalidade disposta acima.
+            </p>
+
+            <p>b) solicitar uma cópia de seus dados pessoais.</p>
+
+            <p>c) alterar ou corrigir os dados pessoais fornecidos.</p>
+
+            <p>
+              As informações acima poderão ser acessadas por meio de solicitação
+              feita no e-mail app@minhavero.com.br
+            </p>
+
+            <h3>Segurança dos dados pessoais e precauções</h3>
+
+            <p>
+              Todos os dados pessoais coletados serão armazenados na base de
+              dados interna da Vero ou na “nuvem”. As bases de dados da Vero e
+              de eventuais parceiros que venham a ter acesso aos dados pessoais
+              dos Usuários são protegidas por diversos procedimentos de
+              segurança, de modo que a confidencialidade e a integridade dos
+              dados sejam protegidas.
+            </p>
+
+            <p>
+              Todavia, ainda que a Vero adote diversas medidas de segurança, o
+              usuário está plenamente ciente de que podem ocorrer falhas físicas
+              ou remotas de segurança, o que pode comprometer a integridade e
+              confidencialidade dos dados pessoais. Assim, a Vero não garante,
+              expressa ou implicitamente, que evitará totalmente o acesso não
+              autorizado a tais informações.
+            </p>
+
+            <p>
+              Vale lembrar que sua conta de acesso, login e senha, são de uso
+              pessoal e que a navegação é de sua inteira responsabilidade. A
+              Vero Internet não se responsabiliza pelos atos praticados por seus
+              visitantes e usuários no ambiente oferecido pelo aplicativo móvel,
+              devendo cada um ser imputado de acordo com a qualidade do uso da
+              plataforma.
+            </p>
+
+            <h3>Transferência internacional de dados</h3>
+
+            <p>
+              Os dados pessoais fornecidos pelos usuários poderão ser
+              transferidos internacionalmente, uma vez que os servidores de
+              nossa plataforma estão localizados em outros países.
+            </p>
+
+            <h3>O que o usuário não pode fazer?</h3>
+
+            <p>
+              Reproduzir, distribuir, publicar ou transmitir conteúdo por
+              quaisquer meios a terceiros, permitindo o acesso a informações nos
+              sites, aplicativos ou mesmo acesso a serviços não contratados,
+              através do uso de nomes de usuários ou senhas, de qualquer
+              maneira, é rigorosamente proibido.
+            </p>
+
+            <p>
+              Não é permitido aos visitantes e usuários acessarem as áreas de
+              programação do aplicativo móvel, seus bancos de dados ou qualquer
+              conjunto de informações que faça parte da atividade de
+              webmastering, ficando sujeito quem o fizer à legislação penal
+              brasileira e obrigado a reparar os danos que causar.
+            </p>
+
+            <h3>Utilização do aplicativo móvel e dos seus conteúdos</h3>
+
+            <p>
+              A disponibilização dos conteúdos pela Vero Internet somente
+              ocorrerá mediante o fornecimento de algumas informações sobre o
+              usuário, essas informações serão solicitadas a você para criação
+              da sua conta de acesso.
+            </p>
+
+            <p>
+              Pelo aceite destes termos, o usuário compromete-se a utilizar o
+              aplicativo móvel e os seus conteúdos em conformidade com a lei,
+              com o disposto nestes Termos de Uso e Privacidade, com a moral, os
+              bons costumes e com a ordem pública. Da mesma forma, se obriga a
+              não utilizar o aplicativo móvel e seus conteúdos de forma nociva
+              aos direitos e interesses de terceiros, ou de qualquer forma que
+              possa vir a causar dano, sobrecarregar, inutilizar ou impedir a
+              normal utilização das plataformas Vero Internet e dos seus
+              conteúdos.
+            </p>
+
+            <p>
+              O usuário obriga-se a utilizar os conteúdos de forma lícita e,
+              além disso:
+            </p>
+
+            <p>
+              - Se abstém de copiar, distribuir, modificar, divulgar o conteúdo
+              ao público através de qualquer modalidade de comunicação; de
+              modificar os conteúdos, a menos que obtenha autorização da Vero
+              Internet;
+            </p>
+
+            <p>
+              - Se abstém de eliminar ou manipular o copyright ou outros dados
+              que identifiquem os direitos da Vero Internet ou ainda direitos
+              incorporados ao aplicativo móvel e seus conteúdos de propriedade
+              de terceiros, bem como os dispositivos de proteção, as marcas ou
+              quaisquer mecanismos de informação.
+            </p>
+
+            <h3>Do acesso ao conteúdo</h3>
+
+            <p>
+              A Vero Internet concede a você uma licença limitada, não
+              exclusiva, não transferível, não sublicenciável, durante o período
+              de acesso aplicável, para acessar e visualizar o conteúdo digital
+              em conformidade com as regras de uso e privacidade, para uso
+              pessoal, não comercial e privado.
+            </p>
+
+            <p>
+              A Vero Internet poderá remover automaticamente o conteúdo digital
+              do seu dispositivo compatível após o término do período de acesso.
+              O referido acesso ao conteúdo é sujeito ao pagamento de valores
+              para acessar o conteúdo digital, e ao adimplemento de todos os
+              termos dos Contratos de Prestação de Serviço firmados entre o
+              Usuário e a Vero Internet.
+            </p>
+
+            <p>
+              Qualidade: a qualidade e resolução de reprodução do conteúdo
+              digital que você recebe dependerá de um número de fatores,
+              incluindo o tipo de dispositivo compatível no qual você está
+              acessando o conteúdo digital e a velocidade da sua conexão, que
+              poderá aumentar ou diminuir durante a visualização. Mesmo fazendo
+              o máximo esforço para fornecer uma experiência de alta qualidade
+              de visualização, não oferecemos garantias quanto à resolução ou
+              qualidade do conteúdo digital ao qual você terá acesso por
+              streaming, mesmo que tenha pago um valor extra para ter conteúdo
+              de alta definição (HD), de ultra-alta definição (UHD) ou de grande
+              alcance dinâmico (HDR)
+            </p>
+
+            <p>
+              Ressalta-se, também, que é ônus dos visitantes e usuários arcar
+              com os meios necessários para navegar no aplicativo móvel,
+              incluindo acesso à Internet.
+            </p>
+
+            <h3>Retenção dos dados pessoais</h3>
+
+            <p>
+              Os dados pessoais fornecidos serão armazenados até o requerimento
+              de exclusão da base de dados ou o término do prazo de guarda
+              legal.
+            </p>
+
+            <p>
+              Caso o Usuário venha a solicitar a exclusão antes do término do
+              prazo de guarda legal, a Vero poderá, a seu exclusivo critério,
+              manter os dados para cumprir as obrigações regulamentares e
+              legais.
+            </p>
+
+            <h3>Aplicativos e websites associados à Marca Vero</h3>
+
+            <p>
+              Esta Política de Privacidade abrange apenas o aplicativo móvel
+              Vero Vídeo, e não abrange o acesso a outros aplicativos ou
+              websites associados à marca Vero.
+            </p>
+
+            <h3>Como entrar em contato conosco?</h3>
+
+            <p>
+              Se tiver comentários ou dúvidas sobre esta Política de
+              Privacidade, envie um e-mail para app@minhavero.com.br,
+              mencionando expressamente este documento.
+            </p>
+
+            <h3>Alterações à política</h3>
+
+            <p>
+              A Vero poderá, a seu critério, alterar, incluir ou retirar
+              qualquer disposição do presente documento. Caso a Vero venha a
+              alterar esta Política de Privacidade, dará a publicidade adequada
+              à alteração e solicitará novo consentimento dos Usuários.
+            </p>
+
+            <p>
+              Em quaisquer das hipóteses listadas acima, o Usuário será
+              informado sobre as alterações realizadas, ficando autorizado, caso
+              venha a discordar das alterações, a cancelar o seu consentimento
+              para tratamento dos dados pessoais.
+            </p>
+
+            <h3>Mediação e foro de eleição</h3>
+
+            <p>
+              Este documento está sujeito às Lei do Brasil e, para dirimir
+              qualquer controvérsia com relação a ele, o Foro da Comarca de São
+              Paulo é o competente.
+            </p>
+
+            <p>
+              Obrigado pelo seu tempo e por ler nossa Política de Privacidade.
+            </p>
+          </div>
+        </div>
+        <div class="container-dinamic-user" id="container-dinamic-user"></div>
+      </div>
+    </div>
+
+    <div
+      style="display: none"
+      id="pin-keyboard--back-button"
+      class="pin-keyboard--back-button"
+    >
+      <p
+        onclick="KeyboardClickClose()"
+        id="pin-keyboard--back-button-text"
+        class="pin-keyboard--back-button-text"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="29.295"
+          height="47.266"
+          viewBox="0 0 29.295 47.266"
+        >
+          <g
+            id="Grupo_2108"
+            data-name="Grupo 2108"
+            transform="translate(-180.551 -127.169)"
+          >
+            <path
+              id="Caminho_321"
+              data-name="Caminho 321"
+              d="M-21567.809-11930.749l-17.98-17.977,17.98-17.975"
+              transform="translate(21771.998 12099.526)"
+              fill="none"
+              stroke="#fff"
+              stroke-linecap="round"
+              stroke-width="8"
+            />
+          </g>
+        </svg>
+        <span class="pin-keyboard-text-voltar">Voltar</span>
+      </p>
+    </div>
+    <div
+      style="display: none"
+      id="pin-keyboard--container"
+      class="pin-keyboard--container"
+    >
+      <div class="pin-keyboard--header">
+        <div class="pin-keyboard--profile">
+          <img
+            id="pin-keyboard--profile-img"
+            class="pin-keyboard--profile-img"
+          />
+          <p id="pin-keyboard--username" class="pin-keyboard--username"></p>
+        </div>
+      </div>
+      <div class="pin-keyboard--body">
+        <div class="pin-keyboard--input">
+          <p id="pin-keyboard--input-label" class="pin-keyboard--input-label">
+            Insira aqui a sua senha de controle parental para entrar no perfil
+          </p>
+
+          <div id="pin-keyboard--input-field" class="pin-keyboard--input-field">
+            <p id="pin-keyboard--input-text" class="pin-keyboard--input-text">
+              - &nbsp - &nbsp - &nbsp -
+            </p>
+          </div>
+
+          <p
+            onclick="goTo('../forgetpassword/index.html')"
+            id="pin-keyboard--forget-link"
+            class="pin-keyboard--forget-link"
+          >
+            Esqueceu a senha?
+          </p>
+        </div>
+        <div class="pin-keyboard--buttons">
+          <div class="pin-keyboard--buttons-up">
+            <div
+              id="2-0"
+              onclick="handleUserClickNumber('2-0', 0)"
+              class="pin-keyboard--button background-active"
+            >
+              0
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-1', 1)"
+              id="2-1"
+              class="pin-keyboard--button"
+            >
+              1
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-2', 2)"
+              id="2-2"
+              class="pin-keyboard--button"
+            >
+              2
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-3', 3)"
+              id="2-3"
+              class="pin-keyboard--button"
+            >
+              3
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-4', 4)"
+              id="2-4"
+              class="pin-keyboard--button"
+            >
+              4
+            </div>
+            <div
+              onclick="handleUserClickNumber('2-5', NaN)"
+              id="2-5"
+              class="pin-keyboard--button-xl"
+            >
+              Limpar
+            </div>
+          </div>
+          <div class="pin-keyboard--buttons-down">
+            <div
+              onclick="handleUserClickNumber('3-0', 5)"
+              id="3-0"
+              class="pin-keyboard--button"
+            >
+              5
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-1', 6)"
+              id="3-1"
+              class="pin-keyboard--button"
+            >
+              6
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-2', 7)"
+              id="3-2"
+              class="pin-keyboard--button"
+            >
+              7
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-3', 8)"
+              id="3-3"
+              class="pin-keyboard--button"
+            >
+              8
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-4', 9)"
+              id="3-4"
+              class="pin-keyboard--button"
+            >
+              9
+            </div>
+            <div
+              onclick="handleUserClickNumber('3-5', NaN)"
+              id="3-5"
+              class="pin-keyboard--button-xl"
+            >
+              <svg
+                class="cleanSvg backspace-button"
+                aria-hidden="true"
+                focusable="false"
+                data-prefix="fas"
+                data-icon="backspace"
+                class="svg-inline--fa fa-backspace fa-w-20 __web-inspector-hide-shortcut__"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M576 64H205.26A63.97 63.97 0 0 0 160 82.75L9.37 233.37c-12.5 12.5-12.5 32.76 0 45.25L160 429.25c12 12 28.28 18.75 45.25 18.75H576c35.35 0 64-28.65 64-64V128c0-35.35-28.65-64-64-64zm-84.69 254.06c6.25 6.25 6.25 16.38 0 22.63l-22.62 22.62c-6.25 6.25-16.38 6.25-22.63 0L384 301.25l-62.06 62.06c-6.25 6.25-16.38 6.25-22.63 0l-22.62-22.62c-6.25-6.25-6.25-16.38 0-22.63L338.75 256l-62.06-62.06c-6.25-6.25-6.25-16.38 0-22.63l22.62-22.62c6.25-6.25 16.38-6.25 22.63 0L384 210.75l62.06-62.06c6.25-6.25 16.38-6.25 22.63 0l22.62 22.62c6.25 6.25 6.25 16.38 0 22.63L429.25 256l62.06 62.06z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./profile-user.js" async></script>
+</html>

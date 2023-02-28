@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <span id="digited-channel-container" class="channel-number-container">
+      <span id="digited-channel"></span>
+    </span>
+    <div class="keep-watching-container" id="keep-watching-container">
+      <div class="modal-wrapper">
+        <p class="keep-watching-text">
+          Gostaria de continuar vendo do ponto onde parou<br />
+          ou começar no início?
+        </p>
+        <div class="keep-watching-buttons">
+          <div class="continue-button selected-button" id="continue-button">
+            <p>CONTINUAR</p>
+          </div>
+          <div class="continue-button" id="restart-button">
+            <p>REINICIAR</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="exit-app-container" id="exit-app-container">
+      <div class="modal-wrapper">
+        <p class="exit-app-text">Deseja sair do aplicativo?</p>
+        <div class="exit-app-buttons">
+          <div class="continue-button" id="yes-button">
+            <p>SIM</p>
+          </div>
+          <div class="continue-button selected-button" id="no-button">
+            <p>NÃO</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="loading-container" id="loading-container">
+      <div>
+        <img src="../../images/logo.svg" class="container--logo" />
+      </div>
+      <div class="loading-circle"></div>
+    </div>
+
+    <div class="container" id="container">
+      <div id="header-to-go"></div>
+      <header id="container--header" class="container--header">
+        <div class="container--header-icon">
+          <img src="../../images/logo.svg" />
+        </div>
+        <div class="container--header-items">
+          <div class="header--items">
+            <div
+              onclick="goTo('../home/index.html')"
+              class="header--item"
+              id="item-0"
+            >
+              Home
+            </div>
+            <div
+              onclick="goTo('../movie/index.html')"
+              class="header--item"
+              id="item-1"
+            >
+              Filmes
+            </div>
+            <div
+              onclick="goTo('../series/index.html')"
+              class="header--item"
+              id="item-2"
+            >
+              Séries
+            </div>
+            <div
+              onclick="goTo('../live/index.html')"
+              class="header--item"
+              id="item-3"
+            >
+              AO VIVO
+            </div>
+            <div
+              onclick="goTo('../favorites/index.html')"
+              class="header--item"
+              id="item-4"
+            >
+              Favoritos
+            </div>
+            <div class="header--items-sp">
+              <div
+                onclick="goTo('../filters/index.html')"
+                class="header--items-search"
+                id="item-5"
+              >
+                <img class="item-search-img" id="item-5-img" />
+              </div>
+              <div
+                onclick="goTo('../profile-user/index.html')"
+                class="header--items-settings"
+                id="item-6"
+              >
+                <img class="item-settings-img" id="item-6-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="container--banners" class="container--banners">
+        <div class="banners-slider">
+          <div class="banners-list swiper">
+            <div class="banners--track swiper-wrapper" id="banners-track"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container-popup" id="containerPopup">
+      <div class="popup">
+        <div class="popup--text-title">Ops!</div>
+        <p class="popup--text-description">
+          O perfil já está ativo em outro dispositivo.
+        </p>
+        <div class="popup--buttons">
+          <button
+            class="popup--buttons-button"
+            onclick="goTo('../profile-select/index.html')"
+          >
+            Ok
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../axios/axios.min.js"></script>
+  <script src="../../swiper/swiper.min.js"></script>
+  <script src="./home.js" async></script>
+</html>

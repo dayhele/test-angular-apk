@@ -1,0 +1,41 @@
+@import '../../../themes/remc.scss';
+.grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-left: remc(78);
+  margin: remc(50) 0;
+
+  .texts {
+    padding-top: remc(78);
+    padding-right: remc(40);
+    color: var(--white);
+    margin-left: remc(78);
+    width: remc(260);
+
+    .title {
+      font-size: remc(24);
+      font-weight: 700;
+
+      h3 {
+        margin-top: remc(82);
+      }
+    }
+    .subtitle {
+      font-size: remc(14);
+      font-weight: 400;
+      margin-top: remc(12);
+    }
+    .btn {
+      margin-top: remc(40);
+    }
+  }
+  .section {
+    overflow: hidden;
+
+    ::ng-deep app-section {
+      .container .swiper .swiper-wrapper {
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="wraps">
+  <div class="fundo"></div>
+  <div class="container">
+    <div class="text">
+      <p class="title"><b>Canais Exclusivos</b></p>
+      <p class="sub-title">
+        Nos planos Paramount+ você tem acesso a <br />
+        canais ao vivo com conteudos exclusivos em <br />
+        uma programação super especial.
+      </p>
+      <app-button
+        class="button"
+        [text]="theme.landingPage.textButon"
+        type="button"
+        classList="btn-primary"
+        (click)="goTo()"
+      ></app-button>
+    </div>
+    <div class="cards">
+      <swiper slidesPerView="auto">
+        <ng-template swiperSlide *ngFor="let card of sectionCards">
+          <img [src]="card.imageUrl" />
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
+</div>

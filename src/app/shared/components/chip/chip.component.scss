@@ -1,0 +1,11 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  display: flex;
+
+  .container{
+    border-radius: remc(24);
+    padding: remc(4) remc(10);
+    color: var(--white);
+  }
+}

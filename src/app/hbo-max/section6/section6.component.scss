@@ -1,0 +1,72 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .grid {
+    display: flex;
+    padding: remc(40) 0;
+
+    .text {
+      margin-left: remc(102);
+      margin-top: remc(77);
+      margin-right: remc(-50);
+
+      .title {
+        font-size: remc(24);
+        margin-bottom: remc(10);
+        color: var(--white);
+      }
+
+      .sub-title {
+        width: remc(300);
+        font-size: remc(14);
+        margin-bottom: remc(25);
+        color: var(--white);
+      }
+
+      .button {
+        margin-bottom: remc(72);
+      }
+    }
+
+    .top5 {
+      margin: remc(16) remc(6) remc(6) remc(6);
+      position: relative;
+
+      .ellipse {
+        display: flex;
+        position: absolute;
+        width: remc(60);
+        height: remc(60);
+        left: remc(-17);
+        top: remc(-12);
+        background-color: #3c1450;
+        border-radius: 50%;
+        z-index: 2;
+        align-items: center;
+        justify-content: center;
+
+        .number {
+          font-size: 32px;
+          font-weight: 700;
+          line-height: 37.5px;
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  ::ng-deep .swiper {
+    .swiper-wrapper {
+      .swiper-slide {
+        width: auto;
+        height: auto;
+
+        margin-right: remc(26);
+
+        &:first-child {
+          margin-left: remc(16);
+        }
+      }
+    }
+  }
+}

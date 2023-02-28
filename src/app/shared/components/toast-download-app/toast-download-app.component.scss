@@ -1,0 +1,34 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: remc(60);
+    z-index: 13;
+    margin-top: remc(40);
+    padding: remc(10) remc(14) remc(11) remc(11);
+    position: absolute;
+    top: 0;
+
+    &.below-header {
+      margin-top: 0;
+      position: fixed;
+    }
+
+    .text {
+      width: remc(136);
+      color: var(--white);
+      font-size: remc(10);
+      font-weight: 300;
+      line-height: remc(11.72);
+      letter-spacing: -2%;
+    }
+
+    .close {
+      cursor: pointer;
+    }
+  }
+}

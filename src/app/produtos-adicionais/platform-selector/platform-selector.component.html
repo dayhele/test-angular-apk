@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="title">
+    <p>Por onde quer acessar?</p>
+  </div>
+  <div class="icons">
+    <div class="browser" (click)='navigate("web")'>
+      <div class="browser-icon" [class.selected]="selectorOption === 'web'">
+        <svg width="61" height="46" viewBox="0 0 61 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9.35571 1.56885H51.444C54.3496 1.56885 56.7051 3.96388 56.7051 6.91831V33.6656C56.7051 36.62 54.3496 39.0151 51.444 39.0151H9.35571C6.45012 39.0151 4.09467 36.62 4.09467 33.6656V6.91831C4.09467 3.96388 6.45012 1.56885 9.35571 1.56885Z"
+            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M59.8008 44.8525L1.00091 44.8525" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <p [class.selected]="selectorOption === 'web'">Navegador</p>
+      </div>
+    </div>
+    <div class="app" (click)='navigate("app")'>
+      <div class="app-icon" [class.selected]="selectorOption === 'app'">
+        <svg width="31" height="52" viewBox="0 0 31 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M5.0534 1H25.3165C27.5547 1 29.3691 3.20886 29.3691 5.93363V45.4026C29.3691 48.1274 27.5547 50.3363 25.3165 50.3363H5.0534C2.8152 50.3363 1.00078 48.1274 1.00078 45.4026V5.93363C1.00078 3.20886 2.8152 1 5.0534 1Z"
+            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12.3477 4.13574H18.7305" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <ellipse rx="1.06381" ry="1.05721" transform="matrix(-1 0 0 1 15.5377 45.5665)" fill="white" />
+        </svg>
+        <p [class.selected]="selectorOption === 'app'">App</p>
+      </div>
+    </div>
+    <div class="smartv" (click)='navigate("smart-tv")'>
+      <div class="smartv-icon" [class.selected]="selectorOption === 'smart-tv'">
+        <svg width="59" height="47" viewBox="0 0 59 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.93695 1.25537H52.3263C55.4598 1.25537 58 3.79556 58 6.92904V35.2974C58 38.4309 55.4598 40.9711 52.3263 40.9711H6.93695C3.80347 40.9711 1.26328 38.4309 1.26328 35.2974V6.92904C1.26328 3.79556 3.80347 1.25537 6.93695 1.25537Z"
+            stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M41.5645 46.2378H18.8698" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M29.75 41.3774L29.75 46.2406" stroke="white" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <p [class.selected]="selectorOption === 'smart-tv'">Smart TV</p>
+      </div>
+    </div>
+  </div>
+</div>

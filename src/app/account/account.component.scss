@@ -1,0 +1,327 @@
+@import '../../themes/remc.scss';
+
+:host {
+  margin-bottom: remc(65);
+  width: 100%;
+  height: 100%;
+
+  .loading {
+    width: 100%;
+    position: absolute;
+    height: calc(100vh - remc(40));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 0 remc(56);
+    background-color: var(--primary-dark);
+
+    &--details {
+      .button {
+        margin: remc(8) 0;
+      }
+
+      .buttons {
+        margin: remc(8) 0;
+        display: flex;
+
+        app-button {
+          &:first-child {
+            margin-right: remc(8);
+          }
+        }
+      }
+    }
+
+    #folder-icon {
+      width: 10.6px;
+      height: 13.3px;
+    }
+
+    
+
+    h3 {
+      color: var(--primary-base);
+      padding: remc(18) 0;
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        color: var(--white);
+        font-size: remc(19);
+        line-height: remc(19);
+      }
+    }
+
+    h4 {
+      color: var(--blue-multi-25);
+      padding: remc(5) 0;
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        color: var(--white);
+        font-size: remc(14);
+        line-height: remc(16);
+        font-weight: 400;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--blue-multi-25);
+      padding-right: remc(16);
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        color: var(--white);
+        font-size: remc(14);
+        line-height: remc(16);
+      }
+    }
+
+    a {
+      display: inline-block;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--blue-200);
+      padding: remc(8) 0;
+      text-decoration: none;
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        font-size: remc(14);
+        font-weight: 400;
+        color: var(--white-50) !important;
+      }
+    }
+
+    .green {
+      color: #14C850 !important;
+    }
+
+    .blue {
+      color: #99b6e7 !important;
+    }
+
+    .row {
+      display: flex;
+      padding: remc(8) 0;
+
+      a {
+        padding: 0;
+      }
+
+      @media only screen and (hover: none) and (pointer: coarse) {
+        align-items: center;
+        gap: 8px;
+      }
+    }
+
+    .section-password {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-password-edit {
+      display: flex;
+      flex-direction: column;
+
+      .pass-current,
+      .pass-new-first,
+      .pass-new-second {
+        width: remc(394);
+      }
+
+      .pass-new-first {
+        padding-top: remc(27);
+      }
+
+      .pass-new-second {
+        padding-top: remc(13);
+      }
+
+      .button-save-password {
+        padding-top: remc(13);
+      }
+
+      .password-error {
+        width: 100%;
+        text-align: left;
+        padding-top: remc(15);
+
+        p {
+          color: var(--error-red);
+        }
+      }
+    }
+
+    .section-email-editing {
+      display: flex;
+      flex-direction: column;
+
+      .inp-email {
+        width: remc(394);
+      }
+
+      .email-error {
+        width: 100%;
+        text-align: left;
+        padding-top: remc(15);
+
+        p {
+          color: var(--error-red);
+        }
+      }
+    }
+
+    &--subscribes {
+      &--footer {
+        display: flex;
+        align-items: center;
+
+        a {
+          color: var(--white);
+          padding: 0 remc(10);
+          font-size: remc(16);
+          font-weight: 500;
+
+          &:hover {
+            cursor: pointer;
+            color: var(--primary-base);
+          }
+        }
+
+        p {
+          color: var(--white);
+          padding-left: remc(10);
+          padding-right: 0;
+        }
+
+        .retention-link {
+          padding-left: remc(10);
+          padding-right: 0;
+          color: var(--white);
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        p:first-child {
+          font-weight: 400;
+        }
+
+        p:last-child {
+          font-weight: 500;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        @media only screen and (hover: none) and (pointer: coarse) {
+          gap: 8px;
+
+          a {
+            padding-left: 0 !important;
+          }
+        }
+      }
+
+      .subscriptions {
+        div {
+          .acess-link {
+            text-decoration: underline;
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+
+    &--subscriptions {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      border: 1px solid var(--light-gray);
+      border-radius: 5px;
+      padding: 15px;
+      width: 100%;
+      max-width: remc(544);
+
+      &--details {
+        width: 60%;
+
+        p {
+          color: #fff;
+        }
+      }
+
+      &--button {
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+    .divider {
+      width: 100%;
+      max-width: remc(544);
+      margin: remc(20) 0;
+      border: 1px solid var(--light-gray);
+    }
+
+    @media screen and (max-width: remc(768)) {
+      padding: remc(9) remc(16);
+
+      h3 {
+        padding: remc(8) 0;
+      }
+
+      p {
+        padding: remc(8) 0;
+      }
+
+      .divider {
+        margin: remc(12) 0;
+      }
+    }
+  }
+
+  .cancel-popup__container {
+    position: fixed;
+    height: 100%;
+    width: 100vw;
+    background: rgba($color: #000000, $alpha: 0.7);
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cancel-popup-card {
+    height: 25vh;
+    width: 50vh;
+    background: var(--primary-dark);
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  .cancel-header {
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+  }
+
+  .cancel-options-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+  }
+
+  .button-margin {
+    margin-right: 20px;
+  }
+}

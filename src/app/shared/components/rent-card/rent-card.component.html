@@ -1,0 +1,36 @@
+<div class="rent-card-link" (click)="goTo()">
+  <div class="rent-card">
+    <img class="background-img" [src]="data?.imageUrl ?? cardImage" />
+    <div *ngIf="cardProperties?.movieLogo && this.screen_x > 768" class="logo">
+      <img [src]="environment.bucket + 'icons/channels-brands/paramount.svg'"
+        alt="logo" />
+    </div>
+    <div *ngIf="cardProperties?.movieLogo && this.screen_x <= 768" class="logo-mobile">
+      <p>Comedy Central</p>
+    </div>
+    <img *ngIf="
+        (!!cardProperties?.rentable || data?.rentable) && this.screen_x > 768
+      " class="triangle" src="{{ environment.imageService }}/icons/triangle-blue.svg" alt="alugue" />
+    <div *ngIf="!!cardProperties?.rentable && this.screen_x <= 768" class="rent-label">
+      <p>ADQUIRIR</p>
+    </div>
+
+    <div *ngIf="!!cardProperties?.rentMovieTitle || data?.rentMovieTitle" class="rent-card__badge">
+      <div *ngIf="this.screen_x > 768" class="rent-card__badge-desktop">
+        <div class="rent-card__badge-desktop__title">
+          <p>{{ data?.title ?? data?.titulo }}</p>
+        </div>
+        <div class="rent-card__badge-desktop__bottom">
+          <p>{{ data?.description}}</p>
+        </div>
+      </div>
+
+      <div *ngIf="this.screen_x <= 768" class="rent-card__badge-mobile">
+        <img class="age-indication" src="{{ environment.imageService }}/icons/rate.svg" />
+        <p class="rent-card__badge-mobile__title-text">
+          {{ data?.title ?? data?.titulo }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

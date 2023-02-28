@@ -1,0 +1,40 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: remc(402);
+    background: #170722;
+    background-repeat: no-repeat;
+
+    .image-banner-cta {
+      position: absolute;
+      right: 0;
+    }
+
+    .texts {
+      padding-top: remc(82);
+      color: var(--white);
+      margin-left: 112px;
+      .title {
+        width: 13vw;
+        font-size: remc(24);
+        font-weight: 700;
+
+        h3 {
+          margin-top: remc(82);
+        }
+      }
+      .subtitle {
+        font-size: remc(14);
+        font-weight: 400;
+        margin-top: remc(24);
+      }
+      .btn {
+        margin-top: remc(34);
+      }
+    }
+  }
+}

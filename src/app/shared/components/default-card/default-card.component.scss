@@ -1,0 +1,130 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .card-link {
+    width: 100%;
+    border: remc(3.5) solid transparent;
+    cursor: pointer;
+    border-radius: remc(12);
+    transition: border 0.2s;
+
+    &:hover {
+      &::before {
+        border: remc(4) solid var(--primary-base);
+        outline: 0 solid var(--primary-base);
+        border-radius: remc(12);
+        display: block;
+        content: '';
+        width: calc(100% - remc(12));
+        height: calc(100% - remc(10));
+        position: absolute;
+        margin-left: remc(-1);
+        margin-top: remc(-2);
+        z-index: 99;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    .card {
+      width: 100%;
+      position: relative;
+      height: remc(321);
+      border-radius: remc(8);
+      overflow: hidden;
+
+      &__movie-logo {
+        top: remc(12);
+        right: remc(12);
+        position: absolute;
+      }
+
+      .logo-mobile {
+        top: remc(9);
+        right: remc(0);
+        position: absolute;
+        background: var(--medium-gray);
+        border-radius: remc(24);
+        margin: remc(0) remc(8);
+
+        p {
+          white-space: nowrap;
+          padding: remc(2) remc(8);
+          font-size: remc(10);
+          font-weight: 300;
+          color: white;
+        }
+      }
+
+      .image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        object-fit: cover;
+
+        &.disabled {
+          filter: grayscale(1);
+          user-select: none;
+        }
+      }
+
+      .rent-label {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        background: var(--blue-multi-2);
+        text-align: center;
+        cursor: pointer;
+
+        p {
+          color: white;
+          font-size: remc(14);
+          font-weight: 400;
+          padding: remc(4) 0;
+        }
+      }
+    }
+
+    .vertical {
+      width: remc(208);
+      height: remc(288);
+
+      @media screen and (max-width: remc(768)) {
+        width: remc(100);
+        height: remc(155.03);
+      }
+    }
+
+    .horizontalSmall {
+      width: remc(440);
+      height: remc(208);
+
+      @media screen and (max-width: remc(768)) {
+        width: remc(220);
+        height: remc(104);
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .has-content-card {
+      width: remc(208);
+      height: remc(208);
+
+      @media screen and (max-width: remc(768)) {
+        width: remc(104);
+        height: remc(104);
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+
+  .onlyView {
+    pointer-events: none;
+  }
+}

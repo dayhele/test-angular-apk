@@ -1,0 +1,7 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    padding: remc(40) 0 remc(110) 0;
+  }
+}

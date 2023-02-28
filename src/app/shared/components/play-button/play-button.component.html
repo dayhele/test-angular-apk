@@ -1,0 +1,12 @@
+<button class="button" type="button" (click)="click()">
+  <img *ngIf="text.toLocaleLowerCase() === 'assistir'" class="icon" [src]="icon" alt="" />
+  <span
+    >{{
+      !loginService.token
+        ? 'Assinar'
+        : isKeepWatching
+        ? (!resumido ? 'Continuar assistindo' : 'Continuar')
+        : text
+    }}
+  </span>
+</button>

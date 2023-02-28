@@ -1,0 +1,35 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .button {
+    display: flex;
+    background-color: var(--orange-300);
+    padding: remc(26) remc(103);
+    border-radius: remc(60);
+    cursor: pointer;
+    width: remc(379);
+    height: remc(66);
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+      padding: remc(16) remc(53);
+      font-size: remc(14);
+    }
+
+    &--content {
+      color: var(--white);
+      text-transform: uppercase;
+      font-weight: 400;
+      font-size: remc(31);
+      text-align: center;
+
+      @media screen and (max-width: 768px) {
+        font-size: remc(16);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: remc(26) remc(56);
+    }
+  }
+}

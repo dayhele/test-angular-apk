@@ -1,0 +1,211 @@
+<div class="card" [ngClass]="properties?.orientation" (click)="goTo()">
+  <div *ngIf="!data.isPreSave && !data.isCompletalyReleased && data.titleWasPreSave" class="pre-save-released">
+    <img src="https://watchbr-resources.s3.amazonaws.com/pre_saves_icons/reminder-pre-save-icon.svg" alt="Pre Save Released Icon">
+  </div>
+  <div *ngIf="data.isPreSave" class="release-date">
+    <span class="release-day">{{ releaseDay }}</span>
+    <span class="release-month">{{ releaseMonth }}</span>
+  </div>
+  <div class="paramount" *ngIf="isExclusiveContent && !hasExclusiveContent">
+    <div class="details">
+      <div class="col">
+        <p class="title">Conteúdo Exclusivo</p>
+        <p class="description">
+          {{ labelExclusiveContent || 'Planos Paramount +' }}
+        </p>
+      </div>
+      <div class="col" *ngIf="!checkDeviceService.isMobile()">
+        <div class="circle">
+          <img [src]="theme.landingPage.exclusiveColor" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <img style="position: absolute" *ngIf="data?.isComingSoon" [src]="theme.iconComingSoon" />
+  <div class="card--gradient" *ngIf="
+      (!isExclusiveContent || (isExclusiveContent && hasExclusiveContent)) &&
+      !cardOnly
+    "></div>
+  <div class="expired" *ngIf="isExpired"></div>
+  <img class="card--image" [src]="data?.imageUrl" (error)="imgOnError($event)" />
+  <p *ngIf="hasImageError" class="imageErrorTitle">{{ data?.title }}</p>
+  <div class="card--header">
+    <div class="statusProgress" *ngIf="showProgress" [ngSwitch]="statusProgress">
+        <img src="assets/icons/complete.svg" *ngSwitchCase="2" />
+        <img src="assets/icons/incomplete.svg" *ngSwitchCase="1" />
+        <img src="assets/icons/notopen.svg" *ngSwitchCase="0" />
+    </div>
+    <ng-container *ngIf="!isMobile">
+      <img class="logo" [src]="data?.logo" onerror="this.style.display='none'" />
+      <img class="rent" *ngIf="properties?.rentable" [src]="theme.alugue" onerror="this.style.display='none'" />
+    </ng-container>
+  </div>
+  <div class="card--hover" *ngIf="
+      !properties?.hasProgressBar || properties?.orientation === 'vertical'
+    ">
+    <app-censorship [age]="data?.censorship ?? '0'" *ngIf="
+        (!isExclusiveContent || (isExclusiveContent && hasExclusiveContent)) &&
+        !cardOnly
+      "
+    ></app-censorship>
+    <app-reminder-pre-save-button
+      *ngIf="data.isPreSave"
+      [preSave]="data"
+      [idPerfil]="idPerfil"
+    ></app-reminder-pre-save-button>
+    <app-card-watch-button
+      *ngIf="
+        (!isExclusiveContent || (isExclusiveContent && hasExclusiveContent)) &&
+        !cardOnly && !data.isPreSave && !noClick
+      "
+      [toRent]="properties?.rentable"
+    ></app-card-watch-button>
+    <app-favorite-button
+      *ngIf="
+        !isMobile && (hasExclusiveContent || !isExclusiveContent) && !cardOnly && !isNSports && !data.isPreSave && !isConmebolLibertadores
+      "
+      (click)="$event.stopPropagation()"
+      [idPerfil]="idPerfil"
+      [movieSerie]="data"
+      [dataList]="dataList"
+      [dataListFiltered]="dataListFiltered"
+    ></app-favorite-button>
+  </div>
+  <div class="card--details">
+    <ng-container *ngIf="properties?.hasProgressBar">
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="progress">
+            <ng-container *ngIf="!isMobile && !cardOnly">
+              <app-censorship [age]="data?.censorship ?? '0'"></app-censorship>
+              <p>{{ data?.title }}</p>
+            </ng-container>
+
+            <ng-container *ngIf="isMobile && !cardOnly">
+              <app-censorship-small [age]="data?.censorship ?? '0'"></app-censorship-small>
+              <p>{{ data?.title }}</p>
+            </ng-container>
+          </div>
+        </div>
+        <div class="vertical-details" *ngIf="!cardOnly && !data.isPreSave">
+          <div class="vertical-details--bottom">
+            <p class="title">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile">
+              <app-chip *ngFor="let genre of data?.genres!.slice(0, 3)" [text]="genre"></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card--details--row" *ngIf="properties?.orientation !== 'vertical'">
+        <progress value="{{ data?.position }}" max="{{ data?.duration }}"></progress>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="properties?.sportTitle">
+      <div class="card--details--row">
+        <div class="horizontal-details {{ isConmebolLibertadores ? 'conmebol' : '' }}">
+          <div class="sport">
+            <ng-container *ngIf="!isMobile && !isConmebolLibertadores">
+              <p class="sport--title">{{ data?.title }}</p>
+              <p class="sport--live" *ngIf="data?.isLive">• Ao vivo</p>
+            </ng-container>
+            <ng-container *ngIf="!isMobile && isConmebolLibertadores">
+              <p class="sport--title">Conmebol Libertadores</p>
+              <div *ngIf="data?.isLive" class="sport--live-box">
+                <div class="sport--red-elipse"></div>
+                <p class="sport--live-libertadores">Ao vivo</p>
+              </div>
+
+              <p class="sport--not-live" *ngIf="!data?.isLive">Em breve</p>
+
+            </ng-container>
+
+
+
+            <ng-container *ngIf="isMobile && !isConmebolLibertadores">
+              <app-censorship-small [age]="data?.censorship"></app-censorship-small>
+              <p class="sport--title">{{ data?.title }}</p>
+            </ng-container>
+            <ng-container *ngIf="isMobile && isConmebolLibertadores">
+              <app-censorship-small [age]="data?.censorship"></app-censorship-small>
+              <p class="sport--title">Conmebol Libertadores</p>
+            </ng-container>
+          </div>
+        </div>
+        <div class="vertical-details" *ngIf="!cardOnly && !data.isPreSave">
+          <div class="vertical-details--bottom">
+            <p class="title">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile">
+              <app-chip *ngFor="let genre of data?.genres!.slice(0, 3)" [text]="genre"></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="sport">
+            <ng-container>
+              <p class="sport--description" *ngIf="!isMobile && !isConmebolLibertadores">
+                {{ isNSports ? data.title!.split(' - ')[1] : data?.description }}
+              </p>
+              <p class="sport--description" *ngIf="!isMobile && isConmebolLibertadores">{{data?.title}}</p>
+              <p class="sport--timestamp {{ isConmebolLibertadores ? 'conmebol' : '' }}" *ngIf="data?.timestamp">
+                {{ data?.timestamp | date: 'dd.MM.YY' }} -
+                {{ data?.timestamp | date: 'HH:mm' }}h
+              </p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="properties?.rentable">
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="rent" *ngIf="!isNSports">
+            <p class="rent--title">{{ data?.title }}</p>
+          </div>
+        </div>
+        <div class="vertical-details">
+          <div class="vertical-details--bottom">
+            <p class="title" *ngIf="!isNSports">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile && !data.isPreSave">
+              <app-chip
+                *ngFor="let genre of data?.genres!.slice(0, 3)"
+                [text]="genre"
+              ></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="rent">
+            <p class="rent--description">{{ data?.description }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="
+        !properties?.hasProgressBar &&
+        !properties?.sportTitle &&
+        !properties?.rentable
+      ">
+      <div class="card--details--row">
+        <div class="vertical-details" *ngIf="
+            (!isExclusiveContent ||
+              (isExclusiveContent && hasExclusiveContent)) &&
+            !cardOnly
+          ">
+          <div class="vertical-details--bottom">
+            <p class="title" *ngIf="!isNSports">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile && !data.isPreSave">
+              <app-chip
+                *ngFor="let genre of data?.genres?.slice(0, 3)"
+                [text]="genre"
+              ></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

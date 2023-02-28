@@ -1,0 +1,50 @@
+<div class="section-full">
+  <div
+    class="section-full__left"
+    *ngIf="!environment.app || (environment.app && !isNSportsCard)"
+  >
+    <img src="{{ sectionLogoChannel }}" />
+    <div class="section-full__left-content">
+      <h3 *ngIf="isNovelas">{{sectionTitle}}</h3>
+      <p *ngIf="!environment.app">
+        {{ isNSportsCard ? 'O melhor do esporte está na Watch!' : '' }} <br />
+        {{ sectionDescription }}
+      </p>
+
+      <app-button
+        *ngIf="sectionButtonText !== ''"
+        [type]="'button'"
+        [text]="sectionButtonText"
+        [classList]="'btn-secondary'"
+        (click)="goTo()"
+      ></app-button>
+    </div>
+  </div>
+
+
+  <div
+    class="section-full__right"
+    *ngIf="!environment.app || (environment.app && !isNSportsCard)"
+  >
+    <div class="section-full__right-content">
+      <img src="{{ sectionBackgroundImg }}" />
+    </div>
+  </div>
+
+  <div
+    class="nsportsApp"
+    *ngIf="environment.app && isNSportsCard"
+    style="background-image: url('/assets/nsports/background-app.png')"
+  >
+    <img src="{{ sectionLogoChannel }}" />
+    <div class="button">
+      <app-button
+        *ngIf="sectionButtonText !== ''"
+        type="button"
+        [text]="sectionButtonText"
+        classList="btn-secondary"
+        (click)="goTo()"
+      ></app-button>
+    </div>
+  </div>
+</div>

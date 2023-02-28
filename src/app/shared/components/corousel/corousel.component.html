@@ -1,0 +1,13 @@
+<div class="carousel">
+  <swiper
+    *ngIf="channels.length > 0"
+    slidesPerView="auto"
+    [navigation]="!checkMobile"
+  >
+    <ng-template swiperSlide *ngFor="let channel of channels">
+      <div class="cardCarousel">
+        <img [src]="'assets/welcome/' + channel + '.svg'" />
+      </div>
+    </ng-template>
+  </swiper>
+</div>

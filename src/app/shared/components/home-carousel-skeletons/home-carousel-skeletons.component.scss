@@ -1,0 +1,19 @@
+.flex { display: flex; flex-direction: row; }
+.flex-col { flex-direction: column }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.items-center { align-items: center; }
+.gap-1 {
+  gap: 1rem;
+}
+.sklt-wrapper {
+  padding: 2rem 3.5rem 0 3.5rem;
+}
+@media screen and (max-width: 900px) {
+  .sklt-wrapper {
+    padding: 2rem 1.5rem 0 1.5rem
+  }
+  .gap-1 {
+    gap: .5rem;
+  }
+}

@@ -1,0 +1,51 @@
+<div class="age-classification">
+  <h4 class="age-classification--title">Classificação etária</h4>
+  <span class="age-classification--text">Permitir até:</span>
+  <div class="age-classification--content">
+    <app-age-classification-list
+      [age_bracket]="age_bracket"
+      (selectAge)="sendAge($event)"
+    ></app-age-classification-list>
+  </div>
+  <h4 class="age-classification--title">Perfil infantil</h4>
+  <div class="age-classification--selector">
+    <label class="age-classification--selector--switcher">
+      <input
+        type="checkbox"
+        name="age"
+        [(ngModel)]="profile.kids"
+        (change)="kidsEmitter.emit('')"
+      />
+      <span class="age-classification--selector--switcher--slider"></span>
+    </label>
+    <div class="age-classification--selector--info">
+      <p>Tornar este perfil infantil</p>
+      <span
+        >Apenas conteúdos infantis serão apresentados para este perfil.</span
+      >
+    </div>
+  </div>
+  <div class="age-classification--separator"></div>
+  <h4 class="age-classification--title">Canais "Ao vivo"</h4>
+  <div class="age-classification--selector">
+    <label class="age-classification--selector--switcher">
+      <input
+        appCheckbox
+        type="checkbox"
+        name="liveChannels"
+        (click)="liveEmmiter.emit(profile.live_content)"
+        [(ngModel)]="profile.live_content"
+      />
+      <span class="age-classification--selector--switcher--slider"></span>
+    </label>
+    <div class="age-classification--selector--info">
+      <p>Permitir acesso da programação “Ao vivo”</p>
+      <span>A programação “Ao vivo” esta habilitada para este perfil.</span>
+    </div>
+  </div>
+  <div class="age-classification--save-button">
+    <app-button classList="btn-secondary" (click)="changes.emit('save')"
+      >Salvar alterações</app-button
+    >
+  </div>
+</div>

@@ -1,0 +1,176 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    .activate-voucher {
+      width: remc(512);
+      background-color: var(--primary-dark);
+      padding: remc(26) remc(90) remc(30);
+      margin: remc(85) 0 remc(187);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--subtitle {
+        margin-top: remc(58);
+        color: var(--white);
+        text-align: center;
+        font-size: remc(14);
+        margin-bottom: remc(35);
+      }
+
+      &--separator {
+        color: var(--white);
+        font-weight: 500;
+        margin: remc(6) 0 remc(14);
+      }
+
+      &--input-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        &--title {
+          color: var(--white);
+          font-weight: 500;
+          font-size: remc(16);
+          margin-bottom: remc(10);
+          width: fit-content;
+        }
+
+        &--info {
+          display: flex;
+          align-items: center;
+          margin-top: remc(2);
+
+          p {
+            color: var(--white);
+            font-size: remc(12);
+            text-decoration: underline;
+            cursor: pointer;
+            width: fit-content;
+            margin-right: remc(8);
+          }
+        }
+      }
+
+      app-button {
+        margin-top: remc(75);
+      }
+
+      &--loading {
+        margin-top: remc(20);
+      }
+
+      &--code-error-text {
+        margin-top: remc(48);
+        background-color: var(--error-red);
+        color: var(--white);
+        padding: remc(12);
+        font-size: remc(14);
+        width: 100%;
+      }
+
+      &--code-info-link {
+        color: var(--primary-base);
+        margin-top: remc(61);
+        font-weight: 500;
+      }
+    }
+
+
+    .activate-voucher-watch {
+      width: remc(880);
+      height: remc(576);
+      background-color: var(--primary-dark);
+      padding: remc(26) remc(90) remc(30);
+      margin: remc(90) 0 remc(187);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--subtitle {
+        margin-top: remc(50);
+        color: var(--white);
+        text-align: center;
+        font-size: remc(14);
+        margin-bottom: remc(35);
+      }
+
+      &--separator {
+        color: var(--white);
+        font-weight: 500;
+        margin: remc(6) 0 remc(14);
+      }
+
+      &--input-container {
+        display: flex;
+        flex-direction: column;
+        width: remc(280);
+        margin-top:remc(50) ;
+
+        &--title {
+          color: var(--white);
+          font-weight: 500;
+          font-size: remc(16);
+          margin-bottom: remc(10);
+          width: fit-content;
+          letter-spacing: -0.02em;
+        }
+
+        &--info {
+          display: flex;
+          align-items: center;
+          margin-top: remc(2);
+
+          p {
+            color: var(--white);
+            font-size: remc(12);
+            text-decoration: underline;
+            cursor: pointer;
+            width: fit-content;
+            margin-right: remc(8);
+          }
+        }
+      }
+
+      app-button {
+        margin-top: remc(75);
+      }
+
+      &--loading {
+        margin-top: remc(20);
+      }
+
+      &--code-error-text {
+        margin-top: remc(48);
+        background-color: var(--primary-base);
+        color: var(--white);
+        padding: remc(12);
+        font-size: remc(14);
+        font-weight: 400;
+        width: remc(313);
+        text-align: center;
+
+        & p {
+          width: 100%;
+        }
+      }
+
+      &--code-info-link {
+        color: var(--primary-base);
+        margin-top: remc(61);
+        font-weight: 500;
+      }
+    }
+  }
+}

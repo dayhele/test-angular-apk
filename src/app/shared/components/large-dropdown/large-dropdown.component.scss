@@ -1,0 +1,59 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .dropdown {
+    width: 100%;
+    margin-bottom: remc(12);
+
+    &--header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background-color: var(--primary-background);
+      padding: remc(9);
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        background-color: var(--blue-400);
+      }
+
+      &--title {
+        font-weight: 700;
+        color: var(--white);
+        width: 100%;
+        text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+        margin-left: remc(17);
+      }
+
+      &--arrow-down {
+        transition: all 0.2s ease-out;
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &--body {
+      margin-top: remc(19);
+      background-color: var(--primary-dark);
+      overflow: hidden;
+      -webkit-transition: height 1s ease;
+      -moz-transition: height 1s ease;
+      -o-transition: height 1s ease;
+      transition: all 1s ease;
+      border: 2px solid var(--blue-200);
+      border-bottom-left-radius: remc(7);
+      border-bottom-right-radius: remc(7);
+      border-top: transparent;
+
+      &.collapsed {
+        margin-top: 0;
+        height: 0;
+        border-color: transparent;
+      }
+    }
+  }
+}

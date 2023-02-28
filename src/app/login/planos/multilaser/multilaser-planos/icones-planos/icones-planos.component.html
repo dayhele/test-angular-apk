@@ -1,0 +1,19 @@
+<div id="mobile-modal" class="container" [class.active]="openPlans">
+  <button type="button" (click)="openPlans = !openPlans" class="btn-secondary">
+    {{ openPlans ? 'Fechar' : 'Consultar' }} grade de canais lineares
+    <mat-icon class="icon-button">{{ openPlans ? 'expand_less' : 'expand_more' }}</mat-icon>
+  </button>
+  <div class="modal" [class.active]="openPlans">
+
+    <div id="menu-section">
+      <ul>
+        <li *ngFor="let plan of plans" (click)="filterChannelsBySelectedPlan(plan.id)">
+          <app-plan-button [plan]="plan"></app-plan-button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal--content--channels"></div>
+
+  </div>
+</div>

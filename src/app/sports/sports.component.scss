@@ -1,0 +1,39 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .container {
+
+    @media screen and (max-width: remc(900)) {
+      &__section {
+        margin-left: 2rem;
+      }
+    }
+
+    @media screen and (max-width: remc(768)) {
+      &__section {
+        margin: remc(19) remc(16);
+      }
+    }
+  }
+
+  .skeleton {
+    &__sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-left: 2rem;
+
+      @media screen and (max-width: remc(600)) {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .default {
+    display: none;
+  }
+
+  .loader {
+    display: flex;
+  }
+}

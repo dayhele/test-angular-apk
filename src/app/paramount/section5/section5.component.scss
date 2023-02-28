@@ -1,0 +1,7 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    margin-top: remc(30);
+  }
+}

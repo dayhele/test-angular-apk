@@ -1,0 +1,51 @@
+<div (click)="closeNotification()" id="outside-click"></div>
+<div id="card-wrapper">
+  <div class="header">
+    <div class="left">
+      <img class="icon_notification_modal" src="/assets/icons/notification_modal.svg" />
+      <h5>
+        Notificações <span>( {{ notificationsNumber() }} )</span>
+      </h5>
+    </div>
+    <div class="right">
+      <label for="on-off">Mostrar apenas não lidas</label>
+      <input type="checkbox" class="button_checkbox" id="on-off" (change)="changeToggle()"
+        [(ngModel)]="onlyRead" />
+      <label for="on-off" class="on-off_button"></label>
+    </div>
+  </div>
+  <div class="notifications-container" *ngIf="notifications.length > 0; else empty" [ngClass]="{ seeMore: expanded }">
+    <ul>
+      <li (click)="read(notification)" *ngFor="
+          let notification of notifications.slice(0, notificationsNumber())
+        ">
+        <div class="thumbnail-container">
+          <img class="thumbnail" [src]="imagePath + '/' + notification.thumb" alt="Notification Image" />
+        </div>
+        <div class="notification-text">
+          <p class="title">{{ notification.text }}</p>
+          <p class="text-link" *ngIf="notification.link">
+            Clique aqui!
+          </p>
+          <p class="date">
+            {{ formatDate(notification.last_send_at.substring(-1, 10)) }}
+          </p>
+        </div>
+        <div class="circle">
+          <div *ngIf="!notification.read" class="circle-icon"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <ng-template #empty>
+    <div id="no-notifications-wrapper">
+      <img class="notification_sleeping" src="/assets/icons/notification_sleeping.svg" />
+    </div>
+  </ng-template>
+
+  <div *ngIf="this.notifications.length > 4" id="see-more-wrapper">
+    <p (click)="expandeCard()" id="see-more">
+      {{ this.expanded ? 'Ver menos' : 'Ver mais' }}
+    </p>
+  </div>
+</div>

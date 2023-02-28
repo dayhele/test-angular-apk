@@ -1,0 +1,43 @@
+<div (click)="goWatch()" class="now-card-link">
+  <div class="now-card">
+    <div class="now-card__image">
+      <img
+        draggable="false"
+        #refImage
+        *ngIf="program?.cover; else channelImage"
+        [src]="program?.cover"
+      />
+      <ng-template #channelImage>
+        <img class="channel-brand" [src]="program?.channelBrand" />
+      </ng-template>
+      <p
+        class="now-card__channel-name"
+        *ngIf="screen_x <= 768 && program?.originalNetwork"
+      >
+        {{ program?.originalNetwork }}
+      </p>
+    </div>
+    <div class="now-card__badge">
+      <div class="now-card__badge-details">
+        <div class="now-card__badge-details__content">
+          <app-censorship
+            [age]="censorship && censorship !== 'L' ? censorship : '0'"
+          ></app-censorship>
+          <div class="now-card__badge-details__content__text">
+            <p class="now-card__badge-details__content__text__title">
+              {{ program?.titleFull }}
+            </p>
+            <p class="now-card__badge-details__content__text__time">
+              {{ timeStart }} - {{ timeEnd }}
+            </p>
+          </div>
+        </div>
+        <img
+          *ngIf="screen_x > 768"
+          class="now-card__badge-details__logo"
+          [src]="program?.channelBrand"
+        />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  .container {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: remc(390);
+
+    .fade {
+      position: absolute;
+      width: calc(100vw - remc(553));
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        #16071f 0,
+        #16071f calc(100% - 210px),
+        rgba(0, 0, 0, 0) 100%
+      );
+      z-index: 2;
+    }
+
+    .image-banner-cta {
+      position: absolute;
+      right: 0;
+
+      img {
+        width: 100%;
+        height: remc(390);
+      }
+    }
+
+    .texts {
+      padding-top: remc(82);
+      color: var(--white);
+      margin-left: remc(112);
+      z-index: 4;
+      .title {
+        width: 13vw;
+        font-size: remc(24);
+        font-weight: 700;
+
+        h3 {
+          margin-top: remc(82);
+        }
+      }
+      .subtitle {
+        margin-top: remc(24);
+        font-size: remc(14);
+        font-weight: 400;
+        width: remc(293);
+      }
+      .btn {
+        margin-top: remc(34);
+      }
+    }
+  }
+}

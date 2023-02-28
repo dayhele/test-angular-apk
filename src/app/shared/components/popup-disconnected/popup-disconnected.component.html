@@ -1,0 +1,16 @@
+<div class="container" *ngIf="showPopupLogged">
+  <div class="popup">
+    <h1>AVISO</h1>
+    <p>
+      Seu perfil iniciou uma sessão em outro dispositivo. Você será
+      redirecionado para a página de perfil.
+    </p>
+    <app-button
+      class="button"
+      [text]="'Ok'"
+      [type]="'button'"
+      [classList]="'btn-primary'"
+      (click)="goTo()"
+    ></app-button>
+  </div>
+</div>

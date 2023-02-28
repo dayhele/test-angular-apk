@@ -1,0 +1,176 @@
+<main class="container">
+  <div *ngIf="!isLoading">
+    <app-featured-games-banner [data]="pageBanner"></app-featured-games-banner>
+
+    <div *ngFor="let section of sportsData">
+      <div [ngSwitch]="section.type">
+        <div
+          class="container__section"
+          *ngSwitchCase="'isSportsWomensBasketball'"
+        >
+          <app-section
+            [idPerfil]="idPerfil"
+            [title]="section.title!"
+            [properties]="section.cardProperties!"
+            [data]="section.data!"
+            *ngIf="section.data && section.data.length > 0"
+          >
+          </app-section>
+        </div>
+        <div class="container__section" *ngSwitchCase="'isSportsF1'">
+          <app-section
+            [idPerfil]="idPerfil"
+            [title]="section.title!"
+            [properties]="section.cardProperties!"
+            [data]="section.data!"
+            *ngIf="section.data && section.data.length > 0"
+          >
+          </app-section>
+        </div>
+        <div class="container__section" *ngSwitchCase="'isSport'">
+          <app-section
+            [idPerfil]="idPerfil"
+            [title]="section.title!"
+            [properties]="section.cardProperties!"
+            [data]="section.data!"
+            *ngIf="section.data && section.data.length > 0"
+          >
+          </app-section>
+        </div>
+        <div class="container__section" *ngSwitchCase="'isSpecificAdvertising'">
+          <app-default-section-full
+            [sectionTitle]="fullSection.title"
+            [sectionDescription]="fullSection.description"
+            [sectionButtonText]="'ver mais'"
+          ></app-default-section-full>
+        </div>
+        <div
+          class="container__section"
+          *ngSwitchCase="'isSportsParanaenseChampionship'"
+        >
+          <app-section
+            [idPerfil]="idPerfil"
+            [title]="section.title!"
+            [properties]="section.cardProperties!"
+            [data]="section.data!"
+            *ngIf="section.data && section.data.length > 0"
+          >
+          </app-section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="skeleton">
+    <ngx-skeleton-loader
+      class="loader"
+      count="1"
+      appearance="line"
+      animation="pulse"
+      [theme]="{
+        height: '208px',
+
+        display: 'flex'
+      }"
+    ></ngx-skeleton-loader>
+    <div class="skeleton__sections">
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '28px',
+          width: '300px'
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        class="loader"
+        [count]="screen_x > 768 ? 4 : 2"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '208px',
+
+          display: 'flex',
+
+          marginRight: '1rem'
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '28px',
+          width: '300px'
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        class="loader"
+        [count]="screen_x > 768 ? 4 : 2"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '208px',
+
+          display: 'flex',
+
+          marginRight: '1rem'
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '28px',
+          width: '300px'
+        }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        class="loader"
+        [count]="screen_x > 768 ? 4 : 2"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '208px',
+
+          display: 'flex',
+
+          marginRight: '1rem'
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        count="1"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          display: 'block',
+          height: '28px',
+          width: '300px'
+        }"
+      ></ngx-skeleton-loader>
+
+      <ngx-skeleton-loader
+        class="loader"
+        [count]="screen_x > 768 ? 4 : 2"
+        appearance="line"
+        animation="pulse"
+        [theme]="{
+          height: '208px',
+
+          display: 'flex',
+
+          marginRight: '1rem'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</main>

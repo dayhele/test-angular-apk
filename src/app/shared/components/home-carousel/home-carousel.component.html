@@ -1,0 +1,61 @@
+<swiper #swiper [autoplay]="{ delay: 10000, disableOnInteraction: false }" [focusableElements]="'app-button'"
+  [pagination]="{ clickable: true }" [loop]="true" class="carousel--wrapper">
+  <ng-template swiperSlide *ngFor="let banner of main?.banners">
+    <div class="banner" (click)="checkClick(banner.id!, banner.type!, banner.link_banner)">
+      <div class="banner--image">
+        <div [ngClass]="theme.client === 'watch' ? 'banner--image-shadow-watch' : 'banner--image-shadow-multi'" ></div>
+        <img
+          [src]="buildUrl(banner?.cdn, banner?.images?.p2048x840, main)"
+        />
+      </div>
+      <div class="banner--wrapper">
+        <div [class]="'banner--container ' + banner.cta_position" *ngIf="screen_x > 768">
+          <div class="banner--actions">
+            <app-play-button *ngIf="
+            
+              (![bannerSecondaryTypes.Blank, bannerSecondaryTypes.OnlyCTA].includes(banner.secondaryType!)) ||
+              (banner.link_banner && banner.link_banner.length > 0)
+            
+            " (clickEvent)="goToDetails(banner.id!, banner.type!, banner.link_banner)" [text]="banner.cta_name ?? 'Assistir'"></app-play-button>
+
+            <app-pre-save-warn-bell *ngIf="banner.isPreSave && banner.preSaveId && ![bannerSecondaryTypes.Blank, bannerSecondaryTypes.OnlyCTA].includes(banner.secondaryType!)" [idPerfil]="idPerfil" [isSaved]="true" [preSaveId]="1"></app-pre-save-warn-bell>
+
+            <app-favorite-button *ngIf="!!banner.id && ![bannerSecondaryTypes.Blank, bannerSecondaryTypes.OnlyCTA].includes(banner.secondaryType!)" [movieSerie]="banner" [idPerfil]="idPerfil"
+              (clickEvent)="$event.stopPropagation()"></app-favorite-button>
+          </div>
+        </div>
+        <div class="banner--content" *ngIf="![bannerSecondaryTypes.Blank, bannerSecondaryTypes.OnlyCTA].includes(banner.secondaryType!)">
+          <p class="banner--title">{{ banner?.title }}</p>
+          <div class="banner--info">
+            <p [class]="'censorship age_' + banner?.censorship" *ngIf="banner?.censorship !== '0'; else elseBlock">
+              {{ banner?.censorship }}
+            </p>
+            <ng-template #elseBlock>
+              <p [class]="'censorship age_' + banner?.censorship" #elseBlock>
+                L
+              </p>
+            </ng-template>
+            <ul class="badges" *ngIf="screen_x > 900">
+              <li class="badges--badge" *ngIf="banner?.type === 'serie'">
+                Séries
+              </li>
+              <li class="badges--badge" *ngFor="let genre of banner?.genres">
+                {{ genre }}
+              </li>
+            </ul>
+            <p class="year">{{ banner?.year }}</p>
+            <p class="mins" *ngIf="banner?.duration !== '0'">
+              {{ banner?.duration }}
+            </p>
+            <app-favorite-button *ngIf="screen_x <= 768" [movieSerie]="banner" [idPerfil]="idPerfil"
+              (click)="$event.stopPropagation()"></app-favorite-button>
+            <app-pre-save-warn-bell *ngIf="screen_x <= 768 && banner.isPreSave && banner.preSaveId && ![bannerSecondaryTypes.Blank, bannerSecondaryTypes.OnlyCTA].includes(banner.secondaryType!)" [idPerfil]="idPerfil" [isSaved]="banner.highlightPreSaveIsSaved!" [preSaveId]="banner.preSaveId"></app-pre-save-warn-bell>
+          </div>
+          <p class="banner--sinopse" *ngIf="!checkMobile">
+            {{ displayMovie(banner?.id)?.synopsis }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</swiper>

@@ -1,0 +1,78 @@
+<section>
+  <div class="loading" *ngIf="!mediaLoaded">
+    <app-loading></app-loading>
+  </div>
+  <div class="popup" *ngIf="completedPurchase">
+    <div class="popup--content">
+      <app-successful-purchase [itemId]="itemId"></app-successful-purchase>
+    </div>
+  </div>
+
+  <div class="media">
+    <ng-container *ngIf="mediaLoaded">
+      <app-default-card
+        [data]="{
+          id: mediaDetails.id,
+          type: type,
+          imageUrl: mediaDetails.imageUrl
+        }"
+        [onlyView]="true"
+      ></app-default-card>
+      <div class="media--info">
+        <h3 class="media--info--title">{{ mediaDetails?.title }}</h3>
+        <ng-container *ngIf="mediaDetails.fullPrice; else rented">
+          <div class="media--info--price">
+            <ng-container
+              *ngIf="
+                mediaDetails.fullPrice !== mediaDetails.finalPrice;
+                else samePrice
+              "
+            >
+              <p class="full-price">
+                Valor: <span>R$ {{ mediaDetails?.fullPrice }}</span>
+              </p>
+              <p class="final-price">
+                por: <span>R$ {{ mediaDetails?.finalPrice }}</span>
+              </p>
+            </ng-container>
+            <ng-template #samePrice>
+              <p class="final-price">
+                Valor: <span>R$ {{ mediaDetails?.fullPrice }}</span>
+              </p>
+            </ng-template>
+          </div>
+          <div class="media--info--rent-period">
+            <p>
+              Período do aluguel: <span>{{ mediaDetails?.rentalPeriod }}</span>
+            </p>
+          </div>
+          <div class="media--info--coupom">
+            <h4>Possui cupom de desconto?</h4>
+            <app-input
+              [placeholder]="'Insira o código do cupom'"
+              [(value)]="coupom"
+            ></app-input>
+            <app-button [classList]="'btn-secondary'" (click)="checkCoupom()"
+              >Verificar</app-button
+            >
+            <h4 class="error" *ngIf="coupomError !== ''">{{ coupomError }}</h4>
+          </div>
+        </ng-container>
+        <ng-template #rented>
+          <h4>O filme selecionado já encontra-se disponível.</h4>
+        </ng-template>
+      </div>
+    </ng-container>
+  </div>
+  <div class="payment-wrapper" *ngIf="mediaLoaded">
+    <form class="payment">
+      <div class="payment--content">
+        <div class="loading" *ngIf="!adyenReady">
+          <app-loading></app-loading>
+        </div>
+        <div id="payment"></div>
+      </div>
+    </form>
+    <app-secure-site-card-badges></app-secure-site-card-badges>
+  </div>
+</section>

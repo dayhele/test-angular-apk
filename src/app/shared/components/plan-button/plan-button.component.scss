@@ -1,0 +1,60 @@
+span {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  color: #ffff;
+  cursor: pointer;
+}
+
+.wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// classe para colocar no item clicado (onclick no .wrapper)
+.wrapper.active {
+  border-bottom: 4px solid #f2688c;
+}
+.wrapper.active span {
+  color: #F2688C !important;
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-left: 18px;
+  }
+  span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .wrapper {
+    margin-left: 10px;
+  }
+  span {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .wrapper {
+    margin-left: -5px;
+  }
+  span {
+    font-size: 10px;
+  }
+  @media screen and (max-width: 400px) {
+    .wrapper {
+      margin-left: -15px;
+    }
+    span {
+      font-size: 9px;
+    }
+  }
+}

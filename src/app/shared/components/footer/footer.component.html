@@ -1,0 +1,147 @@
+<footer [class.desktop]="!checkMobile" [class.padding-logged]="isLogged">
+  <div class="footer-content">
+    <div class="row first-row">
+      <div class="copyright" *ngIf="!checkMobile || (!isLogged && isHome)">
+        <p>
+          ©2021 WarnerMedia Direct Latin America, LLC. Todos os direitos
+          reservados. HBO Max é usado sob licença.
+        </p>
+        <p>
+          ©2020 Home Box Office, Inc. Todos os direitos reservados. As marcas
+          registradas HBO® e HBO MAX® são propriedades da Home Box Office, Inc.
+        </p>
+        <p>
+          ©2020 HBO Ole Partners. Todos os direitos reservados. As marcas
+          registradas HBO® e HBO MAX® são propriedades da Home Box Office, Inc.
+          A Apple,
+        </p>
+        <p>
+          o logo Apple e a App Store são marcas registradas da Apple, Inc.
+          registrada nos Estados Unidos e outros países. Google Play é uma marca
+          registrada de Google, Inc.
+        </p>
+      </div>
+      <div class="apps-store" *ngIf="checkMobile">
+        <h3>Para uma melhor experiência use o App</h3>
+        <div class="icons">
+          <a (click)="goToGooglePlay()">
+            <img
+              [src]="environment.bucket + 'icons/google-play.svg'"
+              alt="google-play"
+            />
+          </a>
+          <a (click)="goToPlayStore()">
+            <img
+              [src]="environment.bucket + 'icons/app-store.svg'"
+              alt="app-store"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="brand">
+        <div *ngIf="checkMobile">
+          <div class="whatsapp">
+            <app-whatsapp-button
+              [mini]="true"
+              [isLargeButton]="!checkMobile"
+            ></app-whatsapp-button>
+          </div>
+        </div>
+        <div class="logo-copy">
+          <img src="{{ theme.logo }}" [alt]="theme.title" />
+          <p>{{ theme.footer.copyright }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row second-row">
+      <div class="social-media" *ngIf="!checkMobile">
+        <ul>
+          <li class="social-icon" *ngIf="theme.socialMedia.linkFace">
+            <a (click)="goToFacebook()">
+              <img
+                [src]="environment.bucket + 'icons/facebook.svg'"
+                alt="facebook"
+              />
+            </a>
+          </li>
+          <li class="social-icon" *ngIf="theme.socialMedia.linkInsta">
+            <a (click)="goToInstagram()">
+              <img
+                [src]="environment.bucket + 'icons/instagram.svg'"
+                alt="instagram"
+              />
+            </a>
+          </li>
+          <li class="social-icon" *ngIf="theme.socialMedia.linkLinkedin">
+            <a (click)="goToLinkedin()">
+              <img
+                [src]="environment.bucket + 'icons/linkedin.svg'"
+                alt="linkedin"
+              />
+            </a>
+          </li>
+          <li class="social-icon" *ngIf="theme.socialMedia.linkYoutube">
+            <a (click)="goToYoutube()">
+              <img
+                [src]="environment.bucket + 'icons/youtube.svg'"
+                alt="youtube"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="whatsapp" *ngIf="!checkMobile">
+        <app-whatsapp-button
+          [isLargeButton]="!checkMobile"
+        ></app-whatsapp-button>
+      </div>
+      <div class="apps-store" *ngIf="!checkMobile">
+        <div class="icons">
+          <a (click)="goToGooglePlay()">
+            <img
+              [src]="environment.bucket + 'icons/google-play.svg'"
+              alt="google-play"
+            />
+          </a>
+          <a (click)="goToPlayStore()">
+            <img
+              [src]="environment.bucket + 'icons/app-store.svg'"
+              alt="app-store"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="links">
+        <ul>
+          <li *ngIf="theme.footer.poweredBy && !checkMobile" class="poweredBy">
+            <a routerLink="/">Powered by</a>
+            <img
+              [src]="environment.bucket + 'icons/logo-watch.svg'"
+            />
+          </li>
+          <li>
+            <a (click)="goTo()">{{ theme.footer.mainButtonText }}</a>
+          </li>
+          <li>
+            <a routerLink="/termos">Termos de uso e privacidade</a>
+          </li>
+          <li>
+            <a
+              routerLink="/feedback"
+              *ngIf="
+                theme.client === 'watch' &&
+                !profile.kids &&
+                profileService.selectedProfile &&
+                !checkMobile
+              "
+              >Enviar feedback</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

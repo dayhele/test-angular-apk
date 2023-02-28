@@ -1,0 +1,59 @@
+<!--<div *ngIf="isLoaded; else isLoading">-->
+  <div *ngIf="data && data.length > 2" class="section">
+    <div class="section__texts">
+      <img
+        src="https://watchbr-resources.s3.amazonaws.com/icon-channels.svg"
+        alt="ícone de canais"
+      />
+      <h3>Canais assistidos recentemente</h3>
+    </div>
+    <div class="section__cards">
+      <swiper
+        *ngIf="data?.length !== undefined"
+        [slidesPerView]="'auto'"
+        [navigation]="!checkMobile"
+        (reachEnd)="onSwiper()"
+      >
+        <ng-template swiperSlide *ngFor="let program of data">
+          <app-now-card
+            *ngIf="program"
+            [censorship]="program.censorship!"
+            [program]="program"
+          >
+          </app-now-card>
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
+<!--</div>-->
+
+<!--<ng-template #isLoading>-->
+<!--  <div class="skeleton__sections">-->
+<!--    <ngx-skeleton-loader-->
+<!--      [count]="1"-->
+<!--      appearance="line"-->
+<!--      animation="false"-->
+<!--      [theme]="{-->
+<!--        display: 'block',-->
+<!--        height: '28px',-->
+<!--        width: '300px',-->
+<!--        marginTop: '1.5rem',-->
+<!--        marginLeft: !isMobile ? '3.5rem' : '0rem',-->
+<!--        background: 'rgba(122,122,122,.2)'-->
+<!--      }"-->
+<!--    ></ngx-skeleton-loader>-->
+
+<!--    <ngx-skeleton-loader-->
+<!--      class="loader"-->
+<!--      [count]="!isMobile ? 2 : 1"-->
+<!--      appearance="line"-->
+<!--      animation="false"-->
+<!--      [theme]="{-->
+<!--        height: !isMobile ? '208px' : '192px',-->
+<!--        width: !isMobile ? '416px' : '275px',-->
+<!--        marginLeft: !isMobile ? '3.5rem' : '0rem',-->
+<!--        background: 'rgba(122,122,122,.2)'-->
+<!--      }"-->
+<!--    ></ngx-skeleton-loader>-->
+<!--  </div>-->
+<!--</ng-template>-->

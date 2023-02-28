@@ -1,0 +1,10 @@
+:host {
+  img {
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+    @media screen and (max-width: 768px) {
+      height: 150px;
+    }
+  }
+}

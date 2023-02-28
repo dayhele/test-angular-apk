@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="modal-cancel" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img
+          class="modal-close"
+          src="assets/icons/close_small_icon.svg"
+          alt="fechar"
+          (click)="closeModal()"
+        />
+      </div>
+      <div class="modal-body">
+        <img
+          class="cancel-logo"
+          src="assets/icons/cancel.svg"
+          alt="logo-cancelar"
+        />
+        <div class="modal-title">
+          <h4 *ngIf="!cancellationConfirmed">
+            Deseja cancelar sua assinatura?
+          </h4>
+          <h4 *ngIf="cancellationConfirmed">Sua assinatura foi cancelada!</h4>
+        </div>
+        <div class="modal-subtitle">
+          <p *ngIf="!cancellationConfirmed">
+            O cancelamento será efetivado quando finalizar o ciclo de cobrança.
+          </p>
+          <p *ngIf="cancellationConfirmed">
+            Você receberá um email com a confirmação do cancelamento.
+          </p>
+        </div>
+        <app-button
+          *ngIf="!cancellationConfirmed"
+          class="modal-button-cancel"
+          [text]="'Quero Cancelar'"
+          [type]="'button'"
+          [classList]="'btn-primary'"
+          (click)="cancelSubscription()"
+        >
+        </app-button>
+        <a
+          *ngIf="!cancellationConfirmed"
+          class="modal-cancel-link"
+          (click)="closeModal()"
+          >Voltar</a
+        >
+        <div class="notice" *ngIf="!cancellationConfirmed"><p>
+          *Para período de degustação (7 dias) cancelamento imediato.
+          </p></div>
+      </div>
+    </div>
+  </div>
+  <div class="main-section">
+    <div class="left-side">
+      <div class="title">
+        <h2>Não vá embora
+        sem conhecer todos
+        os nossos planos!</h2>
+      </div>
+      <p class="subtitle">
+        {{ profileMaster?.nome }}, antes de decidir sobre o cancelamento da sua
+        assinatura, considere conhecer melhor todas as nossas opções de planos
+        de assinatura. São muitos benefícios em conteúdos para você e toda a sua
+        família!
+      </p>
+      <div class="logos">
+        <img src="assets/logos/ret-logos.svg" alt="serviços" />
+      </div>
+      <div class="buttons">
+        <app-button
+          class="primary-button"
+          [text]="'Ver planos'"
+          [type]="'button'"
+          [classList]="'btn-primary'"
+          (click)="goToPlans()"
+        ></app-button>
+        <app-button
+          class="secondary-button"
+          [text]="'Cancelar assinatura'"
+          [type]="'button'"
+          [classList]="'btn-secondary'"
+          (click)="showModal = true"
+        ></app-button>
+      </div>
+    </div>
+    <div class="right-side">
+      <img
+        class="banner-retention"
+        src= "{{theme.retention.bannerRetention}}"
+        alt="banner"
+      />
+    </div>
+  </div>
+</div>

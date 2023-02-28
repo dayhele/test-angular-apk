@@ -1,0 +1,113 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  button {
+    padding: remc(6) remc(24);
+    border-radius: remc(50);
+    font-family: 'Roboto', sans-serif;
+    color: var(--white);
+    cursor: pointer;
+    font-weight: 500;
+    line-height: remc(18.75);
+    font-size: remc(16);
+    transition: all 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-base);
+
+    &.first-icon {
+      margin-right: remc(7.5);
+    }
+
+    &.disabled {
+      background-color: var(--medium-gray);
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    &.btn-primary {
+      background: var(--primary-base);
+
+      &:hover {
+        background: var(--primary-base);
+      }
+
+      &:active {
+        background: var(--primary-base);
+      }
+    }
+
+    &.btn-secondary {
+      background-color: transparent;
+      border: 1px solid var(--white);
+
+      &:not(.inactive) {
+        &:hover {
+          border-color: var(--primary-base);
+          color: var(--primary-base);
+        }
+
+        &:active {
+          border-color: var(--primary-background);
+          color: var(--primary-background);
+        }
+      }
+
+      &.inactive {
+        opacity: 0.3;
+        cursor: default;
+      }
+    }
+
+    &.large {
+      justify-content: center;
+      height: remc(60);
+      width: remc(220);
+      cursor: pointer;
+    }
+    &.btn-tertiary {
+      background-color: var(--primary-base);
+
+      &:active {
+        border-color: var(--primary-background);
+        color: var(--primary-background);
+      }
+    }
+
+    &.btn-gray {
+      background-color: transparent;
+      border: 1px solid #565656;
+      color: #565656;
+    }
+
+    &.favorite-color {
+      background-color: var(--white);
+      border: 1px solid var(--white);
+    }
+    &.favorite-default {
+      background-color: transparent;
+      border: 1px solid var(--white);
+    }
+
+    &.icon {
+      padding: remc(9);
+      max-width: remc(32);
+      max-height: remc(32);
+
+      img {
+        width: 100%;
+      }
+
+      &:hover {
+        color: var(--white);
+        background-color: transparent;
+        border: 1px solid var(--white);
+
+        img {
+          width: 100%;
+          content: url('../../../../assets/icons/star-filled.svg');
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,153 @@
+@import '../../themes/remc.scss';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  padding-bottom: remc(20);
+
+  .container {
+    padding: remc(50) 0 0 remc(56);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .category {
+      color: var(--blue-multi-25);
+    }
+
+    &__cardsRecommended {
+      display: flex;
+      flex-wrap: wrap;
+      padding: remc(172) 0;
+    }
+
+    &__cardsSuggested {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      width: 100%;
+    }
+
+    &__loading {
+      margin: 0 auto;
+    }
+
+    &__cards {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: remc(32) remc(24);
+
+      @media screen and (max-width: remc(900)) {
+        gap: remc(22) remc(14);
+      }
+
+      @media screen and (max-width: remc(768)) {
+        gap: remc(12);
+      }
+    }
+
+    &__movies {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: remc(32) remc(24);
+      padding-top: remc(24);
+      padding-bottom: remc(80);
+
+      @media screen and (max-width: remc(900)) {
+        gap: remc(22) remc(14);
+      }
+
+      @media screen and (max-width: remc(768)) {
+        gap: remc(12);
+      }
+    }
+
+    @media screen and (max-width: remc(900)) {
+      padding-left: 2rem;
+    }
+
+    @media screen and (max-width: remc(768)) {
+      padding: remc(16);
+    }
+  }
+
+  .skeleton {
+    &__results--hor {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    &__results--ver {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    @media screen and (max-width: remc(600)) {
+      &__results {
+        &--bar {
+          margin-bottom: remc(48);
+
+          ::ng-deep ngx-skeleton-loader {
+            .loader {
+              width: 100% !important;
+            }
+          }
+        }
+
+        &--hor {
+          margin-bottom: remc(12);
+
+          ::ng-deep ngx-skeleton-loader {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: remc(12);
+
+            .loader {
+              width: remc(100) !important;
+              height: remc(155) !important;
+              margin: 0 !important;
+
+              &:not(:last-child) {
+                margin-bottom: remc(12) !important;
+              }
+            }
+          }
+        }
+
+        &--ver {
+          margin-bottom: remc(12);
+
+          ::ng-deep ngx-skeleton-loader {
+            .loader {
+              width: 100% !important;
+              margin: 0 !important;
+
+              &:not(:last-child) {
+                margin-bottom: remc(12) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .default {
+    display: none;
+  }
+
+  .loader {
+    display: flex;
+  }
+
+  .card__movies {
+    z-index: 1;
+  }
+}

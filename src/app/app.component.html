@@ -1,0 +1,8 @@
+<ng-container *ngIf="theme.client">
+  <app-splash-app *ngIf="splash | async" @openClose></app-splash-app>
+  <div id='page' [style.opacity]="(splash | async) ? '0' : '1'">
+    <div [style.display]="(splash | async) ? 'none' : 'inherit'">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-container>

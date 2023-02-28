@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="dropdown">
+    <div class="dropdown--header" (click)="toggleDropdown()">
+      <p class="dropdown--header--title">{{ title }}</p>
+      <img
+        [src]="environment.imageService + '/icons/arrow-down.svg'"
+        alt="arrow-down"
+        class="dropdown--header--arrow-down"
+        [class.active]="isDropdownOpened"
+      />
+    </div>
+    <div
+      (cdkObserveContent)="updateDropdownHeight()"
+      #dropdown
+      class="dropdown--body"
+      [class.collapsed]="isDropdownOpened === false"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

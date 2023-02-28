@@ -1,0 +1,22 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .container {
+    width: 100%;
+    padding: remc(65);
+
+    h3 {
+      margin-bottom: remc(20);
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: remc(32) remc(24);
+  
+      .item {
+        display: inline-block;
+      }
+    }
+  }
+}

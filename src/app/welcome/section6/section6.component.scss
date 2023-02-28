@@ -1,0 +1,178 @@
+@import '../../../themes/remc.scss';
+
+.container {
+  display: flex;
+  justify-content: center;
+  height: remc(973);
+  width: 100%;
+  flex-wrap: wrap;
+  gap: remc(112);
+
+
+  .erro {
+    margin-top: remc(20);
+    background-color: var(--orange-400) !important;
+    color: var(--white);
+    padding: 10px;
+  }
+
+  h1,
+  p {
+    font-family: 'Roboto';
+    font-style: normal;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .map-texts-search {
+    margin-top: remc(83);
+    display: flex;
+    gap: remc(32);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .texts-and-search {
+    width: remc(400);
+
+    h1 {
+      font-weight: 500;
+      font-size: remc(40);
+      line-height: remc(47);
+    }
+
+    p {
+      font-weight: 400;
+      font-size: remc(14);
+      line-height: remc(16);
+      color: white;
+      margin-top: remc(24);
+    }
+
+    input {
+      width: 100%;
+      height: remc(32);
+      border-radius: remc(4);
+      background: var(--white);
+      outline: none;
+      padding: 0 remc(8) 0 remc(8);
+      display: block;
+      margin: auto;
+    }
+
+    input::placeholder {
+      color: var(--blue-100);
+      opacity: 0.5;
+      font-size: remc(14);
+    }
+
+    .city-paragraph {
+      margin-top: remc(40);
+      margin-bottom: remc(12);
+    }
+
+    .buttons {
+      gap: remc(28);
+      margin-top: remc(24);
+      display: flex;
+
+      ::ng-deep {
+        app-button {
+          .buttons-providers {
+            width: remc(195);
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  .provider {
+    width: 100%;
+    height: remc(285);
+    background: #333333;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    h1 {
+      font-weight: 700;
+      font-size: remc(24);
+      line-height: remc(28);
+    }
+
+    .provider-swiper {
+      width: 100%;
+      margin-top: remc(30);
+
+      &.justify-content-center-swiper {
+        ::ng-deep {
+          swiper {
+            .swiper-wrapper {
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
+
+    .border {
+      border-right: remc(1) solid rgba(255, 250, 250, 0.3);
+      margin-right: remc(43);
+    }
+
+    .provider-content {
+      width: remc(185);
+      height: remc(159);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      background: #1e1e22;
+      border-radius: remc(8);
+      justify-content: center;
+      padding: remc(10);
+
+      h1 {
+        font-size: remc(14);
+        line-height: remc(16);
+      }
+
+      .provider-texts {
+        display: flex;
+        flex-direction: column;
+        gap: remc(20);
+
+        P {
+          font-weight: 400;
+          font-size: remc(14);
+          line-height: remc(16);
+          color: white;
+        }
+
+        .provider-phone-number {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    ::ng-deep {
+      swiper {
+        padding-left: remc(100);
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: #fafafa;
+          opacity: 0.2;
+        }
+
+        .swiper-slide {
+          width: remc(273) !important;
+        }
+      }
+    }
+  }
+}

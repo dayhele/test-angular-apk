@@ -1,0 +1,77 @@
+<app-check-connection [type]="connectionState" (clickEvent)="connectionState = 0"></app-check-connection>
+<div class="container">
+  <app-development-tools *ngIf="isDevelopmentAmbient && !checkMobile"></app-development-tools>
+  <app-modal-pin *ngIf="showPinModal" (closeAction)="showPinModal = false" [profile]="profileToEnter"
+    (getPinInputed)="verifyPin($event)" [responsePin]="verifyPinSuccess" [responseEmail]="verifyEmailSuccess"
+    (getEmailInputed)="verifyEmail($event)"></app-modal-pin>
+  <app-popup-disconnected [showPopupLogged]="showPopupLogged"></app-popup-disconnected>
+  <div class="fixedToastVoucher" *ngIf="
+      !checkMobile &&
+      isVoucher &&
+      !showToastCheck &&
+      !isWatchScreen &&
+      !currentPage.includes('login')
+    ">
+    <p>Você está usando a versão Trial da plataforma {{ theme.title }}.</p>
+    <a (click)="goToPlans()">Assine já um plano!</a>
+  </div>
+  <app-header-unlogged *ngIf="!checkMobile && loginService.isUnloggedSession && theme.client === 'watch'"
+    [categories]="categories"></app-header-unlogged>
+  <app-header
+    [class.isVoucher]="!checkMobile && isVoucher && !showToastCheck"
+    *ngIf="!isWatchScreen && (!loginService.isUnloggedSession || theme.client !== 'watch' || checkMobile)"
+    [profileList]="profiles"
+    [currentRoute]="currentRoute"
+    [profileStructure]="profileStructure"
+    [profile]="profileService.profileSelected"
+    [isLogged]="isLogged"
+    [showHeaderOptions]="!currentPage.includes('profile')"
+    [isSelected]="isSelected"
+    [categories]="categories"
+    [hasLiveChannels]="profileService.profileSelected.live_content!"
+    [isAmericanet]="isAmericanet"
+    [isRentScreen]="isRentScreen || getCurrentPageFullPath().includes('rent/media')"
+    (profileToEnterEmitter)="onProfileToEnter($event)"
+  ></app-header>
+  <app-toast
+   *ngIf="
+      !checkMobile &&
+      !isWatchScreen &&
+      !currentPage.includes('login') &&
+      !currentPage.includes('profile') &&
+      showToastCheck
+    "
+    [class.isVoucher]="isVoucher"
+    [toastTime]="toastData.toastTime"
+    [toastTitle]="toastData.toastTitle"
+    [toastDesc]="toastData.toastDesc"
+    [toastClass]="toastData.toastClass"
+    (closeEvent)="showToastCheck = false"
+    [toastReg]="toastCupomReg"
+    [toastPaymentForecast]="toastPaymentForecast"
+    ></app-toast>
+  <section [ngClass]="
+      isWatchScreen
+        ? 'content-watch'
+        : isVoucher && !showToastCheck && !currentPage.includes('login')
+        ? 'content-toast'
+        : 'content'
+    ">
+    <app-toast-success #toastSuccess [toastMessage]="toastOptions.toastMessage"
+      [useUndoButton]="toastOptions.useUndoButton" (toastFunction)="executeToastFunction()"
+      (undoButtonPressed)="clearToastFunction()"></app-toast-success>
+    <router-outlet></router-outlet>
+  </section>
+
+  <div *ngIf="currentRoute !== '/hbomax'">
+    <app-footer *ngIf="!isWatchScreen && !environment.app"></app-footer>
+    <app-footer-mobile *ngIf="
+        (splash | async) === false &&
+        checkMobile &&
+        !isWatchScreen &&
+        !getCurrentPageFullPath().includes('profile/select') &&
+        isLogged
+      " [hasLiveChannels]="profileService.profileSelected.live_content!" [currentRoute]="currentRoute">
+    </app-footer-mobile>
+  </div>
+</div>

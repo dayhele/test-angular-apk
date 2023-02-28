@@ -1,0 +1,226 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  display: flex;
+  flex: 1;
+  .container {
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 remc(10);
+    flex: 1;
+
+    ::ng-deep .swiper {
+      .swiper-button-prev {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+
+      .swiper-button-disabled {
+        opacity: 0;
+      }
+
+      .swiper-button-next {
+        color: var(--white);
+        filter: drop-shadow(3px 3px 2px rgb(0 0 0 / 0.8));
+        transition: all 0.2s;
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+          width: auto;
+          height: auto;
+
+          padding: 0 remc(5);
+
+          @media screen and (max-width: remc(900)) {
+            margin-right: remc(18);
+          }
+
+          @media screen and (max-width: remc(768)) {
+            margin-right: remc(12);
+          }
+        }
+      }
+    }
+    .caption {
+      color: var(--white);
+      font-size: remc(16);
+      padding: remc(10) 0;
+      text-align: center;
+    }
+
+    .badges {
+      margin: remc(17) 0 remc(49);
+    }
+
+    .plans {
+      background-color: var(--primary);
+      width: 100%;
+      max-width: remc(1052);
+      min-height: remc(576);
+
+      margin: remc(65) 0 0 0;
+      padding: remc(26);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      &--title {
+        margin-bottom: remc(26);
+      }
+
+      &--subtitle {
+        text-align: center;
+        margin-bottom: remc(27);
+        h4 {
+          color: var(--orange-400);
+        }
+      }
+
+      &--description {
+        width: 100%;
+        max-width: remc(584);
+        color: var(--white);
+        text-align: center;
+        font-size: remc(14);
+        display: flex;
+        margin-bottom: remc(20);
+      }
+
+      &--cards {
+        display: flex;
+        width: 100%;
+        padding: remc(24);
+        flex-wrap: wrap;
+        margin: 0 remc(10);
+        justify-content: space-evenly;
+
+        .card {
+          background-color: var(--medium-gray);
+          padding: remc(20);
+          min-width: remc(290);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          &--title {
+            margin-bottom: remc(20);
+
+            h3 {
+              color: var(--orange-400);
+            }
+          }
+
+          &--benefits {
+            text-align: center;
+            color: var(--white);
+            font-size: remc(14);
+
+            .benefit {
+              margin: remc(10) 0;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              span {
+                position: relative;
+
+                & + p {
+                  color: var(--white);
+                  margin-left: remc(16);
+                }
+
+                &.disabled::after {
+                  content: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/disabled.svg');
+                  display: inline;
+                  position: absolute;
+                  width: fit-content;
+                  margin-left: remc(16);
+                }
+
+                &.active::after {
+                  content: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/check.svg');
+                  display: inline;
+                  position: absolute;
+                  width: fit-content;
+                  margin-left: remc(16);
+                }
+              }
+            }
+          }
+
+          &--price {
+            width: 100%;
+            max-width: remc(174);
+            padding: remc(6) remc(30);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            .price {
+              display: flex;
+              padding: remc(6) 0;
+              justify-content: space-between;
+              width: 100%;
+              color: var(--white);
+
+              span {
+                font-weight: 500;
+                color: var(--orange-400);
+              }
+
+              &:first-child > p + span {
+                text-decoration: line-through;
+              }
+            }
+          }
+
+          &--button {
+            margin-top: remc(20);
+            padding-bottom: remc(10);
+          }
+
+          @media screen and (max-width: 1009px) {
+            margin: remc(0) remc(15) remc(30);
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+
+          @media screen and (max-width: 779px) {
+            margin: 0;
+            margin-bottom: remc(30);
+
+            &--benefits {
+              .benefit {
+                font-size: remc(16);
+              }
+            }
+          }
+
+          @media screen and (max-width: 550px) {
+            width: 100%;
+          }
+        }
+
+        @media screen and (max-width: 1009px) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

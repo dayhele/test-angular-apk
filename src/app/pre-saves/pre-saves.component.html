@@ -1,0 +1,77 @@
+<app-pre-save-banner></app-pre-save-banner>
+
+<div *ngIf="!isLoaded; else isLoading">
+    <div id="card" *ngIf="preSaves.length > 0">
+      <app-internal-card *ngFor="let preSave of preSaves" [preSave]="preSave"></app-internal-card>
+    </div>
+</div>
+
+<ng-template #isLoading>
+    <div class="pre-save-loading-container">
+      <div class="pre-save-loading">
+        <ngx-skeleton-loader
+          class="loader"
+          [count]="1"
+          appearance="line"
+          animation="pulse"
+          [theme]="{
+            height: !checkMobile ? '350px' : '193px',
+            width: !checkMobile ? '275px' : '125px',
+            marginLeft: !checkMobile ? '4rem' : '0.5rem'
+          }"
+        ></ngx-skeleton-loader>
+    
+        <div class="loading-text">
+          <ngx-skeleton-loader
+            [count]="1"
+            appearance="line"
+            animation="pulse"
+            [theme]="{
+              display: 'block',
+              height: '28px',
+              width: !checkMobile ? '300px' : '180px',
+              marginBottom: '40px',
+              marginLeft: !checkMobile ? '4rem' : '1rem'
+            }"
+          ></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            [count]="1"
+            appearance="line"
+            animation="pulse"
+            [theme]="{
+              display: 'block',
+              height: '28px',
+              width: !checkMobile ? '100%' : '200px',
+              marginTop: '1.5rem',
+              marginLeft: !checkMobile ? '4rem' : '1rem'
+            }"
+          ></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            *ngIf="!checkMobile"
+            [count]="1"
+            appearance="line"
+            animation="pulse"
+            [theme]="{
+              display: 'block',
+              height: '28px',
+              width: !checkMobile ? '100%' : '200px',
+              marginTop: '1.5rem',
+              marginLeft: !checkMobile ? '4rem' : '1rem'
+            }"
+          ></ngx-skeleton-loader>
+          <ngx-skeleton-loader
+            [count]="1"
+            appearance="line"
+            animation="pulse"
+            [theme]="{
+              display: 'block',
+              height: '28px',
+              width: !checkMobile ? '60%' : '140px',
+              marginTop: '1.5rem',
+              marginLeft: !checkMobile ? '4rem' : '1rem'
+            }"
+          ></ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+</ng-template>

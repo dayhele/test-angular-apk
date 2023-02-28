@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"
+      name="viewport"
+    />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+
+    <div class="keep-watching-container" id="keep-watching-container">
+      <div class="modal-wrapper">
+    <p class="keep-watching-text">Gostaria de continuar vendo do ponto onde parou<br />  ou começar no início?</p>
+
+        <div class="keep-watching-buttons">
+          <div onclick="clickModalKeepWatching(0)" class="continue-button selected-button" id="continue-button">
+            <p>CONTINUAR</p>
+          </div>
+          <div onclick="clickModalKeepWatching(1)" class="continue-button" id="restart-button">
+            <p>REINICIAR</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loading-container" id="loading-container">
+      <div>
+        <img class="container--logo" src="../../images/logo.svg"  />
+      </div>
+      <div class="loading-circle"></div>
+    </div>
+
+
+
+    <div class="container" id="container">
+      <div class="details" id="detailsId">
+        <button class="details--button"
+        onclick="window.history.back()"
+        id="details--button">
+          <img
+            src="../../images/arrow-back-details.png"
+            class="details--button-arrow"
+          />
+        </button>
+        <div class="details--container">
+          <div class="details--container-img">
+            <img src="" class="details--img" id="details-img">
+          </div>
+          <div class="details--container-informations">
+            <div class="details--title" id="details-title"></div>
+            <div class="details--type">
+              <div class="details--type-censorship" id="censorship"></div>
+              <div class="details--type-genre" id="genre"></div>
+            </div>
+            <div id="details--rating" class="details--rating">
+              CLASSIFICAÇÂO INDICATICA:
+            </div>
+            <div class="details--type-synopsis" id="synopsis">
+            </div>
+            <div class="details--type-director" id="director"></div>
+            <div class="details--type-cast" id="type-cast">
+            </div>
+            <button onclick="enterAssitirButton()" class="details--button-episode" id="details-button-episode">
+            </button>
+            <button onclick="enterListButton()" class="details--button-episode" id="details-button-list">
+            </button>
+          </div>
+        </div>
+        </div>
+        <div class="details--temps">
+          <div class="details--buttons">
+            <button onclick="enterTempButton()" class="details--temps-button-temp" id="details-temp-button"></button>
+            <div class="details--temps-popup" id="details-temp-popup"></div>
+          </div>
+          <div class="details--temps-episodes" id="details-temps-episodes">
+            <div class="details--temps-list swiper" id="details-temp-list">
+              <div class="details--temps-track swiper-wrapper" id="temps-track">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../../axios/axios.min.js"></script>
+    <script src="./details.js" async></script>
+    <script src="../../swiper/swiper.min.js"></script>
+    <div class="container-popup"
+    id="containerPopup">
+      <div class="popup">
+        <div class="popup--text-title">Ops!</div>
+        <p class="popup--text-description"> O perfil já está ativo em outro dispositivo.</p>
+        <div class="popup--buttons">
+          <button class="popup--buttons-button" onclick="goTo('../profile-select/index.html')">Ok</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

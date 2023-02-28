@@ -1,0 +1,134 @@
+<div class="dropdown--open">
+  <div class="dropdown--open--option">
+    <ul *ngIf="routePath">
+      <li
+        (click)="getOption('criar')"
+      >
+        Criar senha
+      </li>
+      <li
+        (click)="getOption('editar')"
+      >
+        Editar senha
+      </li>
+      <li
+        (click)="getOption('excluir')"
+      >
+        Excluir senha
+      </li>
+    </ul>
+
+    <ul *ngIf="!routePath">
+      <li (click)="getOption('criar')">Criar senha</li>
+      <li class="text-option-default-criar">Editar senha</li>
+      <li class="text-option-default-criar">Excluir senha</li>
+    </ul>
+  </div>
+  <div *ngIf="option" class="dropdown--open--pin">
+    <div class="dropdown--open--pin--title">
+      <p>{{ optionTitle }}</p>
+    </div>
+    <div class="dropdown--open--pin--content">
+      <div
+        class="forget-content"
+        *ngIf="!passwordVerify && option !== 'criar' && option !== 'sendEmail'"
+      >
+        <div [class.text-error]="statusEdit === false" class="text-title">
+          <p>{{ nameInput }}</p>
+        </div>
+        <app-input-pin
+          [resetInput]="resetInput"
+          [response]="statusEdit"
+          (valueEmitter)="outputPin($event)"
+        ></app-input-pin>
+        <div class="text-forget">
+          <p (click)="forgetPassword()">Esqueceu a senha?</p>
+        </div>
+      </div>
+
+      <div *ngIf="option !== 'excluir'">
+        <div *ngIf="passwordVerify || option === 'criar'">
+          <div [class.text-error]="statusEdit === false" class="text-title">
+            <p>{{ nameInput }}</p>
+          </div>
+          <app-input-pin
+            [response]="statusEdit"
+            (valueEmitter)="InputOne($event)"
+          ></app-input-pin>
+          <div [class.text-error]="statusEdit === false" class="text-title">
+            <p>{{ nameInputRepeat }}</p>
+          </div>
+          <app-input-pin
+            [response]="statusEdit"
+            (valueEmitter)="InputTwo($event)"
+            (changeEmitter)="InputChange($event)"
+          ></app-input-pin>
+          <div class="dropdown--open--pin--button">
+            <app-button
+              (click)="savePin()"
+              [classList]="
+                buttonAtived ? 'btn-secondary' : 'btn-secondary-disabled'
+              "
+              >Salvar alterações</app-button
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="option === 'sendEmail'"
+        class="dropdown--open--pin--sendEmail"
+      >
+        <div>
+          <p *ngIf="!emailVerify">
+            Para redefinir sua senha, informe o email cadastrado
+          </p>
+          <div class="text-error">
+            <p *ngIf="emailVerify">E-mail não cadastrado, tente novamente</p>
+          </div>
+          <app-input
+            [type]="'email'"
+            [placeholder]="'Digite seu email'"
+            [(value)]="recoveryEmail"
+            [error]="emailVerify"
+            (valueChange)="emailVerify = false"
+          ></app-input>
+        </div>
+        <div class="buttonSave">
+          <app-button
+            [classList]="'btn-color-75'"
+            (click)="sendEmail()"
+            *ngIf="!emailVerify"
+            >Enviar</app-button
+          >
+        </div>
+      </div>
+
+      <div
+        *ngIf="option === 'excluir' && passwordVerify"
+        class="dropdown--open--pin--excluir"
+      >
+        <div class="modal">
+          <!-- <div class="modal-options">
+            <app-button
+              class="btn-sim"
+              (click)="deletePin()"
+              [classList]="'btn-primary'"
+              >Sim</app-button
+            >
+            <app-button
+              [classList]="'btn-tertiary'"
+              (click)="passwordVerify = false"
+              >Cancelar</app-button
+            >
+          </div> -->
+          <app-button
+            class="btn-save-changes"
+            (click)="savePin()"
+            [classList]="'btn-secondary'"
+            >Salvar alterações</app-button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

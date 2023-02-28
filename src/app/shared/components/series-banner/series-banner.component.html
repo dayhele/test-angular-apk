@@ -1,0 +1,176 @@
+<div *ngIf="data.id" class="banner">
+  <div  [ngClass]="theme.client === 'watch' ? 'fade-watch' : 'fade-multi'" ></div>
+  <div
+    class="banner__image"
+    [ngStyle]="{ 'background-image': 'url(' + backgroundPath + ')' }"
+  ></div>
+  <div class="banner__content">
+    <div class="banner__content-title">
+      <h1 class="banner__content-title__text">{{ title }}</h1>
+      <!-- <ul class="banner__content-title__logos">
+        <li>
+          <a>
+            <img src="{{ environment.imageService }}/icons/twitter.svg" alt="twitter" />
+          </a>
+        </li>
+        <li>
+          <a>
+            <img src="{{ environment.imageService }}/icons/whatsapp.svg" alt="whatsapp" />
+          </a>
+        </li>
+        <li>
+          <a>
+            <img src="{{ environment.imageService }}/icons/facebook.svg" alt="facebook" />
+          </a>
+        </li>
+        <li>
+          <a>
+            <img src="{{ environment.imageService }}/icons/instagram.svg" alt="instagram" />
+          </a>
+        </li>
+      </ul> -->
+    </div>
+    <div class="banner__content-info">
+      <div class="banner__content-info__left">
+        <app-censorship [age]="data?.censorship"></app-censorship>
+        <ng-template #elseBlock>
+          <span
+            [class]="
+              'banner__content-info__left-censorship age_' + data?.censorship
+            "
+            #elseBlock
+            >L</span
+          >
+        </ng-template>
+
+        <div class="banner__content-info__left-genres">
+          <div *ngFor="let item of data.genres?.split(',')">
+            <div
+              class="banner__content-info__left-genres__item"
+              *ngIf="data?.genres"
+            >
+              <span>{{ item }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner__content-info__time">
+        <p>
+          {{ data.year }}
+          {{ toMinutes(data.duration!) }}
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="!data.toRent" class="banner__content-progress">
+      <progress
+        class="banner__content-progress__bar"
+        [value]="data.position ?? 0"
+        [max]="data.duration ?? 100"
+      ></progress>
+    </div>
+
+    <div class="banner__content-action">
+      <app-play-button
+        *ngIf="!data.toRent && !isUnloggedSession"
+        [isKeepWatching]="!!data.position"
+        (clickEvent)="watch()"
+      ></app-play-button>
+
+      <ng-container *ngIf="isUnloggedSession">
+        <app-exclusive-content></app-exclusive-content>
+        <app-button
+          class="banner__content-action__play"
+          type="button"
+          classList="btn-primary"
+          (click)="goToWatchSubscribe()"
+        >
+          Quero ter Watch
+        </app-button>
+      </ng-container>
+
+      <app-button
+        *ngIf="data.toRent && !isUnloggedSession"
+        class="banner__content-action__play"
+        type="button"
+        classList="btn-primary"
+        (click)="rent()"
+      >
+        Alugar por R$ {{ convertReal(data?.finalPrice) }}
+      </app-button>
+
+      <!-- Aguardar definição Watch -->
+      <!-- <button class="banner__content-action__trailer" type="button">
+        Trailer
+      </button> -->
+      <button
+        *ngIf="
+          !data.toRent &&
+          !isUnloggedSession &&
+          (!isParamount ||
+            (isParamount && planAccessControlService.hasParamount))
+        "
+        class="banner__content-action__favorite"
+      >
+        <app-favorite-button
+          [movieSerie]="{id,type,favorite}"
+          [idPerfil]="idPerfil"
+          [type]="type"
+        >
+        </app-favorite-button>
+      </button>
+
+      <p *ngIf="data.titleHasContentIsComing" class="newContentDescription">{{ data.newContentDescription }}</p>
+
+      <!-- Aguardar definição Watch -->
+      <!-- <a class="banner__content-action__more">Saiba mais</a> -->
+    </div>
+
+    <div class="banner__content-synopsis">
+      <p>{{ data.synopsis }}</p>
+    </div>
+
+    <ul class="banner__content-cast">
+      <li *ngIf="data.actors" class="banner__content-cast__text">
+        <p class="banner__content-cast__text-title">Elenco principal:</p>
+        <span class="banner__content-cast__text-desc">{{ data.actors }}</span>
+      </li>
+      <li class="banner__content-cast__text" *ngIf="data?.director">
+        <p class="banner__content-cast__text-title">Direção:</p>
+        <span class="banner__content-cast__text-desc">{{ data.director }}</span>
+      </li>
+      <li class="banner__content-cast__text">
+        <p class="banner__content-cast__text-title">Ano:</p>
+        <span class="banner__content-cast__text-desc">{{ data.year }}</span>
+      </li>
+
+      <li class="banner__content-cast__text" *ngIf="data?.warning">
+        <p class="banner__content-cast__text-title">Descritores:</p>
+        <span class="banner__content-cast__text-desc">{{ data.warning }}</span>
+      </li>
+
+      <!-- Aguardar definição Watch -->
+      <!-- <li class="banner__content-cast__text">
+        <p class="banner__content-cast__text-title">Legendas:</p>
+        <span class="banner__content-cast__text-desc">
+          Português
+        </span>
+      </li> -->
+
+      <!-- Aguardar definição Watch -->
+      <!-- <li class="banner__content-cast__text">
+        <p class="banner__content-cast__text-title">Idiomas:</p>
+        <span class="banner__content-cast__text-desc">
+          Português, English
+        </span>
+      </li> -->
+    </ul>
+  </div>
+</div>
+
+<app-choose-payment
+  *ngIf="theme.client === 'watch'"
+  [data]="data"
+  [linkBuyMatch]="'/rent/media/' + data.id + '/' + data.type"
+></app-choose-payment>
+<app-nsports-wait-modal [match]="data"></app-nsports-wait-modal>

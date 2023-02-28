@@ -1,0 +1,77 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .container {
+    width: 100%;
+
+    @media screen and (max-width: 1024px) {
+      .button--position {
+        padding: 0 !important;
+        margin-bottom: -24px !important;
+      }
+    }
+
+    progress {
+      width: 100%;
+      height: remc(24);
+      display: block;
+      padding: remc(8) 0;
+    }
+    progress::-webkit-progress-value {
+      background-color: var(--primary-base);
+    }
+
+    .circle {
+      position: absolute;
+      width: remc(24);
+      height: remc(24);
+      top: 0;
+      border-radius: 50%;
+      border: 2px solid var(--blue-100);
+      background-color: var(--white);
+    }
+
+    .button--position {
+      pointer-events: all;
+      width: 100%;
+      padding: remc(8) 0;
+      z-index: 999;
+
+      ::ng-deep {
+        .mat-slider {
+          width: 100%;
+        }
+
+        .mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+          top: 18px;
+        }
+        .mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+          height: 8px;
+        }
+        .mat-slider.mat-slider-horizontal .mat-slider-track-background,
+        .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+          height: 100%;
+        }
+        
+        .mat-accent .mat-slider-thumb {
+          height: 24px;
+          width: 24px;
+          background-color: var(--white);
+          border: solid 2px var(--blue-100);
+          bottom: -15px;
+          right: -16px;
+        }
+
+        .mat-slider-track-background {
+          background: var(--white);
+          opacity: 0.7;
+        }
+
+        .mat-slider-min-value:not(.mat-slider-thumb-label-showing)
+          .mat-slider-thumb {
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+}

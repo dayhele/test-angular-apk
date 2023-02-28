@@ -1,0 +1,111 @@
+@import '../../../../themes/remc.scss';
+:host {
+    flex: none;
+    display: flex;
+    height: remc(93);
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px) {
+        height: remc(70);
+    }
+    .card {
+        width: remc(230);
+        height: 100%;
+        border: 2px solid var(--primary-background);
+        border-radius: remc(2);
+        margin-right: remc(2);
+        overflow: hidden;
+        @media screen and (max-width: 768px) {
+            font-size: remc(12);
+        }
+        @media only screen and (hover: none) and (pointer: coarse) {
+            border-radius: (2);
+            margin-left: (2);
+        }
+        &--blocked {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: var(--black);
+            top: 0;
+            opacity: 0.6;
+            z-index: 1;
+        }
+        &--details {
+            width: 100%;
+            height: 100%;
+            padding: remc(5) remc(15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: space-between;
+            &--title {
+                p {
+                    width: 50%;
+                    font-weight: 500;
+                    color: white;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+            }
+            &--description {
+                p {
+                    width: 50%;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    color: white;
+                }
+            }
+            &--additional-info {
+                width: 100%;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-weight: 500;
+                position: relative;
+                app-censorship {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                }
+                &--time {
+                    display: flex;
+                    margin-right: remc(30);
+                    overflow: hidden;
+                    &--separator {
+                        margin: 0 remc(5);
+                    }
+                }
+            }
+        }
+    }
+    .live {
+        background: var(--blue-multi-2);
+        cursor: pointer;
+        position: relative;
+        .card--details {
+            .card--details--title {
+                p {
+                    color: var(--yellow-400);
+                }
+            }
+            @media only screen and (hover: none) and (pointer: coarse) {
+                border-radius: remc(2);
+                margin-right: remc(4);
+            }
+        }
+    }
+    .blockedChannel {
+        position: absolute;
+        width: 100%;
+        bottom: remc(33);
+        height: 100%;
+        left: remc(11);
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+    }
+}

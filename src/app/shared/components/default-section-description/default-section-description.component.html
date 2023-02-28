@@ -1,0 +1,33 @@
+<div class="section">
+  <div class="section--left">
+    <div class="section--left--title">
+      <ng-container *ngIf="theme.home.titleLogo">
+        <img class="title-image"
+          [src]="environment.bucket + 'logos/multi_mais.svg'"
+          [alt]="theme.title" />
+      </ng-container>
+      <div class="title-title">
+        <h4>{{ theme.home.textForYou }}</h4>
+      </div>
+    </div>
+    <div class="section--left--content">
+      <p class="forYouText">
+        Aqui tem toda a coleção de conteúdos dos canais mais assistidos.
+      </p>
+      <div class="button">
+        <app-button *ngIf="sectionButtonText !== ''" [type]="'button'" [text]="sectionButtonText"
+          [classList]="'btn-secondary'"></app-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section--right">
+    <swiper [slidesPerView]="'auto'" *ngIf="data?.length !== undefined" [navigation]="!checkMobile">
+      <ng-template swiperSlide *ngFor="let item of data">
+        <app-default-card *ngIf="!item.disabled" [hbo]="item.title === 'hbomax'" [cardProperties]="cardProperties"
+          [data]="item" [small]="item.small!" (typeEmitter)="checkIfIsSubscribed($event)" (click)="cardClick.emit(item)"
+          [disableClick]="disableClick"></app-default-card>
+      </ng-template>
+    </swiper>
+  </div>
+</div>

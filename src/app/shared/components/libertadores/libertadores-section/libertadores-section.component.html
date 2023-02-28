@@ -1,0 +1,38 @@
+<!-- <div *ngIf="isLoaded"> -->
+  <div class="container">
+    <div class="grid">
+      <div class="background">
+        <img class="img-banner" [src]="bannerImg" />
+      </div>
+      <div class="texts">
+        <div class="img-logo">
+          <img [src]="logoImg" alt="">
+        </div>
+        <p class="subtitle" *ngIf="!text">
+          {{dataCards?.PageCustomDescription!}}
+        </p>
+        <p class="subtitle" *ngIf="text" [innerHTML]="text"></p>
+        <div class="btn">
+          <app-button *ngIf="hasExploreButton" class="button" text="Assista aos jogos" type="button"
+            classList="btn-primary" (click)="goTo('libertadores')"></app-button>
+        </div>
+      </div>
+      <div class="section">
+        <app-section [properties]="cardProperties" [hasNavigation]="hasNavigation" [allowTouchMove]="allowTouchMove" 
+          [data]="matchesLibertadores ?? []" 
+          [isConmebolLibertadores]="true"></app-section>
+      </div>
+    </div>
+  </div>
+
+  <app-section class="mobile" [properties]="cardProperties" [viewMore]="viewMore" [title]="dataCards?.PageCustomTitle!" [hasNavigation]="hasNavigation"
+    [allowTouchMove]="allowTouchMove" [isExclusiveContent]="false" [data]="matchesLibertadores ?? []" [cardOnly]="false"
+    [isNSportsCard]="false" [isConmebolLibertadores]="true"></app-section>
+<!-- </div>
+
+<ngx-skeleton-loader *ngIf="!isLoaded" count="1" appearance="line" animation="pulse" [theme]="{
+  height: '350px',
+  width: '100vw',
+  marginBottom: '24px',
+  display: 'row'
+}"></ngx-skeleton-loader> -->

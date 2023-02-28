@@ -1,0 +1,27 @@
+@import '../../../themes/remc.scss';
+
+.container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: remc(40);
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: remc(284);
+
+    background: linear-gradient(
+        180deg,
+        rgba(116, 9, 121, 0.5) 0.44%,
+        rgba(116, 9, 121, 0) 55.39%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(63, 7, 150, 0.5) 20.36%,
+        rgba(0, 0, 0, 0.05) 108.94%
+      );
+  }
+}

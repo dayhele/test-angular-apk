@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="footer-mobile">
+    <ul class="footer-mobile__icons">
+      <li>
+        <a routerLink="/home">
+          <div
+            [class]="
+              currentRoute === '/home' ? 'home-icon active' : 'home-icon'
+            "
+          ></div>
+        </a>
+      </li>
+      <li *ngIf="hasLiveChannels">
+        <a routerLink="/now"
+          ><div
+            [class]="currentRoute === '/now' ? 'live-icon active' : 'live-icon'"
+          ></div
+        ></a>
+      </li>
+
+      <li>
+        <a routerLink="/search-mob/todos"
+          ><div
+            [class]="
+              currentRoute === '/search' ? 'search-icon active' : 'search-icon'
+            "
+          ></div
+        ></a>
+      </li>
+
+      <li>
+        <a routerLink="/opcoes"
+          ><div
+            [class]="
+              currentRoute === '/opcoes' ? 'menu-icon active' : 'menu-icon'
+            "
+          ></div
+        ></a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 0 remc(10);
+    height: remc(27);
+    padding: remc(4.5) remc(15) remc(4.5) remc(10);
+    background: var(--primary-base);
+    border-radius: remc(16);
+
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease-out;
+
+    .icon {
+      width: remc(12);
+    }
+    span {
+      font-size: remc(16);
+    }
+    &:hover {
+      background: var(--primary-base);
+    }
+    &:active {
+      background: var(--primary-base);
+    }
+  }
+}

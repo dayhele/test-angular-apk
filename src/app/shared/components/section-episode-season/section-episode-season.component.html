@@ -1,0 +1,31 @@
+<div class="container">
+  <div *ngIf="isload" class="load">
+    <app-loading></app-loading>
+  </div>
+
+  <swiper
+    *ngIf="!isload"
+    #swiperRef
+    slidesPerView="auto"
+    [navigation]="!checkMobile"
+    [loop]="false"
+    (swiper)="onSwiper($event)"
+    (slideChangeTransitionEnd)="onClickSwiper($event)"
+  >
+    <ng-template swiperSlide *ngFor="let item of data">
+      <app-card
+      [data]="item"
+      [isExclusiveContent]="false"
+      [hasExclusiveContent]="true"
+      [showProgress]= "true"
+      [serieId]="serieId!"
+      [getProgress]="true"
+      [properties]="{
+        orientation: 'vertical',
+        rentable: title === 'Alugue'
+      }" [route]="item.route!
+      ">
+    </app-card>
+    </ng-template>
+  </swiper>
+</div>

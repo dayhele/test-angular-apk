@@ -1,0 +1,326 @@
+@import '../../../themes/variables.scss';
+
+.grid {
+  max-width: 800px;
+  margin: 40px auto;
+  display: grid;
+  flex-direction: column;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 18px;
+
+  hr {
+    width: 100%;
+    background-color: #fff;
+    opacity: 0.34;
+    display: block;
+    height: 1px;
+  }
+
+  .title {
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 28px;
+
+    &.center {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .title-secondary {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .kids-profile,
+  .live-channels {
+    display: flex;
+
+    .kids-profile-toggle,
+    .live-channels-toggle {
+      align-self: center;
+    }
+
+    .kids-profile-texts,
+    .live-channels-texts {
+      display: flex;
+      flex-direction: column;
+      margin-left: 24px;
+
+      .kids-profile-title,
+      .live-channels-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--white);
+      }
+
+      .kids-profile-subtitle,
+      .live-channels-subtitle {
+        font-size: 12px;
+        line-height: 10px;
+        font-weight: 300;
+        opacity: 0.5;
+        color: var(--blue-200);
+      }
+    }
+  }
+
+  .text-allow {
+    margin-top: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 8px;
+    color: #99b6e7;
+    opacity: 0.5;
+  }
+
+  .dados-usuario {
+    margin-right: remc(272);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    max-width: 66%;
+    // gap: 56px;
+
+    .box-img-profile-dados-usuario {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+
+      #imagePreview {
+        width: 126px;
+        height: 126px;
+        border-radius: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .edit-prifile-dados-usuario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        position: absolute;
+        margin-top: -99px;
+        margin-right: 87px;
+        background-color: var(--light-gray);
+        cursor: pointer !important;
+      }
+
+      .icon-edit-dados-usuario {
+        width: 26px;
+        margin-top: 3px;
+      }
+    }
+
+    .input-dados-usuario {
+      width: 312px;
+      height: 32px;
+      border-radius: 4px;
+      padding: 8px;
+      margin-top: 6px;
+      color: var(--light-gray);
+    }
+
+    .subtitle-dados-usuario {
+      color: var(--blue-200);
+      opacity: 0.5;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .perfil-infantil-dados-usuario {
+      display: flex;
+      margin-top: 32px;
+
+      .text-perfil-infantil-dados-usuario {
+        width: 355px;
+        margin-left: 18px;
+      }
+    }
+
+    .container-foto-nome {
+      align-self: self-end;
+    }
+  }
+
+  .classificacao {
+    align-items: start;
+    position: relative;
+
+    .labels {
+      width: 170px;
+      height: 25px;
+      margin-top: 8px;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+    }
+
+    .subtitle0 {
+      margin-top: 24px;
+    }
+
+    .age-label-0 {
+      max-width: 164px;
+      top: 140px;
+      position: absolute;
+    }
+
+    .age-label-10 {
+      max-width: 164px;
+      top: 176px;
+      position: absolute;
+    }
+
+    .age-label-12 {
+      max-width: 164px;
+      top: 220px;
+      position: absolute;
+    }
+
+    .age-label-14 {
+      max-width: 164px;
+      top: 264px;
+      position: absolute;
+    }
+
+    .age-label-16 {
+      max-width: 164px;
+      top: 308px;
+      position: absolute;
+    }
+
+    .age-label-18 {
+      max-width: 164px;
+      top: 352px;
+      position: absolute;
+    }
+
+    .subtitle2 {
+      max-width: 164px;
+      top: 612px;
+      position: absolute;
+    }
+
+    .subtitle,
+    .subtitle0 {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--blue-200);
+      opacity: 0.5;
+      line-height: 16px;
+    }
+
+    .age-label-0,
+    .age-label-10,
+    .age-label-12,
+    .age-label-14,
+    .age-label-16,
+    .age-label-18,
+    .subtitle2 {
+      font-size: 12px;
+      opacity: 0.5;
+      color: var(--blue-200);
+      line-height: 14px;
+    }
+  }
+
+  .classificacao,
+  .controle {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    color: #fff;
+    align-items: center;
+
+    .delete-profile {
+      margin-left: 40px;
+      background: none;
+      color: var(--white);
+
+      &:hover:not(:disabled) {
+        color: var(--primary-base);
+        cursor: pointer;
+      }
+
+      &:disabled {
+        opacity: 0.3;
+        text-decoration: none;
+        cursor: default;
+      }
+    }
+  }
+}
+
+.delete-profile-modal {
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  z-index: 10;
+  backdrop-filter: blur(2px);
+
+  .modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0C3372;
+    margin-top: 50vh;
+    height: 115px;
+    width: 100%;
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .modal-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+
+      .modal-cancel {
+        cursor: pointer;
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+.spacer-24 {
+  height: 24px;
+}
+
+.spacer-30 {
+  height: 24px;
+}
+
+.clicable {
+  cursor: pointer;
+}
+
+.save-changes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

@@ -1,0 +1,96 @@
+@import '../../../themes/remc.scss';
+
+:host {
+  display: flex;
+  flex: 1;
+  .container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 remc(10);
+    flex: 1;
+
+    .ativacao {
+      display: flex;
+      padding: remc(60);
+      flex-direction: column;
+      background-color: var(--primary-dark);
+      width: 100%;
+      height: 100%;
+      max-width: remc(880);
+      max-height: remc(576);
+      margin: remc(65) 0 remc(156);
+      align-items: center;
+      justify-content: center;
+
+      &--success-message {
+        p {
+          font-size: remc(14);
+          color: var(--orange-400);
+          max-width: remc(400);
+          text-align: center;
+        }
+      }
+
+      &--error-message {
+        p {
+          font-size: remc(14);
+          text-align: center;
+          color: var(--orange-400);
+          max-width: remc(400);
+        }
+      }
+
+      h1 {
+        font-size: remc(24);
+        margin-bottom: remc(80);
+      }
+
+      &--code-input {
+        width: 40%;
+        margin-bottom: remc(20);
+
+        @media screen and (max-width: 768px) {
+          width: 80%;
+        }
+      }
+
+      &--info {
+        margin-top: remc(50);
+        max-width: remc(400);
+        width: 100%;
+
+        p {
+          color: var(--white);
+          font-size: remc(14);
+        }
+      }
+
+      &--activate-button {
+        margin-top: remc(50);
+      }
+
+      &--sender-code {
+        margin-top: remc(80);
+
+        p {
+          cursor: pointer;
+          color: white;
+          transition: all 0.2s ease-out;
+
+          &:hover {
+            color: var(--orange-400);
+          }
+        }
+      }
+    }
+
+    .success{
+      padding: remc(89) 0 remc(341) 0;
+    }
+  }
+}

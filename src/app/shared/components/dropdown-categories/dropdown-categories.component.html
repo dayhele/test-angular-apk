@@ -1,0 +1,22 @@
+<div class="dropdown">
+  <a
+    [ngClass]="theme.client === 'watch' ? 'icon-watch' : 'icon-multi'"
+    (click)="onDropdownClick()"
+  >
+    <img
+      [ngClass]="active ? 'active' : ''"
+      src="assets/icons/arrow-down.svg"
+      alt="arrow-down"
+    />
+  </a>
+  <div
+    class="close"
+    (click)="onDropdownClick()"
+    [ngClass]="active ? 'close__active' : ''"
+  ></div>
+  <div class="menu" [class.icon]='icons' [ngClass]="active ? 'menu__active' : ''">
+    <ul *ngFor="let categorie of categories; let index = index">
+      <li (click)="openCategory(categorie)">{{ categorie?.title }}</li>
+    </ul>
+  </div>
+</div>

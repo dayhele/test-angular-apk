@@ -1,0 +1,152 @@
+<div class="card" [ngClass]="properties?.orientation" (click)="goTo()">
+  <div class="card__statusProgress" [ngSwitch]="statusProgress">
+    <img src="assets/icons/complete.svg" *ngSwitchCase="2" />
+    <img src="assets/icons/incomplete.svg" *ngSwitchCase="1" />
+    <img src="assets/icons/notopen.svg" *ngSwitchCase="0" />
+  </div>
+
+  <div class="paramount" *ngIf="isParamount && !hasParamount">
+    <div class="details">
+      <div class="col">
+        <p class="title">Conteúdo Exclusivo</p>
+        <p class="description">Planos Paramount+</p>
+      </div>
+      <div class="col" *ngIf="!checkDeviceService.isMobile()">
+        <div class="circle">
+          <img [src]="environment.bucket + 'icons/paramount_exclusive.svg'" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <img style="position: absolute" *ngIf="data?.isComingSoon" [src]="theme.iconComingSoon" />
+  <div class="card--gradient" *ngIf="!isParamount || (isParamount && hasParamount)"></div>
+  <div class="expired" *ngIf="isExpired"></div>
+  <img class="card--image" [src]="data?.imageUrl" onerror="this.style.display='none'" />
+  <div class="card--header">
+    <ng-container *ngIf="!isMobile">
+      <img class="logo" [src]="data?.logo" onerror="this.style.display='none'" />
+      <img class="rent" *ngIf="properties?.rentable" [src]="theme.alugue" onerror="this.style.display='none'" />
+    </ng-container>
+  </div>
+  <div class="card--hover" *ngIf="
+      !properties?.hasProgressBar || properties?.orientation === 'vertical'
+    ">
+    <app-censorship [age]="data?.censorship ?? '0'" *ngIf="!isParamount || (isParamount && hasParamount)">
+    </app-censorship>
+    <app-card-watch-button *ngIf="!isParamount || (isParamount && hasParamount)" [toRent]="properties?.rentable">
+    </app-card-watch-button>
+    <app-favorite-button *ngIf="!isMobile && (hasParamount || !isParamount)" (click)="$event.stopPropagation()"
+      [idPerfil]="idPerfil" [movieSerie]="data" [dataList]="dataList" [dataListFiltered]="dataListFiltered">
+    </app-favorite-button>
+  </div>
+  <div class="card--details">
+    <ng-container *ngIf="properties?.hasProgressBar">
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="progress">
+            <ng-container *ngIf="!isMobile">
+              <app-censorship [age]="data?.censorship ?? '0'"></app-censorship>
+              <p>{{ data?.title }}</p>
+            </ng-container>
+
+            <ng-container *ngIf="isMobile">
+              <app-censorship-small [age]="'16'"></app-censorship-small>
+              <p>{{ data?.title }}</p>
+            </ng-container>
+          </div>
+        </div>
+        <div class="vertical-details">
+          <div class="vertical-details--bottom">
+            <p class="title">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile">
+              <app-chip *ngFor="let genre of data?.genres!.slice(0, 3)" [text]="genre"></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card--details--row" *ngIf="properties?.orientation !== 'vertical'">
+        <progress value="{{ data?.position }}" max="{{ data?.duration }}"></progress>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="properties?.sportTitle">
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="sport">
+            <ng-container *ngIf="!isMobile">
+              <p class="sport--title">{{ data?.title }}</p>
+              <p class="sport--live" *ngIf="data?.isLive">• Ao vivo</p>
+            </ng-container>
+
+            <ng-container *ngIf="isMobile">
+              <app-censorship-small [age]="data?.censorship"></app-censorship-small>
+              <p class="sport--title">{{ data?.title }}</p>
+            </ng-container>
+          </div>
+        </div>
+        <div class="vertical-details">
+          <div class="vertical-details--bottom">
+            <p class="title">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile">
+              <app-chip *ngFor="let genre of data?.genres!.slice(0, 3)" [text]="genre"></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="sport">
+            <ng-container>
+              <p class="sport--description" *ngIf="!isMobile">
+                {{ data?.description }}
+              </p>
+              <p class="sport--timestamp" *ngIf="data?.timestamp">
+                {{ data?.timestamp | date: 'dd.MM.YY' }} -
+                {{ data?.timestamp | date: 'HH:mm' }}h
+              </p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="properties?.rentable">
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="rent">
+            <p class="rent--title">{{ data?.title }}</p>
+          </div>
+        </div>
+        <div class="vertical-details">
+          <div class="vertical-details--bottom">
+            <p class="title">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile">
+              <app-chip *ngFor="let genre of data?.genres!.slice(0, 3)" [text]="genre"></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card--details--row">
+        <div class="horizontal-details">
+          <div class="rent">
+            <p class="rent--description">{{ data?.description }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="
+        !properties?.hasProgressBar &&
+        !properties?.sportTitle &&
+        !properties?.rentable
+      ">
+      <div class="card--details--row">
+        <div class="vertical-details" *ngIf="!isParamount || (isParamount && hasParamount)">
+          <div class="vertical-details--bottom">
+            <p class="title">{{ data?.title }}</p>
+            <div class="vertical-details--chips-wrap" *ngIf="!isMobile">
+              <app-chip *ngFor="let genre of data?.genres?.slice(0, 3)" [text]="genre"></app-chip>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

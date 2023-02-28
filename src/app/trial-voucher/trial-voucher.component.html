@@ -1,0 +1,29 @@
+<section class="load" *ngIf="isValidateCode">
+  <app-loading></app-loading>
+</section>
+<section class="page" *ngIf="!isValidateCode">
+  <app-section-header
+  [daysFree]="daysFree"
+  ></app-section-header>
+  <app-section1
+  [daysFree]="daysFree"
+  ></app-section1>
+  <app-section8
+  [daysFree]="daysFree"
+  ></app-section8>
+  <app-section2
+  [daysFree]="daysFree"
+  ></app-section2>
+  <app-section3
+  [daysFree]="daysFree"
+  ></app-section3>
+  <app-section4
+  [daysFree]="daysFree"
+  ></app-section4>
+  <app-section6></app-section6>
+  <app-section7
+  [daysFree]="daysFree"
+  ></app-section7>
+  <app-section9></app-section9>
+  <app-footer></app-footer>
+</section>

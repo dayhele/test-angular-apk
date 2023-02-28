@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="main-section">
+    <div class="section1">
+      <img [src]="environment.bucket + 'logos/logo-multi-roxo.png'" />
+    </div>
+    <div class="line-top"></div>
+    <div class="section2">
+      <div class="textCta">
+        Você ganhou <span class="strong">{{daysFree}} DIAS</span> de Multi +
+      </div>
+    </div>
+    <div *ngIf="checkMobile" class="subtitle-mobile">*sem precisar inserir <br>um Cartão de Crédito</div>
+    <div class="section3">
+      <div class="line" *ngIf="!checkMobile"></div>
+      <app-button
+        class="primary-button"
+        [text]="checkMobile ? 'GARANTIR' : 'EU QUERO'"
+        type="button"
+        classList="btn-primary"
+        [largeButton]="true"
+        (click)="goToPlans()"
+      ></app-button>
+    </div>
+  </div>
+  <div *ngIf="!checkMobile" class="subtitle">*sem precisar inserir um Cartão de Crédito</div>
+</div>

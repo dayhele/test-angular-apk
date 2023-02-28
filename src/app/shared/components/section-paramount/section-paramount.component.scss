@@ -1,0 +1,80 @@
+@import '../../../../themes/remc.scss';
+.container {
+  position: relative;
+  width: 100%;
+   height: remc(360);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 remc(35) 0 10vw;
+  background-color: #0065ff;
+
+  .logo {
+    width: auto;
+    height: remc(140);
+    justify-content: center;
+  }
+
+  .banner {
+    width: 52vw;
+    height: 100%;
+    right: remc(35);
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: remc(124);
+
+  .background {
+    position: absolute;
+    width: 100%;
+    height: remc(242);
+    left: 0;
+    background: linear-gradient(
+      180deg,
+      #0065ff 23.14%,
+      rgba(0, 101, 255, 0) 88.23%
+    );
+    opacity: 0.2;
+  }
+
+  .texts {
+    padding-top: remc(78);
+    padding-right: remc(56);
+    color: var(--white);
+    margin-left: remc(78);
+    width: remc(360);
+
+    .title {
+      font-size: remc(24);
+      font-weight: 700;
+      margin-top: remc(8);
+
+      h3 {
+        margin-top: remc(82);
+      }
+    }
+    .subtitle {
+      font-size: remc(14);
+      font-weight: 400;
+      margin-top: remc(35);
+    }
+    .btn {
+      margin-top: remc(40);
+    }
+  }
+  .section {
+    overflow: hidden;
+
+    ::ng-deep app-section {
+      .container .swiper .swiper-wrapper {
+        padding: 0;
+      }
+    }
+  }
+}

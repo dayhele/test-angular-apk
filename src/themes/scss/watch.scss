@@ -1,0 +1,603 @@
+@import '../remc.scss';
+
+&.watch {
+  --primary-base: #e96744;
+  --primary-base-hover: #b72600;
+  --primary-text: #fff;
+  --primary-dark: #1e1e22;
+  --footer-mobile: #e96744;
+  --after-mobile: #e96744;
+  --after-web: #e96744;
+  --primary-background: #3d3d3f;
+  --now-hover: #e96744;
+  --error-red: #e96744;
+
+  --background-tutorial: #363636;
+  --text-tutorial: #e96744;
+
+  background: --primary-background;
+
+  .login,
+  .sms,
+  .success {
+    max-width: remc(880);
+  }
+
+  .navbar {
+    .logo img {
+      width: remc(136);
+    }
+  }
+
+  // canais ao vivo
+  app-card-rounded .item {
+    background-color: var(--gray);
+
+    .blockedOpacity {
+      @media screen and (min-width: 769px) {
+        &:hover {
+          background-color: grey;
+        }
+      }
+    }
+  }
+
+  .profile-edit-circle {
+    background-color: var(--light-gray);
+  }
+
+  // chips do hover dos cards
+  .vertical-details--chips-wrap {
+    display: block;
+
+    app-chip .container {
+      background-color: var(--medium-gray);
+    }
+  }
+
+  // card de esportes
+  .horizontal .card--details {
+    background-color: var(--medium-gray);
+
+    .sport--title {
+      color: var(--orange-400) !important;
+    }
+  }
+
+  // container da tela de planos
+  .container .plans {
+    background-color: var(--primary-dark) !important;
+  }
+
+  // fundo do criar novo usuario
+  app-create {
+    .container .content {
+      background-color: var(--primary-dark) !important;
+    }
+
+    .grid hr {
+      background: var(--primary-background) !important;
+    }
+  }
+
+  // card de esportes home
+  .vertical:hover .card--gradient {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.7) 67.17%,
+      rgba(0, 0, 0, 0) 100%
+    ) !important;
+  }
+
+  .horizontal .card--hover {
+    background: linear-gradient(
+      180deg,
+      rgba(61, 61, 63, 0) 5.1%,
+      #3d3d3f 100%
+    ) !important;
+  }
+
+  // card de locação home
+  .horizontal .card--details--row .horizontal-details .rent--title {
+    color: var(--orange-400) !important;
+  }
+
+  //carrossel  da home
+  .banner--info .badges--badge {
+    background-color: var(--medium-gray) !important;
+  }
+
+  //card de temporadas details
+  .watch-card-link .watch-card__badge {
+    background-color: var(--medium-gray) !important;
+  }
+
+  //censura da details
+  .banner__content-info__left-genres__item {
+    background-color: var(--medium-gray) !important;
+  }
+
+  // card Ao vivo
+  .now-card-link .now-card__badge {
+    background-color: var(--medium-gray) !important;
+  }
+
+  .now-card-link .now-card__badge-details__content__text__title {
+    color: var(--white) !important;
+  }
+
+  //texto Agora Ao vivo
+  .section__texts h3 {
+    color: var(--primary-text) !important;
+  }
+
+  //texto  Ao vivo
+  .now--day-grid h3 {
+    color: var(--primary-text) !important;
+  }
+
+  .now--day-grid--channels p {
+    color: var(--primary-text) !important;
+  }
+
+  .section--content--programs {
+    color: var(--primary-dark) !important;
+  }
+
+  //texto do search
+  .section h3 {
+    color: var(--white) !important;
+  }
+
+  //Esqueleto do card - epg
+  .card-epg {
+    background-color: var(--primary-dark) !important;
+    border: 2px solid var(--primary-background) !important;
+  }
+
+  //epg
+  .live {
+    background: var(--primary-background) !important;
+    border: 2px solid var(--primary-background) !important;
+  }
+
+  // error  flutuante login
+  .container .login--error {
+    background-color: var(--orange-400) !important;
+    color: var(--white);
+  }
+
+  //hover ao vivo
+  @media screen and (min-width: 769px) {
+    .now-card-link:hover {
+      background-color: var(--orange-400) !important;
+    }
+  }
+
+  //icon ao vivo epg
+  app-tv-program-scheduled-section {
+    .section {
+      &--image {
+        background-color: var(--primary-background);
+      }
+    }
+  }
+
+  //teaxto e titulo do banner de esportes
+  app-featured-games-banner {
+    .container h1 {
+      color: var(--white) !important;
+    }
+
+    .container__subtitle p {
+      color: var(--white) !important;
+    }
+  }
+
+  // acount
+  app-account {
+    .container h3 {
+      color: var(--white) !important;
+    }
+
+    .container h4 {
+      color: var(--white) !important;
+    }
+
+    .container p {
+      color: var(--white) !important;
+    }
+
+    .dropdown p {
+      color: var(--light-gray) !important;
+      opacity: 50% !important;
+    }
+
+    .menu p {
+      color: var(--light-gray) !important;
+    }
+  }
+
+  app-home {
+    .rentender {
+      .title {
+        color: var(--white) !important;
+      }
+    }
+  }
+
+  app-favorites {
+    .dropdown__button .title {
+      color: var(--white) !important;
+    }
+  }
+
+  app-button {
+    button.btn-tertiary {
+      background-color: var(--primary-base) !important;
+    }
+  }
+
+  //titulo categoria
+  .container .category {
+    color: var(--white) !important;
+  }
+
+  section .payment-wrapper .payment {
+    background-color: var(--primary-background) !important;
+  }
+
+  // tela de pagamento de locação
+  section .media--info--title {
+    color: var(--primary-text) !important;
+  }
+
+  .section--left h4 {
+    color: var(--primary-text) !important;
+  }
+
+  app-ver-mais {
+    .container .content .header h1 {
+      color: var(--white) !important;
+    }
+  }
+
+  .rentender .rentend .title {
+    color: var(--white) !important;
+  }
+
+  .register .error p {
+    background-color: var(--primary-base) !important;
+  }
+
+  .checkbox-wrap input.error {
+    border: 2px solid var(--primary-base) !important;
+  }
+
+  app-input .error {
+    border: 0.125rem solid var(--primary-base) !important;
+  }
+
+  // controle parenta
+  app-edit {
+    .mat-expansion-panel-header.mat-expanded {
+      background: var(--primary-background) !important;
+    }
+
+    mat-expansion-panel-header {
+      background: var(--primary-background) !important;
+    }
+
+    element.style {
+      border-left-color: var(--primary-background) !important;
+    }
+  }
+
+  shared {
+    mat-panel-description {
+      border-top-color: 1px solid var(--primary-dark) var(--primary-background)
+        var(--primary-background) var(--primary-background) !important;
+    }
+  }
+
+  .delete-profile-modal .modal {
+    background-color: #0c0c0c !important;
+  }
+
+  mat-expansion-panel-header {
+    background: var(--primary-background) !important;
+  }
+
+  app-tv-program-scheduled-card {
+    //Esqueleto do card - epg
+    .card-epg {
+      background-color: var(--primary-dark) !important;
+      border: 2px solid var(--primary-background) !important;
+    }
+
+    //epg
+    .live {
+      background: var(--primary-background) !important;
+      border: 2px solid var(--primary-background) !important;
+    }
+  }
+
+  app-age-classification-list {
+    .censorship .list .item.in-range .circle {
+      background-color: var(--primary-base) !important;
+    }
+
+    .censorship .list .item.selected .circle:after {
+      background-color: var(--primary-base) !important;
+      border: 2px solid #541100 !important;
+    }
+
+    .censorship .list .item .circle {
+      background-color: #541100 !important;
+    }
+  }
+
+  app-input-pin {
+    input {
+      color: #0c0c0c !important;
+      background-color: #0c0c0c !important;
+
+      &:focus {
+        background-color: var(--white) !important;
+      }
+    }
+
+    .inputActive {
+      background-color: var(--white) !important;
+    }
+  }
+
+  //mobile
+  .container .chips--categories--chip {
+    background-color: var(--primary-background);
+  }
+
+  .container .dropdown__toggle p {
+    color: var(--primary-base) !important;
+  }
+
+  .container .dropdown__menu {
+    background-color: var(--primary-background) !important;
+  }
+
+  .language-selector--menu {
+    background-color: var(--primary-background) !important;
+  }
+
+  app-video-quality .menu {
+    background-color: var(--primary-background);
+  }
+
+  app-watch
+    .player--footer--content
+    .button
+    .button--volume
+    .mat-slider.mat-accent
+    .mat-slider-track-fill {
+    background-color: var(--primary-base);
+  }
+
+  app-watch .player--footer--content .button .button--volume {
+    background-color: var(--primary-background);
+  }
+
+  app-now-card .now-card-link .now-card__channel-name {
+    background-color: var(--primary-background);
+  }
+
+  app-now-card .now-card-link .now-card__badge {
+    background-color: var(--primary-background);
+  }
+
+  .banner__content-info__left-genres__item {
+    background-color: var(--primary-background);
+  }
+
+  .linkItem.dropdown p {
+    background-color: var(--primary-dark) !important;
+  }
+
+  .container
+    .button--position
+    .mat-slider.mat-slider-horizontal
+    .mat-slider-track-fill {
+    background-color: var(--primary-base);
+  }
+
+  //footer
+  app-footer {
+    footer {
+      .footer-content {
+        border-top: remc(1) solid rgba(255, 255, 255, 0.2);
+        margin-top: remc(9);
+      }
+    }
+  }
+
+  //cadastro
+  app-register {
+    .register--form {
+      .input-group {
+        .backdrop-error {
+          background-color: #1e1e22 !important;
+        }
+      }
+    }
+
+    .register {
+      .error2 {
+        p {
+          background-color: var(--primary-base) !important;
+        }
+      }
+    }
+  }
+
+  app-dropdown-header .menu .spacer {
+    background-color: var(--primary-dark);
+  }
+
+  // series - temporadas
+  app-season-selector .container {
+    .selectors {
+      a {
+        color: #8c7c80;
+      }
+
+      a:hover {
+        color: #e96744 !important;
+        border-bottom: remc(5) solid #e96744 !important;
+      }
+
+      .active {
+        color: #e96744 !important;
+        text-decoration: none;
+        border-bottom: remc(5) solid #e96744 !important;
+      }
+    }
+  }
+
+  //guide epg
+  app-now .now--schedule-guide--timeline div .counter {
+    background-color: #e96744 !important;
+  }
+
+  app-profile-select {
+    .screen--profiles {
+      .profile {
+        .kids {
+          color: #4ca8d5 !important;
+        }
+      }
+    }
+  }
+
+  app-header {
+    .container {
+      background-color: #1e1e22 !important;
+
+      .navbar {
+        .nav-links__container {
+          margin-left: remc(20) !important;
+        }
+      }
+    }
+  }
+
+  app-header-unlogged {
+    .container {
+      background-color: #1e1e22 !important;
+
+      .navbar {
+        .nav-links__container {
+          margin-left: remc(20) !important;
+        }
+      }
+    }
+  }
+
+  app-now {
+    .now--schedule-guide--timeline {
+      &.active {
+        &::after {
+          content: url("data:image/svg+xml,%3Csvg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg%27%3E%3Cpath d='M0 0H16V4.5L8 9.47561L0 4.5V0Z' fill='%23E96744'/%3E%3C/svg%3E") !important;
+
+          background: linear-gradient(var(--after-web), var(--after-web))
+            no-repeat center/2px 100% !important;
+        }
+      }
+    }
+  }
+
+  app-card {
+    .vertical {
+      .card--details--row {
+        .vertical-details--bottom {
+          p {
+            color: white !important;
+          }
+        }
+      }
+    }
+
+    .card {
+      .paramount {
+        &:hover {
+          .details {
+            background-color: #1e1e22 !important;
+            .col:last-child {
+              .circle {
+                background-color: #1e1e22 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+    .card {
+      .paramount {
+        .details {
+          .col:last-child {
+            .circle {
+              background-color: #1e1e22 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  app-directv-go {
+    background-color: #1e1e22 !important;
+  }
+  app-paramount {
+    app-section2 {
+      .container {
+        background: #1e1e22 !important;
+      }
+    }
+  }
+
+  app-card {
+    .paramount {
+      &:hover {
+        .details {
+          background-color: #1e1e22 !important;
+          .col:last-child {
+            .circle {
+              background-color: #1e1e22 !important;
+            }
+          }
+        }
+      }
+      .details {
+        .col:last-child {
+          .circle {
+            background-color: #1e1e22 !important;
+          }
+        }
+      }
+    }
+  }
+
+  app-section6 {
+    .grid {
+      .top5 {
+        .ellipse {
+          background-color: #e96744 !important;
+        }
+      }
+    }
+  }
+
+  app-toast-download-app {
+    .content {
+      background-color: rgba($color: #7a7a7a, $alpha: 0.7);
+    }
+  }
+}

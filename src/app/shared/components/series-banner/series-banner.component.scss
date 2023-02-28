@@ -1,0 +1,398 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .banner {
+    width: 100%;
+    height: remc(600);
+    position: relative;
+    z-index: 0;
+
+    &__image {
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      @media screen and (max-width: remc(768)) {
+        height: remc(190);
+      }
+    }
+
+    &__content {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      padding: remc(40) remc(56);
+      z-index: 3;
+
+      &-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        &__text {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        &__logos {
+          display: flex;
+          align-items: center;
+          gap: remc(32);
+          li {
+            cursor: pointer;
+          }
+        }
+        @media screen and (max-width: remc(768)) {
+          &__text {
+            font-size: remc(24);
+          }
+
+          &__logos {
+            display: none;
+          }
+        }
+      }
+
+      &-info {
+        display: flex;
+        align-items: center;
+        &__left {
+          display: flex;
+
+          &-censorship {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-right: remc(9);
+            height: remc(24);
+            width: remc(24);
+            border-radius: remc(4);
+
+            font-size: remc(16);
+            font-weight: 700;
+
+            color: var(--white);
+          }
+
+          &-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: remc(4);
+            margin-left: remc(9);
+            &__item {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: remc(24);
+              font-size: remc(14);
+              font-weight: 400;
+              color: white;
+              padding: 0 remc(12);
+              border-radius: remc(24);
+            }
+          }
+        }
+
+        &__time {
+          padding-left: remc(10);
+          color: white;
+          font-size: 1rem;
+          font-weight: 700;
+        }
+
+        @media screen and (max-width: remc(768)) {
+          flex-direction: column;
+          align-items: flex-start;
+
+          &__left {
+            &-censorship {
+              font-size: remc(12);
+              font-weight: 300;
+              min-height: 18px;
+              min-width: 18px;
+              height: 18px;
+              width: 18px;
+            }
+
+            &-genres {
+              &__item {
+                font-size: remc(10);
+                font-weight: 300;
+                height: remc(16);
+              }
+            }
+          }
+
+          &__time {
+            padding-top: remc(18);
+            padding-left: 0;
+            font-size: remc(10);
+            font-weight: 300;
+          }
+        }
+      }
+
+      &-progress {
+        display: flex;
+
+        padding-top: remc(20);
+        &__bar {
+          max-width: remc(400);
+          width: 100%;
+          height: remc(3);
+
+          &::-webkit-progress-bar {
+            background: white;
+          }
+          &::-webkit-progress-value {
+            background: var(--primary-base);
+          }
+        }
+        @media screen and (max-width: remc(768)) {
+          display: none;
+        }
+      }
+
+      &-action {
+        display: flex;
+        align-items: center;
+        padding-top: remc(28);
+        gap: remc(28);
+
+        .newContentDescription {
+          color: var(--primary-base);
+          font-weight: 700;
+          font-size: remc(16);
+        }
+
+        &__play {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: remc(32);
+          padding: 0 remc(24) 0 remc(18);
+          border-radius: remc(16);
+
+          color: white;
+          font-size: 1rem;
+          font-weight: 500;
+
+          cursor: pointer;
+        }
+
+        &__trailer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: remc(32);
+          padding: remc(1) remc(24) remc(0);
+          background: transparent;
+          border-radius: remc(16);
+          border: remc(1) solid #ffffff;
+
+          color: white;
+          font-size: remc(16);
+          font-weight: 500;
+
+          cursor: pointer;
+          transition: color, border 0.2s ease-out;
+
+          &:hover {
+            color: var(--orange-500);
+            border: remc(1) solid var(--orange-500);
+          }
+          &:active {
+            color: var(--orange-600);
+            border: remc(1) solid var(--orange-600);
+          }
+        }
+
+        &__favorite {
+          background: none;
+
+          cursor: pointer;
+          &-star {
+            border-radius: remc(24);
+            border: remc(1) solid white;
+
+            display: flex;
+            padding: remc(15) remc(15);
+            width: remc(14);
+            height: remc(14);
+            background-image: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/star.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &:hover {
+              background-image: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/button/star-filled.svg');
+            }
+          }
+
+          .active {
+            background-image: url('https://watchbr-resources-v3.s3.sa-east-1.amazonaws.com/assets/icons/button/star-filled.svg');
+          }
+        }
+
+        &__more {
+          padding-left: remc(32);
+
+          cursor: pointer;
+          user-select: none;
+        }
+
+        @media screen and (max-width: remc(768)) {
+          padding-top: remc(14);
+
+          &__play {
+            height: remc(24);
+            padding: 0 14px 0 8px;
+            font-size: remc(14);
+            font-weight: 400;
+          }
+
+          &__trailer {
+            font-size: remc(14);
+            font-weight: 400;
+            padding: 0;
+            border: none;
+
+            &:hover {
+              color: var(--orange-500);
+              border: none;
+            }
+            &:active {
+              color: var(--orange-600);
+              border: none;
+            }
+          }
+
+          &__favorite {
+            &-star {
+              padding: remc(11) remc(11);
+            }
+          }
+          &__more {
+            display: none;
+          }
+        }
+      }
+
+      &-synopsis {
+        padding-top: remc(32);
+        max-width: remc(770);
+        width: 100%;
+        font-size: remc(14);
+        color: white;
+      }
+
+      &-cast {
+        display: flex;
+        flex-direction: column;
+        padding-top: remc(56);
+
+        gap: 1rem;
+        font-size: remc(14);
+        color: white;
+
+        &__text {
+          display: flex;
+          max-width: remc(700);
+          overflow: hidden;
+          &-title {
+            white-space: nowrap;
+            padding-right: remc(16);
+          }
+          &-desc {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            color: var(--blue-200);
+          }
+        }
+
+        @media screen and (max-width: remc(768)) {
+          display: none;
+        }
+      }
+
+      transition: padding 0.2s;
+      @media screen and (max-width: remc(768)) {
+        padding: remc(24) remc(16);
+
+        &-synopsis {
+          padding-top: remc(40);
+          font-size: remc(10);
+          font-weight: 300;
+        }
+      }
+    }
+    @media screen and (max-width: remc(768)) {
+      height: remc(250);
+    }
+    .fade-watch {
+      background: linear-gradient(
+        -159.69deg,
+        rgba(30, 30, 34, 0) 44.44%,
+        #1e1e22 94.3%
+      );
+      height: 100%;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+
+      @media screen and (max-width: remc(768)) {
+        height: 77%;
+      }
+    }
+    .fade-multi {
+      background: linear-gradient(
+        -159.69deg,
+        rgba(30, 30, 34, 0) 44.44%,
+        #170722 94.3%
+      );
+      height: 100%;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+
+      @media screen and (max-width: remc(768)) {
+        height: 77%;
+      }
+    }
+  }
+
+  .age_0 {
+    background-color: #00af51;
+  }
+
+  .age_12 {
+    background-color: var(--yellow-400);
+  }
+
+  .age_10 {
+    background-color: var(--blue-300);
+  }
+
+  .age_14 {
+    background-color: var(--orange-400);
+  }
+
+  .age_16 {
+    background-color: var(--pink-500);
+  }
+
+  .age_18 {
+    background-color: #000;
+  }
+}

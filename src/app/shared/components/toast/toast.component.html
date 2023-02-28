@@ -1,0 +1,74 @@
+<div class="toast" class="{{toastClass}}" *ngIf="!toastReg">
+  <div class="content">
+    <div class="icon">
+      <img src="assets/icons/alert_icon.svg" alt="warning" />
+    </div>
+    <div class="main">
+      <p class="title" *ngIf="(toastTitle == '')">
+        Olá, Seu acesso à plataforma {{ theme.clientName }} está vencendo.
+      </p>
+      <p class="title" *ngIf="(toastTitle != '')">
+        {{ toastTitle }}
+      </p>
+      <p class="description" *ngIf="(toastDesc == '')">
+        Você recebeu um voucher com acesso de 30 dias à plataforma da
+        {{ theme.clientName }} mas seu prazo está acabando.
+      </p>
+      <p class="description" *ngIf="(toastDesc == '')">
+        Aproveite para renovar o seu plano e descobrir quais outros planos nós
+        oferecemos!
+      </p>
+      <p class="description" *ngIf="(toastDesc != '')">
+        {{toastDesc}}
+      </p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="main-button" routerLink="/planos" *ngIf="checkMobile">
+      SAIBA MAIS
+    </div>
+    <div class="close-button" (click)="closeToast()">
+      <img
+        src="{{ environment.imageService }}/icons/close_small_icon.svg"
+        alt="close"
+      />
+    </div>
+  </div>
+</div>
+
+<div class="toast" class="toast toast_reg" *ngIf="toastReg">
+  <div class="content">
+    <div class="icon-reg">
+      <img src="assets/icons/alert_icon.svg" alt="warning" />
+    </div>
+    <div class="main">
+      <p class="title-reg" *ngIf="(toastTitle != '')">
+        O período de gratuidade do seu cupom está vencendo.
+      </p>
+    </div>
+  </div>
+  <div class="timer">
+    <p class="timer-title">Restam</p>
+    <div class="timer-count">
+      <p class="timer-count-item">{{days}}</p>
+      <p class="timer-count-desc">dias</p>
+    </div>
+    <div class="timer-count">
+      <p class="timer-count-item">{{hours}}</p>
+      <p class="timer-count-desc">horas</p>
+    </div>
+    <div class="timer-count">
+      <p class="timer-count-item">{{minutes}}</p>
+      <p class="timer-count-desc">minutos</p>
+    </div>
+    <div class="timer-count">
+      <p class="timer-count-item">{{seconds}}</p>
+      <p class="timer-count-desc">segundos</p>
+    </div>
+    <div class="main-button" routerLink="/planos">
+      <span class="title">Ver planos</span>
+    </div>
+  </div>
+  <div class="actions">
+  </div>
+</div>

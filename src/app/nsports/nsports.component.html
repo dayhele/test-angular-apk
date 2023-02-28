@@ -1,0 +1,14 @@
+<app-banner></app-banner>
+
+<app-card-nsports
+  [carouselIsLoaded]="carouselIsLoaded"
+  title="Programação ao vivo"
+  [sectionCards]="sectionCards"
+  [properties]="properties"
+></app-card-nsports>
+
+<div *ngIf="canLoad">
+  <app-layouts
+    [isSubscriber]="isSubscriber"
+  ></app-layouts>
+</div>

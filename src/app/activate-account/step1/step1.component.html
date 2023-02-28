@@ -1,0 +1,47 @@
+<div
+  class="container"
+  [ngStyle]="{ backgroundImage: 'url(' + theme.login.loginBgUrl + ')' }"
+>
+  <div class="loading" *ngIf="isLoadingRequest">
+    <app-loading></app-loading>
+  </div>
+  <div class="activate-account-sms">
+    <h3 class="title">Ativar conta via SMS</h3>
+    <p class="subtitle">Código de ativação</p>
+    <app-input
+      name="activateCode"
+      [(value)]="smsCode"
+      placeholder="Digite o código de ativação"
+    ></app-input>
+    <div
+      class="error"
+      *ngIf="
+        activateSmsError?.error?.ErrorMessage || activateSmsError?.ErrorMessage
+      "
+    >
+      <p class="message-error">
+        {{
+          activateSmsError?.error?.ErrorMessage ||
+            activateSmsError?.ErrorMessage
+        }}
+      </p>
+    </div>
+    <div class="buttons">
+      <app-button classList="btn-secondary" (click)="goTo('login')"
+        >Cancelar</app-button
+      >
+      <app-button classList="btn-primary" (click)="sendSmsCode()"
+        >Ativar Conta</app-button
+      >
+    </div>
+    <p class="notice">
+      Caso não tenha recebido o código de ativação, verifique a caixa de <br />
+      Spam do seu email. <br />
+      O código ficará ativo por 1 hora, caso não seja ativado dentro deste
+      <br />
+      período, será preciso solicitar um novo.
+    </p>
+     <!-- trecho de código comentado a pedido da Watch -->
+    <!-- <p class="resend-code" (click)="resendSmsCode()">Reenviar código</p> -->
+  </div>
+</div>

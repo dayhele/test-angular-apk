@@ -1,0 +1,108 @@
+@import '../../themes/remc.scss';
+
+:host {
+  .container {
+    &__section {
+      margin: 2rem 0 0 remc(56);
+    }
+
+    margin-bottom: remc(56);
+
+    @media screen and (max-width: remc(900)) {
+      &__section {
+        margin-left: 2rem;
+      }
+    }
+
+    @media screen and (max-width: remc(768)) {
+      &__section {
+        margin: 1rem 0 0 1rem;
+      }
+    }
+  }
+
+  .rentender {
+    display: flex;
+    align-items: center;
+    .title {
+      b {
+        display: flex;
+        align-items: center;
+        margin-bottom: remc(17);
+      }
+    }
+    .logo-icon {
+      width: remc(43);
+      height: remc(25);
+      margin-right: remc(10);
+    }
+
+    .rentend {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      margin-left: 112px;
+
+      .title-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: remc(20);
+
+        .title-image {
+          display: flex;
+          align-items: center;
+          margin-right: remc(11);
+        }
+
+        .title {
+          width: remc(167);
+          font-size: remc(16);
+        }
+      }
+
+      .text {
+        color: var(--white);
+        width: remc(176);
+        margin-bottom: remc(20);
+        font-size: remc(14);
+      }
+    }
+  }
+
+  .skeleton {
+    &__sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-left: 3.5rem;
+
+      &-channels {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      &-row {
+        display: flex;
+        flex-direction: row;
+        gap: 10rem;
+      }
+
+      @media screen and (max-width: remc(600)) {
+        margin-left: 1rem;
+
+        &-channels {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .default {
+    display: none;
+  }
+
+  .loader {
+    display: flex;
+  }
+}

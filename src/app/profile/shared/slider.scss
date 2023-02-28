@@ -1,0 +1,35 @@
+.mat-slide-toggle-thumb {
+  background-color: var(--white);
+  width: 14px !important;
+  height: 14px !important;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: var(--white);
+  width: 14px !important;
+  height: 14px !important;
+  margin-left: 4px;
+}
+
+.mat-slide-toggle-bar {
+  background-color: var(--pink-100);
+  width: 36px !important;
+  height: 18px !important;
+  border-radius: 40px;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: var(--primary-base);
+  width: 36px !important;
+  height: 18px !important;
+}
+
+.mat-slide-toggle:not(.mat-checked) .mat-ripple-element {
+  background-color: transparent;
+}
+
+.mat-slide-toggle.mat-checked .mat-ripple-element {
+  background-color: transparent;
+}

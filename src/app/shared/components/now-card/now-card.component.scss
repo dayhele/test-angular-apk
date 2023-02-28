@@ -1,0 +1,161 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  .now-card-link {
+    border-radius: remc(16);
+    overflow: hidden;
+    border: thick solid transparent;
+    cursor: pointer;
+    position: relative;
+    transition: border 0.2s;
+
+    .now-card {
+      background-color: var(--primary-base);
+      position: relative;
+      width: remc(416);
+      height: remc(288);
+      border-radius: remc(12);
+      overflow: hidden;
+
+      &__image {
+        width: 100%;
+        display: flex;
+        height: remc(calc(288 - 80));
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          overflow: hidden;
+
+          &.channel-brand {
+            width: 30%;
+            height: initial;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          height: remc(112);
+        }
+      }
+
+      &__channel-name {
+        position: absolute;
+        top: remc(8);
+        right: remc(8);
+        padding: remc(2) remc(8);
+        border-radius: remc(32);
+        font-weight: 300;
+        color: var(--white);
+        font-size: remc(12);
+        background-color: var(--primary-background);
+      }
+
+      &__badge {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: remc(80);
+        bottom: 0;
+        background: var(--dark-blue-600);
+        padding: remc(12) remc(15);
+
+        &-details {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          position: relative;
+          width: 100%;
+          height: 100%;
+
+          color: var(--white);
+
+          &__logo {
+            position: absolute;
+            right: 5%;
+            width: remc(49);
+            height: remc(31);
+          }
+
+          &__content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width: 100%;
+            height: 100%;
+            color: var(--white);
+
+            app-censorship {
+              margin-right: remc(15);
+
+              @media screen and (max-width: 768px) {
+                margin-right: remc(8);
+              }
+            }
+
+            &__text {
+              font-size: remc(16);
+              font-weight: 400;
+              max-width: 60%;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              justify-content: space-between;
+
+              &__title {
+                color: var(--blue-multi-25);
+
+                @media screen and (max-width: 768px) {
+                  font-size: remc(12);
+                  font-weight: 300;
+                }
+              }
+
+              &__time {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                font-size: remc(16);
+                font-weight: 400;
+
+                @media screen and (max-width: 768px) {
+                  font-size: remc(12);
+                  font-weight: 300;
+                }
+              }
+            }
+
+            @media screen and (max-width: 768px) {
+              width: 100%;
+              display: flex;
+            }
+          }
+
+          @media screen and (max-width: remc(768)) {
+            width: 100%;
+            align-items: flex-start;
+            overflow: hidden;
+          }
+        }
+
+        @media screen and (max-width: 768px) {
+          background: var(--primary-background);
+          height: remc(42);
+          padding: remc(5);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        width: remc(220);
+        height: remc(154);
+      }
+    }
+  }
+}

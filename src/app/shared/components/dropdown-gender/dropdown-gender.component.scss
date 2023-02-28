@@ -1,0 +1,53 @@
+@import '../../../../themes/remc.scss';
+
+:host {
+  p {
+    font-size: remc(14);
+    color: var(--light-gray);
+  }
+
+  .dropdown {
+    width: remc(110);
+    height: remc(32);
+    padding: remc(8);
+    border-radius: remc(4);
+    background-color: var(--white);
+    cursor: pointer;
+
+    p{
+      color: var(--light-gray) !important ;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    display: none;
+    width: remc(118);
+    height: auto;
+    opacity: 0;
+    margin-top: remc(2);
+    padding: remc(8);
+    border-radius: remc(4);
+    background-color: var(--white);
+    transition: all 0.2s ease-out;
+
+    .choiceGenres {
+      padding: remc(8);
+      border-radius: remc(4);
+      cursor: pointer;
+      font-size: 12px;
+      color: var(--light-gray) ;
+
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .active {
+    display: inline;
+    opacity: 1;
+    z-index: 9999;
+  }
+}
