@@ -89,7 +89,7 @@ function getProperty(property: string) {
 
   return environments[
     Object.keys(environments).find((k) =>
-      environments[k].ambientes.some((ambiente: string) => ambiente == url)
+      environments[k].ambientes.some((ambiente: string) => "watch" == url)
     ) as string
   ][property];
 }
