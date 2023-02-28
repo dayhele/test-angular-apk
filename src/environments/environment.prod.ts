@@ -25,6 +25,7 @@ let environments: any = {
   watch: {
     ambientes: [
       'https://watch.tv.br/',
+      'https://watch-apk-test.vercel.app/',
       'https://prodv3-tmp.watch.tv.br/',
       'https://hmlv3.watch.tv.br/',
       'https://dev-v3.watch.tv.br/',
