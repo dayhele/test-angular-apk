@@ -3,7 +3,7 @@
   "short_name": "Watch App",
   "theme_color": "#E96744",
   "background_color": "#1E1E22",
-  "display": "fullscreen",
+  "display": "standalone",
   "scope": "./",
   "start_url": "./",
   "icons": [
@@ -65,7 +65,7 @@
   "lang": "pt",
   "orientation": "any",
   "display_override": [
-    "fullscreen"
+    "standalone"
   ],
   "description": "This is a POC about APK Watch TV app."
 }
