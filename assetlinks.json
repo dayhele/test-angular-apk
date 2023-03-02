@@ -1,6 +1,6 @@
 [{
         "relation": ["delegate_permission/common.handle_all_urls"],
         "target" : { "namespace": "android_app", "package_name": "app.vercel.watch_apk_test.twa",
-                     "sha256_cert_fingerprints": ["EB:D0:40:09:63:AB:97:C4:D9:1E:58:01:B6:2B:DF:EB:C5:A8:76:9F:A1:DA:91:BC:83:A8:0B:C9:17:E4:28:82"] }
+                     "sha256_cert_fingerprints": ["F7:BC:38:18:62:06:23:96:4E:DF:30:1A:AC:03:9C:36:4E:71:9C:48:FF:FE:24:FE:BA:CD:12:61:C6:75:BD:95"] }
       }
 ]
